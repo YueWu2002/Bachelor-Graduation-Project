@@ -1,18 +1,18 @@
 \section{DG for the \(p\)-Laplacian Equation}
 
 对于 \(p \in [1, +\infty)\)，定义算子 \(\mathcal{A}: \R^d \mapsto \R^d, \tau \mapsto \mathcal{A}(\tau) = \abs{\tau}^{p-2}\tau\)，其满足以下性质：
-\begin{itemize}
+\begin{enumerate}
 	\item 严格单调性：\(\forall \tau_2 \neq \tau_1\)，\(\left(\tau_{2} - \tau_{1}\right) \cdot \left(\mathcal{A}(\tau_{2}) - \mathcal{A}(\tau_{1})\right) > 0\)\cite{10.1051/m2an/197509R200411}
 	\item \((p-1)\)-齐次性：\(\forall \lambda \in \R\)，\(\mathcal{A}(\lambda \tau) = \lambda^{p-1} \mathcal{A}(\tau)\).
 	\item 可逆性：当且仅当 \(p \in (1,+\infty)\) 时，\(\mathcal{A}\) 在 \(\tau = 0\) 处良定义，且 \(\mathcal{A}\) 是双射，\(\mathcal{A}^{-1}(\tau) = \abs{\tau}^{p^{\ast} - 2} \tau\).
-\end{itemize}
+\end{enumerate}
 
 \begin{lemma}
 	当 \(p > 1\) 且 \(\delta \geqslant 0\) 时，\(\exists C_1, C_2 > 0\) 使得 \(\forall \tau_1, \tau_2 \in \R^{d}\)，若 \(\tau_1 \neq \tau_2\)，则：
-	\begin{itemize}
+	\begin{enumerate}
 		\item \(\abs{\mathcal{A}(\tau_1) - \mathcal{A}(\tau_2)} \leqslant C_1 \abs{\tau_1 - \tau_2}^{1-\delta} \left(\abs{\tau_1} + \abs{\tau_2}\right)^{p-2+\delta}\)
 		\item \(\left(\mathcal{A}(\tau_1) - \mathcal{A}(\tau_2)\right)\cdot\left(\tau_1 - \tau_2\right) \geqslant C_2 \abs{\tau_1 - \tau_2}^{2 + \delta}\left(\abs{\tau_1} + \abs{\tau_2}\right)^{p-2-\delta}\)
-	\end{itemize}
+	\end{enumerate}
 	\begin{proof}
 		See \cite[Lemma 2.1]{10.1090/S0025-5718-1993-1192966-4}
 	\end{proof}
@@ -82,15 +82,15 @@
 % 可以加入解的能量估计、正则性估计
 
 \(p\)-Laplace 方程\eqref{p-Laplace primal form}有如下性质\cite{lindqvist2017notes}：
-\begin{itemize}
+\begin{enumerate}
 	\item 当 \(p = 1\) 时，易见 \(\nabla\cdot\left(\frac{\nabla u}{\abs{\nabla u}}\right) = \nabla\cdot\left(\frac{\nabla\varphi(u)}{\abs{\nabla\varphi(u)}}\right) = -H\) (mean curvature operator)，解只被等值集(level set)决定，可以不唯一。
-	\item 当 \(p \in (1, +\infty)\) 时：\begin{itemize}
+	\item 当 \(p \in (1, +\infty)\) 时：\begin{enumerate}
 		\item 当 \(p \in (1,2)\) 时，在临界点 \(\nabla u = 0\) 处，Euler-Lagrange 方程是奇异的。
 		\item 当 \(p = 2\) 时，Euler-Lagrange 方程等价于 Poisson 方程，该方程在固体力学中描述完全弹性行为。
 		\item 当 \(p \in (2, +\infty)\) 时，在临界点 \(\nabla u = 0\) 处，Euler-Lagrange 方程是退化椭圆的。
-	\end{itemize}
+	\end{enumerate}
 	\item 当 \(p = +\infty\) 时，需要引入粘性解(viscosity solution)的概念来定义解\cite{978-3-319-31531-7}，该方程在固体力学中描述完全塑性行为，在图像处理中有应用。
-\end{itemize}
+\end{enumerate}
 
 
 \subsubsection{Mixed Form}
@@ -221,10 +221,10 @@
 
 \begin{theorem}[Uniqueness] % 这是我们新证明的
 	当 \(C_{11}, C_{22} \geqslant 0\) 时，若至少有一条边上是 Dirichlet 边界条件，且以下两条至少成立一条：
-	\begin{itemize}
+	\begin{enumerate}
 		\item \(C_{11} > 0\) 恒成立。
 		\item 单元都是单纯形，\(C_{11} > 0\) 在 Dirichlet 边界上成立，同时每个单元有至少一条边 \(e\) 满足两条件之一：(1) \(\bm C_{12}\cdot\bm n = \frac{1}{2}\)，(2) \(e\in\mathcal{E}_{h}\backslash\mathcal{E}_{h}^{o}\).
-	\end{itemize}
+	\end{enumerate}
 	那么 LDG 问题\eqref{p-Laplace LDG weak form 1}的解唯一。
 	\begin{proof}
 		假设 \(\left(\sigma_{h,1}, u_{h,1}\right)\) 和 \(\left(\sigma_{h,2}, u_{h,2}\right)\) 都是解，那么，分别取测试函数 \(\left(\tau_{h}, v_{h}\right) = \left(\sigma_{h,i}, u_{h, j}\right)\)，\(1\leqslant i,j \leqslant 2\)，得到：
@@ -727,18 +727,18 @@
 \subsubsection{Conclusion}
 
 我们的第一个 \(p\)-Laplace 方程 LDG 算法相当于用 LDG 方法直接离散方程组\eqref{p-Laplace mixed weak form}，而不引入中间变量，这与 p-Laplace 方程的混合有限元的工作\cite{10.1093/imanum/18.1.121, 10.1216/camq/1008957338, 10.1016/j.cma.2006.11.023}是类似的。此方法的优势在于：
-\begin{itemize}
+\begin{enumerate}
 	\item 数值格式在形式上和方程的弱形式相同，同时也与 Poisson 方程的格式形式一致。
 	\item 未知函数数量较少。
 	\item 当使用 Picard 不动点迭代和 Newton-Raphson 迭代时，收敛速度较快。
 	\item 在数值实验中，对 \(\left(\sigma, u\right)\) 的 \(L^{p^{\ast}} \times L^{p}\) 误差有 \(\left(k, k+1\right)\) 阶收敛阶。
-\end{itemize}
+\end{enumerate}
 此方法的劣势在于：
-\begin{itemize}
+\begin{enumerate}
 	\item 目前，鞍点问题\cite{10.1007/BF02165003, 10.1051/m2an/197408R201291, 10.1137/0719021}、带扰动项的鞍点问题\cite{10.1137/S0895479802410827, 10.1090/mcom/3795}都有成熟的适定性理论，同时非线性的无扰动鞍点系统也可以利用 Ladyzhenskaya–Babu{\v{s}}ka–Brezzi(LBB) 理论给出解的适定性\cite{10.4171/zaa/1107}，但是与混合有限元不同，LDG 的代数方程组是既非线性又带扰动项的鞍点问题，理论分析较难，目前我们只证明了解的唯一性。
 	\item 求解定态方程时，不能在直接转化为求解 primal 变分形式或者是最优化形式，其根本原因在于算子 \(\left(\Pi_{\Sigma_{h}}\circ \mathcal{A}^{-1}\right)\) 的性质不便于直接刻画。
 	\item 当使用 Picard 不动点迭代和 Newton-Raphson 迭代时，初值对数值稳定性影响较大。
-\end{itemize}
+\end{enumerate}
 
 
 \subsection{Local DG Method 2}
@@ -1379,13 +1379,13 @@
 \subsubsection{Conclusion}
 
 我们的第而个 \(p\)-Laplace 方程 LDG 算法相当于用 LDG 方法直接离散最优化形式\eqref{p-Laplace primal minimization form}，而不引入中间变量。我们针对此方法，把文章\cite{10.1007/s10915-007-9134-z}中的预处理器推广到了 LDG 框架下。此方法的优势在于：
-\begin{itemize}
+\begin{enumerate}
     \item 基于梯度下降的数值格式对任何迭代初值都保证收敛，且收敛性能与网格无关。
     \item 未知函数数量少。
     \item 在数值实验中，对 \(\left(\sigma, u\right)\) 的 \(L^{p^{\ast}} \times L^{p}\) 误差有 \(\left(k, k+1\right)\) 阶收敛阶。
-\end{itemize}
+\end{enumerate}
 此方法的劣势在于：
-\begin{itemize}
+\begin{enumerate}
     \item 基于梯度下降的方法需要有效的预处理器，经过实验我们发现加权预条件子是三种预条件子里性能最好的，但是该预条件子需要加入稳定项 \(\epsilon\)，该稳定项对 \(u_{h}\) 的误差会产生的影响不可忽视。
     \item 实验其他的预条件子时，例如 Poisson 预条件子，误差可以迅速下降，但是由于浮点误差或者其他因素，数值解暂时收敛不到准确解。
-\end{itemize}
+\end{enumerate}

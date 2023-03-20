@@ -121,10 +121,10 @@ G = zeros(nelem*Np, 1);
 
 % except for really-block-diagonal matrices, please do not use cells for assembly!
 % blocks for volume integrals
-A_block = cell(nelem);
-Ainv_block = cell(nelem);
-B_block = cell(nelem);
-G_block = cell(nelem);
+A_block = cell(nelem,1);
+Ainv_block = cell(nelem,1);
+B_block = cell(nelem,1);
+G_block = cell(nelem,1);
 
 % functions for computing the node indices from an element index
 ind_q = @(eid) (eid-1)*(2*Np)+1 : eid*(2*Np);   % row vector
@@ -153,6 +153,7 @@ parfor k = 1: nelem
 
 
     % for G, block size = [Np, 1] (use interpolation-based integral)
+    % interpolation
     fval = zeros(Np, 1);
     for i = 1: Np
         xp = dot(xx, [xn(i), yn(i), zn(i)]);
@@ -170,7 +171,7 @@ for k = 1: nelem
 end
 
 
-% REMARK: the face loop costs the most time in the assembly process
+% REMARK: the face loop costs most of the time in the assembly process
 % face loop for face integrals (MUST be carried-out after volume integrals)
 
 %{
@@ -194,6 +195,7 @@ G = G + sparse(iG, int32(1), vG, nelem*Np, 1);
 %}
 
 % a method that is VERY time-efficient in the serial mode, however, the storage-cost is twice as needed
+% this method could also be parallelized
 iB = zeros((4*Np)*(2*Np), nface, 'int32');
 jB = zeros((4*Np)*(2*Np), nface, 'int32');
 vB = zeros((4*Np)*(2*Np), nface);
@@ -204,7 +206,7 @@ iF = zeros(2*Np, nface, 'int32');
 vF = zeros(2*Np, nface);
 iG = zeros(Np, nface, 'int32');
 vG = zeros(Np, nface);
-for k = 1: nface
+parfor k = 1: nface
     [iB_new,jB_new,vB_new, iC_new,jC_new,vC_new, iF_new,vF_new, iG_new,vG_new] = face_integrals_assmebly(k, mesh, g_D, g_N, p, Np, qxe, Me, T, normals(k,:), C11(k), C12(k,:), face_len(k));
 
     iB(:,k) = fill_from_front(iB_new, iB(:,k));
@@ -242,6 +244,10 @@ case 'direct'
     ZZ = [A, B; B', -C];
     RHS = [F; -G];
     SOL = ZZ \ RHS;
+    if show_spy
+        spy(ZZ);
+        print(gcf, '-depsc2', '-vector', 'spyZZ', '-r300');
+    end
 case 'reduce'
     % preferred method of solving
     SS = B'*Ainv*B + C;
@@ -249,6 +255,12 @@ case 'reduce'
     u = SS \ RHSS;  % we have tested PCG, which is MUCH slower and MUCH less accurate!
     q = Ainv * (F - B*u);
     SOL = [q; u];
+    if show_spy
+        spy(SS);
+        print(gcf, '-depsc2', '-vector', 'spySS', '-r300');
+    end
+otherwise
+    disp('Error solve_method!');
 end
 
 solve_time = toc;
@@ -269,19 +281,6 @@ for k = 1: nelem
     end
 end
 
-if show_spy
-    ZZ = [A, B; B', -C];
-    SS = B'*Ainv*B + C;
-
-    ZZ(abs(ZZ)<0.5*eps) = 0;
-    spy(ZZ);
-    print(gcf, '-depsc2', '-vector', 'spyZZ', '-r300');
-
-    SS(abs(SS)<0.5*eps) = 0;
-    spy(SS);
-    print(gcf, '-depsc2', '-vector', 'spySS', '-r300');
-end
-
 fprintf('assembly time = %f s, solving time = %f, NDOF = %d \n', assemble_time, solve_time, nelem*(3*Np));
 
 end
@@ -289,12 +288,13 @@ end
 
 function [iB,jB,vB, iC,jC,vC, iF,vF, iG,vG] = face_integrals_assmebly(k, mesh, g_D, g_N, p, Np, qxe, Me, T, normal, C11, C12, face_len)
 % input: 
-%   k:      index of the face
+%   k:      index of the working face
 %   others: shared variables
+%   normal: unit normal vector for this face (in alignment with the face's orientation)
 % 
 % output:
 %   triples [i,j,v] for assemble the B and C matrix (i,j,v are should be column vectors)
-%   triples [i,v] for assemble the F and G vector (i,v are column vectors)
+%   pairs [i,v] for assemble the F and G vector (i,v are column vectors)
 % 
 % REMARK: we proved by experiments that this function can greatly accelerate the face integral assembly process!
 
@@ -343,11 +343,11 @@ if all(mesh.face2elem(k,:) > 0)
         disp("two neighbouring elements share a face with the same direction!");
     end
 
-    % firstly, assemble the trace operator for scalar on this face
+    % firstly, assemble the trace operator for scalar variables on this face
     trace1 = sparse(T(seq1, :, fide1));
     trace2 = sparse(T(seq2, :, fide2));
 
-    % secondly, assemble the normal trace operator for vector on this face
+    % secondly, assemble the normal trace operator for vector variables on this face
     tracenm1 = kron(onm1, trace1);
     tracenm2 = kron(onm2, trace2);
 

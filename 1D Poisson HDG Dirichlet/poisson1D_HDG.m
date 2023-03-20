@@ -33,7 +33,7 @@ A = blkdiag(A_block{1:N});
 % assemble B
 B_block = cell(N,1);
 for k = 1: N
-    B_block{k} = sparse(((2/hh(k)) * D)' * ((hh(k)/2) * M));
+    B_block{k} = sparse(((2/hh(k)) * D)' * ((hh(k)/2) * M))';
 end
 B = blkdiag(B_block{1:N});
 
@@ -56,11 +56,11 @@ end
 
 
 %assemble Y
-Y = sparse(N*(p+1), N+1);
+Y = sparse(N+1, N*(p+1));
 for k = 1: N
     ind = (k-1)*(p+1)+1 : k*(p+1);
-    Y(ind, k) = tau*Tl;
-    Y(ind, k+1) = tau*Tr;
+    Y(k, ind) = tau*Tl;
+    Y(k+1, ind) = tau*Tr;
 end
 
 
@@ -85,28 +85,29 @@ for k = 1: N
 end
 
 
-% assemble G (only contains Neumann data)
+% assemble G (only contain Neumann data)
 G = sparse(N+1, 1);
 
 
-% assemble the big matrix equation
-ZZ = [
-    A, B, -X';
-    -B', C, -Y;
-    X, -Y', Z
-];
-RHS = [sparse(N*(p+1), 1); F; G];
-
-
+% solve
 switch solve_method
 case 'direct'
+    % assemble the big matrix equation
+    ZZ = [
+        A, B', -X';
+        B, -C, Y';
+        -X, Y, -Z
+    ];
+    RHS = [sparse(N*(p+1), 1); -F; -G];
+
+
     % enforce the Dirichlet boundary condition by splitting the matrix
 
     % id for Dirichlet DOFs
-    id_bc = [2*N*(p+1) + 1, 2*N*(p+1) + N+1];
+    id_bc = [2*N*(p+1)+1, 2*N*(p+1)+(N+1)];
 
     % id for other DOFs
-    id_in = 1 : 2*N*(p+1) + N+1;
+    id_in = 1 : 2*N*(p+1)+(N+1);
     id_in(id_bc) = [];
 
     % split the equation
@@ -121,40 +122,40 @@ case 'direct'
     end
 
 case 'reduce'
-    % assemble TT = C + B'*A^{-1}*B (block diagonal, symmetric positive definite)
-    TTinv_block = cell(N,1);
+    % use the 2-level Schur complemenet formulation
+
+    % assemble S1 = C + B'*A^{-1}*B (block diagonal, symmetric positive definite)
+    S1inv_block = cell(N,1);
     for k = 1: N
-        TTinv_block{k} = inv(C_block{k} + B_block{k}'*Ainv_block{k}*B_block{k});
+        S1inv_block{k} = inv(C_block{k} + B_block{k} * Ainv_block{k} * B_block{k}');
     end
-    TTinv = blkdiag(TTinv_block{1:N});
+    S1inv = blkdiag(S1inv_block{1:N});
 
-    % assemble SS = A^{-1}*B (block structure)
-    SS_block = cell(N,1);
-    for k = 1: N
-        SS_block{k} = Ainv_block{k}*B_block{k};
-    end
-    SS = blkdiag(SS_block{1:N});
-
-    % assemble matrix for uhat
-    L = Y' + X * SS;
-    KK = Z + X * Ainv * X' - L * TTinv * L';
-    FF = G + L * (TTinv * F);
-
+    W = Y + X*Ainv*B';
+    S2 = Z + X*Ainv*X' - W*S1inv*W';
+    FF = G + W*(S1inv*F);
 
     % solve uhat with Dirichlet BC
     % id for Dirichlet DOFs and other DOFs
     id_bc = [1, N+1];
     id_in = 1 : N+1;
     id_in(id_bc) = [];
+    
+    % solve uhat
+    uhat = [gl; S2(id_in, id_in) \ (FF(id_in) - S2(id_in, id_bc)*[gl; gr]); gr];
 
-    uhat = [gl; KK(id_in, id_in) \ (FF(id_in) - KK(id_in, id_bc)*[gl; gr]); gr];
-    u = TTinv * (L' * uhat + F);
-    q = Ainv * (X'*uhat - B*u);
+    % solve u
+    u = S1inv*(F + W'*uhat);
+
+    % solve q
+    q = Ainv*(X'*uhat - B'*u);
 
     if show_spy
-        spy(KK);
+        spy(S2);
         print(gcf, '-depsc2', '-vector', 'spySS', '-r300');
     end
+otherwise
+    disp('Error solve_method!');
 end
 
 % compute the numerical trace for q

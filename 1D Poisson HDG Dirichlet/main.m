@@ -7,11 +7,11 @@ b = 3*pi;
 gl = uu(a);
 gr = uu(b);
 type = 'lobatto';   % collocation type
-show_spy = 1;
+show_spy = false;
 tau = 10.0;
-post_process = false;
+post_process = true;
 
-p = 2;
+p = 4;
 
 [qx, qw] = quadrature_nodal1D(p+1, 'legendre');     % quadrature for detect error
 [nx, ~] = quadrature_nodal1D(p+1, type);            % collocation
@@ -25,7 +25,7 @@ err = [];
 h = [];
 N = [];
 for k = 1: 6
-    N(k) = 2^(k+2);
+    N(k) = 2^(k+3);
     % N(k) = 5*k+10;
 
     xx = linspace(a, b, N(k)+1);

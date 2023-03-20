@@ -30,7 +30,7 @@ for k = 1: 6
     hh = xx(2:end) - xx(1:end-1);
     h(k) = max(hh(:));
 
-    [q, u] = poisson1D_LDG(ff, xx, gl, gr, c0, p, 1, 0.0, type, show_spy, 'direct');
+    [q, u] = poisson1D_LDG(ff, xx, gl, gr, c0, p, 0, 0.5, type, show_spy, 'direct');
     
     err(k,:) = zeros(1,2);
     err_loc = zeros(length(xx)-1, 2);

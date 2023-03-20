@@ -7,7 +7,7 @@ b = 3*pi;
 c0 = 14.163684556723955471;
 gl = uu(a);
 gr = uu(b);
-type = 'lobatto';   % collocation type
+type = 'legendre';   % collocation type
 show_spy = false;
 
 p = 2;

@@ -25,7 +25,7 @@ mesh{6} = read_mesh(msh, false);
 m_test = 6;
 err = zeros(m_test, 2);
 for k = 1: m_test
-    sol = poisson2D_MDLDG(mesh{k}, ff, g_D, g_N, p, vel, show_spy, 'reduce');
+    sol = poisson2D_MDLDG(mesh{k}, ff, g_D, g_N, p, vel, show_spy, 'direct');
     err(k,1:2) = compute_error(mesh{k}, sol, p, uu, qqx, qqy);
 end
 % Remark: 使用Schur补对精度都暂时观察不到影响，对计算速度可以提高。
@@ -40,3 +40,12 @@ disp(err)
 
 format short
 disp(ord)
+
+
+for i = 1: size(err, 1)
+    fprintf('%d ', i);
+    for j = 1: size(err, 2)
+        fprintf("& %.2e & %.2f ", [err(i,j), ord(i,j)]);
+    end
+    fprintf('\\\\\n');
+end
