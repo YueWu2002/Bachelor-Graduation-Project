@@ -33,7 +33,7 @@ A = blkdiag(A_block{1:N});
 % assemble B
 B_block = cell(N,1);
 for k = 1: N
-    B_block{k} = sparse(((2/hh(k)) * D)' * ((hh(k)/2) * M));
+    B_block{k} = sparse(((2/hh(k)) * D)' * ((hh(k)/2) * M))';
 end
 B = blkdiag(B_block{1:N});
 
@@ -56,11 +56,11 @@ end
 
 
 %assemble Y
-Y = sparse(N*(p+1), N+1);
+Y = sparse(N+1, N*(p+1));
 for k = 1: N
     ind = (k-1)*(p+1)+1 : k*(p+1);
-    Y(ind, k) = tau*Tl;
-    Y(ind, k+1) = tau*Tr;
+    Y(k, ind) = tau*Tl;
+    Y(k+1, ind) = tau*Tr;
 end
 
 
@@ -70,7 +70,7 @@ Z = blkdiag(tau, 2*tau*speye(N-1), tau);
 
 
 % assemble the Lagrange multiplier matrix
-Lm = A*ones(N*(p+1), 1);
+Lm = ones(1, N*(p+1))*A;
 
 
 % assemble F (source vector as an dual element, use quadrature-based interpolation)
@@ -97,12 +97,12 @@ G(N+1) = gr;
 
 % assemble the big matrix equation
 ZZ = [
-    A, B, -X', sparse(N*(p+1), 1);
-    -B', C, -Y, Lm;
-    X, -Y', Z, sparse(N+1, 1);
-    sparse(1, N*(p+1)), Lm', sparse(1, N+1), 0
+    A, B', -X', sparse(N*(p+1), 1);
+    B, -C, Y', -Lm';
+    -X, Y, -Z, sparse(N+1, 1);
+    sparse(1, N*(p+1)), -Lm, sparse(1, N+1), 0
 ];
-RHS = [sparse(N*(p+1), 1); F; G; c0];
+RHS = [sparse(N*(p+1), 1); -F; -G; -c0];
 
 x = ZZ \ RHS;
 q = x(1:N*(p+1));

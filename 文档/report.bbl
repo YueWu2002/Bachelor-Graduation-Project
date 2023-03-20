@@ -1,0 +1,3529 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{PDE_Evans_ch6}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=ELC}{%
+         family={Evans},
+         familyi={E\bibinitperiod},
+         given={Lawrence\bibnamedelima C.},
+         giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Society}%
+    }
+    \strng{namehash}{ELC1}
+    \strng{fullhash}{ELC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Partial Differential Equations}
+    \field{chapter}{6}
+    \field{edition}{2nd}
+    \field{isbn}{978-0-8218-4974-3}
+    \field{pages}{453\bibrangedash 528}
+    \field{series}{Graduate Studies in Mathematics}
+    \field{title}{Second Order Elliptic Equations}
+    \list{location}{1}{%
+      {Providence, Rhode Island}%
+    }
+    \field{year}{2010}
+  \endentry
+
+  \entry{PDE_Evans_ch8}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=ELC}{%
+         family={Evans},
+         familyi={E\bibinitperiod},
+         given={Lawrence\bibnamedelima C.},
+         giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Society}%
+    }
+    \strng{namehash}{ELC1}
+    \strng{fullhash}{ELC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Partial Differential Equations}
+    \field{chapter}{8}
+    \field{edition}{2nd}
+    \field{isbn}{978-0-8218-4974-3}
+    \field{pages}{453\bibrangedash 528}
+    \field{series}{Graduate Studies in Mathematics}
+    \field{title}{The Calculus of Variations}
+    \list{location}{1}{%
+      {Providence, Rhode Island}%
+    }
+    \field{year}{2010}
+  \endentry
+
+  \entry{10.1007/978-3-642-36519-5_7}{inbook}{}
+    \name{author}{3}{}{%
+      {{hash=BD}{%
+         family={Boffi},
+         familyi={B\bibinitperiod},
+         given={Daniele},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BF}{%
+         family={Brezzi},
+         familyi={B\bibinitperiod},
+         given={Franco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=FM}{%
+         family={Fortin},
+         familyi={F\bibinitperiod},
+         given={Michel},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{BDBFFM1}
+    \strng{fullhash}{BDBFFM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Mixed Finite Element Methods and Applications}
+    \field{chapter}{7}
+    \verb{doi}
+    \verb 10.1007/978-3-642-36519-5_7
+    \endverb
+    \field{isbn}{978-3-642-36519-5}
+    \field{pages}{401\bibrangedash 457}
+    \field{title}{Mixed Methods for Elliptic Problems}
+    \verb{url}
+    \verb https://doi.org/10.1007/978-3-642-36519-5_7
+    \endverb
+    \list{location}{1}{%
+      {Berlin, Heidelberg}%
+    }
+    \field{year}{2013}
+  \endentry
+
+  \entry{10.1007/978-3-030-56341-7_4}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=EA}{%
+         family={Ern},
+         familyi={E\bibinitperiod},
+         given={Alexandre},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=GJL}{%
+         family={Guermond},
+         familyi={G\bibinitperiod},
+         given={Jean-Luc},
+         giveni={J\bibinithyphendelim L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer International Publishing}%
+    }
+    \strng{namehash}{EAGJL1}
+    \strng{fullhash}{EAGJL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Finite Elements I: Approximation and Interpolation}
+    \verb{doi}
+    \verb 10.1007/978-3-030-56341-7_4
+    \endverb
+    \field{isbn}{978-3-030-56341-7}
+    \field{pages}{39\bibrangedash 45}
+    \field{series}{Texts in Applied Mathema}
+    \field{title}{Distributions and duality in Sobolev spaces}
+    \verb{url}
+    \verb https://doi.org/10.1007/978-3-030-56341-7_4
+    \endverb
+    \list{location}{1}{%
+      {Cham}%
+    }
+    \field{year}{2021}
+  \endentry
+
+  \entry{10.1137/S0036142901384162}{article}{}
+    \name{author}{4}{}{%
+      {{hash=ADN}{%
+         family={Arnold},
+         familyi={A\bibinitperiod},
+         given={Douglas\bibnamedelima N.},
+         giveni={D\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=BF}{%
+         family={Brezzi},
+         familyi={B\bibinitperiod},
+         given={Franco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=MLD}{%
+         family={Marini},
+         familyi={M\bibinitperiod},
+         given={L.\bibnamedelima Donatella},
+         giveni={L\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ADN+1}
+    \strng{fullhash}{ADNBFCBMLD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/S0036142901384162
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/S0036142901384162
+    \endverb
+    \field{number}{5}
+    \field{pages}{1749\bibrangedash 1779}
+    \field{title}{Unified Analysis of Discontinuous Galerkin Methods for
+  Elliptic Problems}
+    \verb{url}
+    \verb https://doi.org/10.1137/S0036142901384162
+    \endverb
+    \field{volume}{39}
+    \field{journaltitle}{SIAM Journal on Numerical Analysis}
+    \field{year}{2002}
+  \endentry
+
+  \entry{10.1007/978-3-642-59721-3_5}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=ADN}{%
+         family={Arnold},
+         familyi={A\bibinitperiod},
+         given={Douglas\bibnamedelima N.},
+         giveni={D\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=BF}{%
+         family={Brezzi},
+         familyi={B\bibinitperiod},
+         given={Franco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=MD}{%
+         family={Marini},
+         familyi={M\bibinitperiod},
+         given={Donatella},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \name{editor}{3}{}{%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KGE}{%
+         family={Karniadakis},
+         familyi={K\bibinitperiod},
+         given={George\bibnamedelima E.},
+         giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=SCW}{%
+         family={Shu},
+         familyi={S\bibinitperiod},
+         given={Chi-Wang},
+         giveni={C\bibinithyphendelim W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin, Heidelberg}%
+    }
+    \strng{namehash}{ADN+1}
+    \strng{fullhash}{ADNBFCBMD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Discontinuous Galerkin Methods: Theory, Computation and
+  Applications}
+    \verb{doi}
+    \verb 10.1007/978-3-642-59721-3_5
+    \endverb
+    \field{isbn}{978-3-642-59721-3}
+    \field{pages}{89\bibrangedash 101}
+    \field{series}{Lecture Notes in Computational Science and Engineering}
+    \field{title}{Discontinuous Galerkin Methods for Elliptic Problems}
+    \verb{url}
+    \verb https://link.springer.com/chapter/10.1007/978-3-642-59721-3_5
+    \endverb
+    \list{location}{1}{%
+      {Berlin, Heidelberg}%
+    }
+    \field{year}{2000}
+  \endentry
+
+  \entry{10.1007/s11075-010-9390-0}{article}{}
+    \name{author}{2}{}{%
+      {{hash=PR}{%
+         family={Pasquetti},
+         familyi={P\bibinitperiod},
+         given={Richard},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=RF}{%
+         family={Rapetti},
+         familyi={R\bibinitperiod},
+         given={Francesca},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PRRF1}
+    \strng{fullhash}{PRRF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/s11075-010-9390-0
+    \endverb
+    \field{issn}{1572-9265}
+    \field{number}{2}
+    \field{pages}{349\bibrangedash 366}
+    \field{title}{Spectral element methods on unstructured meshes: which
+  interpolation points?}
+    \verb{url}
+    \verb https://doi.org/10.1007/s11075-010-9390-0
+    \endverb
+    \field{volume}{55}
+    \field{journaltitle}{Numerical Algorithms}
+    \field{month}{11}
+    \field{year}{2010}
+  \endentry
+
+  \entry{10.1137/S0036142998337247}{article}{}
+    \name{author}{3}{}{%
+      {{hash=TMA}{%
+         family={Taylor},
+         familyi={T\bibinitperiod},
+         given={M.\bibnamedelima A.},
+         giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=WBA}{%
+         family={Wingate},
+         familyi={W\bibinitperiod},
+         given={B.\bibnamedelima A.},
+         giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=VRE}{%
+         family={Vincent},
+         familyi={V\bibinitperiod},
+         given={R.\bibnamedelima E.},
+         giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TMAWBAVRE1}
+    \strng{fullhash}{TMAWBAVRE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/S0036142998337247
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/S0036142998337247
+    \endverb
+    \field{number}{5}
+    \field{pages}{1707\bibrangedash 1720}
+    \field{title}{An Algorithm for Computing Fekete Points in the Triangle}
+    \verb{url}
+    \verb https://doi.org/10.1137/S0036142998337247
+    \endverb
+    \field{volume}{38}
+    \field{journaltitle}{SIAM Journal on Numerical Analysis}
+    \field{year}{2000}
+  \endentry
+
+  \entry{WingatezAbstract1998FeketeCP}{article}{}
+    \name{author}{2}{}{%
+      {{hash=TMA}{%
+         family={Taylor},
+         familyi={T\bibinitperiod},
+         given={Mark\bibnamedelima A.},
+         giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=WBA}{%
+         family={Wingate},
+         familyi={W\bibinitperiod},
+         given={Beth\bibnamedelima A.},
+         giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TMAWBA1}
+    \strng{fullhash}{TMAWBA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Fekete collocation points for triangular spectral elements}
+    \verb{url}
+    \verb https://www.researchgate.net/publication/2709759_Fekete_Collocation_P
+    \verb oints_for_Triangular_Spectral_Elements
+    \endverb
+    \field{journaltitle}{SIAM Journal on Numerical Analysis}
+    \field{month}{09}
+    \field{year}{1998}
+  \endentry
+
+  \entry{10.1090/S0025-5718-00-01262-X}{article}{}
+    \name{author}{3}{}{%
+      {{hash=BL}{%
+         family={Bos},
+         familyi={B\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=TMA}{%
+         family={Taylor},
+         familyi={T\bibinitperiod},
+         given={M.\bibnamedelima A.},
+         giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=WBA}{%
+         family={Wingate},
+         familyi={W\bibinitperiod},
+         given={B.\bibnamedelima A.},
+         giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Society}%
+    }
+    \strng{namehash}{BLTMAWBA1}
+    \strng{fullhash}{BLTMAWBA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1090/S0025-5718-00-01262-X
+    \endverb
+    \field{issn}{0025-5718}
+    \field{number}{236}
+    \field{pages}{1543–1547}
+    \field{title}{Tensor Product Gauss-Lobatto Points Are Fekete Points for the
+  Cube}
+    \verb{url}
+    \verb https://doi.org/10.1090/S0025-5718-00-01262-X
+    \endverb
+    \field{volume}{70}
+    \list{location}{1}{%
+      {USA}%
+    }
+    \field{journaltitle}{Mathematics of Compututation}
+    \field{month}{10}
+    \field{year}{2001}
+  \endentry
+
+  \entry{10.1137/070685439}{article}{}
+    \name{author}{1}{}{%
+      {{hash=HBT}{%
+         family={Helenbrook},
+         familyi={H\bibinitperiod},
+         given={B.\bibnamedelima T.},
+         giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HBT1}
+    \strng{fullhash}{HBT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/070685439
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/070685439
+    \endverb
+    \field{number}{2}
+    \field{pages}{1304\bibrangedash 1318}
+    \field{title}{On the Existence of Explicit {hp}-Finite Element Methods
+  Using Gauss-Lobatto Integration on the Triangle}
+    \verb{url}
+    \verb https://doi.org/10.1137/070685439
+    \endverb
+    \field{volume}{47}
+    \field{journaltitle}{SIAM Journal on Numerical Analysis}
+    \field{year}{2009}
+  \endentry
+
+  \entry{10.1016/0045-7825(95)00889-6}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CQ}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Qi},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=BI}{%
+         family={Babu{\v{s}}ka},
+         familyi={B\bibinitperiod},
+         given={Ivo},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CQBI1}
+    \strng{fullhash}{CQBI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/0045-7825(95)00889-6
+    \endverb
+    \field{issn}{0045-7825}
+    \field{number}{3}
+    \field{pages}{405\bibrangedash 417}
+    \field{title}{Approximate optimal points for polynomial interpolation of
+  real functions in an interval and in a triangle}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/0045782595008896
+    \endverb
+    \field{volume}{128}
+    \field{journaltitle}{Computer Methods in Applied Mechanics and Engineering}
+    \field{year}{1995}
+  \endentry
+
+  \entry{10.1137/S003614299630587X}{article}{}
+    \name{author}{1}{}{%
+      {{hash=HJS}{%
+         family={Hesthaven},
+         familyi={H\bibinitperiod},
+         given={Jan\bibnamedelima S.},
+         giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HJS1}
+    \strng{fullhash}{HJS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/S003614299630587X
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/S003614299630587X
+    \endverb
+    \field{number}{2}
+    \field{pages}{655\bibrangedash 676}
+    \field{title}{From Electrostatics to Almost Optimal Nodal Sets for
+  Polynomial Interpolation in a Simplex}
+    \verb{url}
+    \verb https://doi.org/10.1137/S003614299630587X
+    \endverb
+    \field{volume}{35}
+    \field{journaltitle}{SIAM Journal on Numerical Analysis}
+    \field{year}{1998}
+  \endentry
+
+  \entry{10.1093/imamat/hxh077}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BMG}{%
+         family={Blyth},
+         familyi={B\bibinitperiod},
+         given={M.\bibnamedelima G.},
+         giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=PC}{%
+         family={Pozrikidis},
+         familyi={P\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BMGPC1}
+    \strng{fullhash}{BMGPC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1093/imamat/hxh077
+    \endverb
+    \verb{eprint}
+    \verb https://academic.oup.com/imamat/article-pdf/71/1/153/2249260/hxh077.p
+    \verb df
+    \endverb
+    \field{issn}{0272-4960}
+    \field{number}{1}
+    \field{pages}{153\bibrangedash 169}
+    \field{title}{A Lobatto interpolation grid over the triangle}
+    \verb{url}
+    \verb https://doi.org/10.1093/imamat/hxh077
+    \endverb
+    \field{volume}{71}
+    \field{journaltitle}{IMA Journal of Applied Mathematics}
+    \field{month}{02}
+    \field{year}{2006}
+  \endentry
+
+  \entry{10.2307/43693493}{article}{}
+    \name{author}{3}{}{%
+      {{hash=ZL}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Linbo},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=CT}{%
+         family={Cui},
+         familyi={C\bibinitperiod},
+         given={Tao},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=LH}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Hui},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Institute of Computational Mathematics}%
+      {Scientific/Engineering Computing}%
+    }
+    \strng{namehash}{ZLCTLH1}
+    \strng{fullhash}{ZLCTLH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{issn}{02549409, 19917139}
+    \field{number}{1}
+    \field{pages}{89\bibrangedash 96}
+    \field{title}{A set of symmetric quadrature rules on triangles and
+  tetrahedra}
+    \verb{url}
+    \verb http://www.jstor.org/stable/43693493
+    \endverb
+    \field{volume}{27}
+    \field{journaltitle}{Journal of Computational Mathematics}
+    \field{year}{2009}
+    \field{urlday}{27}
+    \field{urlmonth}{02}
+    \field{urlyear}{2023}
+  \endentry
+
+  \entry{10.1016/j.camwa.2009.10.027}{article}{}
+    \name{author}{2}{}{%
+      {{hash=XH}{%
+         family={Xiao},
+         familyi={X\bibinitperiod},
+         given={Hong},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=GZ}{%
+         family={Gimbutas},
+         familyi={G\bibinitperiod},
+         given={Zydrunas},
+         giveni={Z\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{XHGZ1}
+    \strng{fullhash}{XHGZ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1016/j.camwa.2009.10.027
+    \endverb
+    \field{issn}{0898-1221}
+    \field{number}{2}
+    \field{pages}{663\bibrangedash 676}
+    \field{title}{A numerical algorithm for the construction of efficient
+  quadrature rules in two and higher dimensions}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0898122109007263
+    \endverb
+    \field{volume}{59}
+    \field{journaltitle}{Computers and Mathematics with Applications}
+    \field{year}{2010}
+  \endentry
+
+  \entry{10.1002/nme.1620210612}{article}{}
+    \name{author}{1}{}{%
+      {{hash=DDA}{%
+         family={Dunavant},
+         familyi={D\bibinitperiod},
+         given={D.\bibnamedelima A.},
+         giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DDA1}
+    \strng{fullhash}{DDA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1002/nme.1620210612
+    \endverb
+    \verb{eprint}
+    \verb https://onlinelibrary.wiley.com/doi/pdf/10.1002/nme.1620210612
+    \endverb
+    \field{number}{6}
+    \field{pages}{1129\bibrangedash 1148}
+    \field{title}{High degree efficient symmetrical Gaussian quadrature rules
+  for the triangle}
+    \verb{url}
+    \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.1620210612
+    \endverb
+    \field{volume}{21}
+    \field{journaltitle}{International Journal for Numerical Methods in
+  Engineering}
+    \field{year}{1985}
+  \endentry
+
+  \entry{10.1007/s10915-005-9048-6}{article}{}
+    \name{author}{2}{}{%
+      {{hash=PR}{%
+         family={Pasquetti},
+         familyi={P\bibinitperiod},
+         given={Richard},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=RF}{%
+         family={Rapetti},
+         familyi={R\bibinitperiod},
+         given={Francesca},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PRRF1}
+    \strng{fullhash}{PRRF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/s10915-005-9048-6
+    \endverb
+    \field{issn}{1573-7691}
+    \field{number}{1}
+    \field{pages}{377\bibrangedash 387}
+    \field{title}{Spectral Element Methods on Unstructured Meshes: Comparisons
+  and Recent Advances}
+    \verb{url}
+    \verb https://doi.org/10.1007/s10915-005-9048-6
+    \endverb
+    \field{volume}{27}
+    \field{journaltitle}{Journal of Scientific Computing}
+    \field{month}{06}
+    \field{year}{2006}
+  \endentry
+
+  \entry{10.1007/BF01060030}{article}{}
+    \name{author}{1}{}{%
+      {{hash=DM}{%
+         family={Dubiner},
+         familyi={D\bibinitperiod},
+         given={Moshe},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DM1}
+    \strng{fullhash}{DM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/BF01060030
+    \endverb
+    \field{issn}{1573-7691}
+    \field{number}{4}
+    \field{pages}{345\bibrangedash 390}
+    \field{title}{Spectral methods on triangles and other domains}
+    \verb{url}
+    \verb https://doi.org/10.1007/BF01060030
+    \endverb
+    \field{volume}{6}
+    \field{journaltitle}{Journal of Scientific Computing}
+    \field{month}{12}
+    \field{year}{1991}
+  \endentry
+
+  \entry{10.1007/978-3-030-39647-3_5}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=OS}{%
+         family={Olver},
+         familyi={O\bibinitperiod},
+         given={Sheehan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=TA}{%
+         family={Townsend},
+         familyi={T\bibinitperiod},
+         given={Alex},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=VGM}{%
+         family={Vasil},
+         familyi={V\bibinitperiod},
+         given={Geoffrey\bibnamedelima M.},
+         giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \name{editor}{5}{}{%
+      {{hash=SSJ}{%
+         family={Sherwin},
+         familyi={S\bibinitperiod},
+         given={Spencer\bibnamedelima J.},
+         giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=MD}{%
+         family={Moxey},
+         familyi={M\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=PJ}{%
+         family={Peir{\'o}},
+         familyi={P\bibinitperiod},
+         given={Joaquim},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=VPE}{%
+         family={Vincent},
+         familyi={V\bibinitperiod},
+         given={Peter\bibnamedelima E.},
+         giveni={P\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Schwab},
+         familyi={S\bibinitperiod},
+         given={Christoph},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer International Publishing}%
+    }
+    \strng{namehash}{OSTAVGM1}
+    \strng{fullhash}{OSTAVGM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Spectral and High Order Methods for Partial Differential
+  Equations ICOSAHOM 2018}
+    \field{isbn}{978-3-030-39647-3}
+    \field{pages}{79\bibrangedash 92}
+    \field{title}{Recurrence Relations for a Family of Orthogonal Polynomials
+  on a Triangle}
+    \list{location}{1}{%
+      {Cham}%
+    }
+    \field{year}{2020}
+  \endentry
+
+  \entry{10.1093/acprof:oso/9780198528692.001.0001}{book}{}
+    \name{author}{2}{}{%
+      {{hash=KG}{%
+         family={Karniadakis},
+         familyi={K\bibinitperiod},
+         given={George},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Sherwin},
+         familyi={S\bibinitperiod},
+         given={Spencer},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford University Press}%
+    }
+    \strng{namehash}{KGSS1}
+    \strng{fullhash}{KGSS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1093/acprof:oso/9780198528692.001.0001
+    \endverb
+    \field{isbn}{9780198528692}
+    \field{title}{Spectral/{hp} Element Methods for Computational Fluid
+  Dynamics}
+    \verb{url}
+    \verb https://doi.org/10.1093/acprof:oso/9780198528692.001.0001
+    \endverb
+    \field{month}{06}
+    \field{year}{2005}
+  \endentry
+
+  \entry{10.1007/s10665-006-9063-0}{article}{}
+    \name{author}{3}{}{%
+      {{hash=BMG}{%
+         family={Blyth},
+         familyi={B\bibinitperiod},
+         given={M.\bibnamedelima G.},
+         giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=LH}{%
+         family={Luo},
+         familyi={L\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=PC}{%
+         family={Pozrikidis},
+         familyi={P\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BMGLHPC1}
+    \strng{fullhash}{BMGLHPC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/s10665-006-9063-0
+    \endverb
+    \field{issn}{1573-2703}
+    \field{number}{3}
+    \field{pages}{263\bibrangedash 272}
+    \field{title}{A comparison of interpolation grids over the triangle or the
+  tetrahedron}
+    \verb{url}
+    \verb https://doi.org/10.1007/s10665-006-9063-0
+    \endverb
+    \field{volume}{56}
+    \field{journaltitle}{Journal of Engineering Mathematics}
+    \field{month}{11}
+    \field{year}{2006}
+  \endentry
+
+  \entry{10.1090/s0025-5718-02-01439-4}{article}{}
+    \name{author}{3}{}{%
+      {{hash=ADN}{%
+         family={Arnold},
+         familyi={A\bibinitperiod},
+         given={Douglas\bibnamedelima N.},
+         giveni={D\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Boffi},
+         familyi={B\bibinitperiod},
+         given={Daniele},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=FRS}{%
+         family={Falk},
+         familyi={F\bibinitperiod},
+         given={Richard\bibnamedelima S.},
+         giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Society ({AMS})}%
+    }
+    \strng{namehash}{ADNBDFRS1}
+    \strng{fullhash}{ADNBDFRS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1090/s0025-5718-02-01439-4
+    \endverb
+    \field{number}{239}
+    \field{pages}{909\bibrangedash 922}
+    \field{title}{Approximation by quadrilateral finite elements}
+    \verb{url}
+    \verb https://doi.org/10.1090/s0025-5718-02-01439-4
+    \endverb
+    \field{volume}{71}
+    \field{journaltitle}{Mathematics of Computation}
+    \field{month}{03}
+    \field{year}{2002}
+  \endentry
+
+  \entry{10.2514/3.2874}{article}{}
+    \name{author}{1}{}{%
+      {{hash=GRJ}{%
+         family={Guyan},
+         familyi={G\bibinitperiod},
+         given={Robert\bibnamedelima J.},
+         giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GRJ1}
+    \strng{fullhash}{GRJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.2514/3.2874
+    \endverb
+    \verb{eprint}
+    \verb https://arc.aiaa.org/doi/10.2514/3.2874
+    \endverb
+    \field{number}{2}
+    \field{pages}{380\bibrangedash 380}
+    \field{title}{Reduction of stiffness and mass matrices}
+    \verb{url}
+    \verb https://doi.org/10.2514/3.2874
+    \endverb
+    \field{volume}{3}
+    \field{journaltitle}{American Institute of Aeronautics and Astronautics
+  Journal}
+    \field{year}{1965}
+  \endentry
+
+  \entry{10.1137/140954969}{article}{}
+    \name{author}{1}{}{%
+      {{hash=BI}{%
+         family={Bogaert},
+         familyi={B\bibinitperiod},
+         given={I.},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BI2}
+    \strng{fullhash}{BI2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/140954969
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/140954969
+    \endverb
+    \field{number}{3}
+    \field{pages}{A1008\bibrangedash A1026}
+    \field{title}{Iteration-Free Computation of Gauss--Legendre Quadrature
+  Nodes and Weights}
+    \verb{url}
+    \verb https://doi.org/10.1137/140954969
+    \endverb
+    \field{volume}{36}
+    \field{journaltitle}{SIAM Journal on Scientific Computing}
+    \field{year}{2014}
+  \endentry
+
+  \entry{10.1137/S1064827500379690}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SPN}{%
+         family={Swarztrauber},
+         familyi={S\bibinitperiod},
+         given={Paul\bibnamedelima N.},
+         giveni={P\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SPN1}
+    \strng{fullhash}{SPN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/S1064827500379690
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/S1064827500379690
+    \endverb
+    \field{number}{3}
+    \field{pages}{945\bibrangedash 954}
+    \field{title}{On Computing the Points and Weights for Gauss--Legendre
+  Quadrature}
+    \verb{url}
+    \verb https://doi.org/10.1137/S1064827500379690
+    \endverb
+    \field{volume}{24}
+    \field{journaltitle}{SIAM Journal on Scientific Computing}
+    \field{year}{2003}
+  \endentry
+
+  \entry{10.1017/S0962492920000045}{article}{}
+    \name{author}{3}{}{%
+      {{hash=OS}{%
+         family={Olver},
+         familyi={O\bibinitperiod},
+         given={Sheehan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SRM}{%
+         family={Slevinsky},
+         familyi={S\bibinitperiod},
+         given={Richard\bibnamedelima Mikaël},
+         giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=TA}{%
+         family={Townsend},
+         familyi={T\bibinitperiod},
+         given={Alex},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{OSSRMTA1}
+    \strng{fullhash}{OSSRMTA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1017/S0962492920000045
+    \endverb
+    \field{pages}{573\bibrangedash 699}
+    \field{title}{Fast algorithms using orthogonal polynomials}
+    \field{volume}{29}
+    \field{journaltitle}{Acta Numerica}
+    \field{year}{2020}
+  \endentry
+
+  \entry{10.1002/fld.2376}{article}{}
+    \name{author}{5}{}{%
+      {{hash=WD}{%
+         family={Wirasaet},
+         familyi={W\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=TS}{%
+         family={Tanaka},
+         familyi={T\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=KEJ}{%
+         family={Kubatko},
+         familyi={K\bibinitperiod},
+         given={E.\bibnamedelima J.},
+         giveni={E\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=WJJ}{%
+         family={Westerink},
+         familyi={W\bibinitperiod},
+         given={J.\bibnamedelima J.},
+         giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=DC}{%
+         family={Dawson},
+         familyi={D\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \keyw{finite element, discontinuous Galerkin methods, quadrilateral
+  elements, triangular elements, computational cost, transport equation}
+    \strng{namehash}{WD+1}
+    \strng{fullhash}{WDTSKEJWJJDC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1002/fld.2376
+    \endverb
+    \verb{eprint}
+    \verb https://onlinelibrary.wiley.com/doi/pdf/10.1002/fld.2376
+    \endverb
+    \field{number}{10-12}
+    \field{pages}{1336\bibrangedash 1362}
+    \field{title}{A performance comparison of nodal discontinuous Galerkin
+  methods on triangles and quadrilaterals}
+    \verb{url}
+    \verb https://doi.org/10.1002/fld.2376
+    \endverb
+    \field{volume}{64}
+    \field{journaltitle}{International Journal for Numerical Methods in Fluids}
+    \field{year}{2010}
+  \endentry
+
+  \entry{10.1007/978-0-387-72067-8}{book}{}
+    \name{author}{2}{}{%
+      {{hash=HJS}{%
+         family={Hesthaven},
+         familyi={H\bibinitperiod},
+         given={Jan\bibnamedelima S.},
+         giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=WT}{%
+         family={Warburton},
+         familyi={W\bibinitperiod},
+         given={Tim},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Publishing Company, Incorporated}%
+    }
+    \strng{namehash}{HJSWT1}
+    \strng{fullhash}{HJSWT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/978-0-387-72067-8
+    \endverb
+    \field{edition}{1st}
+    \field{isbn}{0387720650}
+    \field{series}{Texts in Applied Mathematics}
+    \field{title}{Nodal Discontinuous Galerkin Methods: Algorithms, Analysis,
+  and Applications}
+    \verb{url}
+    \verb https://doi.org/10.1007/978-0-387-72067-8
+    \endverb
+    \field{year}{2007}
+  \endentry
+
+  \entry{10.1137/S1064827501388339}{article}{}
+    \name{author}{1}{}{%
+      {{hash=CP}{%
+         family={Castillo},
+         familyi={C\bibinitperiod},
+         given={Paul},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CP1}
+    \strng{fullhash}{CP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/S1064827501388339
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/S1064827501388339
+    \endverb
+    \field{number}{2}
+    \field{pages}{524\bibrangedash 547}
+    \field{title}{Performance of Discontinuous Galerkin Methods for Elliptic
+  PDEs}
+    \verb{url}
+    \verb https://doi.org/10.1137/S1064827501388339
+    \endverb
+    \field{volume}{24}
+    \field{journaltitle}{SIAM Journal on Scientific Computing}
+    \field{year}{2002}
+  \endentry
+
+  \entry{10.1137/060666305}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=GJ}{%
+         family={Gopalakrishnan},
+         familyi={G\bibinitperiod},
+         given={Jayadeep},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=WH}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Haiying},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CBGJWH1}
+    \strng{fullhash}{CBGJWH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/060666305
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/060666305
+    \endverb
+    \field{number}{4}
+    \field{pages}{1742\bibrangedash 1776}
+    \field{title}{Locally Conservative Fluxes for the Continuous Galerkin
+  Method}
+    \verb{url}
+    \verb https://doi.org/10.1137/060666305
+    \endverb
+    \field{volume}{45}
+    \field{journaltitle}{SIAM Journal on Numerical Analysis}
+    \field{year}{2007}
+  \endentry
+
+  \entry{10.1137/S0036142997316712}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=SCW}{%
+         family={Shu},
+         familyi={S\bibinitperiod},
+         given={Chi-Wang},
+         giveni={C\bibinithyphendelim W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CBSCW1}
+    \strng{fullhash}{CBSCW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/S0036142997316712
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/S0036142997316712
+    \endverb
+    \field{number}{6}
+    \field{pages}{2440\bibrangedash 2463}
+    \field{title}{The Local Discontinuous Galerkin Method for Time-Dependent
+  Convection-Diffusion Systems}
+    \verb{url}
+    \verb https://doi.org/10.1137/S0036142997316712
+    \endverb
+    \field{volume}{35}
+    \field{journaltitle}{SIAM Journal on Numerical Analysis}
+    \field{year}{1998}
+  \endentry
+
+  \entry{10.1137/S0036142900371003}{article}{}
+    \name{author}{4}{}{%
+      {{hash=CP}{%
+         family={Castillo},
+         familyi={C\bibinitperiod},
+         given={Paul},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=PI}{%
+         family={Perugia},
+         familyi={P\bibinitperiod},
+         given={Ilaria},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=SD}{%
+         family={Sch\"{o}tzau},
+         familyi={S\bibinitperiod},
+         given={Dominik},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CP+1}
+    \strng{fullhash}{CPCBPISD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/S0036142900371003
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/S0036142900371003
+    \endverb
+    \field{number}{5}
+    \field{pages}{1676\bibrangedash 1706}
+    \field{title}{An A Priori Error Analysis of the Local Discontinuous
+  Galerkin Method for Elliptic Problems}
+    \verb{url}
+    \verb https://doi.org/10.1137/S0036142900371003
+    \endverb
+    \field{volume}{38}
+    \field{journaltitle}{SIAM Journal on Numerical Analysis}
+    \field{year}{2000}
+  \endentry
+
+  \entry{10.1137/070685518}{article}{}
+    \name{author}{2}{}{%
+      {{hash=PJ}{%
+         family={Peraire},
+         familyi={P\bibinitperiod},
+         given={Jaime},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=PPO}{%
+         family={Persson},
+         familyi={P\bibinitperiod},
+         given={Per-Olof},
+         giveni={P\bibinithyphendelim O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PJPPO1}
+    \strng{fullhash}{PJPPO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/070685518
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/070685518
+    \endverb
+    \field{number}{4}
+    \field{pages}{1806\bibrangedash 1824}
+    \field{title}{The Compact Discontinuous Galerkin (CDG) Method for Elliptic
+  Problems}
+    \verb{url}
+    \verb https://doi.org/10.1137/070685518
+    \endverb
+    \field{volume}{30}
+    \field{journaltitle}{SIAM Journal on Scientific Computing}
+    \field{year}{2008}
+  \endentry
+
+  \entry{10.1007/s10915-007-9130-3}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=DB}{%
+         family={Dong},
+         familyi={D\bibinitperiod},
+         given={Bo},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Plenum Press}%
+    }
+    \strng{namehash}{CBDB1}
+    \strng{fullhash}{CBDB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/s10915-007-9130-3
+    \endverb
+    \field{issn}{0885-7474}
+    \field{number}{2}
+    \field{pages}{233–262}
+    \field{title}{An Analysis of the Minimal Dissipation Local Discontinuous
+  Galerkin Method for Convection–Diffusion Problems}
+    \verb{url}
+    \verb https://doi.org/10.1007/s10915-007-9130-3
+    \endverb
+    \field{volume}{32}
+    \list{location}{1}{%
+      {USA}%
+    }
+    \field{journaltitle}{Journal of Scientific Computing}
+    \field{month}{08}
+    \field{year}{2007}
+  \endentry
+
+  \entry{10.1007/BF02995904}{article}{}
+    \name{author}{1}{}{%
+      {{hash=NJA}{%
+         family={Nitsche},
+         familyi={N\bibinitperiod},
+         given={J.\bibnamedelima A.},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NJA1}
+    \strng{fullhash}{NJA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/BF02995904
+    \endverb
+    \field{issn}{1865-8784}
+    \field{number}{1}
+    \field{pages}{9\bibrangedash 15}
+    \field{title}{{\"U}ber ein Variationsprinzip zur L{\"o}sung von
+  Dirichlet-Problemen bei Verwendung von Teilr{\"a}umen, die keinen
+  Randbedingungen unterworfen sind}
+    \verb{url}
+    \verb https://doi.org/10.1007/BF02995904
+    \endverb
+    \field{volume}{36}
+    \field{journaltitle}{Abhandlungen aus dem Mathematischen Seminar der
+  Universit{\"a}t Hamburg}
+    \field{month}{07}
+    \field{year}{1971}
+  \endentry
+
+  \entry{10.1090/S0025-5718-01-01317-5}{article}{}
+    \name{author}{4}{}{%
+      {{hash=CP}{%
+         family={Castillo},
+         familyi={C\bibinitperiod},
+         given={Paul},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=SD}{%
+         family={Sch\"{o}tzau},
+         familyi={S\bibinitperiod},
+         given={Dominik},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Schwab},
+         familyi={S\bibinitperiod},
+         given={Christoph},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Society}%
+    }
+    \strng{namehash}{CP+1}
+    \strng{fullhash}{CPCBSDSC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1090/S0025-5718-01-01317-5
+    \endverb
+    \field{issn}{0025-5718}
+    \field{number}{238}
+    \field{pages}{455–478}
+    \field{title}{Optimal a Priori Error Estimates for the {hp}-Version of the
+  Local Discontinuous Galerkin Method for Convection-Diffusion Problems}
+    \verb{url}
+    \verb https://doi.org/10.1090/S0025-5718-01-01317-5
+    \endverb
+    \field{volume}{71}
+    \list{location}{1}{%
+      {USA}%
+    }
+    \field{journaltitle}{Mathematics of Computation}
+    \field{month}{04}
+    \field{year}{2002}
+  \endentry
+
+  \entry{10.1137/S0036142900371544}{article}{}
+    \name{author}{4}{}{%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KG}{%
+         family={Kanschat},
+         familyi={K\bibinitperiod},
+         given={Guido},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=PI}{%
+         family={Perugia},
+         familyi={P\bibinitperiod},
+         given={Ilaria},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=SD}{%
+         family={Sch\"{o}tzau},
+         familyi={S\bibinitperiod},
+         given={Dominik},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CB+1}
+    \strng{fullhash}{CBKGPISD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/S0036142900371544
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/S0036142900371544
+    \endverb
+    \field{number}{1}
+    \field{pages}{264\bibrangedash 285}
+    \field{title}{Superconvergence of the Local Discontinuous Galerkin Method
+  for Elliptic Problems on Cartesian Grids}
+    \verb{url}
+    \verb https://doi.org/10.1137/S0036142900371544
+    \endverb
+    \field{volume}{39}
+    \field{journaltitle}{SIAM Journal on Numerical Analysis}
+    \field{year}{2001}
+  \endentry
+
+  \entry{10.1007/BF01436561}{article}{}
+    \name{author}{1}{}{%
+      {{hash=BI}{%
+         family={Babu{\v{s}}ka},
+         familyi={B\bibinitperiod},
+         given={Ivo},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BI1}
+    \strng{fullhash}{BI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/BF01436561
+    \endverb
+    \field{issn}{0945-3245}
+    \field{number}{3}
+    \field{pages}{179\bibrangedash 192}
+    \field{title}{The finite element method with Lagrangian multipliers}
+    \verb{url}
+    \verb https://doi.org/10.1007/BF01436561
+    \endverb
+    \field{volume}{20}
+    \field{journaltitle}{Numerische Mathematik}
+    \field{month}{06}
+    \field{year}{1973}
+  \endentry
+
+  \entry{10.1016/j.camwa.2015.04.013}{article}{}
+    \name{author}{4}{}{%
+      {{hash=FF}{%
+         family={Frank},
+         familyi={F\bibinitperiod},
+         given={Florian},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RB}{%
+         family={Reuter},
+         familyi={R\bibinitperiod},
+         given={Balthasar},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=AV}{%
+         family={Aizinger},
+         familyi={A\bibinitperiod},
+         given={Vadym},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=KP}{%
+         family={Knabner},
+         familyi={K\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FF+1}
+    \strng{fullhash}{FFRBAVKP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.camwa.2015.04.013
+    \endverb
+    \field{issn}{0898-1221}
+    \field{number}{1}
+    \field{pages}{11\bibrangedash 46}
+    \field{title}{FESTUNG: A MATLAB/GNU Octave toolbox for the discontinuous
+  Galerkin method, Part I: Diffusion operator}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0898122115001820
+    \endverb
+    \field{volume}{70}
+    \field{journaltitle}{Computers and Mathematics with Applications}
+    \field{year}{2015}
+  \endentry
+
+  \entry{10.1007/s10915-015-0076-6}{article}{}
+    \name{author}{4}{}{%
+      {{hash=YS}{%
+         family={Yakovlev},
+         familyi={Y\bibinitperiod},
+         given={Sergey},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=MD}{%
+         family={Moxey},
+         familyi={M\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=KRM}{%
+         family={Kirby},
+         familyi={K\bibinitperiod},
+         given={Robert\bibnamedelima M.},
+         giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=SSJ}{%
+         family={Sherwin},
+         familyi={S\bibinitperiod},
+         given={Spencer\bibnamedelima J.},
+         giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Plenum Press}%
+    }
+    \strng{namehash}{YS+1}
+    \strng{fullhash}{YSMDKRMSSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/s10915-015-0076-6
+    \endverb
+    \field{issn}{0885-7474}
+    \field{number}{1}
+    \field{pages}{192–220}
+    \field{title}{To CG or to HDG: A Comparative Study in 3D}
+    \verb{url}
+    \verb https://doi.org/10.1007/s10915-015-0076-6
+    \endverb
+    \field{volume}{67}
+    \list{location}{1}{%
+      {USA}%
+    }
+    \field{journaltitle}{Journal of Scientific Computing}
+    \field{month}{04}
+    \field{year}{2016}
+  \endentry
+
+  \entry{10.48550/arXiv.1705.09907}{unpublished}{}
+    \name{author}{4}{}{%
+      {{hash=FMS}{%
+         family={Fabien},
+         familyi={F\bibinitperiod},
+         given={Maurice\bibnamedelima S.},
+         giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=KMG}{%
+         family={Knepley},
+         familyi={K\bibinitperiod},
+         given={Matthew\bibnamedelima G.},
+         giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=MRT}{%
+         family={Mills},
+         familyi={M\bibinitperiod},
+         given={Richard\bibnamedelima Tran},
+         giveni={R\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=RBM}{%
+         family={Rivi{\`e}re},
+         familyi={R\bibinitperiod},
+         given={B{\'e}atrice\bibnamedelima M.},
+         giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FMS+1}
+    \strng{fullhash}{FMSKMGMRTRBM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.48550/arXiv.1705.09907
+    \endverb
+    \field{title}{Heterogeneous computing for a hybridizable discontinuous
+  Galerkin geometric multigrid method}
+    \verb{url}
+    \verb https://doi.org/10.48550/arXiv.1705.09907
+    \endverb
+    \field{journaltitle}{arXiv: Numerical Analysis}
+    \field{month}{05}
+    \field{year}{2017}
+  \endentry
+
+  \entry{10.1137/17M1128903}{article}{}
+    \name{author}{4}{}{%
+      {{hash=FMS}{%
+         family={Fabien},
+         familyi={F\bibinitperiod},
+         given={Maurice\bibnamedelima S.},
+         giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=KMG}{%
+         family={Knepley},
+         familyi={K\bibinitperiod},
+         given={Matthew\bibnamedelima G.},
+         giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=MRT}{%
+         family={Mills},
+         familyi={M\bibinitperiod},
+         given={Richard\bibnamedelima T.},
+         giveni={R\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=RBM}{%
+         family={Rivi\`{e}re},
+         familyi={R\bibinitperiod},
+         given={B\'{e}atrice\bibnamedelima M.},
+         giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FMS+1}
+    \strng{fullhash}{FMSKMGMRTRBM2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/17M1128903
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/17M1128903
+    \endverb
+    \field{number}{2}
+    \field{pages}{C73\bibrangedash C96}
+    \field{title}{Manycore Parallel Computing for a Hybridizable Discontinuous
+  Galerkin Nested Multigrid Method}
+    \verb{url}
+    \verb https://doi.org/10.1137/17M1128903
+    \endverb
+    \field{volume}{41}
+    \field{journaltitle}{SIAM Journal on Scientific Computing}
+    \field{year}{2019}
+  \endentry
+
+  \entry{10.1137/070706616}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=GJ}{%
+         family={Gopalakrishnan},
+         familyi={G\bibinitperiod},
+         given={Jayadeep},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LR}{%
+         family={Lazarov},
+         familyi={L\bibinitperiod},
+         given={Raytcho},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CBGJLR1}
+    \strng{fullhash}{CBGJLR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/070706616
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/070706616
+    \endverb
+    \field{number}{2}
+    \field{pages}{1319\bibrangedash 1365}
+    \field{title}{Unified Hybridization of Discontinuous Galerkin, Mixed, and
+  Continuous Galerkin Methods for Second Order Elliptic Problems}
+    \verb{url}
+    \verb https://doi.org/10.1137/070706616
+    \endverb
+    \field{volume}{47}
+    \field{journaltitle}{SIAM Journal on Numerical Analysis}
+    \field{year}{2009}
+  \endentry
+
+  \entry{10.1137/080728810}{article}{}
+    \name{author}{5}{}{%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=DB}{%
+         family={Dong},
+         familyi={D\bibinitperiod},
+         given={Bo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=GJ}{%
+         family={Guzm\'{a}n},
+         familyi={G\bibinitperiod},
+         given={Johnny},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RM}{%
+         family={Restelli},
+         familyi={R\bibinitperiod},
+         given={Marco},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Sacco},
+         familyi={S\bibinitperiod},
+         given={Riccardo},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CB+1}
+    \strng{fullhash}{CBDBGJRMSR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/080728810
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/080728810
+    \endverb
+    \field{number}{5}
+    \field{pages}{3827\bibrangedash 3846}
+    \field{title}{A Hybridizable Discontinuous Galerkin Method for Steady-State
+  Convection-Diffusion-Reaction Problems}
+    \verb{url}
+    \verb https://doi.org/10.1137/080728810
+    \endverb
+    \field{volume}{31}
+    \field{journaltitle}{SIAM Journal on Scientific Computing}
+    \field{year}{2009}
+  \endentry
+
+  \entry{10.1090/S0025-5718-08-02123-6}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=DB}{%
+         family={Dong},
+         familyi={D\bibinitperiod},
+         given={Bo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=GJ}{%
+         family={Guzmán},
+         familyi={G\bibinitperiod},
+         given={Johnny},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CBDBGJ1}
+    \strng{fullhash}{CBDBGJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1090/S0025-5718-08-02123-6
+    \endverb
+    \field{pages}{1887\bibrangedash 1916}
+    \field{title}{A superconvergent LDG-hybridizable Galerkin method for
+  second-order elliptic problems}
+    \field{volume}{77}
+    \field{journaltitle}{Mathematics of Computation}
+    \field{month}{10}
+    \field{year}{2008}
+  \endentry
+
+  \entry{10.1090/S0025-5718-10-02334-3}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=GJ}{%
+         family={Gopalakrishnan},
+         familyi={G\bibinitperiod},
+         given={Jayadeep},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SFJ}{%
+         family={Sayas},
+         familyi={S\bibinitperiod},
+         given={Francisco-Javier},
+         giveni={F\bibinithyphendelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CBGJSFJ1}
+    \strng{fullhash}{CBGJSFJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1090/S0025-5718-10-02334-3
+    \endverb
+    \field{pages}{1351\bibrangedash 1367}
+    \field{title}{A projection-based error analysis of HDG methods}
+    \field{volume}{79}
+    \field{journaltitle}{Mathematics of Computation}
+    \field{month}{07}
+    \field{year}{2010}
+  \endentry
+
+  \entry{10.1090/S0025-5718-08-02146-7}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=GJ}{%
+         family={Guzm{\'a}n},
+         familyi={G\bibinitperiod},
+         given={Johnny},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=WH}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Haiying},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Society}%
+    }
+    \strng{namehash}{CBGJWH2}
+    \strng{fullhash}{CBGJWH2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1090/S0025-5718-08-02146-7
+    \endverb
+    \field{issn}{0025-5718}
+    \field{number}{265}
+    \field{pages}{1\bibrangedash 24}
+    \field{title}{Superconvergent discontinuous galerkin methods for
+  second-order elliptic problems}
+    \verb{url}
+    \verb https://www.ams.org/journals/mcom/2009-78-265/S0025-5718-08-02146-7/h
+    \verb ome.html
+    \endverb
+    \field{volume}{78}
+    \field{journaltitle}{Mathematics of Computation}
+    \field{year}{2009}
+  \endentry
+
+  \entry{10.1016/S0045-7825(03)00445-6}{article}{}
+    \name{author}{1}{}{%
+      {{hash=CP}{%
+         family={Castillo},
+         familyi={C\bibinitperiod},
+         given={Paul},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CP1}
+    \strng{fullhash}{CP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/S0045-7825(03)00445-6
+    \endverb
+    \field{issn}{0045-7825}
+    \field{number}{41}
+    \field{pages}{4675\bibrangedash 4685}
+    \field{title}{A superconvergence result for discontinuous Galerkin methods
+  applied to elliptic problems}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0045782503004456
+    \endverb
+    \field{volume}{192}
+    \field{journaltitle}{Computer Methods in Applied Mechanics and Engineering}
+    \field{year}{2003}
+  \endentry
+
+  \entry{10.1007/978-3-030-27230-2_3}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=DS}{%
+         family={Du},
+         familyi={D\bibinitperiod},
+         given={Shukai},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SFJ}{%
+         family={Sayas},
+         familyi={S\bibinitperiod},
+         given={Francisco-Javier},
+         giveni={F\bibinithyphendelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer International Publishing}%
+    }
+    \strng{namehash}{DSSFJ1}
+    \strng{fullhash}{DSSFJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{An Invitation to the Theory of the Hybridizable
+  Discontinuous Galerkin Method: Projections, Estimates, Tools}
+    \field{chapter}{3}
+    \verb{doi}
+    \verb 10.1007/978-3-030-27230-2_3
+    \endverb
+    \field{isbn}{978-3-030-27230-2}
+    \field{pages}{45\bibrangedash 67}
+    \field{title}{The Hybridizable Discontinuous Galerkin Method}
+    \verb{url}
+    \verb https://doi.org/10.1007/978-3-030-27230-2_3
+    \endverb
+    \list{location}{1}{%
+      {Cham}%
+    }
+    \field{year}{2019}
+  \endentry
+
+  \entry{10.1051/m2an/197509R200411}{article}{}
+    \name{author}{2}{}{%
+      {{hash=GR}{%
+         family={Glowinski},
+         familyi={G\bibinitperiod},
+         given={Roland},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Marroco},
+         familyi={M\bibinitperiod},
+         given={Americo},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {French}%
+    }
+    \list{publisher}{1}{%
+      {EDP Sciences}%
+    }
+    \strng{namehash}{GRMA1}
+    \strng{fullhash}{GRMA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1051/m2an/197509R200411
+    \endverb
+    \field{number}{R-2}
+    \field{pages}{41\bibrangedash 76}
+    \field{title}{Sur l'approximation, par {\'e}l{\'e}ments finis d'ordre un,
+  et la r{\'e}solution, par p{\'e}nalisation-dualit{\'e} d'une classe de
+  probl{\`e}mes de Dirichlet non lin{\'e}aires}
+    \verb{url}
+    \verb https://doi.org/10.1051/m2an/197509R200411
+    \endverb
+    \field{volume}{9}
+    \field{journaltitle}{Revue fran{\c{c}}aise d'automatique, informatique,
+  recherche op{\'e}rationnelle. Analyse num{\'e}rique}
+    \field{year}{1975}
+  \endentry
+
+  \entry{10.1090/S0025-5718-1993-1192966-4}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BJW}{%
+         family={Barrett},
+         familyi={B\bibinitperiod},
+         given={John\bibnamedelima W.},
+         giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+      {{hash=LW}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Wenbin},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Society}%
+    }
+    \strng{namehash}{BJWLW1}
+    \strng{fullhash}{BJWLW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1090/S0025-5718-1993-1192966-4
+    \endverb
+    \field{number}{204}
+    \field{pages}{523\bibrangedash 537}
+    \field{title}{Finite element approximation of the \(p\)-Laplacian}
+    \verb{url}
+    \verb https://www.ams.org/journals/mcom/1993-61-204/S0025-5718-1993-1192966
+    \verb -4/
+    \endverb
+    \field{volume}{61}
+    \field{journaltitle}{Mathematics of Computation}
+    \field{year}{1993}
+  \endentry
+
+  \entry{10.1007/978-3-030-56341-7_3}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=EA}{%
+         family={Ern},
+         familyi={E\bibinitperiod},
+         given={Alexandre},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=GJL}{%
+         family={Guermond},
+         familyi={G\bibinitperiod},
+         given={Jean-Luc},
+         giveni={J\bibinithyphendelim L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer International Publishing}%
+    }
+    \strng{namehash}{EAGJL1}
+    \strng{fullhash}{EAGJL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Finite Elements I: Approximation and Interpolation}
+    \verb{doi}
+    \verb 10.1007/978-3-030-56341-7_3
+    \endverb
+    \field{isbn}{978-3-030-56341-7}
+    \field{pages}{39\bibrangedash 45}
+    \field{title}{Traces and Poincar{\'e} inequalities}
+    \verb{url}
+    \verb https://doi.org/10.1007/978-3-030-56341-7_3
+    \endverb
+    \list{location}{1}{%
+      {Cham}%
+    }
+    \field{year}{2021}
+  \endentry
+
+  \entry{10.1007/978-3-319-78390-1_6}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=LDH}{%
+         family={Le\bibnamedelima Dret},
+         familyi={L\bibinitperiod\bibinitdelim D\bibinitperiod},
+         given={Herv{\'e}},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer International Publishing}%
+    }
+    \strng{namehash}{LDH1}
+    \strng{fullhash}{LDH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Nonlinear Elliptic Partial Differential Equations: An
+  Introduction}
+    \field{chapter}{6}
+    \verb{doi}
+    \verb 10.1007/978-3-319-78390-1_6
+    \endverb
+    \field{isbn}{978-3-319-78390-1}
+    \field{pages}{141\bibrangedash 178}
+    \field{title}{Calculus of Variations and Quasilinear Problems}
+    \verb{url}
+    \verb https://doi.org/10.1007/978-3-319-78390-1_6
+    \endverb
+    \list{location}{1}{%
+      {Cham}%
+    }
+    \field{year}{2018}
+  \endentry
+
+  \entry{lindqvist2017notes}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=LP}{%
+         family={Lindqvist},
+         familyi={L\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {University of Jyv{\"a}skyl{\"a}}%
+    }
+    \strng{namehash}{LP1}
+    \strng{fullhash}{LP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{edition}{2nd}
+    \field{number}{161}
+    \field{title}{Notes on the \(p\)-Laplace equation}
+    \verb{url}
+    \verb https://jyx.jyu.fi/bitstream/handle/123456789/54658/Lindqvistplaplace
+    \verb notes.pdf?sequence=1
+    \endverb
+    \field{journaltitle}{Report/University of Jyv{\"a}skyl{\"a}, Department of
+  Mathematics and Statistics}
+    \field{year}{2017}
+  \endentry
+
+  \entry{978-3-319-31531-7}{book}{}
+    \name{author}{1}{}{%
+      {{hash=LP}{%
+         family={Lindqvist},
+         familyi={L\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Cham}%
+    }
+    \strng{namehash}{LP1}
+    \strng{fullhash}{LP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/978-3-319-31532-4
+    \endverb
+    \field{isbn}{978-3-319-31531-7}
+    \field{series}{SpringerBriefs in Mathematics}
+    \field{title}{Notes on the Infinity Laplace Equation}
+    \field{year}{2016}
+  \endentry
+
+  \entry{10.1093/imanum/18.1.121}{article}{}
+    \name{author}{1}{}{%
+      {{hash=FM}{%
+         family={Farhloul},
+         familyi={F\bibinitperiod},
+         given={M},
+         giveni={M},
+      }}%
+    }
+    \strng{namehash}{FM1}
+    \strng{fullhash}{FM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1093/imanum/18.1.121
+    \endverb
+    \verb{eprint}
+    \verb https://academic.oup.com/imajna/article-pdf/18/1/121/1981253/180121.p
+    \verb df
+    \endverb
+    \field{issn}{0272-4979}
+    \field{number}{1}
+    \field{pages}{121\bibrangedash 132}
+    \field{title}{A mixed finite element method for a nonlinear Dirichlet
+  problem}
+    \verb{url}
+    \verb https://doi.org/10.1093/imanum/18.1.121
+    \endverb
+    \field{volume}{18}
+    \field{journaltitle}{IMA Journal of Numerical Analysis}
+    \field{month}{01}
+    \field{year}{1998}
+  \endentry
+
+  \entry{10.1216/camq/1008957338}{article}{}
+    \name{author}{2}{}{%
+      {{hash=FM}{%
+         family={Farhloul},
+         familyi={F\bibinitperiod},
+         given={Mohamed},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MH}{%
+         family={Manouzi},
+         familyi={M\bibinitperiod},
+         given={Hassan},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FMMH1}
+    \strng{fullhash}{FMMH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1216/camq/1008957338
+    \endverb
+    \field{number}{1}
+    \field{pages}{67\bibrangedash 78}
+    \field{title}{On a mixed finite element method for the \(p\)-Laplacian}
+    \field{volume}{8}
+    \field{journaltitle}{The Canadian Applied Mathematics Quarterly}
+    \field{month}{04}
+    \field{year}{2000}
+  \endentry
+
+  \entry{10.1137/1.9780898719208.ch5}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=CPG}{%
+         family={Ciarlet},
+         familyi={C\bibinitperiod},
+         given={Philippe\bibnamedelima G.},
+         giveni={P\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CPG1}
+    \strng{fullhash}{CPG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{The Finite Element Method for Elliptic Problems}
+    \field{chapter}{5}
+    \verb{doi}
+    \verb 10.1137/1.9780898719208.ch5
+    \endverb
+    \verb{eprint}
+    \verb https://epubs.siam.org/doi/pdf/10.1137/1.9780898719208.ch5
+    \endverb
+    \field{isbn}{0-89871-514-8}
+    \field{pages}{287\bibrangedash 332}
+    \field{series}{Classics in Applied Mathematics}
+    \field{title}{Application of the Finite Element Method to Some Nonlinear
+  Problems}
+    \verb{url}
+    \verb https://epubs.siam.org/doi/abs/10.1137/1.9780898719208.ch5
+    \endverb
+  \endentry
+
+  \entry{10.1137/S0036142901393589}{article}{}
+    \name{author}{2}{}{%
+      {{hash=LW}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Wenbin},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=YN}{%
+         family={Yan},
+         familyi={Y\bibinitperiod},
+         given={Ningning},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LWYN1}
+    \strng{fullhash}{LWYN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/S0036142901393589
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/S0036142901393589
+    \endverb
+    \field{number}{5}
+    \field{pages}{1870\bibrangedash 1895}
+    \field{title}{On Quasi-Norm Interpolation Error Estimation And A Posteriori
+  Error Estimates for \(p\)-Laplacian}
+    \verb{url}
+    \verb https://doi.org/10.1137/S0036142901393589
+    \endverb
+    \field{volume}{40}
+    \field{journaltitle}{SIAM Journal on Numerical Analysis}
+    \field{year}{2002}
+  \endentry
+
+  \entry{10.1016/j.apnum.2019.11.018}{article}{}
+    \name{author}{2}{}{%
+      {{hash=LD}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={D.J.},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=CZ}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Z.R.},
+         giveni={Z\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier Science Publishers B. V.}%
+    }
+    \strng{namehash}{LDCZ1}
+    \strng{fullhash}{LDCZ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1016/j.apnum.2019.11.018
+    \endverb
+    \field{issn}{0168-9274}
+    \field{number}{C}
+    \field{pages}{323–337}
+    \field{title}{The Adaptive Finite Element Method for the \(p\)-Laplace
+  Problem}
+    \verb{url}
+    \verb https://doi.org/10.1016/j.apnum.2019.11.018
+    \endverb
+    \field{volume}{152}
+    \list{location}{1}{%
+      {NLD}%
+    }
+    \field{journaltitle}{Applied Numerical Mathematics}
+    \field{month}{06}
+    \field{year}{2020}
+  \endentry
+
+  \entry{10.4208/aamm.OA-2018-0117}{article}{}
+    \name{author}{3}{}{%
+      {{hash=LD}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={D.J.},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=LA}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={A.Q.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CZ}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Z.R.},
+         giveni={Z\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LDLACZ1}
+    \strng{fullhash}{LDLACZ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.4208/aamm.OA-2018-0117
+    \endverb
+    \field{issn}{2075-1354}
+    \field{number}{6}
+    \field{pages}{1365\bibrangedash 1383}
+    \field{title}{Nonconforming FEMs for the \(p\)-Laplace problem}
+    \verb{url}
+    \verb http://global-sci.org/intro/article_detail/aamm/12715.html
+    \endverb
+    \field{volume}{10}
+    \field{journaltitle}{Advances in Applied Mathematics and Mechanics}
+    \field{year}{2018}
+  \endentry
+
+  \entry{10.1007/s00211-005-0594-5}{article}{}
+    \name{author}{2}{}{%
+      {{hash=EC}{%
+         family={Ebmeyer},
+         familyi={E\bibinitperiod},
+         given={Carsten},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=LWB}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={W.\bibnamedelima B.},
+         giveni={W\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer-Verlag}%
+    }
+    \strng{namehash}{ECLWB1}
+    \strng{fullhash}{ECLWB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/s00211-005-0594-5
+    \endverb
+    \field{issn}{0029-599X}
+    \field{number}{2}
+    \field{pages}{233–258}
+    \field{title}{Quasi-Norm Interpolation Error Estimates for the Piecewise
+  Linear Finite Element Approximation of \(p\)-Laplacian Problems}
+    \verb{url}
+    \verb https://doi.org/10.1007/s00211-005-0594-5
+    \endverb
+    \field{volume}{100}
+    \list{location}{1}{%
+      {Berlin, Heidelberg}%
+    }
+    \field{journaltitle}{Numer. Math.}
+    \field{month}{04}
+    \field{year}{2005}
+  \endentry
+
+  \entry{10.1093/imanum/drr016}{article}{}
+    \name{author}{3}{}{%
+      {{hash=BL}{%
+         family={Belenki},
+         familyi={B\bibinitperiod},
+         given={Liudmila},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=DL}{%
+         family={Diening},
+         familyi={D\bibinitperiod},
+         given={Lars},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=KC}{%
+         family={Kreuzer},
+         familyi={K\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BLDLKC1}
+    \strng{fullhash}{BLDLKC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1093/imanum/drr016
+    \endverb
+    \verb{eprint}
+    \verb https://academic.oup.com/imajna/article-pdf/32/2/484/2257462/drr016.p
+    \verb df
+    \endverb
+    \field{issn}{0272-4979}
+    \field{number}{2}
+    \field{pages}{484\bibrangedash 510}
+    \field{title}{Optimality of an adaptive finite element method for the
+  \(p\)-Laplacian equation}
+    \verb{url}
+    \verb https://doi.org/10.1093/imanum/drr016
+    \endverb
+    \field{volume}{32}
+    \field{journaltitle}{IMA Journal of Numerical Analysis}
+    \field{month}{07}
+    \field{year}{2011}
+  \endentry
+
+  \entry{10.1016/S0168-9274(99)00040-9}{article}{}
+    \name{author}{2}{}{%
+      {{hash=AM}{%
+         family={Ainsworth},
+         familyi={A\bibinitperiod},
+         given={Mark},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KD}{%
+         family={Kay},
+         familyi={K\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AMKD1}
+    \strng{fullhash}{AMKD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/S0168-9274(99)00040-9
+    \endverb
+    \field{issn}{0168-9274}
+    \field{number}{4}
+    \field{pages}{329\bibrangedash 344}
+    \field{title}{Approximation theory for the {hp}-version finite element
+  method and application to the non-linear Laplacian}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0168927499000409
+    \endverb
+    \field{volume}{34}
+    \field{journaltitle}{Applied Numerical Mathematics}
+    \field{year}{2000}
+  \endentry
+
+  \entry{10.1137/070681508}{article}{}
+    \name{author}{2}{}{%
+      {{hash=DL}{%
+         family={Diening},
+         familyi={D\bibinitperiod},
+         given={Lars},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=KC}{%
+         family={Kreuzer},
+         familyi={K\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DLKC1}
+    \strng{fullhash}{DLKC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/070681508
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/070681508
+    \endverb
+    \field{number}{2}
+    \field{pages}{614\bibrangedash 638}
+    \field{title}{Linear Convergence of an Adaptive Finite Element Method for
+  the \(p\)-Laplacian Equation}
+    \verb{url}
+    \verb https://doi.org/10.1137/070681508
+    \endverb
+    \field{volume}{46}
+    \field{journaltitle}{SIAM Journal on Numerical Analysis}
+    \field{year}{2008}
+  \endentry
+
+  \entry{10.1016/j.cma.2006.11.023}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CE}{%
+         family={Creuse},
+         familyi={C\bibinitperiod},
+         given={E.},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=FM}{%
+         family={Farhloul},
+         familyi={F\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=PL}{%
+         family={Paquet},
+         familyi={P\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CEFMPL1}
+    \strng{fullhash}{CEFMPL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.cma.2006.11.023
+    \endverb
+    \field{issn}{0045-7825}
+    \field{number}{25}
+    \field{pages}{2570\bibrangedash 2582}
+    \field{title}{A posteriori error estimation for the dual mixed finite
+  element method for the \(p\)-Laplacian in a polygonal domain}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0045782507000618
+    \endverb
+    \field{volume}{196}
+    \field{journaltitle}{Computer Methods in Applied Mechanics and Engineering}
+    \field{year}{2007}
+  \endentry
+
+  \entry{10.1007/s002110050423}{article}{}
+    \name{author}{2}{}{%
+      {{hash=AM}{%
+         family={Ainsworth},
+         familyi={A\bibinitperiod},
+         given={Mark},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KD}{%
+         family={Kay},
+         familyi={K\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AMKD1}
+    \strng{fullhash}{AMKD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/s002110050423
+    \endverb
+    \field{issn}{0945-3245}
+    \field{number}{3}
+    \field{pages}{351\bibrangedash 388}
+    \field{title}{The approximation theory for the {p}-version finite element
+  method and application to non-linear elliptic PDEs}
+    \verb{url}
+    \verb https://doi.org/10.1007/s002110050423
+    \endverb
+    \field{volume}{82}
+    \field{journaltitle}{Numerische Mathematik}
+    \field{month}{05}
+    \field{year}{1999}
+  \endentry
+
+  \entry{10.1093/imanum/drn038}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BA}{%
+         family={Buffa},
+         familyi={B\bibinitperiod},
+         given={Annalisa},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=OC}{%
+         family={Ortner},
+         familyi={O\bibinitperiod},
+         given={Christoph},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BAOC1}
+    \strng{fullhash}{BAOC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1093/imanum/drn038
+    \endverb
+    \verb{eprint}
+    \verb https://academic.oup.com/imajna/article-pdf/29/4/827/1953844/drn038.p
+    \verb df
+    \endverb
+    \field{issn}{0272-4979}
+    \field{number}{4}
+    \field{pages}{827\bibrangedash 855}
+    \field{title}{Compact embeddings of broken Sobolev spaces and applications}
+    \verb{url}
+    \verb https://doi.org/10.1093/imanum/drn038
+    \endverb
+    \field{volume}{29}
+    \field{journaltitle}{IMA Journal of Numerical Analysis}
+    \field{month}{07}
+    \field{year}{2008}
+  \endentry
+
+  \entry{10.1093/imanum/drt040}{article}{}
+    \name{author}{4}{}{%
+      {{hash=DL}{%
+         family={Diening},
+         familyi={D\bibinitperiod},
+         given={Lars},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=KD}{%
+         family={Kr{\:{o}}ner},
+         familyi={K\bibinitperiod},
+         given={Dietmar},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=RM}{%
+         family={R{\o{u}}{\v{z}}i{\v{c}}ka},
+         familyi={R\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=TI}{%
+         family={Toulopoulos},
+         familyi={T\bibinitperiod},
+         given={Ioannis},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DL+1}
+    \strng{fullhash}{DLKDRMTI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1093/imanum/drt040
+    \endverb
+    \verb{eprint}
+    \verb https://academic.oup.com/imajna/article-pdf/34/4/1447/2612810/drt040.
+    \verb pdf
+    \endverb
+    \field{issn}{0272-4979}
+    \field{number}{4}
+    \field{pages}{1447\bibrangedash 1488}
+    \field{title}{A local discontinuous Galerkin approximation for systems with
+  \(p\)-structure}
+    \verb{url}
+    \verb https://doi.org/10.1093/imanum/drt040
+    \endverb
+    \field{volume}{34}
+    \field{journaltitle}{IMA Journal of Numerical Analysis}
+    \field{month}{11}
+    \field{year}{2013}
+  \endentry
+
+  \entry{10.1002/fld.3955}{article}{}
+    \name{author}{3}{}{%
+      {{hash=KD}{%
+         family={Kröner},
+         familyi={K\bibinitperiod},
+         given={Dietmar},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=RM}{%
+         family={Růžička},
+         familyi={R\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=TI}{%
+         family={Toulopoulos},
+         familyi={T\bibinitperiod},
+         given={Ioannis},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KDRMTI1}
+    \strng{fullhash}{KDRMTI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1002/fld.3955
+    \endverb
+    \verb{eprint}
+    \verb https://onlinelibrary.wiley.com/doi/pdf/10.1002/fld.3955
+    \endverb
+    \field{number}{11}
+    \field{pages}{855\bibrangedash 874}
+    \field{title}{Numerical solutions of systems with \((p, \delta)\)-structure
+  using local discontinuous Galerkin finite element methods}
+    \verb{url}
+    \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/fld.3955
+    \endverb
+    \field{volume}{76}
+    \field{journaltitle}{International Journal for Numerical Methods in Fluids}
+    \field{year}{2014}
+  \endentry
+
+  \entry{10.1016/j.crma.2008.07.005}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BE}{%
+         family={Burman},
+         familyi={B\bibinitperiod},
+         given={Erik},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=EA}{%
+         family={Ern},
+         familyi={E\bibinitperiod},
+         given={Alexandre},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BEEA1}
+    \strng{fullhash}{BEEA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.crma.2008.07.005
+    \endverb
+    \field{issn}{1631-073X}
+    \field{number}{17}
+    \field{pages}{1013\bibrangedash 1016}
+    \field{title}{Discontinuous Galerkin approximation with discrete
+  variational principle for the nonlinear Laplacian}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S1631073X08002057
+    \endverb
+    \field{volume}{346}
+    \field{journaltitle}{Comptes Rendus Mathematique}
+    \field{year}{2008}
+  \endentry
+
+  \entry{IJNAM-19-315}{article}{}
+    \name{author}{3}{}{%
+      {{hash=LD}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Dongjie},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=ZL}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Le},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=ZX}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Xiaoping},
+         giveni={X\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LDZLZX1}
+    \strng{fullhash}{LDZLZX1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{issn}{2617-8710}
+    \field{number}{2-3}
+    \field{pages}{315\bibrangedash 328}
+    \field{title}{On an adaptive LDG for the \(p\)-Laplace problem}
+    \verb{url}
+    \verb https://global-sci.com/intro/article_detail/ijnam/20483.html
+    \endverb
+    \field{volume}{19}
+    \field{journaltitle}{International Journal of Numerical Analysis and
+  Modeling}
+    \field{year}{2022}
+  \endentry
+
+  \entry{10.1016/j.finel.2014.11.001}{article}{}
+    \name{author}{1}{}{%
+      {{hash=TI}{%
+         family={Toulopoulos},
+         familyi={T\bibinitperiod},
+         given={Ioannis},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TI1}
+    \strng{fullhash}{TI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.finel.2014.11.001
+    \endverb
+    \field{issn}{0168-874X}
+    \field{pages}{42\bibrangedash 50}
+    \field{title}{An interior penalty discontinuous Galerkin finite element
+  method for quasilinear parabolic problems}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0168874X1400211X
+    \endverb
+    \field{volume}{95}
+    \field{journaltitle}{Finite Elements in Analysis and Design}
+    \field{year}{2015}
+  \endentry
+
+  \entry{10.1137/110820324}{article}{}
+    \name{author}{3}{}{%
+      {{hash=DPLM}{%
+         family={Del\bibnamedelima Pezzo},
+         familyi={D\bibinitperiod\bibinitdelim P\bibinitperiod},
+         given={Leandro\bibnamedelima M.},
+         giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=LAL}{%
+         family={Lombardi},
+         familyi={L\bibinitperiod},
+         given={Ariel\bibnamedelima L.},
+         giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=MS}{%
+         family={Mart\'{\i}nez},
+         familyi={M\bibinitperiod},
+         given={Sandra},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DPLMLALMS1}
+    \strng{fullhash}{DPLMLALMS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/110820324
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/110820324
+    \endverb
+    \field{number}{5}
+    \field{pages}{2497\bibrangedash 2521}
+    \field{title}{Interior Penalty Discontinuous Galerkin FEM for the
+  \(p(x)\)-Laplacian}
+    \verb{url}
+    \verb https://doi.org/10.1137/110820324
+    \endverb
+    \field{volume}{50}
+    \field{journaltitle}{SIAM Journal on Numerical Analysis}
+    \field{year}{2012}
+  \endentry
+
+  \entry{10.1137/15M1008014}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CB}{%
+         family={Cockburn},
+         familyi={C\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Shen},
+         familyi={S\bibinitperiod},
+         given={Jiguang},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CBSJ1}
+    \strng{fullhash}{CBSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/15M1008014
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/15M1008014
+    \endverb
+    \field{number}{1}
+    \field{pages}{A545\bibrangedash A566}
+    \field{title}{A Hybridizable Discontinuous Galerkin Method for the
+  \(p\)-Laplacian}
+    \verb{url}
+    \verb https://doi.org/10.1137/15M1008014
+    \endverb
+    \field{volume}{38}
+    \field{journaltitle}{SIAM Journal on Scientific Computing}
+    \field{year}{2016}
+  \endentry
+
+  \entry{10.1007/s10915-019-00967-6}{article}{}
+    \name{author}{2}{}{%
+      {{hash=QW}{%
+         family={Qiu},
+         familyi={Q\bibinitperiod},
+         given={Weifeng},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=SK}{%
+         family={Shi},
+         familyi={S\bibinitperiod},
+         given={Ke},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{QWSK1}
+    \strng{fullhash}{QWSK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/s10915-019-00967-6
+    \endverb
+    \field{issn}{1573-7691}
+    \field{number}{2}
+    \field{pages}{1019\bibrangedash 1032}
+    \field{title}{Analysis on an HDG Method for the \(p\)-Laplacian Equations}
+    \verb{url}
+    \verb https://doi.org/10.1007/s10915-019-00967-6
+    \endverb
+    \field{volume}{80}
+    \field{journaltitle}{Journal of Scientific Computing}
+    \field{month}{08}
+    \field{year}{2019}
+  \endentry
+
+  \entry{10.1137/S1064827598339098}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BR}{%
+         family={Bermejo},
+         familyi={B\bibinitperiod},
+         given={Rodolfo},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=IJA}{%
+         family={Infante},
+         familyi={I\bibinitperiod},
+         given={Juan-Antonio},
+         giveni={J\bibinithyphendelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BRIJA1}
+    \strng{fullhash}{BRIJA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/S1064827598339098
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/S1064827598339098
+    \endverb
+    \field{number}{5}
+    \field{pages}{1774\bibrangedash 1789}
+    \field{title}{A Multigrid Algorithm for the \(p\)-Laplacian}
+    \verb{url}
+    \verb https://doi.org/10.1137/S1064827598339098
+    \endverb
+    \field{volume}{21}
+    \field{journaltitle}{SIAM Journal on Scientific Computing}
+    \field{year}{2000}
+  \endentry
+
+  \entry{10.1007/s10915-007-9134-z}{article}{}
+    \name{author}{3}{}{%
+      {{hash=HYQ}{%
+         family={Huang},
+         familyi={H\bibinitperiod},
+         given={Y.\bibnamedelima Q.},
+         giveni={Y\bibinitperiod\bibinitdelim Q\bibinitperiod},
+      }}%
+      {{hash=LR}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Ruo},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=LW}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Wenbin},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Plenum Press}%
+    }
+    \strng{namehash}{HYQLRLW1}
+    \strng{fullhash}{HYQLRLW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/s10915-007-9134-z
+    \endverb
+    \field{issn}{0885-7474}
+    \field{number}{2}
+    \field{pages}{343–371}
+    \field{title}{Preconditioned Descent Algorithms for \(p\)-Laplacian}
+    \verb{url}
+    \verb https://doi.org/10.1007/s10915-007-9134-z
+    \endverb
+    \field{volume}{32}
+    \list{location}{1}{%
+      {USA}%
+    }
+    \field{journaltitle}{J. Sci. Comput.}
+    \field{month}{08}
+    \field{year}{2007}
+  \endentry
+
+  \entry{IJNAM-2-123}{article}{}
+    \name{author}{3}{}{%
+      {{hash=ZG}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Guangming},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=HY}{%
+         family={Huang},
+         familyi={H\bibinitperiod},
+         given={Yunqing},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=FC}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Chunsheng},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZGHYFC1}
+    \strng{fullhash}{ZGHYFC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{issn}{2617-8710}
+    \field{number}{0}
+    \field{pages}{123\bibrangedash 130}
+    \field{title}{Preconditioned Hybrid Conjugate Gradient Algorithm for
+  \(p\)-Laplacian}
+    \verb{url}
+    \verb http://global-sci.org/intro/article_detail/ijnam/952.html
+    \endverb
+    \field{volume}{2}
+    \field{journaltitle}{International Journal of Numerical Analysis and
+  Modeling}
+    \field{month}{01}
+    \field{year}{2005}
+  \endentry
+
+  \entry{10.1016/j.amc.2013.07.096}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ZG}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Guangming},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=FC}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Chunsheng},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier Science Inc.}%
+    }
+    \strng{namehash}{ZGFC1}
+    \strng{fullhash}{ZGFC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1016/j.amc.2013.07.096
+    \endverb
+    \field{issn}{0096-3003}
+    \field{pages}{36–45}
+    \field{title}{The Steepest Descent Algorithm without Line Search for
+  \(p\)-Laplacian}
+    \verb{url}
+    \verb https://doi.org/10.1016/j.amc.2013.07.096
+    \endverb
+    \field{volume}{224}
+    \list{location}{1}{%
+      {USA}%
+    }
+    \field{journaltitle}{Appl. Math. Comput.}
+    \field{month}{11}
+    \field{year}{2013}
+  \endentry
+
+  \entry{10.1137/16M1067792}{article}{}
+    \name{author}{2}{}{%
+      {{hash=TI}{%
+         family={Toulopoulos},
+         familyi={T\bibinitperiod},
+         given={Ioannis},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=WT}{%
+         family={Wick},
+         familyi={W\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TIWT1}
+    \strng{fullhash}{TIWT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/16M1067792
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/16M1067792
+    \endverb
+    \field{number}{3}
+    \field{pages}{A681\bibrangedash A710}
+    \field{title}{Numerical Methods for Power-Law Diffusion Problems}
+    \verb{url}
+    \verb https://doi.org/10.1137/16M1067792
+    \endverb
+    \field{volume}{39}
+    \field{journaltitle}{SIAM Journal on Scientific Computing}
+    \field{year}{2017}
+  \endentry
+
+  \entry{zhu2008efficient}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ZM}{%
+         family={Zhu},
+         familyi={Z\bibinitperiod},
+         given={Mingqiang},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=CTF}{%
+         family={Chan},
+         familyi={C\bibinitperiod},
+         given={Tony\bibnamedelima F.},
+         giveni={T\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZMCTF1}
+    \strng{fullhash}{ZMCTF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{8\bibrangedash 34}
+    \field{title}{An efficient primal-dual hybrid gradient algorithm for total
+  variation image restoration}
+    \field{volume}{34}
+    \field{journaltitle}{UCLA CAM Report}
+    \field{year}{2008}
+  \endentry
+
+  \entry{10.1007/s10851-010-0251-1}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CA}{%
+         family={Chambolle},
+         familyi={C\bibinitperiod},
+         given={Antonin},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=PT}{%
+         family={Pock},
+         familyi={P\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CAPT1}
+    \strng{fullhash}{CAPT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/s10851-010-0251-1
+    \endverb
+    \field{issn}{1573-7683}
+    \field{number}{1}
+    \field{pages}{120\bibrangedash 145}
+    \field{title}{A First-Order Primal-Dual Algorithm for Convex Problems
+  with Applications to Imaging}
+    \verb{url}
+    \verb https://doi.org/10.1007/s10851-010-0251-1
+    \endverb
+    \field{volume}{40}
+    \field{journaltitle}{Journal of Mathematical Imaging and Vision}
+    \field{month}{05}
+    \field{year}{2011}
+  \endentry
+
+  \entry{10.1007/BF02165003}{article}{}
+    \name{author}{1}{}{%
+      {{hash=BI}{%
+         family={Babu{\v{s}}ka},
+         familyi={B\bibinitperiod},
+         given={Ivo},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BI1}
+    \strng{fullhash}{BI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/BF02165003
+    \endverb
+    \field{issn}{0945-3245}
+    \field{number}{4}
+    \field{pages}{322\bibrangedash 333}
+    \field{title}{Error-bounds for finite element method}
+    \verb{url}
+    \verb https://doi.org/10.1007/BF02165003
+    \endverb
+    \field{volume}{16}
+    \field{journaltitle}{Numerische Mathematik}
+    \field{month}{01}
+    \field{year}{1971}
+  \endentry
+
+  \entry{10.1051/m2an/197408R201291}{article}{}
+    \name{author}{1}{}{%
+      {{hash=BF}{%
+         family={Brezzi},
+         familyi={B\bibinitperiod},
+         given={F.},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BF1}
+    \strng{fullhash}{BF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1051/m2an/197408R201291
+    \endverb
+    \field{number}{R-2}
+    \field{pages}{129\bibrangedash 151}
+    \field{title}{On the existence, uniqueness and approximation of
+  saddle-point problems arising from lagrangian multipliers}
+    \verb{url}
+    \verb https://doi.org/10.1051/m2an/197408R201291
+    \endverb
+    \field{volume}{8}
+    \field{journaltitle}{R.A.I.R.O. Analyse Numérique}
+    \field{year}{1974}
+  \endentry
+
+  \entry{10.1137/0719021}{article}{}
+    \name{author}{1}{}{%
+      {{hash=NRA}{%
+         family={Nicolaides},
+         familyi={N\bibinitperiod},
+         given={R.\bibnamedelima A.},
+         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NRA1}
+    \strng{fullhash}{NRA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/0719021
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/0719021
+    \endverb
+    \field{number}{2}
+    \field{pages}{349\bibrangedash 357}
+    \field{title}{Existence, Uniqueness and Approximation for Generalized
+  Saddle Point Problems}
+    \verb{url}
+    \verb https://doi.org/10.1137/0719021
+    \endverb
+    \field{volume}{19}
+    \field{journaltitle}{SIAM Journal on Numerical Analysis}
+    \field{year}{1982}
+  \endentry
+
+  \entry{10.1137/S0895479802410827}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CP}{%
+         family={Ciarlet},
+         familyi={C\bibinitperiod},
+         given={P.},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=HJ}{%
+         family={Huang},
+         familyi={H\bibinitperiod},
+         given={Jianguo},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=ZJ}{%
+         family={Zou},
+         familyi={Z\bibinitperiod},
+         given={Jun},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CPHJZJ1}
+    \strng{fullhash}{CPHJZJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1137/S0895479802410827
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1137/S0895479802410827
+    \endverb
+    \field{number}{1}
+    \field{pages}{224\bibrangedash 236}
+    \field{title}{Some Observations on Generalized Saddle-Point Problems}
+    \verb{url}
+    \verb https://doi.org/10.1137/S0895479802410827
+    \endverb
+    \field{volume}{25}
+    \field{journaltitle}{SIAM Journal on Matrix Analysis and Applications}
+    \field{year}{2003}
+  \endentry
+
+  \entry{10.1090/mcom/3795}{article}{}
+    \name{author}{4}{}{%
+      {{hash=HQ}{%
+         family={Hong},
+         familyi={H\bibinitperiod},
+         given={Qingguo},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={Kraus},
+         familyi={K\bibinitperiod},
+         given={Johannes},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LM}{%
+         family={Lymbery},
+         familyi={L\bibinitperiod},
+         given={Maria},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=PF}{%
+         family={Philo},
+         familyi={P\bibinitperiod},
+         given={Fadi},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Society ({AMS})}%
+    }
+    \strng{namehash}{HQ+1}
+    \strng{fullhash}{HQKJLMPF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1090/mcom/3795
+    \endverb
+    \field{number}{340}
+    \field{pages}{607\bibrangedash 634}
+    \field{title}{A new practical framework for the stability analysis of
+  perturbed saddle-point problems and applications}
+    \verb{url}
+    \verb https://doi.org/10.1090%2Fmcom%2F3795
+    \endverb
+    \field{volume}{92}
+    \field{journaltitle}{Mathematics of Computation}
+    \field{month}{11}
+    \field{year}{2022}
+  \endentry
+
+  \entry{10.4171/zaa/1107}{article}{}
+    \name{author}{1}{}{%
+      {{hash=GGN}{%
+         family={Gatica},
+         familyi={G\bibinitperiod},
+         given={Gabriel\bibnamedelima N.},
+         giveni={G\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {European Mathematical Society}%
+    }
+    \strng{namehash}{GGN1}
+    \strng{fullhash}{GGN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.4171/zaa/1107
+    \endverb
+    \field{number}{3}
+    \field{pages}{761\bibrangedash 781}
+    \field{title}{Solvability and Galerkin approximations of a class of
+  nonlinear operator equations}
+    \verb{url}
+    \verb https://doi.org/10.4171/zaa/1107
+    \endverb
+    \field{volume}{21}
+    \field{journaltitle}{Zeitschrift f{\:{u}}r Analysis und ihre Anwendungen}
+    \field{month}{01}
+    \field{year}{2002}
+  \endentry
+\enddatalist
+\endinput

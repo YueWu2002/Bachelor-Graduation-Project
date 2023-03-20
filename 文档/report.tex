@@ -14,13 +14,16 @@
 \date{\small{\today}}
 \pagestyle{headings}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 加入BibTex参考文献源
+\addbibresource{includefiles/refs.bib} % BibTeX数据文件及位置
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}%文件开始
 \maketitle
 \tableofcontents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 正文
 
-% keyword: nonlinear variational inequalities, discontinuous Galerkin methods, p-Laplacian equation
+% keyword: discontinuous Galerkin methods, p-Laplacian equation, nonlinear elliptic equations, variational inequalities
 
 \input{includefiles/Poisson.tex}
 \input{includefiles/p-Laplacian.tex}
@@ -32,7 +35,8 @@
 % 全文的空间记号要统一
 % 可以借鉴徐岩老师、洪雪博士的博士毕业论文
 %
-% 正在做：测试HDG Neumann问题
+% 正在做：把向量函数都加上\bm，把自由度向量加上[]，从标签[% to be continued...]处继续
+% 要做：二维 HDG 程序、二维 p-Laplace 程序
 %
 % to be done: 重做所有的数值算例(HDG增加后处理)，重新绘制spy图，数值结果保留两位小数，扩大表格
 % to be done: 编程实现二维 p-Laplace 方程的LDG方法1和2，其中，方法1可以对p使用通论方法(需要先说明对p的连续性，建议查文献)
@@ -41,6 +45,7 @@
 % to be done: 在收敛阶的地方，要么假设真解光滑，要么就把Sobolev估计的范数写清楚
 % to be done: 改格式，把caption放在表格上方，放在图片下方，复杂表格统一不使用三线表(模仿洪雪的博士毕业论文)，有的测试数据合并成一张大表格
 % to be done: 在参考文献中，把固有的大写单词用大括号括起来，例如 {Galerkin} (不要只括一个首字母)
+% to be done: 把Poisson方程的理论部分换成系数是SPD矩阵的椭圆方程
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 附录

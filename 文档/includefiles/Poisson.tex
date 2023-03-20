@@ -5,16 +5,16 @@
 	\begin{cases}
 		-\Delta u = f & \text{in \(\Omega\)} \\
 		u = g_{D} & \text{on \(\Gamma^{D}\)} \\
-		\nabla u \cdot\bm n = \bm g_{N} \cdot \bm n & \text{on \(\Gamma^{N}\)}
+		\nabla u \cdot \bm n = \bm g_{N} \cdot \bm n & \text{on \(\Gamma^{N}\)}
 	\end{cases}
 \end{equation}
 其等价的一阶方程组为：
 \begin{equation}\label{Poisson mixed form}
 	\begin{cases}
-		\sigma - \nabla u = 0, & \text{in \(\Omega\)} \\
-		-\nabla \cdot \sigma = f, & \text{in \(\Omega\)} \\
+		\bm\sigma - \nabla u = 0, & \text{in \(\Omega\)} \\
+		-\nabla \cdot \bm\sigma = f, & \text{in \(\Omega\)} \\
 		u = g_{D}, & \text{on \(\Gamma^{D}\)} \\
-		\sigma\cdot \bm n = \bm g_{N} \cdot \bm n, & \text{on \(\Gamma^{N}\)}
+		\bm\sigma \cdot \bm n = \bm g_{N} \cdot \bm n, & \text{on \(\Gamma^{N}\)}
 	\end{cases}
 \end{equation}
 
@@ -53,7 +53,7 @@ Poisson 方程\eqref{Poisson primal form}的弱形式为：
 	\begin{equation}
 		\begin{aligned}
 			& \text{find \(u \in V\) such that:} \\
-			& J(u)= \min_{v \in V} J(v)
+			& J(u) = \min_{v \in V} J(v)
 		\end{aligned}
 	\end{equation}
 	其中，泛函 \(J(\cdot): V \mapsto \R\) 如下：
@@ -61,7 +61,7 @@ Poisson 方程\eqref{Poisson primal form}的弱形式为：
 		J(u) = \frac{1}{2}\norm{\nabla u}_{L^2(\Omega)}^2 - \left(f, u\right)_{\Omega} - \left\langle \bm g_{N}\cdot\bm n, u \right\rangle_{\Gamma^{N}}
 	\end{equation}
 \end{subequations}
-这里，\(f\in H^{-1}(\Omega)\)，\(g_{D} \in H^{\frac{1}{2}}(\Gamma^{D})\)，\(\bm g_{N}\cdot\bm n \in H^{-\frac{1}{2}}(\Gamma^{N})\).
+这里，\(f\in H^{-1}(\Omega)\)，\(g_{D} \in H^{\frac{1}{2}}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in H^{-\frac{1}{2}}(\Gamma^{N})\).
 
 \begin{theorem}[Existence, uniqueness, and equivalence]
 	Poisson 方程的弱形式\eqref{Poisson primal weak form}和最优化形式\eqref{Poisson primal minimization form}的解存在、唯一、相同。
@@ -78,39 +78,39 @@ Poisson 方程\eqref{Poisson primal form}的弱形式为：
 当 \(m(\Gamma^D) > 0\) 时，取空间：
 \begin{subequations}
 	\begin{eqnarray}
-		&& \Sigma = \B{\sigma \in H({\rm div}, \Omega) \bigg| \sigma\big|_{\Gamma^{N}} \cdot \bm n = \bm g_{N} \cdot \bm n} \\
-		&& \widetilde{\Sigma} = \B{\sigma \in H({\rm div}, \Omega) \bigg| \sigma\big|_{\Gamma^{N}} \cdot \bm n = \bm 0} \\
+		&& \Sigma = \B{\bm\sigma \in H({\rm div}, \Omega) \bigg| \bm\sigma \cdot \bm n\big|_{\Gamma^{N}} = \bm g_{N} \cdot \bm n} \\
+		&& \widetilde{\Sigma} = \B{\sigma \in H({\rm div}, \Omega) \bigg| \sigma \cdot \bm n\big|_{\Gamma^{N}} = \bm 0} \\
 		&& W = L^2(\Omega)
 	\end{eqnarray}
 \end{subequations}
 Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-36519-5_7}：
 \begin{equation}\label{Poisson mixed weak form}
 	\begin{aligned}
-		& \text{find \(\left(\sigma, u\right) \in \Sigma\times W\) such that \(\forall \left(\tau, v\right)\in\widetilde{\Sigma}\times W\):} \\
+		& \text{find \(\left(\bm\sigma, u\right) \in \Sigma\times W\) such that \(\forall \left(\bm\tau, v\right)\in\widetilde{\Sigma}\times W\):} \\
 		& \begin{cases}
-			\left(\sigma, \tau\right)_{\Omega} + \left(\nabla \cdot \tau, u\right)_{\Omega} = \left\langle g_{D}, \tau \cdot \bm n \right\rangle_{\Gamma^{D}} \\
-			-\left(\nabla \cdot \sigma, v\right)_{\Omega} = \left(f, v\right)_{\Omega}
+			\left(\bm\sigma, \bm\tau\right)_{\Omega} + \left(\bm\nabla \cdot \tau, u\right)_{\Omega} = \left\langle g_{D}, \bm\tau \cdot \bm n \right\rangle_{\Gamma^{D}} \\
+			-\left(\nabla \cdot \bm\sigma, v\right)_{\Omega} = \left(f, v\right)_{\Omega}
 		\end{cases}
 	\end{aligned}
 \end{equation}
 将 \(u\) 视作 Lagrange 乘子，其对应的带约束的优化问题为：% to be done: 验证这里的约束满足LBB条件，且左上角的能量在 B 的kernel上是coercive的、弱下半连续、强凸的，因此由Lax-Milgram定理知存在唯一解
 \begin{equation}\label{Poisson mixed constrained optimization form}
 	\begin{aligned}
-		& \text{minimize:} & \frac{1}{2}\norm{\sigma}_{L^2(\Omega)}^2 - \left\langle g_{D}, \sigma\cdot\bm n \right\rangle_{\Gamma^{D}} \\
-		& \text{subject to:} & -\nabla \cdot \sigma = f, \quad \sigma \in \Sigma
+		& \text{minimize:} & \frac{1}{2}\norm{\bm\sigma}_{L^2(\Omega)}^2 - \left\langle g_{D}, \bm\sigma \cdot \bm n \right\rangle_{\Gamma^{D}} \\
+		& \text{subject to:} & -\nabla \cdot \bm\sigma = f, \quad \bm\sigma \in \Sigma
 	\end{aligned}
 \end{equation}
 对应的鞍点问题为：
 \begin{subequations}\label{Poisson mixed saddle-point problem}
 	\begin{equation}
 		\begin{aligned}
-			& \text{find \(\left(\sigma, u\right)\in\Sigma \times W\) such that \(\forall \left(\tau, v\right)\in\Sigma \times W\):} \\
-			& L(\sigma, v) \leqslant L(\sigma, u) \leqslant L(\tau, u)
+			& \text{find \(\left(\bm\sigma, u\right)\in\Sigma \times W\) such that \(\forall \left(\bm\tau, v\right)\in\Sigma \times W\):} \\
+			& L(\bm\sigma, v) \leqslant L(\bm\sigma, u) \leqslant L(\bm\tau, u)
 		\end{aligned}
 	\end{equation}
 	其中，Lagrange 泛函 \(L(\cdot, \cdot): \Sigma \times W \mapsto \R\) 如下：
 	\begin{equation}
-		L(\tau, v) = \frac{1}{2}\norm{\tau}_{L^2(\Omega)}^2 - \left\langle g_{D}, \tau\cdot\bm n \right\rangle_{\Gamma^{D}} + \left(\nabla \cdot \tau, v\right)_{\Omega} + \left(f, v\right)_{\Omega}
+		L(\tau, v) = \frac{1}{2} \norm{\bm\tau}_{L^2(\Omega)}^2 - \left\langle g_{D}, \bm\tau \cdot \bm n \right\rangle_{\Gamma^{D}} + \left(\nabla \cdot \bm\tau, v\right)_{\Omega} + \left(f, v\right)_{\Omega}
 	\end{equation}
 \end{subequations}
 这里，\(f \in L^2(\Omega)\)，\(g_{D} \in H^{\frac{1}{2}}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in H^{-\frac{1}{2}}(\Gamma^{N})\)\footnote{存在从 \(W^{1,p}({\rm div},\Omega)\) 到 \(W^{-\frac{1}{p^{\ast}}, p}(\partial\Omega)\) 的有界线性满射\cite{10.1007/978-3-030-56341-7_4}。}.
@@ -122,7 +122,7 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 
 \subsection{General DG schemes for the Poisson Equation}
 
-按照文章中\cite{10.1137/S0036142901384162}的DG框架，假设 \(\Omega\) 被划分为网格 \(\mathcal{T}_h\) (表示所有单元的全体)，以 \(\Gamma\) 表示所有单元的边的并集，以 \(\Gamma^o\) 代表所有内部边的并集，以 \(\mathcal{E}_{h}\) 代表所有单元边的全体(含定向)，以 \(\mathcal{E}_{h}^{o}\) 代表所有单元的在内部的边的全体，以 \(\mathcal{E}_{h}^{\partial}\) 代表所有单元在边界上的边的全体。
+按照文章中\cite{10.1137/S0036142901384162}的DG框架，假设 \(\Omega\) 被划分为网格 \(\mathcal{T}_h\) (表示所有单元的全体)，以 \(\Gamma\) 表示所有单元的边的并集，以 \(\Gamma^{o}\) 代表所有内部边的并集，以 \(\Gamma^{D}\) 表示 Dirichlet 边界，以 \(\Gamma^{N}\) 表示 Neumann 边界，以 \(\Gamma^{\partial}\) 表示位于区域边界上的单元边的并集；以 \(\mathcal{E}_{h}\) 代表所有单元边的全体(含定向)，以 \(\mathcal{E}_{h}^{o}\) 代表所有单元的在内部的边的全体，以 \(\mathcal{E}_{h}^{\partial}\) 代表所有单元在边界上的边的全体。
 
 函数空间：
 \begin{enumerate}
@@ -133,7 +133,7 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 	\item \(T(\Gamma)\): 单元边上的函数空间(可多值)
 \end{enumerate}
 
-算子：
+算子：% to be done: 写得详细一点
 \begin{enumerate}
 	\item \(\nabla_h\): \(\nabla_h u_{h} = \sum_{K\in\mathcal{T}_h} \nabla u_{h}\)
 	\item \(\jump{\cdot}\): \(\forall e\in\mathcal{E}_{h}^{o}, \jump{q}\big|_{e} = q_1 \bm n_1 + q_2 \bm n_2, \jump{\bm\varphi}\big|_{e} = \bm\varphi_1 \cdot \bm n_1 + \bm\varphi_2 \cdot \bm n_2\)；\(\forall e\in\mathcal{E}_{h}^{\partial}, \jump{q}\big|_{e} = q^{-} \bm n\)
@@ -143,17 +143,21 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 \begin{lemma}
 	对于 \(q\in T(\Gamma), \varphi \in \left(T(\Gamma)\right)^2\)，有：
 	\begin{equation}
-		\sum_{K\in\mathcal{T}_{h}} \oint_{\partial K} q_{K} \varphi_{K} \cdot n \d s = \int_{\Gamma} \jump{q} \cdot \avg{\varphi} \d s + \int_{\Gamma^{o}} \avg{q} \jump{\varphi} \d s
+		\begin{aligned}
+			& \sum_{K\in\mathcal{T}_{h}} \oint_{\partial K} q \bm\varphi \cdot \bm n \d s \\
+			= & \int_{\Gamma} \jump{q} \cdot \avg{\bm\varphi} \d s + \int_{\Gamma^{o}} \avg{q} \jump{\bm\varphi} \d s \\
+			= & \int_{\Gamma^{o}} \left(\jump{q} \cdot \avg{\bm\varphi} + \avg{q} \jump{\bm\varphi}\right) \d s + \int_{\Gamma^{\partial}} q \bm\varphi \cdot \bm n \d s
+		\end{aligned}
 	\end{equation}
-	其中，\(\avg{q}\) 和 \(\jump{\varphi}\) 在边界上无定义。
+	其中，\(\avg{q}\) 和 \(\jump{\bm\varphi}\) 在边界上无定义。
 \end{lemma}
 
 
-格式可能的性质：
+若单元 \(K_1\) 和 \(K_2\) 有公共边 \(e\)，定义 \(e\) 上线性的边界数值通量算子 \(\widehat{u} = \widehat{u}(u\big|_{K_1}, u\big|_{K_2}, \sigma\big|_{K_{1}}, \sigma\big|_{K_2})\) 以及 \(\widehat{\bm\sigma} = \widehat{\bm\sigma}(u\big|_{K_1}, u\big|_{K_2}, \sigma\big|_{K_{1}}, \sigma\big|_{K_2})\). 依赖于数值通量，格式可能具有以下性质：
 \begin{enumerate}
-	\item 相容性：即对于光滑且满足边界条件的函数 \(v\)，有 \(\widehat{u}_{h}(v) = v\big|_{\Gamma}\)，\(\widehat{\sigma}_{h}(v,\nabla v) = \nabla v\big|_\Gamma\)，可以推出 \(B_h(u-u_h, v_h) = 0\)
-	\item 守恒性：即数值通量是单值的，可以推出对偶相容性
-	\item 稳定性：对于某个范数 \(\norm{\cdot}\)，存在 \(\gamma >0\) 使得 \(B_h(u_h, u_h) \geqslant \gamma \norm{u_h}^2\)
+	\item 相容性：即对于光滑且满足边界条件的函数 \(v\)，有 \(\widehat{u}_{h}(v) = v\big|_{\Gamma}\)，\(\widehat{\sigma}_{h}(v,\nabla v) = \nabla v\big|_\Gamma\)，可以推出 \(B_h(u-u_h, v_h) = 0\)；
+	\item 守恒性：即数值通量是单值的，可以推出对偶相容性；
+	\item 稳定性：对于某个范数 \(\norm{\cdot}\)，存在 \(\gamma >0\) 使得 \(B_h(u_h, u_h) \geqslant \gamma \norm{u_h}^2\).
 \end{enumerate}
 
 
@@ -162,33 +166,33 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 局部的 DG 格式\cite{10.1007/978-3-642-59721-3_5, 10.1137/S0036142901384162}：
 \begin{equation}\label{Local DG Scheme}
 	\begin{aligned}
-		& \text{find \(\left(\sigma_{h}, u_{h}\right) \in \Sigma_{h} \times V_{h}\) such that \(\forall \left(\tau_{h}, v_{h}\right) \in \Sigma_{h} \times V_{h}\), \(\forall K \in \mathcal{T}_{h}\):} \\
+		& \text{find \(\left(\bm\sigma_{h}, u_{h}\right) \in \Sigma_{h} \times V_{h}\) such that \(\forall \left(\bm\tau_{h}, v_{h}\right) \in \Sigma_{h} \times V_{h}\), \(\forall K \in \mathcal{T}_{h}\):} \\
 		& \begin{cases}
-			\int_{K} \sigma_h \cdot \tau_h \d x = -\int_{K} u_h \nabla\cdot\tau_h \d x + \oint_{\partial K} \widehat{u}_{h} \tau_h\cdot \bm n \d s \\
-			\int_{K} \sigma_h \cdot \nabla v_h \d x = \int_{K} f v_h \d x + \oint_{\partial K} v_h \widehat{\sigma}_{h} \cdot \bm n \d s
+			\int_{K} \bm\sigma_h \cdot \bm\tau_h \d x = -\int_{K} u_h \nabla \cdot \bm\tau_h \d x + \oint_{\partial K} \widehat{u}_{h} \bm\tau_h \cdot \bm n \d s \\
+			\int_{K} \bm\sigma_h \cdot \nabla v_h \d x = \int_{K} f v_h \d x + \oint_{\partial K} v_h \widehat{\bm\sigma}_{h} \cdot \bm n \d s
 		\end{cases}
 	\end{aligned}
 \end{equation}
 上面的第一式可以等价地写作：
 \begin{equation}
 	\begin{aligned}
-		& \forall \tau_{h} \in \Sigma_{h}, \forall K \in \mathcal{T}_{h}: \\
-		& \int_{K} \sigma_h \cdot \tau_h \d x = \int_{K} \tau_h \cdot \nabla u_h \d x + \oint_{\partial K} \left(\widehat{u}_{h} - u_h\right) \tau_h \cdot \bm n \d s
+		& \forall \bm\tau_{h} \in \Sigma_{h}, \forall K \in \mathcal{T}_{h}: \\
+		& \int_{K} \bm\sigma_h \cdot \bm\tau_h \d x = \int_{K} \bm\tau_h \cdot \nabla u_h \d x + \oint_{\partial K} \left(\widehat{u}_{h} - u_h\right) \bm\tau_h \cdot \bm n \d s
 	\end{aligned}
 \end{equation}
-当 \(\nabla_{h} V_{h} \subset \Sigma_{h}\) 时，上式等价于在每个单元 \(K\) 上都有：
+当 \(\nabla V(K) \subset \Sigma(K)\) 时，上式等价于在每个单元 \(K\) 上都有：
 \begin{subequations}
 	\begin{equation}
-		\sigma_h\big|_{K} = \nabla u_h \big|_{K} - e_{K}\left(\widehat{u}_{h} - u_{h}\right)
+		\bm\sigma_h = \nabla u_h - e_{K}\left(\widehat{u}_{h} - u_{h}\right)
 	\end{equation}
 	其中，局部提升算子 \(e_K: L^2(\partial K) \mapsto \Sigma(K)\) 如下给出：
 	\begin{equation}
 		\forall \tau_h \in \Sigma(K), 
-		\int_{K} e_{K}(q) \cdot \tau_h \d x = -\oint_{\partial K} q \tau_h \cdot n \d s
+		\int_{K} e_{K}(q) \cdot \bm\tau_h \d x = -\oint_{\partial K} q \bm\tau_h \cdot \bm n \d s
 	\end{equation}
 \end{subequations}
 
-将 \(\sigma_h\) 的表达式代入局部的 DG 格式\eqref{Local DG Scheme}，得到局部原始 DG 格式：
+将 \(\bm\sigma_h\) 的表达式代入局部的 DG 格式\eqref{Local DG Scheme}，得到局部原始 DG 格式：
 \begin{subequations}
 	\begin{equation}\label{Local Primal DG Scheme}
 		\begin{aligned}
@@ -199,7 +203,7 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 	其中，单元 \(K\) 上局部的双线性形为：
 	\begin{equation}
 		B_{K, h}\left[u_h, v_h\right]
-		= \int_{K} \nabla u_h \cdot \nabla v_h \d x + \oint_{\partial K} \left( \left(\widehat{u_{K}} - u_{h}\right) \nabla v_h - v_h \widehat{\sigma_{K}}\right) \cdot \bm n \d s
+		= \int_{K} \nabla u_h \cdot \nabla v_h \d x + \oint_{\partial K} \left( \left(\widehat{u}_{h} - u_{h}\right) \nabla v_h - v_h \widehat{\sigma}_{h}\right) \cdot \bm n \d s
 	\end{equation}
 \end{subequations}
 
@@ -209,31 +213,31 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 对局部的 DG 格式\eqref{Local DG Scheme}求和，得到全局的 DG 格式：
 \begin{equation}\label{Global DG Scheme}
 	\begin{aligned}
-		& \text{find \(\left(\sigma_{h}, u_{h}\right) \in \Sigma_{h} \times V_{h}\) such that \(\forall \left(\tau_{h}, v_{h}\right) \in \Sigma_{h} \times V_{h}\):} \\
+		& \text{find \(\left(\bm\sigma_{h}, u_{h}\right) \in \Sigma_{h} \times V_{h}\) such that \(\forall \left(\bm\tau_{h}, v_{h}\right) \in \Sigma_{h} \times V_{h}\):} \\
 		& \begin{cases}
-			\int_{\Omega} \sigma_h \cdot \tau_h \d x = -\int_{\Omega} u_h \nabla_h \cdot\tau_h \d x + \int_{\Gamma} \jump{\widehat{u}_{h}} \cdot \avg{\tau_h} \d s + \int_{\Gamma^o} \avg{\widehat{u}_{h}} \jump{\tau_h} \d s \\
-			\int_{\Omega} \sigma_h \cdot \nabla_h v_h \d x = \int_{\Omega} f v_h \d x + \int_{\Gamma} \avg{\widehat{\sigma}_{h}} \cdot \jump{v_h} \d s + \int_{\Gamma^o} \jump{\widehat{\sigma}_{h}} \avg{v_h} \d s
+			\int_{\Omega} \bm\sigma_h \cdot \bm\tau_h \d x = -\int_{\Omega} u_h \nabla_h \cdot \bm\tau_h \d x + \int_{\Gamma} \jump{\widehat{u}_{h}} \cdot \avg{\bm\tau_h} \d s + \int_{\Gamma^o} \avg{\widehat{u}_{h}} \jump{\bm\tau_{h}} \d s \\
+			\int_{\Omega} \bm\sigma_h \cdot \nabla_h v_h \d x = \int_{\Omega} f v_h \d x + \int_{\Gamma} \avg{\widehat{\bm\sigma}_{h}} \cdot \jump{v_{h}} \d s + \int_{\Gamma^{o}} \jump{\widehat{\bm\sigma}_{h}} \avg{v_h} \d s
 		\end{cases}
 	\end{aligned}
 \end{equation}
-当 \(\nabla_h V_{h} \subset \Sigma_{h}\) 时，\(\sigma_h\) 满足：
+当 \(\nabla_h V_{h} \subset \Sigma_{h}\) 时，\(\bm\sigma_h\) 满足：
 \begin{equation}
 	\begin{aligned}
-		\sigma_h
-		& = \nabla_h u_h - \sum_{K\in\mathcal{T}_{h}} e_{K}\left(\widehat{u}_{h} - u_h\right) \\
-		& = \nabla_h u_h - r\left(\jump{\widehat{u}_{h} - u_h}\right) - l\left(\avg{\widehat{u}_{h} - u_h}\right)
+		\bm\sigma_h
+		= & \nabla_h u_h - \sum_{K\in\mathcal{T}_{h}} e_{K}\left(\widehat{u}_{h} - u_h\right) \\
+		= & \nabla_h u_h - r\left(\jump{\widehat{u}_{h} - u_h}\right) - l\left(\avg{\widehat{u}_{h} - u_h}\right)
 	\end{aligned}
 \end{equation}
 这两个提升算子 \(r: \left(L^2(\Gamma)\right)^d \mapsto \Sigma_h\) 和 \(l: L^2(\Gamma^o) \mapsto \Sigma_h\) 由下式给出：
 \begin{subequations}
 	\begin{eqnarray}
-		&& \forall \tau \in \Sigma_h, \int_{\Omega} r(\varphi) \cdot \tau \d x = -\int_{\Gamma} \varphi \cdot \avg{\tau} \d s \\
-		&& \forall \tau \in \Sigma_h, \int_{\Omega} l(q) \cdot \tau \d x = -\int_{\Gamma^o} q \jump{\tau} \d s
+		&& \forall \bm\tau \in \Sigma_h, \int_{\Omega} r(\bm\varphi) \cdot \bm\tau \d x = -\int_{\Gamma} \bm\varphi \cdot \avg{\bm\tau} \d s \\
+		&& \forall \bm\tau \in \Sigma_h, \int_{\Omega} l(q) \cdot \bm\tau \d x = -\int_{\Gamma^{o}} q \jump{\tau} \d s
 	\end{eqnarray}
 \end{subequations}
 满足：
 \begin{equation}
-	r\left(\jump{q}\right) + l\left(\avg{q}\right) = \sum_{K\in\mathcal{T}_{h}} e_{k}\left(q\right)
+	r\left(\jump{q}\right) + l\left(\avg{q}\right) = \sum_{K\in\mathcal{T}_{h}} e_{K}\left(q\right)
 \end{equation}
 
 相应的，全局原始 DG 格式为：
@@ -249,8 +253,8 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 		\begin{aligned}
 			B_h(u_h, v_h)
 			= & \int_{\Omega} \nabla_h u_h \cdot \nabla_h v_h \d x \\
-			& + \int_{\Gamma} \left(\jump{\widehat{u}_{h} - u_h}\cdot\avg{\nabla_h v_h} - \jump{v_h}\cdot\avg{\widehat{\sigma}_{h}}\right) \d s\\
-			& + \int_{\Gamma^o} \left(\avg{\widehat{u}_{h} - u_h}\jump{\nabla_h v_h} - \avg{v_h}\jump{\widehat{\sigma}_{h}}\right) \d s
+			& + \int_{\Gamma} \left(\jump{\widehat{u}_{h} - u_h}\cdot\avg{\nabla_h v_h} - \jump{v_h}\cdot\avg{\widehat{\bm\sigma}_{h}}\right) \d s\\
+			& + \int_{\Gamma^{o}} \left(\avg{\widehat{u}_{h} - u_h}\jump{\nabla_h v_h} - \avg{v_h}\jump{\widehat{\bm\sigma}_{h}}\right) \d s
 		\end{aligned}
 	\end{equation}
 \end{subequations}
@@ -285,12 +289,12 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 \begin{equation}\label{Matrix Form of Local Primal DG Scheme}
 	\begin{aligned}
 		& \bm{D}_{K}^{T} \left(\bm I_{d} \otimes \bm{M}_{K}\right) \bm{D}_{K}\bm{u}_{K} \\
-		&+ \sum\limits_{i=1}^{b} \bm{D}_{K}^{T} \left(\bm{n}_{K, i} \otimes \bm{T}_{K, i}^{T}\right) \bm{m}_{K, i} \left(\widehat{\bm{u}_{K, i}} - T_{k, i} \bm{u}_{K}\right) \\
-		&- \sum_{i=1}^{b} \bm{T}_{K, i}^{T} \bm{m}_{K, i} \left(\bm{n}_{K, i}^T \otimes \bm{I}\right) \widehat{\bm{\sigma}_{K, i}} \\
-		=& \bm{M}_{K} \bm{f}_{K}
+		& + \sum\limits_{i=1}^{b} \bm{D}_{K}^{T} \left(\bm{n}_{K, i} \otimes \bm{T}_{K, i}^{T}\right) \bm{m}_{K, i} \left(\widehat{\bm{u}_{K, i}} - T_{k, i} \bm{u}_{K}\right) \\
+		& - \sum_{i=1}^{b} \bm{T}_{K, i}^{T} \bm{m}_{K, i} \left(\bm{n}_{K, i}^T \otimes \bm{I}\right) \widehat{\bm{\sigma}_{K, i}} \\
+		= & \bm M_{K} \bm{f}_{K}
 	\end{aligned}
 \end{equation}
-这里，向量值函数的自由度排列为 \(\bm\sigma = \left(\sigma^{(1)T}, \sigma^{(2)T}, \cdots, \sigma^{(d)T}\right)^{T}\).
+这里，向量值函数的自由度排列为 \(\bm\sigma = \left(\bm\sigma^{(1)T}, \bm\sigma^{(2)T}, \cdots, \bm\sigma^{(d)T}\right)^{T}\).
 
 
 \subsubsection{1D Case Matrix}
@@ -467,23 +471,23 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 LDG 格式的数值通量\cite{10.1137/S0036142997316712}为：
 \begin{subequations}\label{LDG numerical flux}
 	\begin{eqnarray}
-		&& \widehat{\sigma}_{h}\big|_{e} = \begin{cases}
-			\avg{\sigma_{h}} - \bm C_{12} \jump{\sigma_{h}} - C_{11} \jump{u_{h}}, & e \in \mathcal{E}_{h}^{o} \\
-			\sigma_{h} - C_{11} \left(u_{h} - g_{D}\right)\bm{n}, & e \in \mathcal{E}_{h}^{D} \\
+		&& \widehat{\bm\sigma}_{h}\big|_{e} = \begin{cases}
+			\avg{\bm\sigma_{h}} - \bm C_{12} \jump{\bm\sigma_{h}} - C_{11} \jump{u_{h}}, & e \in \mathcal{E}_{h}^{o} \\
+			\bm\sigma_{h} - C_{11} \left(u_{h} - g_{D}\right)\bm{n}, & e \in \mathcal{E}_{h}^{D} \\
 			\bm g_{N}, & e \in \mathcal{E}_{h}^{N}
 		\end{cases} \\
 		&& \widehat{u}_{h}\big|_{e} = \begin{cases}
-			\avg{u_{h}} + \bm C_{12} \cdot \jump{u_{h}} - C_{22} \jump{\sigma_{h}}, & e \in \mathcal{E}_{h}^{o} \\
+			\avg{u_{h}} + \bm C_{12} \cdot \jump{u_{h}} - C_{22} \jump{\bm\sigma_{h}}, & e \in \mathcal{E}_{h}^{o} \\
 			g_{D}, & e \in \mathcal{E}_{h}^{D} \\
-			u_{h} - C_{22} \left(\sigma_{h} - g_{N}\right) \cdot \bm n, & e \in \mathcal{E}_{h}^{N}
+			u_{h} - C_{22} \left(\bm\sigma_{h} - \bm g_{N}\right) \cdot \bm n, & e \in \mathcal{E}_{h}^{N}
 		\end{cases}
 	\end{eqnarray}
 \end{subequations}
-这里，\(C_{11}, \bm C_{12}, C_{22}\) 在每条边 \(e \in \mathcal{E}_{h}\) 上是常值\footnote{在边界面 \(e\in\mathcal{E}_{h}^{\partial}\) 上，\(\bm C_{12}\) 未定义。}。特别地，当且仅当 \(C_{22} \equiv 0\) 时，可以局部地通过 \(u_{h}\) 求出 \(\sigma_{h}\)，整套方法才是 LDG 方法。
+这里，\(C_{11}, \bm C_{12}, C_{22}\) 在每条边 \(e \in \mathcal{E}_{h}\) 上是常值\footnote{在边界面 \(e\in\mathcal{E}_{h}^{\partial}\) 上，\(\bm C_{12}\) 未定义。}。特别地，当且仅当 \(C_{22} \equiv 0\) 时，可以局部地通过 \(u_{h}\) 求出 \(\sigma_{h}\)，整套方法才是狭义的 LDG 方法。
 
-LDG 有误差估计\cite{10.1137/S0036142900371003}：对于一般的任意网格情形而言，当 \(\bm C_{12} = \mathcal{O}(1)\)时，\(\bm C_{12}\) 对代数方程组的可解性和误差估计无影响；当 \(C_{11} > 0\) 时，代数方程组可解；当 \(C_{11} = \mathcal{\Theta}(h^{-1})\) 时，对光滑解 \(\left(\sigma, u\right)\) 的 \(L^2\) 误差阶为 \(\left(k, k+1\right)\)；当 \(C_{11} = \mathcal{\Theta}(1)\) 时，对光滑解 \(\left(\sigma, u\right)\) 的 \(L^2\) 误差阶为 \(\left(k, k+\frac{1}{2}\right)\)；当 \(k\geqslant 1\) 时数值解收敛。同时，恰当地选取 \(\bm C_{12}\) 可以减小模板，从而减少矩阵非零元个数，例如取 \(\bm C_{12}\) 使得 \(\bm C_{12}\cdot\bm n \equiv \pm\frac{1}{2}\) \cite{10.1137/070685518}.
+LDG 有误差估计\cite{10.1137/S0036142900371003}：对于一般的任意网格情形而言，当 \(\bm C_{12} = \mathcal{O}(1)\)时，\(\bm C_{12}\) 对代数方程组的可解性和误差估计无影响；当 \(C_{11} > 0\) 时，代数方程组可解；当 \(C_{11} = \mathcal{\Theta}(h^{-1})\) 时，对光滑解 \(\left(\bm\sigma, u\right)\) 的 \(L^2\) 误差阶为 \(\left(k, k+1\right)\)；当 \(C_{11} = \mathcal{\Theta}(1)\) 时，对光滑解 \(\left(\bm\sigma, u\right)\) 的 \(L^2\) 误差阶为 \(\left(k, k+\frac{1}{2}\right)\)；当 \(k\geqslant 1\) 时数值解收敛。同时，恰当地选取 \(\bm C_{12}\) 可以减小模板，从而减少矩阵非零元个数，例如取 \(\bm C_{12}\) 使得 \(\bm C_{12}\cdot\bm n \equiv \pm\frac{1}{2}\) \cite{10.1137/070685518}.
 
-为了减小数值耗散，当使用单纯形单元时，实际上只需要 \(C_{11}\big|_{\Gamma^{D}} = \mathcal{\Theta}(h^{-1})\) 且 \(C_{11}\big|_{\Gamma} \geqslant 0\)，同时每一个单元的至少一条边 \(e\) 满足 \(\bm C_{12}\cdot\bm n = \frac{1}{2}\) 或者 \(e\in\mathcal{E}_{h} \backslash \mathcal{E}_{h}^{o}\)，即可达到对光滑 \(\left(\sigma, u\right)\) 的 \(\left(k, k+1\right)\) 阶收敛(\(k>0\))，此格式被称作 MD-LDG 格式\cite{10.1007/s10915-007-9130-3}。
+为了减小数值耗散，当使用单纯形单元时，实际上只需要 \(C_{11}\big|_{\Gamma^{D}} = \mathcal{\Theta}(h^{-1})\) 且 \(C_{11}\big|_{\Gamma} \geqslant 0\)，同时每一个单元的至少一条边 \(e\) 满足 \(\bm C_{12}\cdot\bm n = \frac{1}{2}\) 或者 \(e\in\mathcal{E}_{h} \backslash \mathcal{E}_{h}^{o}\)，即可达到对光滑 \(\left(\bm\sigma, u\right)\) 的 \(\left(k, k+1\right)\) 阶收敛(\(k>0\))，此格式被称作 MD-LDG 格式\cite{10.1007/s10915-007-9130-3}。
 
 取空间为：
 \begin{subequations}
@@ -497,24 +501,24 @@ LDG 有误差估计\cite{10.1137/S0036142900371003}：对于一般的任意网�
 \begin{subequations}\label{LDG weak form}
 	\begin{equation}
 		\begin{aligned}
-			& \text{find \(\left(\sigma_{h}, u_{h}\right)  \in \Sigma_{h} \times V_{h}\) such that \(\forall \left(\tau_{h}, v_{h}\right) \in \Sigma_{h} \times V_{h}\):} \\
+			& \text{find \(\left(\bm\sigma_{h}, u_{h}\right)  \in \Sigma_{h} \times V_{h}\) such that \(\forall \left(\bm\tau_{h}, v_{h}\right) \in \Sigma_{h} \times V_{h}\):} \\
 			& \begin{cases}
-				a_{h}\left(\sigma_{h}, \tau_h\right) + b_{h}\left(\tau_{h}, u_{h}\right) = F_{h}\left(\tau_{h}\right) \\
-				b_{h}\left(\sigma_{h}, v_{h}\right) - c_{h}\left(u_{h}, v_{h}\right) = - G_{h}\left(v_{h}\right)
+				a_{h}\left(\bm\sigma_{h}, \bm\tau_h\right) + b_{h}\left(\bm\tau_{h}, u_{h}\right) = F_{h}\left(\bm\tau_{h}\right) \\
+				b_{h}\left(\bm\sigma_{h}, v_{h}\right) - c_{h}\left(u_{h}, v_{h}\right) = - G_{h}\left(v_{h}\right)
 			\end{cases}
 		\end{aligned}
 	\end{equation}
 	其中：
 	\begin{eqnarray}
-		&& a_{h}\left(\sigma_{h}, \tau_{h}\right) = \sum_{K\in\mathcal{T}_{h}} \int_{K} \sigma_{h} \cdot \tau_{h} \d x + \int_{\Gamma^{o}} C_{22} \jump{\sigma_{h}} \jump{\tau_{h}} \d s + \int_{\Gamma^{N}} C_{22} (\sigma_{h} \cdot \bm n) (\tau_{h} \cdot \bm n) \d s \\
+		&& a_{h}\left(\bm\sigma_{h}, \bm\tau_{h}\right) = \sum_{K\in\mathcal{T}_{h}} \int_{K} \bm\sigma_{h} \cdot \bm\tau_{h} \d x + \int_{\Gamma^{o}} C_{22} \jump{\bm\sigma_{h}} \jump{\bm\tau_{h}} \d s + \int_{\Gamma^{N}} C_{22} (\bm\sigma_{h} \cdot \bm n) (\bm\tau_{h} \cdot \bm n) \d s \\
 		&& \begin{aligned}
-			b_{h}\left(\tau_{h}, u_{h}\right)
-			& = \sum_{K\in\mathcal{T}_{h}} \int_{K} u_{h} \nabla \cdot \tau_{h} \d x - \int_{\Gamma^{o}} \left(\avg{u_{h}} + \bm{C}_{12} \cdot \jump{u_{h}}\right) \jump{\tau_{h}} \d s - \int_{\Gamma^{N}} u_{h} \tau_{h} \cdot n \d s \\
-			& = -\sum_{K\in\mathcal{T}_{h}} \int_{K} \tau_{h} \cdot \nabla u_{h} \d x + \int_{\Gamma^{o}} \left(\avg{\tau_{h}} - \bm C_{12} \jump{\tau_{h}}\right) \cdot \jump{u_{h}} \d s + \int_{\Gamma^{D}} u_{h} \tau_{h} \cdot \bm n \d s
+			b_{h}\left(\bm\tau_{h}, u_{h}\right)
+			= & \sum_{K\in\mathcal{T}_{h}} \int_{K} u_{h} \nabla \cdot \bm\tau_{h} \d x - \int_{\Gamma^{o}} \left(\avg{u_{h}} + \bm{C}_{12} \cdot \jump{u_{h}}\right) \jump{\bm\tau_{h}} \d s - \int_{\Gamma^{N}} u_{h} \bm\tau_{h} \cdot \bm n \d s \\
+			= & - \sum_{K\in\mathcal{T}_{h}} \int_{K} \bm\tau_{h} \cdot \nabla u_{h} \d x + \int_{\Gamma^{o}} \left(\avg{\bm\tau_{h}} - \bm C_{12} \jump{\bm\tau_{h}}\right) \cdot \jump{u_{h}} \d s + \int_{\Gamma^{D}} u_{h} \bm\tau_{h} \cdot \bm n \d s
 		\end{aligned} \\
 		&& c_{h}\left(u_{h}, v_{h}\right) = \int_{\Gamma^{o}} C_{11} \jump{u_{h}} \cdot \jump{v_{h}} \d s + \int_{\Gamma^{D}} C_{11} u_{h} v_{h} \d s \\
-		&& F_{h}(\tau_{h}) = \int_{\Gamma^{D}} g_{D} \tau_{h} \cdot \bm n \d s + \int_{\Gamma^{N}} C_{22} \left(\bm g_{N} \cdot \bm n\right) \left(\tau_{h} \cdot \bm n\right) \d s \\
-		&& G_{h}(v_{h}) = \sum_{K\in\mathcal{T}_{h}} \int_{K} f v_{h} \d x + \int_{\Gamma^{D}} C_{11} g_{D} v_{h} \d s + \int_{\Gamma^{N}} v_{h} \bm g_{N} \cdot \bm n \d s
+		&& F_{h}\left(\bm\tau_{h}\right) = \int_{\Gamma^{D}} g_{D} \bm\tau_{h} \cdot \bm n \d s + \int_{\Gamma^{N}} C_{22} \left(\bm g_{N} \cdot \bm n\right) \left(\bm\tau_{h} \cdot \bm n\right) \d s \\
+		&& G_{h}\left(v_{h}\right) = \sum_{K\in\mathcal{T}_{h}} \int_{K} f v_{h} \d x + \int_{\Gamma^{D}} C_{11} g_{D} v_{h} \d s + \int_{\Gamma^{N}} v_{h} \bm g_{N} \cdot \bm n \d s
 	\end{eqnarray}
 \end{subequations}
 
@@ -526,14 +530,16 @@ LDG 方程组\eqref{LDG weak form}等价的(带稳定项的)鞍点问题为\foot
 \begin{subequations}\label{LDG saddle-point problem}
 	\begin{equation}
 		\begin{aligned}
-			& \text{find \(\left(\sigma_{h}, u_{h}\right) \in \Sigma_{h} \times V_{h}\) such that \(\forall \left(\tau_{h}, v_{h}\right) \in \Sigma_{h} \times V_{h}\):} \\
-			& L_{h}\left(\sigma_{h}, v_{h}\right) \leqslant L_{h}\left(\sigma_{h}, u_{h}\right) \leqslant L_{h}\left(\tau_{h}, u_{h}\right)
+			& \text{find \(\left(\bm\sigma_{h}, u_{h}\right) \in \Sigma_{h} \times V_{h}\) such that \(\forall \left(\bm\tau_{h}, v_{h}\right) \in \Sigma_{h} \times V_{h}\):} \\
+			& L_{h}\left(\bm\sigma_{h}, v_{h}\right) 
+			\leqslant L_{h}\left(\bm\sigma_{h}, u_{h}\right) 
+			\leqslant L_{h}\left(\bm\tau_{h}, u_{h}\right)
 		\end{aligned}
 	\end{equation}
-	其中：
+	其中，泛函 \(L_{h}(\cdot, \cdot): \Sigma_{h} \times V_{h} \mapsto \R\) 如下：
 	\begin{equation}
-		L_{h}\left(\tau_{h}, v_{h}\right)
-		= \frac{1}{2}a_{h}\left(\tau_{h}, \tau_{h}\right) + b_{h}\left(\tau_{h}, v_{h}\right) - \frac{1}{2}c_{h}\left(v_{h}, v_{h}\right) - F_{h}\left(\tau_{h}\right) + G_{h}\left(v_{h}\right)
+		L_{h}\left(\bm\tau_{h}, v_{h}\right)
+		= \frac{1}{2} a_{h}\left(\bm\tau_{h}, \bm\tau_{h}\right) + b_{h}\left(\bm\tau_{h}, v_{h}\right) - \frac{1}{2} c_{h}\left(v_{h}, v_{h}\right) - F_{h}\left(\bm\tau_{h}\right) + G_{h}\left(v_{h}\right)
 	\end{equation}
 \end{subequations}
 
@@ -541,50 +547,50 @@ LDG 方程组\eqref{LDG weak form}等价的(带稳定项的)鞍点问题为\foot
 \begin{theorem}[Well-posedness\cite{10.1137/S0036142900371003, 10.1007/s10915-007-9130-3}]
 	当 \(C_{11}, C_{22} \geqslant 0\) 时，若至少有一条边上是 Dirichlet 边界条件，且以下两条至少成立一条：
 	\begin{enumerate}
-		\item \(C_{11} > 0\) 恒成立。
+		\item \(C_{11} > 0\) 恒成立；
 		\item 单元都是单纯形，\(C_{11} > 0\) 在 Dirichlet 边界上成立，同时每个单元有至少一条边 \(e\) 满足两条件之一：(1) \(\bm C_{12}\cdot\bm n = \frac{1}{2}\)，(2) \(e\in\mathcal{E}_{h}\backslash\mathcal{E}_{h}^{o}\).
 	\end{enumerate}
 	那么 LDG 问题\eqref{LDG weak form}存在唯一解。
 
 	\begin{proof}
-		对于此线性问题，我们只需要证明当右端项全部为 \(0\) 时，方程仅有平凡解。事实上，当右端项全部为 \(0\) 时，取测试函数 \(\left(\tau_{h}, v_{h}\right) = \left(\sigma_{h}, u_{h}\right)\)，我们有：
+		对于此线性问题，我们只需要证明当右端项全部为 \(0\) 时，方程仅有平凡解。事实上，当右端项全部为 \(0\) 时，取测试函数 \(\left(\bm\tau_{h}, v_{h}\right) = \left(\bm\sigma_{h}, u_{h}\right)\)，我们有：
 		\begin{equation*}
-			\norm{\sigma_{h}}_{L^2(\Omega)}^2 + \norm{\jump{\sigma_{h}}}_{L^2(\Gamma^{o}, C_{22})}^2 + \norm{\sigma_{h}\cdot\bm n}_{L^2(\Gamma^{N}, C_{22})}^2 + \norm{\jump{u_{h}}}_{L^2(\Gamma^{o}, C_{11})}^2 + \norm{u_{h}}_{L^2(\Gamma^{D}, C_{11})}^2 = 0
+			\norm{\bm\sigma_{h}}_{L^2(\Omega)}^2 + \norm{\jump{\bm\sigma_{h}}}_{L^2(\Gamma^{o}, C_{22})}^2 + \norm{\bm\sigma_{h}\cdot\bm n}_{L^2(\Gamma^{N}, C_{22})}^2 + \norm{\jump{u_{h}}}_{L^2(\Gamma^{o}, C_{11})}^2 + \norm{u_{h}}_{L^2(\Gamma^{D}, C_{11})}^2 = 0
 		\end{equation*}
-		这说明 \(\sigma_{h} = 0\)，\(b_{h}(u_{h}, \cdot) = 0\)，\(\forall e \in \mathcal{E}_{h}^{o}, C_{11}\jump{u_{h}} = \bm 0\)，\(\forall e \in \mathcal{E}_{h}^{D}, C_{11}u_{h} = 0\). 
+		这说明 \(\bm\sigma_{h} = \bm 0\)，\(b_{h}(\cdot, u_{h}) = 0\)，\(\forall e \in \mathcal{E}_{h}^{o}, C_{11}\jump{u_{h}} = \bm 0\)，\(\forall e \in \mathcal{E}_{h}^{D}, C_{11}u_{h} = 0\). 
 
 		若 \(C_{11} > 0\) 恒成立，那么易推出 \(u_{h} \equiv 0\)，得证。
 
-		若仅要求 \(C_{11}\big|_{\Gamma^{D}} > 0\)，那么 \(u_{h}\big|_{\Gamma^{D}} = 0\). 注意到 \(b_{h}(u_{h}, \cdot) = 0\) 等价于：
+		若仅要求 \(C_{11}\big|_{\Gamma^{D}} > 0\)，那么 \(u_{h}\big|_{\Gamma^{D}} = 0\). 注意到 \(b_{h}(\cdot, u_{h}) = 0\) 等价于：
 		\begin{equation*}
 			\begin{aligned}
-				& \forall K, \forall \tau_{h} \in \Sigma(K): \\
-				& \int_{K} \tau_{h} \cdot \nabla u_{h} \d x + \oint_{\partial K} \left(\widehat{u}_{h} - u_{h}\right) \tau_{h} \cdot \bm n \d s = 0
+				& \forall \bm\tau_{h} \in \Sigma_{h}, \forall K \in \mathcal{T}_{h}: \\
+				& \int_{K} \bm\tau_{h} \cdot \nabla u_{h} \d x + \oint_{\partial K} \left(\widehat{u}_{h} - u_{h}\right) \bm\tau_{h} \cdot \bm n \d s = 0
 			\end{aligned}
 		\end{equation*}
 		同时，此时有：
 		\begin{equation*}
 			\widehat{u}_{h} - u_{h}
-			=\begin{cases}
-				\left(\bm C_{12} - \frac{\bm n_{e}}{2}\right)\cdot\jump{u_{h}} - C_{22}\jump{\sigma_{h}} = \left(\bm C_{12} - \frac{\bm n_{e}}{2}\right)\cdot\jump{u_{h}}, & e\in\mathcal{E}_{h}^{o} \\
+			= \begin{cases}
+				\left(\bm C_{12} - \frac{\bm n_{e}}{2}\right)\cdot\jump{u_{h}} - C_{22}\jump{\bm\sigma_{h}} = \left(\bm C_{12} - \frac{\bm n_{e}}{2}\right)\cdot\jump{u_{h}}, & e\in\mathcal{E}_{h}^{o} \\
 				g_{D} - u_{h} = -u_{h} = 0, & e\in\mathcal{E}_{h}^{D} \\
 				0, & e\in\mathcal{E}_{h}^{N}
 			\end{cases}
 		\end{equation*}
-		因此，当单元 \(K\) 都是单纯形时，使用测试函数 \(\tau_{h} \in \Sigma_{h}\) 满足\cite{10.1007/s10915-007-9130-3}：
+		因此，当单元 \(K\) 都是单纯形时，取测试函数 \(\bm\bm\tau_{h} \in \Sigma_{h}\) 满足\cite[Lemma 3.2]{10.1007/s10915-007-9130-3}：
 		\begin{equation*}
 			\forall K \in \mathcal{T}_{h},
 			\begin{cases}
 				\left(\tau_{h} - \nabla u_{h}\right) \perp \left(\mathscr{P}^{k-1}(K)\right)^d \\
-				\left(\tau_{h} \cdot \bm n_{e} - \left(\widehat{u}_{h} - u_{h}\right)\right) \perp \mathscr{P}^{k}(e), & \forall e \in \B{e_1, \cdots, e_d} \subsetneqq \mathcal{E}_{h}^{K}
+				\left(\bm\tau_{h} \cdot \bm n - \left(\widehat{u}_{h} - u_{h}\right)\right) \perp \mathscr{P}^{k}(e), & \forall e \in \B{e_1, \cdots, e_d} \subsetneqq \mathcal{E}_{h}^{K}
 			\end{cases}
 		\end{equation*}
-		此处，取 \(K\) 的边 \(e_{d+1}\) 使得其上有 \(\widehat{u}_{h} - u_{h} = 0\). 那么：
+		此处，利用条件2，总可以取 \(K\) 的边 \(e_{d+1}\) 使得其上有 \(\widehat{u}_{h} - u_{h} = 0\). 那么：
 		\begin{equation*}
-			0 = b_{h}\left(u_{h}, \tau_{h}\right)
+			0 = b_{h}\left(\bm\tau_{h}, u_{h}\right)
 			= - \sum_{K \in \mathcal{T}_{h}} \left(\norm{\nabla u_{h}}_{L^2(K)}^2 + \norm{\widehat{u}_{h} - u_{h}}_{L^2(\partial K)}^2\right)
 		\end{equation*}
-		因此，\(u_{h} = C_{K}\) 且 \(\widehat{u}_{h} - u_{h} = 0\)，同时可知 \(\jump{u_{h}}\big|_{\Gamma^{o}} = \bm 0\)，从而 \(u_{h} \equiv C\). 因为在 Dirichlet 边界处有 \(u_{h}\big|_{\Gamma^{D}} = 0\)，于是 \(u_{h} \equiv 0\)，得证。
+		因此，\(u_{h}\big|_{K} = C_{K}\) 且 \(\widehat{u}_{h} - u_{h} = 0\)，同时可知 \(\jump{u_{h}}\big|_{\Gamma^{o}} = \bm 0\)，从而 \(u_{h} = C\). 因为在 Dirichlet 边界处有 \(u_{h}\big|_{\Gamma^{D}} = 0\)，于是 \(u_{h} = 0\)，得证。
 	\end{proof}
 \end{theorem}
 
@@ -598,15 +604,15 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 		\bm B & -\bm C
 	\end{pmatrix}
 	\begin{pmatrix}
-		\bm\sigma \\
-		\bm u
+		[\bm\sigma] \\
+		[\bm u]
 	\end{pmatrix}
 	= \begin{pmatrix}
 		\bm F \\
 		-\bm G
 	 \end{pmatrix}
 \end{equation}
-这里，\(\bm A\) 是 \(\Sigma_{h}\) 的质量矩阵，对称正定、分块对角，可以显式求逆。利用 Schur 补，可以将 \(\bm\sigma\) 用 \(\bm u\) 局部地显示表示(模板只涉及自己与邻居单元)，这是 LDG 的特性：
+这里，\(\bm A\) 是 \(\Sigma_{h}\) 的质量矩阵，对称正定、分块对角，可以显式求逆。利用 Schur 补，可以将 \([\bm\sigma]\) 用 \([\bm u]\) 局部地\footnote{这里，“局部”指的是模板只涉及自己与邻居单元。}显式表示，这是 LDG 的特性：
 
 \begin{lemma}[Schur complement]
 	LDG 线性代数方程组\eqref{LDG linear equations}的系数矩阵是对称不定的，其 Schur 补公式和求逆公式如下给出，并且 Schur 补矩阵 \(\bm S = \bm C + \bm B \bm A^{-1} \bm B^{T}\) 是对称正定的。
@@ -652,8 +658,8 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 	LDG 线性代数方程组\eqref{LDG linear equations}的求解算法为：
 	\begin{subequations}
 		\begin{eqnarray}
-			&& \bm u = \bm S^{-1} \left(\bm G + \bm B \bm A^{-1} \bm F\right) \\
-			&& \bm\sigma = \bm A^{-1}\left(\bm F - \bm B^T \bm u\right)
+			&& [\bm u] = \bm S^{-1} \left(\bm G + \bm B \bm A^{-1} \bm F\right) \\
+			&& [\bm\sigma] = \bm A^{-1}\left(\bm F - \bm B^T \bm u\right)
 		\end{eqnarray}
 	\end{subequations}
 \end{corollary}
@@ -674,7 +680,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 
 			\cline{3-10}
 
-			& & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\sigma - \sigma_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\sigma - \sigma_{h}}_{L^2(\Omega)}\)} \\
+			& & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2(\Omega)}\)} \\
 
 			& & error & order & error & order & error & order & error & order \\
 
@@ -739,7 +745,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 
 			\cline{3-10}
 
-			& & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\sigma - \sigma_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\sigma - \sigma_{h}}_{L^2(\Omega)}\)} \\
+			& & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2(\Omega)}\)} \\
 
 			& & error & order & error & order & error & order & error & order \\
 
@@ -793,7 +799,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 	\end{center}
 \end{table}
 
-当 \(\alpha = 1\) 时，数值结果显示出对 \((\sigma, u)\) 的 \((k, k+1)\) 阶收敛(\(k \geqslant 1\))，符合文章\cite{10.1137/S0036142900371003}中的估计。除此之外，我们还观察到 \(C_{12}\) 的取值对数值结果的影响：
+当 \(\alpha = 1\) 时，数值结果显示出对 \((\bm\sigma, u)\) 的 \((k, k+1)\) 阶收敛(\(k \geqslant 1\))，符合文章\cite{10.1137/S0036142900371003}中的估计。除此之外，我们还观察到 \(C_{12}\) 的取值对数值结果的影响：
 \begin{enumerate}
 	\item 当 \(k\) 是偶数时，\(C_{12}\) 不同取值下，误差基本相同；
 	\item 当 \(k\) 是奇数时，\(C_{12} = \frac{1}{2}\) 的误差明显小于 \(C_{12} = 0\) 的误差。
@@ -801,11 +807,11 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 
 当 \(\alpha = 0\) 时，数值结果的收敛阶(\(k \geqslant 1\))比文章\cite{10.1137/S0036142900371003}中的估计更优，具体如下：
 \begin{enumerate}
-	\item 当 \(k\geqslant 0\)，\(C_{12} = \frac{1}{2}\) 时，观察到对 \((\sigma, u)\) 的 \((k+1, k+1)\) 阶收敛，这符合笛卡尔网格上的超收敛结果\cite{10.1090/S0025-5718-01-01317-5, 10.1137/S0036142900371544}；
+	\item 当 \(k\geqslant 0\)，\(C_{12} = \frac{1}{2}\) 时，观察到对 \((\bm\sigma, u)\) 的 \((k+1, k+1)\) 阶收敛，这符合笛卡尔网格上的超收敛结果\cite{10.1090/S0025-5718-01-01317-5, 10.1137/S0036142900371544}；
 	\item 当 \(k \geqslant 0\)，\(C_{12} = 0\) 时：\begin{enumerate}
-		\item 若 \(k = 0\)，观察到对 \((\sigma, u)\) 的 \((1, 1)\) 阶收敛；
-		\item 若 \(k > 1\) 是偶数，观察到对 \((\sigma, u)\) 的 \((k+1, k+2)\) 阶收敛；
-		\item 若 \(k\) 是奇数，观察到对 \((\sigma, u)\) 的 \((k, k+1)\) 阶收敛。
+		\item 若 \(k = 0\)，观察到对 \((\bm\sigma, u)\) 的 \((1, 1)\) 阶收敛；
+		\item 若 \(k > 1\) 是偶数，观察到对 \((\bm\sigma, u)\) 的 \((k+1, k+2)\) 阶收敛；
+		\item 若 \(k\) 是奇数，观察到对 \((\bm\sigma, u)\) 的 \((k, k+1)\) 阶收敛。
 	\end{enumerate}
 \end{enumerate}
 
@@ -887,17 +893,18 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = \exp\left(\sin(x)\right)\)，采用 Neumann 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-\alpha}\)，其中 \(\eta = 1\). 我们使用 Lobatto 配点法，并使用相同点数的 Gauss-Legendre 公式进行源项 \(f\) 的数值积分和误差测量。通过添加 Lagrange 乘子\cite{10.1007/BF01436561}，该问题的方程组为：
 \begin{equation}
 	\begin{aligned}
-		& \text{find \(\left(\sigma_{h}, u_{h}, \lambda\right)  \in \Sigma_{h} \times V_{h} \times \R\) such that \(\forall \left(\tau_{h}, v_{h}, \xi\right) \in \Sigma_{h} \times V_{h} \times \R\):} \\
+		& \text{find \(\left(\bm\sigma_{h}, u_{h}, \lambda\right) \in \Sigma_{h} \times V_{h} \times \R\) such that \(\forall \left(\bm\tau_{h}, v_{h}, \xi\right) \in \Sigma_{h} \times V_{h} \times \R\):} \\
 		& \begin{cases}
-			a_{h}\left(\sigma_{h}, \tau_h\right) + b_{h}\left(\tau_{h}, u_{h}\right) = F_{h}\left(\tau_{h}\right) \\
-			b_{h}\left(\sigma_{h}, v_{h}\right) - c_{h}\left(u_{h}, v_{h}\right) + \left(\lambda, v_{h}\right) = -G_{h}\left(v_{h}\right) \\
+			a_{h}\left(\bm\sigma_{h}, \bm\tau_h\right) + b_{h}\left(\bm\tau_{h}, u_{h}\right) = F_{h}\left(\bm\tau_{h}\right) \\
+			b_{h}\left(\bm\sigma_{h}, v_{h}\right) - c_{h}\left(u_{h}, v_{h}\right) + \left(\lambda, v_{h}\right) = -G_{h}\left(v_{h}\right) \\
 			\left(u_{h}, \xi\right) = c_0 \xi
 		\end{cases}
 	\end{aligned}
 \end{equation}
-这里，\(c_0\in\R\) 可以任取。为了方便测试精度，我们取
+这里，\(c_0 \in \R\) 可以任取。为了方便测试精度，我们取
 \begin{equation}
-	c_0 = \int_{\Omega}u(x)\d x \approx 14.163684556723955471
+	c_0 = \int_{\Omega} u(x)\d x
+	\approx 14.163684556723955471
 \end{equation}
 测试结果如表\ref{table: 1D Poisson Neumann LDG alpha=1}、\ref{table: 1D Poisson Neumann LDG alpha=0}所示。
 
@@ -912,7 +919,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 
 			\cline{3-10}
 
-			& & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\sigma - \sigma_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\sigma - \sigma_{h}}_{L^2(\Omega)}\)} \\
+			& & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2(\Omega)}\)} \\
 
 			& & error & order & error & order & error & order & error & order \\
 
@@ -977,7 +984,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 
 			\cline{3-10}
 
-			& & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\sigma - \sigma_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\sigma - \sigma_{h}}_{L^2(\Omega)}\)} \\
+			& & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2(\Omega)}\)} \\
 
 			& & error & order & error & order & error & order & error & order \\
 
@@ -1031,24 +1038,37 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 	\end{center}
 \end{table}
 
-当 \(\alpha = 1\) 时，数值结果显示出对 \((\sigma, u)\) 的 \((k, k+1)\) 阶收敛(\(k \geqslant 1\))，与 Dirichlet 情形下相同。
+当 \(\alpha = 1\) 时，数值结果显示出对 \((\bm\sigma, u)\) 的 \((k, k+1)\) 阶收敛(\(k \geqslant 1\))，与 Dirichlet 情形下相同。
 
 当 \(\alpha = 0\) 时，数值结果的收敛阶较为复杂，具体如下：
 \begin{enumerate}
-	\item 当 \(k\geqslant 0\)，\(C_{12} = \frac{1}{2}\) 时，观察到对 \((\sigma, u)\) 的 \((k+\frac{1}{2}, k+1)\) 阶收敛，比文章\cite{10.1137/S0036142900371003}中的估计高了 \(\frac{1}{2}\) 阶；
+	\item 当 \(k\geqslant 0\)，\(C_{12} = \frac{1}{2}\) 时，观察到对 \((\bm\sigma, u)\) 的 \((k+\frac{1}{2}, k+1)\) 阶收敛，比文章\cite{10.1137/S0036142900371003}中的估计高了 \(\frac{1}{2}\) 阶；
 	\item 当 \(k \geqslant 0\)，\(C_{12} = 0\) 时：\begin{enumerate}
-		\item 若 \(k = 0\)，观察到对 \((\sigma, u)\) 的 \((1, 1)\) 阶收敛；
-		\item 若 \(k > 1\) 是偶数，观察到对 \((\sigma, u)\) 的 \((k+1, k+2)\) 阶收敛；
-		\item 若 \(k\) 是奇数，观察到对 \((\sigma, u)\) 的 \((k, k+1)\) 阶收敛。
+		\item 若 \(k = 0\)，观察到对 \((\bm\sigma, u)\) 的 \((1, 1)\) 阶收敛；
+		\item 若 \(k > 1\) 是偶数，观察到对 \((\bm\sigma, u)\) 的 \((k+1, k+2)\) 阶收敛；
+		\item 若 \(k\) 是奇数，观察到对 \((\bm\sigma, u)\) 的 \((k, k+1)\) 阶收敛。
 	\end{enumerate}
 \end{enumerate}
 
 
 \subsubsection{Numerical Example (2D Dirichlet)}
 
-取多边形区域 \(\Omega = \B{(x,y) \big| -1\leqslant x, y \leqslant 1, y-x+1\geqslant 0}\)，取准确解 \(u(x, y) = \exp\left(\sin(\pi x)\right)\cos(\pi(x + y))\)，采用 Dirichlet 边界条件。
+取多边形区域为 \(\Omega = \B{(x,y) \big| -1\leqslant x, y \leqslant 1, y-x+1\geqslant 0}\)，取准确解为 \(u(x, y) = \exp\left(\sin(\pi x)\right)\cos(\pi(x + y))\)，采用 Dirichlet 边界条件。
 
-我们采用 MD-LDG 方法\cite{10.1007/s10915-007-9130-3}：在 Dirichlet 边界上 \(C_{11} = \eta h_{\perp}^{-\alpha}\)，其中 \(\eta = 10\)，\(\alpha = 1\)，\(h_{\perp}\) 是三角形中边对应的高，在其余边上 \(C_{11} = 0\)；在内部边上 \(\bm C_{12}(e) = \frac{\bm n_{e}}{2} {\rm sgn}\left(\int_{e} \bm v_0\cdot\bm n_{e} \d s\right)\) (边界上 \(\bm C_{12}\) 无定义)，这里 \(\bm v_0 \in H({\rm div}, \Omega)^{d}\) 用于辅助构造，不妨取成非零常向量。
+我们采用 MD-LDG 方法\cite{10.1007/s10915-007-9130-3}，惩罚系数如式\eqref{MD-LDG penalty coefficient}给出，其中 \(\bm v_0 \in H({\rm div}, \Omega)^{d}\) 是任意的辅助函数，不妨取成非零常向量。
+\begin{subequations}\label{MD-LDG penalty coefficient}
+	\begin{eqnarray}
+		&& C_{11} = \begin{cases}
+			\eta h_{\perp}^{-1}, & e \in \mathcal{E}_{h}^{D} \\
+			0, & \text{otherwise}
+		\end{cases} \\
+		&& C_{12} = \begin{cases}
+			\frac{\bm n_{e}}{2} {\rm sgn}\left(\int_{e} \bm v_0\cdot\bm n_{e} \d s\right), & e \in \mathcal{E}_{h}^{o} \\
+			\text{undefined}, & \text{otherwise}
+		\end{cases} \\
+		&& C_{22} = 0
+	\end{eqnarray}
+\end{subequations}
 
 我们使用 Nodal DG 方法实现，在三角形单元上使用如图\ref{pic: P6 Lobatto nodes}所示的 Lobatto 配点集\cite{10.1093/imamat/hxh077}，并使用该配点集上的多项式插值计算积分，编写了支持协调三角网格上任意高阶多项式的 Matlab 程序，具体的矩阵组装过程、技巧以及数据结构参考文章\cite{10.1016/j.camwa.2015.04.013}。我们使用开源软件 Gmsh 画网格，在本算例中采用了如图\ref{Mesh: 2D Dirichlet}所示的二等分逐层加密的协调三角网格。组装的矩阵的稀疏模式如图\ref{pic: 2D MD-LDG Lobatto node spy}所示，这里 \(k\) 表示多项式总次数。由于原始方程组规模较大，我们使用 Schur 补\eqref{LDG Schur complement}以减小规模。值得一提的是，由于我们使用的是 Lobatto 配点，可以区分单元内部自由度和边界自由度，因此可以使用逐单元的 static condensation 进一步减小方程组规模，但由于其编程的复杂性，这里并未采用此方法。我们的测试结果如图\ref{pic: 2D Poisson Dirichlet MD-LDG}、表\ref{table: 2D Poisson Dirichlet MD-LDG}所示，其中，\(N_{\rm dof}^{\rm Schur}\) 是 Schur 补矩阵方程的自由度个数，原本的总自由度个数应当是 \(N_{\rm dof}^{\rm total} = 3 N_{\rm dof}^{\rm Schur}\).
 
@@ -1191,7 +1211,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 
 	% to appear at the very first page of this table
 	\hline
-	\multirow{2}{*}{\(k\)} & \multirow{2}{*}{\(N_{e}\)} & \multirow{2}{*}{\(N_{\rm dof}^{\rm Schur}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\sigma - \sigma_{h}}_{L^2(\Omega)}\)} \\
+	\multirow{2}{*}{\(k\)} & \multirow{2}{*}{\(N_{e}\)} & \multirow{2}{*}{\(N_{\rm dof}^{\rm Schur}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2(\Omega)}\)} \\
 	& & & error & order & error & order \\
 	\hline
 	\endfirsthead
@@ -1199,10 +1219,10 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 
 	% to appear at except the very first page of this table
 	\multicolumn{7}{c}{
-		\tablename\ \thetable{} -- 续表
+		\tablename\ \thetable{} -- 续表 (接上一页)
 	} \\
 	\hline
-	\multirow{2}{*}{\(k\)} & \multirow{2}{*}{\(N_{e}\)} & \multirow{2}{*}{\(N_{\rm dof}^{\rm Schur}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\sigma - \sigma_{h}}_{L^2(\Omega)}\)} \\
+	\multirow{2}{*}{\(k\)} & \multirow{2}{*}{\(N_{e}\)} & \multirow{2}{*}{\(N_{\rm dof}^{\rm Schur}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2(\Omega)}\)} \\
 	& & & error & order & error & order \\
 	\hline
 	\endhead
@@ -1292,7 +1312,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 		\begin{tabular}{ c c | c c | c c }
 			\toprule
 
-			\(N_{e}\) & \(N_{\rm dof}^{\rm Schur}\) & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N_{e}\) & \(N_{\rm dof}^{\rm Schur}\) & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1314,7 +1334,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 		\begin{tabular}{ c c | c c | c c }
 			\toprule
 
-			\(N_{e}\) & \(N_{\rm dof}^{\rm Schur}\) & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N_{e}\) & \(N_{\rm dof}^{\rm Schur}\) & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1336,7 +1356,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 		\begin{tabular}{ c c | c c | c c }
 			\toprule
 
-			\(N_{e}\) & \(N_{\rm dof}^{\rm Schur}\) & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N_{e}\) & \(N_{\rm dof}^{\rm Schur}\) & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1358,7 +1378,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 		\begin{tabular}{ c c | c c | c c }
 			\toprule
 
-			\(N_{e}\) & \(N_{\rm dof}^{\rm Schur}\) & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N_{e}\) & \(N_{\rm dof}^{\rm Schur}\) & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1380,7 +1400,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 		\begin{tabular}{ c c | c c | c c }
 			\toprule
 
-			\(N_{e}\) & \(N_{\rm dof}^{\rm Schur}\) & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N_{e}\) & \(N_{\rm dof}^{\rm Schur}\) & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1402,7 +1422,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 		\begin{tabular}{ c c | c c | c c }
 			\toprule
 
-			\(N_{e}\) & \(N_{\rm dof}^{\rm Schur}\) & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N_{e}\) & \(N_{\rm dof}^{\rm Schur}\) & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1424,7 +1444,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 		\begin{tabular}{ c c | c c | c c }
 			\toprule
 
-			\(N_{e}\) & \(N_{\rm dof}^{\rm Schur}\) & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N_{e}\) & \(N_{\rm dof}^{\rm Schur}\) & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1564,7 +1584,7 @@ print(gcf, '-depsc2', '-vector', 'error_q', '-r300');
 
 \subsubsection{Conclusion}
 
-我们编程实现了一维和二维 Poisson 方程的 LDG 方法，该方法的特性是可以由 \(u_{h}\) 和 \(g_{D}\) 局部、显式地表示 \(\sigma_{h}\)，从而可以利用 Schur 补的技巧，减少全局相互耦合的方程组自由度个数，且 Schur 补对应的代数方程组正好是 LDG 框架下 Poisson 方程的 primal 形式。我们的测试显示出对 \((\sigma, u)\) 的 \((k, k+1)\) 阶收敛，与理论结果一致。
+我们编程实现了一维和二维 Poisson 方程的 LDG 方法，该方法的特性是可以由 \(u_{h}\) 局部、显式地表示 \(\bm\sigma_{h}\)，从而可以利用 Schur 补的技巧，减少全局相互耦合的方程组自由度个数，且 Schur 补对应的代数方程组正好是 LDG 框架下 Poisson 方程的 primal 形式。我们的测试显示出对 \((\bm\sigma, u)\) 的 \((k, k+1)\) 阶收敛(\(k \geqslant 1\))，与理论结果一致。
 
 
 
@@ -1581,44 +1601,46 @@ print(gcf, '-depsc2', '-vector', 'error_q', '-r300');
 
 \subsubsection{The HDG Formulation}
 
-HDG 格式利用类似 static condensation\cite{10.2514/3.2874}的思想，将单元边界上的数值通量作为未知量，可以大大缩减求解方程组的规模，并由于其对 \(\left(\sigma, u\right)\) 的一致最优误差阶和超收敛性质，同精度的求解开销可以被进一步降低。实际应用中，在采用直接法求解方程组时，HDG 比 CG-H(使用 static condensation 的CG)有明显优势；在采用迭代法求解时，HDG 对比 CG-H 没有明显优势，这说明 HDG 仍需要更有效的预处理器\cite{10.1007/s10915-015-0076-6}。
+如图\ref{pic: DOFs compare of HDG, DG and CG-H}所示，HDG 格式利用类似 static condensation\cite{10.2514/3.2874}的思想，将单元边界上的数值通量作为未知量，可以大大缩减求解方程组的规模，并由于其对 \((\bm\sigma, u)\) 的一致最优误差阶和超收敛性质，同精度的求解开销可以被进一步降低。实际应用中，在采用直接法求解方程组时，HDG 比 CG-H(使用 static condensation 的CG)有明显优势；在采用迭代法求解时，HDG 对比 CG-H 没有明显优势，这说明 HDG 仍需要更有效的预处理器\cite{10.1007/s10915-015-0076-6}。
 
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.8\linewidth]{includefiles/DOF compare.png}
 		\caption{DOFs of \(\mathscr{Q}^{2}\) HDG, DG, and CG-H elements\cite{10.48550/arXiv.1705.09907, 10.1137/17M1128903}}
+		\label{pic: DOFs compare of HDG, DG and CG-H}
 	\end{center}
 \end{figure}
 
 我们这里只考虑 LDG-H 格式\cite{10.1137/070706616, 10.1137/080728810}，其他 HDG 格式例如 IP-H 也是类似的。
 
-LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\Gamma}\) 也作为变量，并限制其满足 Dirichlet 边界条件(强制施加)：
+LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作为变量，并限制其满足 Dirichlet 边界条件(强制施加)：
 \begin{equation}
 	\widehat{u}_{h}\big|_{\Gamma^{D}} = g_{D}
 \end{equation}
-类似 LDG 格式，令 \(\widehat{\sigma}_{h}\) 具有形式 (\(\tau_{K}\) 在 \(K\) 的每一条边上是非负常数)：
+类似 LDG 格式，令 \(\widehat{\bm\sigma}_{h}\) 具有形式 (\(\tau\) 在 \(K\) 的每一条边上是非负常数)：
 \begin{equation}
-	\widehat{\sigma}_{h} = \sigma_{K} - \tau_{K} \left(u_{K} - \widehat{u}_{h}\right) \bm n_{K}
+	\widehat{\bm\sigma}_{h}
+	= \bm\sigma_{h} - \tau_{h} \left(u_{h} - \widehat{u}_{h}\right) \bm n
 \end{equation}
-由于格式守恒，令 \(\widehat{\sigma}_{h}\) 也满足无跳跃条件(该条件在计算中弱施加)：
+由于格式守恒，令 \(\widehat{\bm\sigma}_{h}\) 也满足无跳跃条件(该条件在计算中弱施加)：
 \begin{equation}
 	\begin{cases}
-		\widehat{\sigma}_{h} \cdot \bm n\big|_{e} = \bm g_{N}\cdot \bm n , & e\in\mathcal{E}^{N}_{h} \\
-		\jump{\widehat{\sigma}_{h}}\big|_{e} = 0, & e \in \mathcal{E}_{h}^{o}
+		\widehat{\bm\sigma}_{h} \cdot \bm n\big|_{e} = \bm g_{N} \cdot \bm n , & e \in \mathcal{E}^{N}_{h} \\
+		\jump{\widehat{\bm\sigma}_{h}}\big|_{e} = 0, & e \in \mathcal{E}_{h}^{o}
 	\end{cases}
 \end{equation}
 这样，可以将数值通量写成如下形式(仅用于分析，不在计算中直接使用)：
 \begin{subequations}\label{LDG-H numerical flux}
 	\begin{eqnarray}
-		&& \widehat{\sigma}_{h}\big|_{e} = \begin{cases}
-			\avg{\sigma_{h}} - \bm C_{12} \jump{\sigma_{h}} - C_{11} \jump{u_{h}}, & e \in \mathcal{E}_{h}^{o} \\
-			\sigma_{h} - C_{11} \left(u_{h} - g_{D}\right)\bm{n}, & e \in \mathcal{E}_{h}^{D} \\
+		&& \widehat{\bm\sigma} = \begin{cases}
+			\avg{\bm\sigma_{h}} - \bm C_{12} \jump{\bm\sigma_{h}} - C_{11} \jump{u_{h}}, & e \in \mathcal{E}_{h}^{o} \\
+			\bm\sigma_{h} - C_{11} \left(u_{h} - g_{D}\right)\bm n, & e \in \mathcal{E}_{h}^{D} \\
 			\bm g_{N}, & e \in \mathcal{E}_{h}^{N}
 		\end{cases} \\
-		&& \widehat{u}_{h}\big|_{e} = \begin{cases}
-			\avg{u_{h}} + \bm C_{12} \cdot \jump{u_{h}} - C_{22}\jump{\sigma_{h}}, & e \in \mathcal{E}_{h}^{o} \\
+		&& \widehat{u} = \begin{cases}
+			\avg{u_{h}} + \bm C_{12} \cdot \jump{u_{h}} - C_{22} \jump{\bm\sigma_{h}}, & e \in \mathcal{E}_{h}^{o} \\
 			g_{D}, & e \in \mathcal{E}_{h}^{D} \\
-			u_{h} - C_{22}\left(\sigma_{h} - \bm g_{N}\right)\cdot\bm n, & e \in \mathcal{E}_{h}^{N}
+			u_{h} - C_{22} \left(\bm\sigma_{h} - \bm g_{N}\right) \cdot \bm n, & e \in \mathcal{E}_{h}^{N}
 		\end{cases}
 	\end{eqnarray}
 \end{subequations}
@@ -1626,10 +1648,10 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 \begin{enumerate}
 	\item 当 \(\tau \equiv 0\) 时，若适当地取函数空间，可以使 LDG-H 格式等价于 RT-H 或者 BDM-H 格式。
 	\item 当所有边上的惩罚系数 \(\tau\) 都取 \(+\infty\) 时，LDG-H 格式变成 CG-H 格式，也即使用 static condensation 的连续有限元格式。
-	\item 当 \(\tau\) 非全零且有限时，LDG 格式和 LDG-H 格式是不同的，因为 LDG-H 格式的 \(\widehat{u}_{h}\) 依赖于 \(\jump{\sigma_{h}}\)，而 LDG 格式的 \(\widehat{u}_{h}\) 不依赖于 \(\jump{\sigma_{h}}\) (因此，在 LDG-H 格式中，不可以将 \(\sigma_{h}\) 用 \(\left(u_{h}, \widehat{u}_{h}\right)\) 表示)。
+	\item 当 \(\tau\) 非全零且有限时，LDG 格式和 LDG-H 格式是不同的，因为 LDG-H 格式的 \(\widehat{u}_{h}\) 依赖于 \(\jump{\bm\sigma_{h}}\)，而 LDG 格式的 \(\widehat{u}_{h}\) 不依赖于 \(\jump{\bm\sigma_{h}}\) (因此，在 LDG-H 格式中，不可以将 \(\bm\sigma_{h}\) 用 \(\left(u_{h}, \widehat{u}_{h}\right)\) 表示)。
 \end{enumerate}
 
-根据 LDG 格式的分析\cite{10.1137/S0036142900371003}，当 \(\tau > 0\) 时，LDG-H 方程组作为一种拓展的 LDG 方法存在唯一解。根据 LDG-H 的误差估计\cite[Corollary 2.7]{10.1090/S0025-5718-08-02123-6, 10.1090/S0025-5718-10-02334-3}，取 \(\tau\) 为与网格无关的一致有界的非负常数，且在每个单元的至少一个面上取一致正的值，就可以达到最优收敛，也即对 \((\sigma, u)\) 的 \((k+1, k+1)\) 阶收敛。
+根据 LDG 格式的分析\cite{10.1137/S0036142900371003}，当 \(\tau > 0\) 时，LDG-H 方程组作为一种拓展的 LDG 方法存在唯一解。而更一般地，根据 LDG-H 的误差估计\cite[Corollary 2.7]{10.1090/S0025-5718-08-02123-6, 10.1090/S0025-5718-10-02334-3}，取 \(\tau\) 为与网格无关的一致有界的非负常数，且在每个单元的至少一个面上取一致正的值，就可以达到最优收敛，也即对 \((\bm\sigma, u)\) 的 \((k+1, k+1)\) 阶收敛。
 
 根据分析\cite[Theorem 2.8]{10.1090/S0025-5718-08-02123-6}(或者\cite[Theorem 2.3, Proposition 3.2]{10.1090/S0025-5718-08-02146-7})，当 \(k \geqslant 1\) 时，边界数值通量 \(\widehat{u}_{h}\) 有超收敛结果：
 \begin{equation}
@@ -1639,14 +1661,14 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 \end{equation}
 而在 Dirichlet 边值问题中，当空间维数 \(d = 1\) 且 \(k \geqslant 1\) 时，根据\cite[Lemma 1]{10.1016/S0045-7825(03)00445-6}，由于 LDG-H 格式作为一种推广的 LDG 格式，其数值通量是守恒且相容的，那么 \(\widehat{u}_{h}\) 是\textbf{精确}的，也即 \(\widehat{u}_{h} = u\big|_{\Gamma}\).
 
-除此之外，由于 LDG-H 对 \(u\) 的单元平均是 \(k+2\) 阶收敛的，所以可以逐单元后处理，使得到的 \(u^{\ast}_{h} \in \bigoplus_{K \in \mathcal{T}_{h}}\mathscr{P}^{k+1}(K)\) 对 \(u\) 的 \(L^2\) 误差有 \(k+2\) 阶收敛\cite[Theorem 2.9]{10.1090/S0025-5718-08-02123-6}(或者\cite[Theorem 2.4, Proposition 3.2]{10.1090/S0025-5718-08-02146-7})。同时，利用与 RT/BDM 混合有限元类似的方法，可以对 \(\sigma_{h}\) 进行逐单元后处理，使得到的 \(q^{\ast}_{h} \in H({\rm div}, \Omega) \cap \bigoplus_{K \in \mathcal{T}_{h}}{\rm RT}_{k}(K)\) 对 \(\sigma\) 的 \(H({\rm div})\) 误差有 \(k+1\) 阶收敛\cite[Theorem 2.2]{10.1090/S0025-5718-08-02146-7}。
+除此之外，由于 LDG-H 对 \(u\) 的单元平均是 \(k + 2\) 阶收敛的，所以可以逐单元后处理，使得到的 \(u^{\ast}_{h} \in \bigoplus_{K \in \mathcal{T}_{h}}\mathscr{P}^{k+1}(K)\) 对 \(u\) 的 \(L^2\) 误差有 \(k + 2\) 阶收敛\cite[Theorem 2.9]{10.1090/S0025-5718-08-02123-6}(或者\cite[Theorem 2.4, Proposition 3.2]{10.1090/S0025-5718-08-02146-7})。同时，利用与 RT/BDM 混合有限元类似的方法，可以对 \(\bm\sigma_{h}\) 进行逐单元后处理，使得到的 \(\bm\sigma_{h}^{\ast} \in H({\rm div}, \Omega) \cap \bigoplus_{K \in \mathcal{T}_{h}}{\rm RT}_{k}(K)\) 对 \(\sigma\) 的 \(H({\rm div})\) 误差有 \(k + 1\) 阶收敛\cite[Theorem 2.2]{10.1090/S0025-5718-08-02146-7}。
 
 取空间为：
 \begin{subequations}
 	\begin{eqnarray}
-		&& \Sigma_h = \B{\sigma \bigg| \sigma_{h} \in \left(\mathscr{P}^{k}(K)\right)^{d}, \forall K \in \mathcal{T}_{h}} \\
-		&& V_{h} = \B{u \bigg| u_{h} \in \mathscr{P}^{k}(K), \forall K \in \mathcal{T}_{h}} \\
-		&& M_{h} = \B{\mu \bigg| \mu\big|_{e} \in \mathscr{P}^{k}(e), \forall e\in\mathcal{E}_{h}} = M_{h}^{D} \oplus \widetilde{M}_{h}
+		&& \Sigma_{h} = \bigoplus_{K \in \mathcal{T}_{h}} \Sigma(K) = \bigoplus_{K \in \mathcal{T}_{h}} \left(\mathscr{P}^{k}(K)\right)^{d} \\
+		&& V_{h} = \bigoplus_{K \in \mathcal{T}_{h}} V(K) = \bigoplus_{K \in \mathcal{T}_{h}} \mathscr{P}^{k}(K) \\
+		&& M_{h} = \bigoplus_{e \in \mathcal{E}_{h}} M(e) = \bigoplus_{e \in \mathcal{E}_{h}} \mathscr{P}^{k}(e) = M_{h}^{D} \oplus \widetilde{M}_{h}
 	\end{eqnarray}
 \end{subequations}
 这里，\(M_{h}^{D}\) 代表了 \(M_{h}\) 中的全体支撑在 Dirichlet 边界上的元素，\(\widetilde{M}_{h} = M_{h}^{o}\oplus M_{h}^{N}\) 是其正交补空间。
@@ -1654,11 +1676,11 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 使用局部格式\eqref{Local DG Scheme}加上通量的守恒性条件与边界条件，LDG-H 格式\cite{10.1007/978-3-030-27230-2_3}为：
 \begin{equation}
 	\begin{aligned}
-		& \text{find \(\left(\sigma_{h}, u_{h}, \widehat{u}_{h}\right) \in \Sigma_{h}\times V_{h}\times M_{h}\) such that \(\forall \left(\tau_{h}, v_{h}, \widetilde{\mu}_{h}, \mu_{h}^{D}\right)\in\Sigma_{h}\times V_{h} \times \widetilde{M}_{h} \times M_{h}^{D}\):} \\
+		& \text{find \(\left(\bm\sigma_{h}, u_{h}, \widehat{u}_{h}\right) \in \Sigma_{h}\times V_{h}\times M_{h}\) such that \(\forall \left(\bm\tau_{h}, v_{h}, \widetilde{\mu}_{h}, \mu_{h}^{D}\right)\in\Sigma_{h}\times V_{h} \times \widetilde{M}_{h} \times M_{h}^{D}\):} \\
 		& \begin{cases}
-			\sum_{K \in \mathcal{T}_{h}} \int_{K} \sigma_h \cdot \tau_{h} \d x + \sum_{K \in \mathcal{T}_{h}} \int_{K} u_{h} \nabla\cdot\tau_{h} \d x - \sum_{K \in \mathcal{T}_{h}} \oint_{\partial K} \widehat{u}_{h} \tau_{h} \cdot \bm n \d s = 0 \\
-			\sum_{K \in \mathcal{T}_{h}} \int_{K} \sigma_{h} \cdot \nabla v_{h} \d x - \sum_{K \in \mathcal{T}_{h}} \oint_{\partial K} v_{h} \widehat{\sigma}_{h} \cdot \bm n \d s = \sum_{K \in \mathcal{T}_{h}} \int_{K} f v_{h} \d x \\
-			\sum_{K \in \mathcal{T}_{h}} \oint_{\partial K} \widetilde{\mu}_{h} \widehat{\sigma}_{h} \cdot \bm n \d s = \int_{\Gamma^{N}} \mu_{h} \bm g_{N} \cdot \bm n \d s \\
+			\sum_{K \in \mathcal{T}_{h}} \int_{K} \bm\sigma_h \cdot \bm\tau_{h} \d x + \sum_{K \in \mathcal{T}_{h}} \int_{K} u_{h} \nabla \cdot \bm\tau_{h} \d x - \sum_{K \in \mathcal{T}_{h}} \oint_{\partial K} \widehat{u}_{h} \bm\tau_{h} \cdot \bm n \d s = 0 \\
+			\sum_{K \in \mathcal{T}_{h}} \int_{K} \bm\sigma_{h} \cdot \nabla v_{h} \d x - \sum_{K \in \mathcal{T}_{h}} \oint_{\partial K} v_{h} \widehat{\bm\sigma}_{h} \cdot \bm n \d s = \sum_{K \in \mathcal{T}_{h}} \int_{K} f v_{h} \d x \\
+			\sum_{K \in \mathcal{T}_{h}} \oint_{\partial K} \widetilde{\mu}_{h} \widehat{\bm\sigma}_{h} \cdot \bm n \d s = \int_{\Gamma^{N}} \mu_{h} \bm g_{N} \cdot \bm n \d s \\
 			\sum_{K \in \mathcal{T}_{h}} \oint_{\partial K} \mu_{h}^{D} \widehat{u}_{h} \d s = \int_{\Gamma^{D}} \mu_{h}^{D} g_{D} \d s
 		\end{cases}
 	\end{aligned}
@@ -1667,19 +1689,19 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 \begin{subequations}\label{LDG-H weak form}
 	\begin{equation}
 		\begin{aligned}
-			& \text{find \(\left(\sigma_{h}, u_{h}, \widehat{u}_{h}\right) \in \Sigma_{h}\times V_{h}\times M_{h}\) such that \(\forall \left(\tau_{h}, v_{h}, \widetilde{\mu}_{h}, \mu_{h}^{D}\right)\in\Sigma_{h}\times V_{h} \times \widetilde{M}_{h} \times M_{h}^{D}\):} \\
+			& \text{find \(\left(\bm\sigma_{h}, u_{h}, \widehat{u}_{h}\right) \in \Sigma_{h}\times V_{h}\times M_{h}\) such that \(\forall \left(\bm\tau_{h}, v_{h}, \widetilde{\mu}_{h}, \mu_{h}^{D}\right)\in\Sigma_{h}\times V_{h} \times \widetilde{M}_{h} \times M_{h}^{D}\):} \\
 			& \begin{cases}
-				a_{h}\left(\sigma_{h}, \tau_h\right) + b_h\left(\tau_h, u_h\right) - c_h\left(\widehat{u}_{h}, \tau_h|_{\Gamma} \cdot \bm n\right) = 0 \\
-				b_h\left(\sigma_h, v_h\right) - c_h\left(\tau u_h|_{\Gamma}, v_h|_{\Gamma}\right) + c_{h}\left(\tau \widehat{u}_{h}, v_h|_{\Gamma}\right) = - F(v_h) \\
-				- c_{h}\left(\sigma_{h}|_{\Gamma} \cdot n, \widetilde{\mu}_{h}\right) + c_{h}\left(\tau u_{h}|_{\Gamma}, \widetilde{\mu}_{h}\right) - c_{h}\left(\tau \widehat{u}_{h}, \widetilde{\mu}_{h}\right) = - G\left(\widetilde{\mu}_{h}\right) \\
+				a_{h}\left(\bm\sigma_{h}, \bm\tau_{h}\right) + b_{h}\left(\bm\tau_h, u_h\right) - c_h\left(\widehat{u}_{h}, \bm\tau_{h}|_{\Gamma} \cdot \bm n\right) = 0 \\
+				b_{h}\left(\bm\sigma_h, v_h\right) - c_h\left(\tau u_h|_{\Gamma}, v_h|_{\Gamma}\right) + c_{h}\left(\tau \widehat{u}_{h}, v_h|_{\Gamma}\right) = - F(v_h) \\
+				-c_{h}\left(\bm\sigma_{h}|_{\Gamma} \cdot \bm n, \widetilde{\mu}_{h}\right) + c_{h}\left(\bm\tau u_{h}|_{\Gamma}, \widetilde{\mu}_{h}\right) - c_{h}\left(\tau \widehat{u}_{h}, \widetilde{\mu}_{h}\right) = - G\left(\widetilde{\mu}_{h}\right) \\
 				c_{h}\left(\widehat{u}_{h}, \mu_{h}^{D}\right) = c_{h}\left(g_{D}, \mu_{h}^{D}\right)
 			\end{cases}
 		\end{aligned}
 	\end{equation}
 	其中：
 	\begin{eqnarray}
-		&& a_{h}\left(\sigma_{h}, \tau_{h}\right) = \sum_{K\in\mathcal{T}_{h}} \int_{K} \sigma_{h} \cdot \tau_{h} \d x \\
-		&& b_{h}\left(\tau_{h}, u_{h}\right) = \sum_{K\in\mathcal{T}_{h}} \int_{K} u_{h} \nabla\cdot\tau_{h} \d x \\
+		&& a_{h}\left(\bm\sigma_{h}, \bm\tau_{h}\right) = \sum_{K\in\mathcal{T}_{h}} \int_{K} \bm\sigma_{h} \cdot \bm\tau_{h} \d x \\
+		&& b_{h}\left(\bm\tau_{h}, u_{h}\right) = \sum_{K\in\mathcal{T}_{h}} \int_{K} u_{h} \nabla \cdot \bm\tau_{h} \d x \\
 		&& c_{h}\left(\widehat{u}_{h}, \mu_{h}\right) = \sum_{K\in\mathcal{T}_{h}} \oint_{\partial K} \widehat{u}_{h} \mu_{h} \d s \\
 		&& F\left(v_{h}\right) = \sum_{K\in\mathcal{T}_{h}} \int_{K} f v_{h} \d x \\
 		&& G\left(\mu_{h}\right) = \int_{\Gamma^{N}} \mu_{h} \bm g_{N} \cdot \bm n \d s
@@ -1688,17 +1710,33 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 这里，由于 \(\tau\) 在每条边 \(e\in\mathcal{E}_{h}\) 上是非负常数，所以 \(c_{h}\left(u_{h}, \tau v_{h}\right) = c_{h}\left(\tau u_{h}, v_{h}\right)\)，且 \(c_{h}\left(\cdot, \tau\cdot\right)\) 仍然是对称半正定的。在单元 \(K\) 上，前两式定义了单元 \(K\) 上的局部求解器(local solver)；第三式使得 \(\widehat{\sigma}_{h}\) 满足单值性和自然边界条件；第四式则施加了 Dirichlet 本质边界条件。
 
 \begin{theorem}[Existence of the local solver] % 文章中没有给仔细证明，且考虑的情况也不如这里多
-	在单纯形单元 \(K\) 上，当惩罚系数 \(\tau \geqslant 0\) 在至少一条边上取正值时，可以通过 \(\left(f, \widehat{u}_{h}\right) \in L^2(K) \times L^2(\partial K)\) 唯一解出 \(\left(\sigma_{h}, u_{h}\right) \in \Sigma(K) \times V(K)\).
+	在单元 \(K\) 上，若以下两条至少成立一条：
+	\begin{enumerate}
+		\item \(K\) 是单纯形，惩罚系数 \(\tau \geqslant 0\) 在至少一条边上取正值；
+		\item 惩罚系数 \(\tau > 0\) 在 \(\partial K\) 上成立；
+	\end{enumerate}
+	那么可以通过 \(\left(f, \widehat{u}_{h}\right) \in L^2(K) \times L^2(\partial K)\) 唯一解出 \(\left(\bm\sigma_{h}, u_{h}\right) \in \Sigma(K) \times V(K)\).
 	\begin{proof}
-		只需要证明当 \(f = 0\) 且 \(\widehat{u}_{h} = 0\) 时，必有 \(\sigma_{h} = 0\) 和 \(u_{h} = 0\). 设 \(\tau > 0\) 在 \(\partial K \cap \B{l_{h} = 0}\) 上成立，这里 \(l_{h} \in \mathscr{P}^{1}\) 非平凡，且在 \(K\) 内部有 \(l_{h} > 0\).
-
-		事实上，取 \(\tau_{h} = \sigma_{h}\)，\(v_{h} = u_{h}\)，将前两式相加得：
+		只需要证明当 \(f = 0\) 且 \(\widehat{u}_{h} = 0\) 时，必有 \(\bm\sigma_{h} = \bm 0\) 和 \(u_{h} = 0\). 
+		
+		若 \(K\) 是单纯形，设 \(\tau > 0\) 在 \(\partial K \cap \B{l_{h} = 0}\) 上成立，这里 \(l_{h} \in \mathscr{P}^{1}\) 非平凡，且在 \(K\) 内部有 \(l_{h} > 0\). 取 \(\bm\tau_{h} = \bm\sigma_{h}\)，\(v_{h} = u_{h}\)，得：
 		\begin{equation}
-			\norm{\sigma_{h}}_{L^2(K)}^2 + \norm{u_{h}}_{L^2(\partial K, \tau)}^2 = 0
+			\norm{\bm\sigma_{h}}_{L^2(K)}^2 + \norm{u_{h}}_{L^2(\partial K, \tau)}^2 = 0
 		\end{equation}
-		于是 \(\sigma_{h} = 0\) 且 \(u_{h} = l_{h} w_{h}\)，这里 \(w_{h} \in \mathscr{P}^{k-1}(K)\). 同时，\(u_{h} \perp \nabla\cdot\Sigma(K)\)，也即 \(w_{h} \perp_{l_{h}} \nabla \cdot \Sigma(K)\)，所以 \(w_{h} = 0\)，因此 \(u_{h} = 0\).
+		于是 \(\bm\sigma_{h} = \bm 0\) 且 \(u_{h} = l_{h} w_{h}\)，这里 \(w_{h} \in \mathscr{P}^{k-1}(K)\). 同时，\(u_{h} \perp \nabla\cdot\Sigma(K)\)，也即 \(w_{h} \perp_{l_{h}} \nabla \cdot \Sigma(K)\)，所以 \(w_{h} = 0\)，因此 \(u_{h} = 0\).
+
+		若 \(\tau > 0\)，那么有 \(\bm\sigma_{h} = \bm 0\) 以及 \(u_{h}\big|_{\partial K} = 0\)，且：
+		\begin{equation*}
+			\forall \bm\tau_{h} \in \Sigma(K), 
+			\int_{K} \bm\tau_{h} \cdot \nabla u_{h} \d x
+			= \oint_{\partial K} u_{h} \bm\tau_{h} \cdot \bm n \d s
+			= 0
+		\end{equation*}
+		利用 \(\nabla V(K) \subset \Sigma(K)\) 这一事实，立即得到 \(u_{h} = C_{K}\)，因此 \(u_{h} = 0\).
 	\end{proof}
 \end{theorem}
+
+% to be continued...
 
 事实上，local solver 的存在是合理的，这是因为在方程\eqref{LDG-H weak form}中，单元 \(K\) 上的 \(\left(\sigma_{h}, u_{h}\right)\) 只与 \(\partial K\) 上的 \(\widehat{u}_{h}\) 直接耦合。同时，我们不难发现耦合的方式正好就是 \(K\) 上的以 \(\widehat{u}_{h}\big|_{\partial K}\) 为 Dirichlet 边界条件的 LDG-H 格式。
 
@@ -1870,7 +1908,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 
 			\hline
 
-			0	& 256 & 4.53e-01 & NaN & 4.73e-01 & NaN & 4.58e-01 & NaN & 4.53e-01 & NaN \\
+			0	& 256 & 4.53e-01 & - & 4.73e-01 & - & 4.58e-01 & - & 4.53e-01 & - \\
 				& 512 & 2.45e-01 & 0.88 & 2.56e-01 & 0.88 & 2.48e-01 & 0.88 & 2.45e-01 & 0.88 \\
 				& 1024 & 1.28e-01 & 0.94 & 1.34e-01 & 0.94 & 1.30e-01 & 0.94 & 1.28e-01 & 0.94 \\
 				& 2048 & 6.55e-02 & 0.97 & 6.83e-02 & 0.97 & 6.62e-02 & 0.97 & 6.55e-02 & 0.97 \\
@@ -1879,7 +1917,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 
 			\hline
 
-			1	& 32 & 9.29e-03 & NaN & 1.10e-01 & NaN & 9.27e-05 & NaN & 9.27e-03 & NaN \\
+			1	& 32 & 9.29e-03 & - & 1.10e-01 & - & 9.27e-05 & - & 9.27e-03 & - \\
 				& 64 & 1.48e-03 & 2.65 & 3.27e-02 & 1.75 & 5.71e-06 & 4.02 & 1.39e-03 & 2.74 \\
 				& 128 & 2.47e-04 & 2.58 & 9.05e-03 & 1.85 & 3.55e-07 & 4.01 & 1.93e-04 & 2.85 \\
 				& 256 & 4.90e-05 & 2.34 & 2.39e-03 & 1.92 & 2.22e-08 & 4.00 & 2.55e-05 & 2.92 \\
@@ -1888,7 +1926,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 
 			\hline
 
-			2	& 32 & 2.11e-04 & NaN & 5.09e-03 & NaN & 1.87e-07 & NaN & 5.12e-05 & NaN \\
+			2	& 32 & 2.11e-04 & - & 5.09e-03 & - & 1.87e-07 & - & 5.12e-05 & - \\
 				& 64 & 1.97e-05 & 3.42 & 7.15e-04 & 2.83 & 2.82e-09 & 6.05 & 3.22e-06 & 3.99 \\
 				& 128 & 2.19e-06 & 3.17 & 9.52e-05 & 2.91 & 4.37e-11 & 6.01 & 2.02e-07 & 4.00 \\
 				& 256 & 2.68e-07 & 3.03 & 1.23e-05 & 2.95 & 6.83e-13 & 6.00 & 1.26e-08 & 4.00 \\
@@ -1897,7 +1935,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 
 			\hline
 
-			3	& 16 & 1.43e-04 & NaN & 2.86e-03 & NaN & 9.94e-08 & NaN & 5.70e-05 & NaN \\
+			3	& 16 & 1.43e-04 & - & 2.86e-03 & - & 9.94e-08 & - & 5.70e-05 & - \\
 				& 32 & 6.77e-06 & 4.40 & 2.09e-04 & 3.77 & 3.48e-10 & 8.16 & 1.84e-06 & 4.95 \\
 				& 64 & 3.79e-07 & 4.16 & 1.42e-05 & 3.88 & 1.29e-12 & 8.07 & 5.79e-08 & 4.99 \\
 				& 128 & 2.35e-08 & 4.01 & 9.30e-07 & 3.94 & 1.33e-14 & 6.61 & 1.81e-09 & 5.00 \\
@@ -1906,7 +1944,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 
 			\hline
 
-			4	& 8 & 2.67e-04 & NaN & 3.98e-03 & NaN & 8.60e-06 & NaN & 2.72e-04 & NaN \\
+			4	& 8 & 2.67e-04 & - & 3.98e-03 & - & 8.60e-06 & - & 2.72e-04 & - \\
 				& 16 & 9.00e-06 & 4.89 & 2.22e-04 & 4.16 & 4.60e-10 & 14.19 & 4.07e-06 & 6.06 \\
 				& 32 & 2.47e-07 & 5.19 & 7.93e-06 & 4.81 & 4.33e-13 & 10.05 & 6.50e-08 & 5.97 \\
 				& 64 & 7.71e-09 & 5.00 & 2.65e-07 & 4.90 & 2.42e-14 & 4.16 & 1.02e-09 & 5.99 \\
@@ -2033,11 +2071,15 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 \end{table}
 \fi
 
-数值结果显示出 \((\sigma_{h}, u_{h}, u_{h}^{\ast})\) 在 \(k \geqslant 1\) 时的 \((k+1, k+1, k+2)\) 阶收敛，以及 \(k = 0\) 时的 \((1,1,1)\) 阶收敛，符合理论估计\cite{10.1090/S0025-5718-08-02123-6}。同时，我们观察到 \(\widehat{u}_{h}\) 在 \(k\geqslant 1\) 时出现了超收敛。实际上，根据\cite[Lemma 2.1]{10.1016/S0045-7825(03)00445-6}，当在一维两点 Dirichlet 边值问题中使用 \(k \geqslant 1\) 的多项式时，\(\widehat{u}_{h}\) 没有离散误差，也即若数值积分和浮点运算是准确的，则 \(\widehat{u}_{h} = u\big|_{\Gamma}\). 我们下面对源项 \(f\) 的积分使用不同阶的 Gauss-Lobatto 数值积分以验证。由于逐单元 \(n\) 点的 Gauss-Lobatto 复化积分的收敛阶是 \(2n-2\)，我们希望看到 \(\widehat{u}_{h}\) 对 \(u\big|_{\Gamma}\) 的 \(2n-2\) 阶收敛。数值结果如表\ref{table: 1D Poisson Dirichlet LDG-H trace superconvergence}所示，我们发现 \(\widehat{u}_{h}\) 的误差是不依赖于 \(k\) 而只依赖于 \(N\) 和 \(n\) 的，因此超收敛性质得到了验证。
+数值结果显示出 \((\sigma_{h}, u_{h}, u_{h}^{\ast})\) 在 \(k \geqslant 1\) 时的 \((k+1, k+1, k+2)\) 阶收敛，以及 \(k = 0\) 时的 \((1,1,1)\) 阶收敛，符合理论估计\cite{10.1090/S0025-5718-08-02123-6}。同时，我们观察到 \(\widehat{u}_{h}\) 在 \(k\geqslant 1\) 时出现了超收敛。实际上，根据\cite[Lemma 2.1]{10.1016/S0045-7825(03)00445-6}，当在一维两点 Dirichlet 边值问题中使用 \(k \geqslant 1\) 的多项式时，\(\widehat{u}_{h}\) 没有离散误差，也即若数值积分和浮点运算是准确的，则 \(\widehat{u}_{h} = u\big|_{\Gamma}\). 我们下面对源项 \(f\) 的积分使用不同阶的 Gauss-Lobatto 数值积分以验证。由于逐单元 \(n\) 点的 Gauss-Lobatto 复化积分的收敛阶是 \(2n-2\)，我们希望看到 \(\widehat{u}_{h}\) 对 \(u\big|_{\Gamma}\) 的 \(2n-2\) 阶收敛。数值结果如表\ref{table: 1D Poisson Dirichlet LDG-H trace superconvergence}所示，我们发现：
+\begin{enumerate}
+	\item 当 \(k = 0\) 时，\(\widehat{u}_{h}\) 的收敛阶只有 \(1\) 阶；
+	\item 当 \(k \geqslant 1\) 时，实验中 \(\widehat{u}_{h}\) 的收敛阶依赖于 \(n\)，且达到了 \(n\) 点 Gauss-Lobatto 积分收敛阶 \(2n-2\)，这验证了理论结果。
+\end{enumerate}
 
 \begin{table}[htbp]
 	\begin{center}
-		\caption{Superconvergence of \(\widehat{u}_{h}\) in the LDG-H method with \(n\)-point Gauss-Lobatto quadrature rule for the Poisson equation with Dirichlet BC}
+		\caption{Convergence history of \(\widehat{u}_{h}\) in the LDG-H method with \(n\)-point Gauss-Lobatto quadrature rule for the Poisson equation with Dirichlet BC}
 		\label{table: 1D Poisson Dirichlet LDG-H trace superconvergence}
 		\begin{tabular}{| c | c | c c | c c | c c | c c |}
 			\hline
@@ -2048,7 +2090,16 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 
 			\hline
 
-			1	& 2 & 7.49e+00 & NaN & 5.17e+00 & NaN & 4.11e-01 & NaN & 1.36e+00 & NaN \\
+			0	& 256 & 4.59e-01 & - & 4.58e-01 & - & 4.58e-01 & - & 4.58e-01 & - \\
+				& 512 & 2.48e-01 & 0.88 & 2.48e-01 & 0.88 & 2.48e-01 & 0.88 & 2.48e-01 & 0.88 \\
+				& 1024 & 1.30e-01 & 0.94 & 1.30e-01 & 0.94 & 1.30e-01 & 0.94 & 1.30e-01 & 0.94 \\
+				& 2048 & 6.62e-02 & 0.97 & 6.62e-02 & 0.97 & 6.62e-02 & 0.97 & 6.62e-02 & 0.97 \\
+				& 4096 & 3.35e-02 & 0.98 & 3.35e-02 & 0.98 & 3.35e-02 & 0.98 & 3.35e-02 & 0.98 \\
+				& 8192 & 1.68e-02 & 0.99 & 1.68e-02 & 0.99 & 1.68e-02 & 0.99 & 1.68e-02 & 0.99 \\
+			
+			\hline
+
+			1	& 2 & 7.49e+00 & - & 5.17e+00 & - & 4.11e-01 & - & 1.36e+00 & - \\
 				& 4 & 1.54e+00 & 2.28 & 5.38e-01 & 3.26 & 2.32e-01 & 0.83 & 5.28e-02 & 4.68 \\
 				& 8 & 5.59e-01 & 1.46 & 1.01e-01 & 2.42 & 9.42e-03 & 4.62 & 3.98e-04 & 7.05 \\
 				& 16 & 1.62e-01 & 1.79 & 2.36e-03 & 5.42 & 1.83e-05 & 9.01 & 1.24e-07 & 11.65 \\
@@ -2057,7 +2108,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 
 			\hline
 
-			2	& 2 & 7.49e+00 & NaN & 5.17e+00 & NaN & 4.11e-01 & NaN & 1.36e+00 & NaN \\
+			2	& 2 & 7.49e+00 & - & 5.17e+00 & - & 4.11e-01 & - & 1.36e+00 & - \\
 				& 4 & 1.54e+00 & 2.28 & 5.38e-01 & 3.26 & 2.32e-01 & 0.83 & 5.28e-02 & 4.68 \\
 				& 8 & 5.59e-01 & 1.46 & 1.01e-01 & 2.42 & 9.42e-03 & 4.62 & 3.98e-04 & 7.05 \\
 				& 16 & 1.62e-01 & 1.79 & 2.36e-03 & 5.42 & 1.83e-05 & 9.01 & 1.24e-07 & 11.65 \\
@@ -2066,7 +2117,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 
 			\hline
 
-			3	& 2 & 7.49e+00 & NaN & 5.17e+00 & NaN & 4.11e-01 & NaN & 1.36e+00 & NaN \\
+			3	& 2 & 7.49e+00 & - & 5.17e+00 & - & 4.11e-01 & - & 1.36e+00 & - \\
 				& 4 & 1.54e+00 & 2.28 & 5.38e-01 & 3.26 & 2.32e-01 & 0.83 & 5.28e-02 & 4.68 \\
 				& 8 & 5.59e-01 & 1.46 & 1.01e-01 & 2.42 & 9.42e-03 & 4.62 & 3.98e-04 & 7.05 \\
 				& 16 & 1.62e-01 & 1.79 & 2.36e-03 & 5.42 & 1.83e-05 & 9.01 & 1.24e-07 & 11.65 \\
@@ -2075,7 +2126,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 
 			\hline
 
-			4	& 2 & 7.49e+00 & NaN & 5.17e+00 & NaN & 4.11e-01 & NaN & 1.36e+00 & NaN \\
+			4	& 2 & 7.49e+00 & - & 5.17e+00 & - & 4.11e-01 & - & 1.36e+00 & - \\
 				& 4 & 1.54e+00 & 2.28 & 5.38e-01 & 3.26 & 2.32e-01 & 0.83 & 5.28e-02 & 4.68 \\
 				& 8 & 5.59e-01 & 1.46 & 1.01e-01 & 2.42 & 9.42e-03 & 4.62 & 3.98e-04 & 7.05 \\
 				& 16 & 1.62e-01 & 1.79 & 2.36e-03 & 5.42 & 1.83e-05 & 9.01 & 1.24e-07 & 11.65 \\
@@ -2551,8 +2602,70 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 \begin{equation}
 	c_0 = \int_{\Omega} u(x) \d x \approx 14.16368455672395547087675939170498
 \end{equation}
-测试结果如表所示：
+测试结果如表\ref{table: 1D Poisson Neumann LDG-H}所示。
 
+\begin{table}[htbp]
+	\begin{center}
+		\caption{Convergence history of the LDG-H method for the Poisson equation with Neumann BC}
+		\label{table: 1D Poisson Neumann LDG-H}
+		\begin{tabular}{| c | c | c c | c c | c c | c c |}
+			\hline
+
+			\multirow{2}{*}{\(k\)} & \multirow{2}{*}{\(N\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\sigma - \sigma_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{u|_{\Gamma} - \widehat{u}_{h}}_{L^2(\Gamma, h)}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}^{\ast}}_{L^2(\Omega)}\)} \\
+
+			& & error & order & error & order & error & order & error & order \\
+
+			\hline
+
+			0	& 256 & 3.84e-01 & - & 4.73e-01 & - & 3.90e-01 & - & 3.84e-01 & - \\
+				& 512 & 2.08e-01 & 0.88 & 2.56e-01 & 0.88 & 2.11e-01 & 0.88 & 2.08e-01 & 0.88 \\
+				& 1024 & 1.09e-01 & 0.94 & 1.34e-01 & 0.94 & 1.10e-01 & 0.94 & 1.09e-01 & 0.94 \\
+				& 2048 & 5.56e-02 & 0.97 & 6.83e-02 & 0.97 & 5.64e-02 & 0.97 & 5.56e-02 & 0.97 \\
+				& 4096 & 2.81e-02 & 0.98 & 3.46e-02 & 0.98 & 2.85e-02 & 0.98 & 2.81e-02 & 0.98 \\
+				& 8192 & 1.42e-02 & 0.99 & 1.74e-02 & 0.99 & 1.43e-02 & 0.99 & 1.42e-02 & 0.99 \\
+
+			\hline
+
+			1	& 32 & 9.16e-03 & - & 1.10e-01 & - & 1.58e-03 & - & 9.14e-03 & - \\
+				& 64 & 1.46e-03 & 2.65 & 3.27e-02 & 1.75 & 2.34e-04 & 2.75 & 1.37e-03 & 2.74 \\
+				& 128 & 2.45e-04 & 2.58 & 9.05e-03 & 1.85 & 3.23e-05 & 2.86 & 1.90e-04 & 2.85 \\
+				& 256 & 4.88e-05 & 2.33 & 2.39e-03 & 1.92 & 4.26e-06 & 2.92 & 2.51e-05 & 2.92 \\
+				& 512 & 1.13e-05 & 2.11 & 6.14e-04 & 1.96 & 5.48e-07 & 2.96 & 3.23e-06 & 2.96 \\
+				& 1024 & 2.78e-06 & 2.02 & 1.56e-04 & 1.98 & 6.95e-08 & 2.98 & 4.10e-07 & 2.98 \\
+
+			\hline
+
+			2	& 32 & 2.11e-04 & - & 5.09e-03 & - & 1.87e-07 & - & 5.12e-05 & - \\
+				& 64 & 1.97e-05 & 3.42 & 7.15e-04 & 2.83 & 2.82e-09 & 6.05 & 3.22e-06 & 3.99 \\
+				& 128 & 2.19e-06 & 3.17 & 9.52e-05 & 2.91 & 4.36e-11 & 6.01 & 2.02e-07 & 4.00 \\
+				& 256 & 2.68e-07 & 3.03 & 1.23e-05 & 2.95 & 6.82e-13 & 6.00 & 1.26e-08 & 4.00 \\
+				& 512 & 3.37e-08 & 2.99 & 1.56e-06 & 2.98 & 7.17e-14 & 3.25 & 7.89e-10 & 4.00 \\
+				& 1024 & 4.24e-09 & 2.99 & 1.97e-07 & 2.99 & 4.04e-13 & -2.49 & 4.93e-11 & 4.00 \\
+
+			\hline
+
+			3	& 16 & 1.43e-04 & - & 2.86e-03 & - & 8.81e-08 & - & 5.70e-05 & - \\
+				& 32 & 6.77e-06 & 4.40 & 2.09e-04 & 3.77 & 3.10e-10 & 8.15 & 1.84e-06 & 4.95 \\
+				& 64 & 3.79e-07 & 4.16 & 1.42e-05 & 3.88 & 1.15e-12 & 8.07 & 5.79e-08 & 4.99 \\
+				& 128 & 2.35e-08 & 4.01 & 9.30e-07 & 3.94 & 5.43e-14 & 4.41 & 1.81e-09 & 5.00 \\
+				& 256 & 1.49e-09 & 3.98 & 5.95e-08 & 3.97 & 1.34e-13 & -1.31 & 5.67e-11 & 5.00 \\
+				& 512 & 9.46e-11 & 3.98 & 3.76e-09 & 3.98 & 1.41e-13 & -0.07 & 1.78e-12 & 5.00 \\
+
+			\hline
+
+			4	& 8 & 2.67e-04 & - & 3.98e-03 & - & 2.94e-06 & - & 2.72e-04 & - \\
+				& 16 & 9.00e-06 & 4.89 & 2.22e-04 & 4.16 & 4.43e-10 & 12.70 & 4.07e-06 & 6.06 \\
+				& 32 & 2.47e-07 & 5.19 & 7.93e-06 & 4.81 & 4.23e-13 & 10.03 & 6.50e-08 & 5.97 \\
+				& 64 & 7.71e-09 & 5.00 & 2.65e-07 & 4.90 & 3.12e-14 & 3.76 & 1.02e-09 & 5.99 \\
+				& 128 & 2.48e-10 & 4.96 & 8.58e-09 & 4.95 & 4.48e-14 & -0.52 & 1.60e-11 & 6.00 \\
+				& 256 & 7.94e-12 & 4.97 & 2.73e-10 & 4.97 & 4.18e-13 & -3.22 & 4.87e-13 & 5.04 \\
+
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\iffalse
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{c | c c | c c | c c }
@@ -2665,9 +2778,77 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 		\caption{\(k = 4\), \(\tau = 10.0\)}
 	\end{center}
 \end{table}
+\fi
 
-数值结果符合估计，达到了 \((k+1, k+1)\) 阶收敛，同时，\(\widehat{u}_{h}\) 在 \(k\geqslant 1\) 时出现了超收敛。我们下面对源项 \(f\) 的积分使用不同阶的 Gauss-Lobatto 数值积分以测试 \(\widehat{u}_{h}\) 对 \(u\big|_{\Gamma}\) 的超收敛现象。
+数值结果显示出 \((\sigma_{h}, u_{h}, u_{h}^{\ast})\) 在 \(k \geqslant 1\) 时的 \((k+1, k+1, k+2)\) 阶收敛，以及 \(k = 0\) 时的 \((1,1,1)\) 阶收敛，与 Dirichlet 边界问题的理论估计\cite{10.1090/S0025-5718-08-02123-6}一致。同时，我们观察到 \(\widehat{u}_{h}\) 在 \(k\geqslant 1\) 时出现了超收敛。由于 Dirichlet 边界问题的 \(\widehat{u}_{h}\) 当 \(k \geqslant 1\) 时是精确的，我们下面对源项 \(f\) 的积分使用不同阶的 Gauss-Lobatto 数值积分以测试 \(\widehat{u}_{h}\) 的收敛规律。数值结果如表\ref{table: 1D Poisson Neumann LDG-H trace superconvergence}所示：
+\begin{enumerate}
+	\item 当 \(k = 0\) 时，\(\widehat{u}_{h}\) 的收敛阶只有 \(1\) 阶；
+	\item 当 \(k = 1\) 时，\(\widehat{u}_{h}\) 的收敛阶有 \(3\) 阶；
+	\item 当 \(k \geqslant 2\) 时，实验中 \(\widehat{u}_{h}\) 的收敛阶依赖于 \(n\)，且达到了 \(n\) 点 Gauss-Lobatto 积分收敛阶 \(2n-2\)，因此我们可以合理地猜测此时 \(\widehat{u}_{h}\) 是精确的。
+\end{enumerate}
 
+\begin{table}[htbp]
+	\begin{center}
+		\caption{Convergence history of \(\widehat{u}_{h}\) in the LDG-H method with \(n\)-point Gauss-Lobatto quadrature rule for the Poisson equation with Neumann BC}
+		\label{table: 1D Poisson Neumann LDG-H trace superconvergence}
+		\begin{tabular}{| c | c | c c | c c | c c | c c |}
+			\hline
+
+			\multirow{2}{*}{\(k\)} & \multirow{2}{*}{\(N\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\sigma - \sigma_{h}}_{L^2(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{u|_{\Gamma} - \widehat{u}_{h}}_{L^2(\Gamma, h)}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}^{\ast}}_{L^2(\Omega)}\)} \\
+
+			& & error & order & error & order & error & order & error & order \\
+
+			\hline
+
+			0	& 16 & 1.95e+00 & - & 1.93e+00 & - & 1.93e+00 & - & 1.93e+00 & - \\
+				& 32 & 1.52e+00 & 0.36 & 1.51e+00 & 0.35 & 1.51e+00 & 0.35 & 1.51e+00 & 0.35 \\
+				& 64 & 1.07e+00 & 0.50 & 1.07e+00 & 0.50 & 1.07e+00 & 0.50 & 1.07e+00 & 0.50 \\
+				& 128 & 6.78e-01 & 0.66 & 6.77e-01 & 0.66 & 6.77e-01 & 0.66 & 6.77e-01 & 0.66 \\
+				& 256 & 3.91e-01 & 0.79 & 3.90e-01 & 0.79 & 3.90e-01 & 0.79 & 3.90e-01 & 0.79 \\
+				& 512 & 2.12e-01 & 0.88 & 2.11e-01 & 0.88 & 2.11e-01 & 0.88 & 2.11e-01 & 0.88 \\
+
+			\hline
+
+			1	& 16 & 1.21e-01 & - & 9.82e-03 & - & 9.61e-03 & - & 9.61e-03 & - \\
+				& 32 & 2.85e-02 & 2.08 & 1.58e-03 & 2.64 & 1.57e-03 & 2.61 & 1.57e-03 & 2.61 \\
+				& 64 & 6.99e-03 & 2.03 & 2.34e-04 & 2.75 & 2.34e-04 & 2.75 & 2.34e-04 & 2.75 \\
+				& 128 & 1.74e-03 & 2.01 & 3.23e-05 & 2.86 & 3.23e-05 & 2.86 & 3.23e-05 & 2.86 \\
+				& 256 & 4.33e-04 & 2.00 & 4.26e-06 & 2.92 & 4.26e-06 & 2.92 & 4.26e-06 & 2.92 \\
+				& 512 & 1.08e-04 & 2.00 & 5.48e-07 & 2.96 & 5.48e-07 & 2.96 & 5.48e-07 & 2.96 \\
+
+			\hline
+
+			2	& 2 & 1.36e+01 & - & 8.19e+00 & - & 5.96e+00 & - & 1.93e+00 & - \\
+				& 4 & 6.79e+00 & 1.00 & 2.24e+00 & 1.87 & 2.97e-01 & 4.33 & 3.21e-02 & 5.91 \\
+				& 8 & 5.27e-01 & 3.69 & 6.74e-02 & 5.05 & 3.81e-03 & 6.28 & 1.36e-04 & 7.88 \\
+				& 16 & 1.21e-01 & 2.12 & 2.18e-03 & 4.95 & 1.81e-05 & 7.71 & 1.10e-07 & 10.27 \\
+				& 32 & 2.88e-02 & 2.08 & 1.24e-04 & 4.13 & 2.49e-07 & 6.19 & 3.87e-10 & 8.15 \\
+				& 64 & 7.07e-03 & 2.02 & 7.60e-06 & 4.03 & 3.75e-09 & 6.05 & 1.48e-12 & 8.03 \\
+
+			\hline
+
+			3	& 2 & 1.36e+01 & - & 8.19e+00 & - & 5.96e+00 & - & 1.93e+00 & - \\
+				& 4 & 6.79e+00 & 1.00 & 2.24e+00 & 1.87 & 2.97e-01 & 4.33 & 3.21e-02 & 5.91 \\
+				& 8 & 5.27e-01 & 3.69 & 6.74e-02 & 5.05 & 3.81e-03 & 6.28 & 1.36e-04 & 7.88 \\
+				& 16 & 1.21e-01 & 2.12 & 2.18e-03 & 4.95 & 1.81e-05 & 7.71 & 1.10e-07 & 10.27 \\
+				& 32 & 2.88e-02 & 2.08 & 1.24e-04 & 4.13 & 2.49e-07 & 6.19 & 3.87e-10 & 8.15 \\
+				& 64 & 7.07e-03 & 2.02 & 7.60e-06 & 4.03 & 3.75e-09 & 6.05 & 1.44e-12 & 8.07 \\
+
+			\hline
+
+			4	& 2 & 1.36e+01 & - & 8.19e+00 & - & 5.96e+00 & - & 1.93e+00 & - \\
+				& 4 & 6.79e+00 & 1.00 & 2.24e+00 & 1.87 & 2.97e-01 & 4.33 & 3.21e-02 & 5.91 \\
+				& 8 & 5.27e-01 & 3.69 & 6.74e-02 & 5.05 & 3.81e-03 & 6.28 & 1.36e-04 & 7.88 \\
+				& 16 & 1.21e-01 & 2.12 & 2.18e-03 & 4.95 & 1.81e-05 & 7.71 & 1.10e-07 & 10.27 \\
+				& 32 & 2.88e-02 & 2.08 & 1.24e-04 & 4.13 & 2.49e-07 & 6.19 & 3.87e-10 & 8.15 \\
+				& 64 & 7.07e-03 & 2.02 & 7.60e-06 & 4.03 & 3.75e-09 & 6.05 & 1.44e-12 & 8.07 \\
+
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\iffalse
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{c | c c | c c | c c }
@@ -2997,7 +3178,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\big|_{\G
 		\caption{\(k = 4\), \(\tau = 10.0\), 5-point Gauss-Lobatto quadrature}
 	\end{center}
 \end{table}
-
+\fi
 
 \subsubsection{Conclusion}
 

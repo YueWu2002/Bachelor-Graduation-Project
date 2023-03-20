@@ -188,8 +188,8 @@
 		&& a_{h}\left(\sigma_{h}, \tau_{h}\right) = \sum_{K\in\mathcal{T}_{h}} \int_{K} \mathcal{A}^{-1}\left(\sigma_{h}\right) \cdot \tau_{h} \d x + \int_{\Gamma^{o}} C_{22} \jump{\sigma_{h}} \jump{\tau_{h}} \d s + \int_{\Gamma^{N}} C_{22} (\sigma_{h} \cdot \bm n) (\tau_{h} \cdot \bm n) \d s \\
 		&& \begin{aligned}
 			b_{h}\left(u_{h}, \tau_{h}\right)
-			& = \sum_{K\in\mathcal{T}_{h}} \int_{K} u_{h} \nabla \cdot \tau_{h} \d x - \int_{\Gamma^{o}} \left(\avg{u_{h}} + \bm{C}_{12} \cdot \jump{u_{h}}\right) \jump{\tau_{h}} \d s - \int_{\Gamma^{N}} u_{h} \tau_{h} \cdot n \d s \\
-			& = -\sum_{K\in\mathcal{T}_{h}} \int_{K} \tau_{h} \cdot \nabla u_{h} \d x + \int_{\Gamma^{o}} \left(\avg{\tau_{h}} - \bm C_{12} \jump{\tau_{h}}\right) \cdot \jump{u_{h}} \d s + \int_{\Gamma^{D}} u_{h} \tau_{h} \cdot \bm n \d s
+			= & \sum_{K\in\mathcal{T}_{h}} \int_{K} u_{h} \nabla \cdot \tau_{h} \d x - \int_{\Gamma^{o}} \left(\avg{u_{h}} + \bm{C}_{12} \cdot \jump{u_{h}}\right) \jump{\tau_{h}} \d s - \int_{\Gamma^{N}} u_{h} \tau_{h} \cdot n \d s \\
+			= & -\sum_{K\in\mathcal{T}_{h}} \int_{K} \tau_{h} \cdot \nabla u_{h} \d x + \int_{\Gamma^{o}} \left(\avg{\tau_{h}} - \bm C_{12} \jump{\tau_{h}}\right) \cdot \jump{u_{h}} \d s + \int_{\Gamma^{D}} u_{h} \tau_{h} \cdot \bm n \d s
 		\end{aligned} \\
 		&& c_{h}\left(u_{h}, v_{h}\right) = \int_{\Gamma^{o}} C_{11} \jump{u_{h}} \cdot \jump{v_{h}} \d s + \int_{\Gamma^{D}} C_{11} u_{h} v_{h} \d s \\
 		&& F_{h}(\tau_{h}) = \int_{\Gamma^{D}} g_{D} \tau_{h} \cdot \bm n \d s + \int_{\Gamma^{N}} C_{22} \left(\bm g_{N} \cdot \bm n\right) \left(\tau_{h} \cdot \bm n\right) \d s \\
@@ -209,9 +209,9 @@
 	\begin{equation}
 		\begin{aligned}
 			L_{h}(\tau_{h}, v_{h})
-			& = \frac{1}{p^{\ast}} \norm{\tau_{h}}_{L^{p^{\ast}}(\Omega)}^{p^{\ast}} + \frac{1}{2} \norm{\jump{\tau_{h}}}_{L^2(\Gamma^{o}, C_{22})}^2 + \frac{1}{2}\norm{\tau_{h}\cdot\bm n}_{L^2(\Gamma^{N}, C_{22})}^2 \\
+			= & \frac{1}{p^{\ast}} \norm{\tau_{h}}_{L^{p^{\ast}}(\Omega)}^{p^{\ast}} + \frac{1}{2} \norm{\jump{\tau_{h}}}_{L^2(\Gamma^{o}, C_{22})}^2 + \frac{1}{2}\norm{\tau_{h}\cdot\bm n}_{L^2(\Gamma^{N}, C_{22})}^2 \\
 			& + b_{h}(v_{h}, \tau_{h}) - \frac{1}{2} c_{h}(v_{h}, v_{h}) - F_{h}(\tau_{h}) + G_{h}(v_{h}) \\
-			& = \frac{1}{p^{\ast}} \norm{\tau_{h}}_{L^{p^{\ast}}(\Omega)}^{p^{\ast}} + \frac{1}{2}\norm{\jump{\tau_{h}}}_{L^2(\Gamma^{o}, C_{22})}^2 + \frac{1}{2}\norm{\left(\tau_{h} - \bm g_{N}\right)\cdot\bm n}_{L^2(\Gamma^{N},C_{22})}^2 \\
+			= & \frac{1}{p^{\ast}} \norm{\tau_{h}}_{L^{p^{\ast}}(\Omega)}^{p^{\ast}} + \frac{1}{2}\norm{\jump{\tau_{h}}}_{L^2(\Gamma^{o}, C_{22})}^2 + \frac{1}{2}\norm{\left(\tau_{h} - \bm g_{N}\right)\cdot\bm n}_{L^2(\Gamma^{N},C_{22})}^2 \\
 			& - \frac{1}{2}\norm{\bm g_{N} \cdot \bm n}_{L^2(\Gamma^{N}, C_{22})}^2 - \left(\tau_{h}, \nabla_{h} v_{h}\right)_{\Omega} + \left\langle \avg{\tau_{h}} - \bm C_{12}\jump{\tau_{h}}, \jump{v_{h}} \right\rangle_{\Gamma^{o}} \\
 			& + \left\langle v_{h} - g_{D}, \tau_{h} \cdot \bm n\right\rangle_{\Gamma^{D}} - \frac{1}{2}\norm{\jump{v_{h}}}_{L^2(\Gamma^{o}, C_{11})}^2 - \frac{1}{2}\norm{v - g_{D}}_{L^2(\Gamma^{D}, C_{11})}^2 \\
 			& + \frac{1}{2}\norm{g_{D}}_{L^2(\Gamma^{D}, C_{11})}^2 + \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}}
@@ -239,8 +239,8 @@
 		用前两式的和减去后两式的和，得到：
 		\begin{equation*}
 			\begin{aligned}
-				0 & = a_{h}\left(\sigma_{h,1}, \sigma_{h,1} - \sigma_{h,2}\right) - a_{h}\left(\sigma_{h,2}, \sigma_{h,1} - \sigma_{h,2}\right) + c_{h}\left(u_{h,1} - u_{h,2}, u_{h,1} - u_{h,2}\right) \\
-				& = \left(\mathcal{A}^{-1}(\sigma_{h,1}) - \mathcal{A}^{-1}(\sigma_{h,2}), \sigma_{h,1} - \sigma_{h,2}\right)_{\Omega} + \norm{\jump{\sigma_{h,1} - \sigma_{h,2}}}_{L^2(\Gamma^{o}, C_{22})}^2 \\
+				0 = & a_{h}\left(\sigma_{h,1}, \sigma_{h,1} - \sigma_{h,2}\right) - a_{h}\left(\sigma_{h,2}, \sigma_{h,1} - \sigma_{h,2}\right) + c_{h}\left(u_{h,1} - u_{h,2}, u_{h,1} - u_{h,2}\right) \\
+				= & \left(\mathcal{A}^{-1}(\sigma_{h,1}) - \mathcal{A}^{-1}(\sigma_{h,2}), \sigma_{h,1} - \sigma_{h,2}\right)_{\Omega} + \norm{\jump{\sigma_{h,1} - \sigma_{h,2}}}_{L^2(\Gamma^{o}, C_{22})}^2 \\
 				& + \norm{\left(\sigma_{h,1} - \sigma_{h,2}\right)\cdot\bm n}_{L^2(\Gamma^{N}, C_{22})}^2 + \norm{\jump{u_{h,1} - u_{h,2}}}_{L^2(\Gamma^{o}, C_{11})}^2 + \norm{u_{h,1} - u_{h,2}}_{L^2(\Gamma^{D}, C_{11})}^2
 			\end{aligned}
 		\end{equation*}
@@ -780,7 +780,7 @@
 			\left(\sigma_{h}, \tau_{h}\right)_{\Omega} = \left(\mathcal{A}(q_{h}), \tau_{h}\right)_{\Omega} \\
 			\begin{aligned}
 				\left(\sigma_{h}, \nabla_{h} v_{h}\right)_{\Omega} 
-				& = \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}} \\
+				= & \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}} \\
 				& + \left\langle \jump{v_{h}}, \avg{\sigma_{h}} - \bm C_{12}\jump{\sigma_{h}}\right\rangle_{\Gamma^{o}} + \left\langle v_{h}, \sigma_{h}\cdot\bm n\right\rangle_{\Gamma^{D}} \\
 				& - \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} - \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right)\cdot\bm n\right), v_{h}\bm n \right\rangle_{\Gamma^{D}}
 			\end{aligned}
@@ -791,8 +791,11 @@
 \begin{equation}
 	\begin{aligned}
 		& \forall \zeta_{h} \in Q_{h}: \\
-		& \left(D_{DG}\left(u_{h}; g_{D}\right), \zeta_{h}\right)_{\Omega}
-		= \left(\nabla_{h} u_{h}, \zeta_{h}\right)_{\Omega} - \left\langle \jump{u_{h}}, \avg{\zeta_{h}} - \bm C_{12} \jump{\zeta_{h}} \right\rangle_{\Gamma^{o}} - \left\langle u_{h} - g_{D}, \zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}}
+        & \begin{aligned}
+            \left(D_{DG}\left(u_{h}; g_{D}\right), \zeta_{h}\right)_{\Omega}
+		    = & \left(\nabla_{h} u_{h}, \zeta_{h}\right)_{\Omega} - \left\langle \jump{u_{h}}, \avg{\zeta_{h}} - \bm C_{12} \jump{\zeta_{h}} \right\rangle_{\Gamma^{o}} \\
+            & - \left\langle u_{h} - g_{D}, \zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}}
+        \end{aligned}
 	\end{aligned}
 \end{equation}
 从形式上看，算子 \(D_{DG}\) 逼近以 \(g_{D}\) 为 Dirichlet 边值的 \(u_{h}\) 的广义梯度。利用此算子，LDG 方程组\eqref{p-Laplace LDG weak form 2}可以等价地写成：
@@ -801,7 +804,7 @@
 		& \text{find \(u_{h} \in V_{h}\) such that \(\forall v_{h} \in V_{h}\):} \\
 		& \begin{aligned}
 			& \left(\sigma_{h}, D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right)\cdot\bm n\right), v_{h}\bm n \right\rangle_{\Gamma^{D}} \\
-			& = \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}}
+			= & \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}}
 		\end{aligned} \\
 		& \text{where: \(q_{h} = D_{DG}\left(u_{h}, g_{D}\right)\), \(\sigma_{h} = \Pi_{\Sigma_{h}} \mathcal{A}\left(q_{h}\right)\)}
 	\end{aligned}
@@ -813,7 +816,7 @@
 		& \begin{aligned}
 			& \left(\mathcal{A}\left(D_{DG}\left(u_{h}; g_{D}\right)\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} \\
 			& + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right)\bm n\right), v_{h}\bm n \right\rangle_{\Gamma^{D}} \\
-			& = \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}}
+			= & \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}}
 		\end{aligned}
 	\end{aligned}
 \end{equation}
@@ -828,7 +831,8 @@
 	其中，泛函 \(J_{h}(\cdot): V_{h} \mapsto \R\) 如下：
 	\begin{equation}
 		\begin{aligned}
-			J_{h}(u_{h}) & = \frac{1}{p}\norm{D_{DG}\left(u_{h}; g_{D}\right)}_{L^p(\Omega)}^{p} + \frac{1}{p}\norm{\jump{u_{h}}}_{L^{p}(\Gamma^{o}, \eta h^{-(p-1)\alpha})}^{p} \\
+			J_{h}(u_{h}) 
+            = & \frac{1}{p}\norm{D_{DG}\left(u_{h}; g_{D}\right)}_{L^p(\Omega)}^{p} + \frac{1}{p}\norm{\jump{u_{h}}}_{L^{p}(\Gamma^{o}, \eta h^{-(p-1)\alpha})}^{p} \\
 			& + \frac{1}{p}\norm{u_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h^{-(p-1)\alpha})}^{p} - \left(f, u_{h}\right)_{\Omega} - \left\langle \bm g_{N}\cdot\bm n, u_{h}\right\rangle_{\Gamma^{N}}
 		\end{aligned}
 	\end{equation}
@@ -853,7 +857,7 @@
 \begin{equation}
 	\begin{aligned}
 		J_{h}'(u_{h})(v_{h})
-		& = \left(\mathcal{A}\left(D_{DG}\left(u_{h}; g_{D}\right)\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} \\
+		= & \left(\mathcal{A}\left(D_{DG}\left(u_{h}; g_{D}\right)\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} \\
 		& + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right)\bm n\right), v_{h}\bm n \right\rangle_{\Gamma^{D}} \\
 		& - \left(f, v_{h}\right)_{\Omega} - \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}}
 	\end{aligned}
@@ -870,8 +874,9 @@
 	\begin{equation}\label{p-Laplace LDG minimization descent norm 2}
 		\begin{aligned}
 			\norm{w_{h}}^{2}
-			& = \norm{D_{DG}\left(w_{h}; 0\right)}_{L^2(\Omega, \epsilon + \abs{D_{DG}\left(u_{h}; g_{D}\right)}^{p-2})}^{2} \\
-			& + \norm{\jump{w_{h}}}_{L^2(\Gamma^{o}, \eta h^{-\alpha}(\epsilon + \abs{h^{-\alpha} \jump{u_{h}}}^{p-2}))}^{2} + \norm{w_{h}}_{L^2(\Gamma^{D}, \eta h^{-\alpha}(\epsilon + \abs{h^{-\alpha}(u_{h} - g_{D})}^{p-2}))}^{2}
+			= & \norm{D_{DG}\left(w_{h}; 0\right)}_{L^2(\Omega, \epsilon + \abs{D_{DG}\left(u_{h}; g_{D}\right)}^{p-2})}^{2} \\
+			& + \norm{\jump{w_{h}}}_{L^2(\Gamma^{o}, \eta h^{-\alpha}(\epsilon + \abs{h^{-\alpha} \jump{u_{h}}}^{p-2}))}^{2} \\
+            & + \norm{w_{h}}_{L^2(\Gamma^{D}, \eta h^{-\alpha}(\epsilon + \abs{h^{-\alpha}(u_{h} - g_{D})}^{p-2}))}^{2}
 		\end{aligned}
 	\end{equation}
     \begin{equation}\label{p-Laplace LDG minimization descent norm 3}
@@ -885,7 +890,7 @@
 			& \text{find \(w_{h} \in V_{h}\) such that \(\forall v_{h} \in V_{h}\):} \\
 			& \begin{aligned}
 				& \left(D_{DG}\left(w_{h}; 0\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta h^{-\alpha} \jump{w_{h}}, \jump{v_{h}} \right\rangle_{\Gamma^{o}} + \left\langle \eta h^{-\alpha} w_{h}, v_{h}\right\rangle_{\Gamma^{D}} \\
-				& = -J_{h}'(u_{h})(v_{h})
+				= & -J_{h}'(u_{h})(v_{h})
 			\end{aligned}
 		\end{aligned}
 	\end{equation}
@@ -894,8 +899,9 @@
 			& \text{find \(w_{h} \in V_{h}\) such that \(\forall v_{h} \in V_{h}\):} \\
 			& \begin{aligned}
 				& \left( \left(\epsilon + \abs{D_{DG}\left(u_{h}; g_{D}\right)}^{p-2}\right) D_{DG}\left(w_{h}; 0\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} \\
-				& + \left\langle \eta h^{-\alpha}\left(\epsilon + \abs{h^{-\alpha} \jump{u_{h}}}^{p-2}\right) \jump{w_{h}}, \jump{v_{h}} \right\rangle_{\Gamma^{o}} + \left\langle \eta h^{-\alpha}\left(\epsilon + \abs{h^{-\alpha} (u_{h} - g_{D})}^{p-2}\right) w_{h}, v_{h}\right\rangle_{\Gamma^{D}} \\
-				& = -J_{h}'(u_{h})(v_{h})
+				& + \left\langle \eta h^{-\alpha}\left(\epsilon + \abs{h^{-\alpha} \jump{u_{h}}}^{p-2}\right) \jump{w_{h}}, \jump{v_{h}} \right\rangle_{\Gamma^{o}} \\
+                & + \left\langle \eta h^{-\alpha}\left(\epsilon + \abs{h^{-\alpha} (u_{h} - g_{D})}^{p-2}\right) w_{h}, v_{h}\right\rangle_{\Gamma^{D}} \\
+				= & -J_{h}'(u_{h})(v_{h})
 			\end{aligned}
 		\end{aligned}
 	\end{equation}
