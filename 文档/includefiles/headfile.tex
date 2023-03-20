@@ -1,0 +1,145 @@
+\documentclass[UTF8,oneside,12pt]{ctexart} % oneside防止主动空页，11pt设置normalsize，仅可以设置10,11,12
+
+
+\usepackage[a4paper]{geometry} % 页面尺寸设置包(窄)
+% 窄边：left=1.27cm,right=1.27cm,top=1.27cm,bottom=1.27cm
+% 正常：left=2.5cm,right=2.5cm,top=2.54cm,bottom=2.54cm
+
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{unicode-math} % 定义跳跃符号⟦需要(但是与bm包不兼容!)
+
+
+\usepackage{extarrows} % 数学箭头包
+
+\usepackage{booktabs} % 三线表
+
+\usepackage{multirow} % 合并单元格
+
+
+% \usepackage{bm} % 加粗字体包(与unicode-math不兼容)，使用\mathbf替代\bm更好
+\def\bm#1{\symbf{#1}} % 当使用unicode-math时，这样加粗
+% \def\bm#1{\mathbf{#1}} % 粗体(对希腊字母无效)
+
+
+% \usepackage{cases} % 方程组每个方程编号，数学环境只能内嵌在它里面
+
+
+\usepackage{graphicx} % 使用resizebox缩放
+
+
+\usepackage{subcaption} % 并排表格、subfigure子图
+
+
+\usepackage{esint} % 环路积分、通量符号
+
+
+\usepackage{float} % 图片figure加入大写的H，可以强制位置
+
+
+% \usepackage{enumerate} % 改变enumerate编号格式
+
+
+\usepackage{mathrsfs} % 花体\mathscr
+
+
+\usepackage{hyperref} % 可以在前面加入[hidelinks]来不显示超链接框，提供各种超链接
+
+
+% \usepackage{cite} % 引用参考文献，superscript使得引用编号是上标的形式
+
+
+% \usepackage[title]{appendix} % 附录标题
+
+
+\usepackage{enumitem} % 调整enumerate和itemize的行间距
+
+
+% \usepackage{algorithm} % 与 algorithm2e 不兼容
+% \usepackage{algorithmic} % 与 algorithm2e 不兼容
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+
+% \usepackage{rotating}%用于旋转对象
+
+
+% \usepackage{longtable} % 长表格
+% \usepackage{multirow} % 单元格纵向合并
+
+
+%\usepackage{xcolor}%字体颜色
+
+
+\usepackage[backend=bibtex, sorting=none]{biblatex} % 选择后端处理方式为bibtex(需要运行bibtex)，编号方式是数值编号，禁用重排序，引用格式是gb7714-2015(需要xstring.sty)
+\addbibresource{includefiles/refs.bib} % BibTeX数据文件及位置
+
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}} % 表格单元格内换行
+\newtheoremstyle{Problem}   % name
+    {15pt}                  % Space above
+    {5pt}                   % Space below
+    {}                      % Body font
+    {0em}                   % Indent amount
+    {\bfseries}             % Theorem head font
+    {:}                     % Punctuation after theorem head
+    {0.5em}                 % Space after theorem head
+    {}                      % Theorem head spec (can be left empty, meaning `normal' )
+% 自定义环境样式，请查询amsthm
+\newtheoremstyle{Solution}  % name
+    {5pt}                   % Space above
+    {7pt}                   % Space below
+    {}                      % Body font
+    {0em}                   % Indent amount
+    {\ttfamily}             % Theorem head font
+    {:}                     % Punctuation after theorem head
+    {0.5em}                 % Space after theorem head
+    {}                      % Theorem head spec (can be left empty, meaning `normal' )
+% 自定义环境样式，请查询amsthm
+
+\theoremstyle{Problem} % 以下自定义的环境使用已定义格式(正体(宋体)加粗)
+    \newtheorem{assumption}{假设}[section]
+    \newtheorem{proposition}{命题}[section]
+    \newtheorem{remark}{注}[section]
+    \newtheorem{algo}{算法}[section]
+    \newtheorem{theorem}{定理}[section]
+    \newtheorem{corollary}{推论}[section]
+    \newtheorem{lemma}{引理}[section]
+    \newtheorem{definition}{定义}[section]
+    \newtheorem{example}{例子}[section]
+    \newtheorem{axiom}{公理}[section]
+
+% \theoremstyle{Solution}
+%     \newtheorem*{solution}{解} % 解不加编号
+%     \newtheorem*{Proof}{证明}
+
+
+\def\R{\mathbb{R}}
+\def\F{\mathbb{F}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\d{{\rm d}}
+\def\D{{\mathcal{D}}} % 微分算子
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\X{\chi} % 特征函数，示性函数
+\def\e{{\rm e}}
+\def\i{{\rm i}}
+\def\rank{\mathop{\rm rank}}
+\def\tr{\mathop{\rm tr}}
+\def\diam{{\rm diam}}
+\def\diag{\mathop{\rm diag}}
+\def\lcm{\mathop{\rm lcm}}
+\def\mod{{\;\rm mod\,}}
+\def\norm#1{\left\lVert#1\right\rVert} % 范数
+\def\B#1{\left\{#1\right\}} % 大括号
+\def\b#1{\left[#1\right]} % 中括号
+\def\abs#1{\left\lvert#1\right\rvert}
+\def\bdots{\begin{rotate}{90}$\ddots$\end{rotate}} % 反对角的省略号
+\def\jump#1{\left\lBrack #1 \right\rBrack} % 跳跃
+\def\avg#1{\left\lbrace #1 \right\rbrace} % 均值
+
+\setmonofont{Consolas} % 设置等宽字体样式
+\allowdisplaybreaks % 允许公式换页
