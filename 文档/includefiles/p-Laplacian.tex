@@ -1,18 +1,19 @@
 \section{DG for the \(p\)-Laplacian Equation}
 
-对于 \(p \in [1, +\infty)\)，定义算子 \(\mathcal{A}: \R^d \mapsto \R^d, \tau \mapsto \mathcal{A}(\tau) = \abs{\tau}^{p-2}\tau\)，其满足以下性质：
+对于 \(p \in [1, +\infty)\)，定义算子 \(\mathcal{A}: \R^d \mapsto \R^d, \bm\tau \mapsto \mathcal{A}(\bm\tau) = \abs{\bm\tau}^{p-2} \bm\tau\)，其满足以下性质：
 \begin{enumerate}
-	\item 严格单调性：\(\forall \tau_2 \neq \tau_1\)，\(\left(\tau_{2} - \tau_{1}\right) \cdot \left(\mathcal{A}(\tau_{2}) - \mathcal{A}(\tau_{1})\right) > 0\)\cite{10.1051/m2an/197509R200411}
-	\item \((p-1)\)-齐次性：\(\forall \lambda \in \R\)，\(\mathcal{A}(\lambda \tau) = \lambda^{p-1} \mathcal{A}(\tau)\).
-	\item 可逆性：当且仅当 \(p \in (1,+\infty)\) 时，\(\mathcal{A}\) 在 \(\tau = 0\) 处良定义，且 \(\mathcal{A}\) 是双射，\(\mathcal{A}^{-1}(\tau) = \abs{\tau}^{p^{\ast} - 2} \tau\).
+	\item 严格单调性：\(\forall \bm\tau_2 \neq \bm\tau_1\)，\(\left(\bm\tau_{2} - \bm\tau_{1}\right) \cdot \left(\mathcal{A}(\bm\tau_{2}) - \mathcal{A}(\bm\tau_{1})\right) > 0\)\cite{10.1051/m2an/197509R200411}；
+	\item \((p-1)\)-齐次性：\(\forall \lambda \in \R\)，\(\mathcal{A}(\lambda \bm\tau) = \lambda^{p-1} \mathcal{A}(\bm\tau)\)；
+	\item 可逆性：当且仅当 \(p \in (1, +\infty)\) 时，\(\mathcal{A}\) 在 \(\bm\tau = \bm 0\) 处良定义，且 \(\mathcal{A}\) 是双射，\(\mathcal{A}^{-1}(\bm\tau) = \abs{\bm\tau}^{p^{\ast} - 2} \bm\tau\).
 \end{enumerate}
 
 \begin{lemma}
-	当 \(p > 1\) 且 \(\delta \geqslant 0\) 时，\(\exists C_1, C_2 > 0\) 使得 \(\forall \tau_1, \tau_2 \in \R^{d}\)，若 \(\tau_1 \neq \tau_2\)，则：
+	当 \(p > 1\) 且 \(\delta \geqslant 0\) 时，\(\exists C_1, C_2 > 0\) 使得 \(\forall \bm\tau_1 \neq \bm\tau_2\)：
 	\begin{enumerate}
-		\item \(\abs{\mathcal{A}(\tau_1) - \mathcal{A}(\tau_2)} \leqslant C_1 \abs{\tau_1 - \tau_2}^{1-\delta} \left(\abs{\tau_1} + \abs{\tau_2}\right)^{p-2+\delta}\)
-		\item \(\left(\mathcal{A}(\tau_1) - \mathcal{A}(\tau_2)\right)\cdot\left(\tau_1 - \tau_2\right) \geqslant C_2 \abs{\tau_1 - \tau_2}^{2 + \delta}\left(\abs{\tau_1} + \abs{\tau_2}\right)^{p-2-\delta}\)
+		\item \(\abs{\mathcal{A}(\bm\tau_1) - \mathcal{A}(\bm\tau_2)} \leqslant C_1 \abs{\bm\tau_1 - \bm\tau_2}^{1-\delta} \left(\abs{\bm\tau_1} + \abs{\bm\tau_2}\right)^{p-2+\delta}\)；
+		\item \(\left(\mathcal{A}(\bm\tau_1) - \mathcal{A}(\bm\tau_2)\right) \cdot \left(\bm\tau_1 - \bm\tau_2\right) \geqslant C_2 \abs{\bm\tau_1 - \bm\tau_2}^{2 + \delta} \left(\abs{\bm\tau_1} + \abs{\bm\tau_2}\right)^{p-2-\delta}\)
 	\end{enumerate}
+
 	\begin{proof}
 		See \cite[Lemma 2.1]{10.1090/S0025-5718-1993-1192966-4}
 	\end{proof}
@@ -29,10 +30,10 @@
 其等价的一阶方程组形式为：
 \begin{equation}\label{p-Laplace mixed form}
 	\begin{cases}
-		\mathcal{A}^{-1}(\sigma) - \nabla u = 0, & \text{in \(\Omega\)} \\
-		-\nabla \cdot \sigma = f, & \text{in \(\Omega\)} \\
+		\mathcal{A}^{-1}(\bm\sigma) - \nabla u = 0, & \text{in \(\Omega\)} \\
+		-\nabla \cdot \bm\sigma = f, & \text{in \(\Omega\)} \\
 		u = g_{D}, & \text{on \(\Gamma^{D}\)} \\
-		\sigma \cdot \bm n = \bm g_{N} \cdot \bm n, & \text{on \(\Gamma^{N}\)}
+		\bm\sigma \cdot \bm n = \bm g_{N} \cdot \bm n, & \text{on \(\Gamma^{N}\)}
 	\end{cases}
 \end{equation}
 这里，\(\frac{1}{p} + \frac{1}{p^\ast} = 1\)，\(p\in(1,+\infty)\).
@@ -74,6 +75,7 @@
 
 \begin{theorem}[Existence, uniqueness, and equivalence]
 	当 \(p \in (1, +\infty)\) 时，\(p\)-Laplace 方程的弱形式\eqref{p-Laplace primal weak form}和最优化形式\eqref{p-Laplace primal minimization form}的解存在、唯一、相同。
+
 	\begin{proof}
 		See \cite[Section 6.2]{10.1007/978-3-319-78390-1_6}.
 	\end{proof}
@@ -83,13 +85,13 @@
 
 \(p\)-Laplace 方程\eqref{p-Laplace primal form}有如下性质\cite{lindqvist2017notes}：
 \begin{enumerate}
-	\item 当 \(p = 1\) 时，易见 \(\nabla\cdot\left(\frac{\nabla u}{\abs{\nabla u}}\right) = \nabla\cdot\left(\frac{\nabla\varphi(u)}{\abs{\nabla\varphi(u)}}\right) = -H\) (mean curvature operator)，解只被等值集(level set)决定，可以不唯一。
+	\item 当 \(p = 1\) 时，易见 \(\nabla\cdot\left(\frac{\nabla u}{\abs{\nabla u}}\right) = \nabla\cdot\left(\frac{\nabla\varphi(u)}{\abs{\nabla\varphi(u)}}\right) = -H\) (mean curvature operator)，解只被等值集(level set)决定，显然不唯一；
 	\item 当 \(p \in (1, +\infty)\) 时：\begin{enumerate}
-		\item 当 \(p \in (1,2)\) 时，在临界点 \(\nabla u = 0\) 处，Euler-Lagrange 方程是奇异的。
-		\item 当 \(p = 2\) 时，Euler-Lagrange 方程等价于 Poisson 方程，该方程在固体力学中描述完全弹性行为。
-		\item 当 \(p \in (2, +\infty)\) 时，在临界点 \(\nabla u = 0\) 处，Euler-Lagrange 方程是退化椭圆的。
+		\item 当 \(p \in (1,2)\) 时，在临界点 \(\nabla u = 0\) 处，\(p\)-Laplace 方程作为椭圆方程是奇异的；
+		\item 当 \(p = 2\) 时，\(p\)-Laplace 方程等价于 Poisson 方程，该方程在固体力学中描述完全弹性行为；
+		\item 当 \(p \in (2, +\infty)\) 时，在临界点 \(\nabla u = 0\) 处，\(p\)-Laplace 方程作为椭圆方程是退化的；
 	\end{enumerate}
-	\item 当 \(p = +\infty\) 时，需要引入粘性解(viscosity solution)的概念来定义解\cite{978-3-319-31531-7}，该方程在固体力学中描述完全塑性行为，在图像处理中有应用。
+	\item 当 \(p = +\infty\) 时，需要引入粘性解(viscosity solution)的概念来定义解\cite{10.1007/978-3-319-31532-4_4}，该方程在固体力学中描述完全塑性行为，在图像处理中有应用。
 \end{enumerate}
 
 
@@ -98,45 +100,46 @@
 当 \(m(\Gamma^{D}) > 0\) 时，取空间：
 \begin{subequations}
 	\begin{eqnarray}
-		&& \Sigma = \B{\tau \in W^{1, p^\ast}({\rm div}, \Omega) \bigg| \tau\big|_{\Gamma^{N}} \cdot \bm n = \bm g_{N} \cdot \bm n} \\
-		&& \widetilde{\Sigma} = \B{\tau \in W^{1, p^\ast}({\rm div}, \Omega) \bigg| \tau\big|_{\Gamma^{N}} \cdot \bm n = \bm 0} \\
+		&& \Sigma = \B{\bm\tau \in W^{1, p^\ast}({\rm div}, \Omega) \bigg| \bm\tau \cdot \bm n\big|_{\Gamma^{N}} = \bm g_{N} \cdot \bm n} \\
+		&& \widetilde{\Sigma} = \B{\bm\tau \in W^{1, p^\ast}({\rm div}, \Omega) \bigg| \bm\tau \cdot \bm n\big|_{\Gamma^{N}} = \bm 0} \\
 		&& W = L^p(\Omega)
 	\end{eqnarray}
 \end{subequations}
 \(p\)-Laplace 方程组\eqref{p-Laplace mixed form}的弱形式为\cite{10.1093/imanum/18.1.121}：
 \begin{equation}\label{p-Laplace mixed weak form}
 	\begin{aligned}
-		& \text{find \(\left(\sigma, u\right) \in \Sigma\times W\) such that \(\forall \left(\tau, v\right)\in\widetilde{\Sigma}\times W\):} \\
+		& \text{find \(\left(\bm\sigma, u\right) \in \Sigma\times W\) such that \(\forall \left(\bm\tau, v\right)\in\widetilde{\Sigma}\times W\):} \\
 		& \begin{cases}
-			\left(\mathcal{A}^{-1}(\sigma), \tau\right)_{\Omega} + \left(\nabla \cdot \tau, u\right)_{\Omega} = \left\langle g_{D}, \tau \cdot \bm n \right\rangle_{\Gamma^{D}} \\
-			-\left(\nabla \cdot \sigma, v\right)_{\Omega} = \left(f, v\right)_{\Omega}
+			\left(\mathcal{A}^{-1}(\bm\sigma), \bm\tau\right)_{\Omega} + \left(\nabla \cdot \bm\tau, u\right)_{\Omega} = \left\langle g_{D}, \bm\tau \cdot \bm n \right\rangle_{\Gamma^{D}} \\
+			-\left(\nabla \cdot \bm\sigma, v\right)_{\Omega} = \left(f, v\right)_{\Omega}
 		\end{cases}
 	\end{aligned}
 \end{equation}
 将 \(u\) 视作 Lagrange 乘子，其对应的带约束的优化问题为：% to be done: 验证这里的约束满足LBB条件(参考文章 10.1216/camq/1008957338)，且左上角的能量在 B 的kernel上是coercive的、弱下半连续、强凸(这里利用了算子 \mathcal{A} 的严格单调性)的，因此由变分法知存在唯一解
 \begin{equation}\label{p-Laplace mixed constrained minimization form}
 	\begin{aligned}
-		& \text{minimize:} & \frac{1}{p^\ast}\norm{\sigma}_{L^{p^\ast}(\Omega)}^{p^\ast} - \left\langle g_{D}, \sigma\cdot\bm n \right\rangle_{\Gamma^{D}} \\
-		& \text{subject to:} & -\nabla \cdot \sigma = f, \quad \sigma \in \Sigma
+		& \text{minimize:} & \frac{1}{p^\ast}\norm{\bm\sigma}_{L^{p^\ast}(\Omega)}^{p^\ast} - \left\langle g_{D}, \bm\sigma \cdot \bm n \right\rangle_{\Gamma^{D}} \\
+		& \text{subject to:} & -\nabla \cdot \bm\sigma = f, \quad \bm\sigma \in \Sigma
 	\end{aligned}
 \end{equation}
 对应的鞍点问题为：
 \begin{subequations}\label{p-Laplace mixed saddle-point problem}
 	\begin{equation}
 		\begin{aligned}
-			& \text{find \(\left(\sigma, u\right)\in\Sigma \times W\) such that \(\forall \left(\tau, v\right)\in\Sigma \times W\):} \\
-			& L(\sigma, v) \leqslant L(\sigma, u) \leqslant L(\tau, u)
+			& \text{find \(\left(\bm\sigma, u\right)\in \Sigma \times W\) such that \(\forall \left(\bm\tau, v\right) \in \Sigma \times W\):} \\
+			& L(\bm\sigma, v) \leqslant L(\bm\sigma, u) \leqslant L(\bm\tau, u)
 		\end{aligned}
 	\end{equation}
 	其中，Lagrange 泛函 \(L(\cdot, \cdot): \Sigma \times W \mapsto \R\) 如下：
 	\begin{equation}
-		L(\tau, v) = \frac{1}{p^\ast}\norm{\tau}_{L^{p^\ast}(\Omega)}^{p^\ast} - \left\langle g_{D}, \tau\cdot\bm n \right\rangle_{\Gamma^{D}} + \left(\nabla \cdot \tau, v\right)_{\Omega} + \left(f, v\right)_{\Omega}
+		L(\bm\tau, v) = \frac{1}{p^\ast}\norm{\bm\tau}_{L^{p^\ast}(\Omega)}^{p^\ast} - \left\langle g_{D}, \bm\tau \cdot \bm n \right\rangle_{\Gamma^{D}} + \left(\nabla \cdot \bm\tau, v\right)_{\Omega} + \left(f, v\right)_{\Omega}
 	\end{equation}
 \end{subequations}
 这里，\(f \in L^{p^\ast}(\Omega)\)，\(g_{D} \in W^{\frac{1}{p}, p^\ast}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in W^{-\frac{1}{p}, p}(\Gamma^{N})\).
 
 \begin{theorem}[Well-posedness of the weak form]
-	当 \(g_{N} = 0\) 时，\(p\)-Laplace 方程的弱形式\eqref{p-Laplace mixed weak form}存在唯一解。
+	当 \(g_{N} \cdot \bm n = 0\) 时，\(p\)-Laplace 方程的弱形式\eqref{p-Laplace mixed weak form}存在唯一解。
+
 	\begin{proof}
 		See \cite[Theorem 2.1]{10.1216/camq/1008957338}.
 	\end{proof}
@@ -168,32 +171,32 @@
 我们的第一种方法直接离散对偶形式方程组\eqref{p-Laplace mixed form}。取空间为：
 \begin{subequations}
 	\begin{eqnarray}
-		&& \Sigma_{h} = \B{\tau_{h}\big|_{k} \in \left(\mathscr{P}^{k}(K)\right)^d \bigg| \forall K \in \mathcal{T}_{h}} \\
-		&& V_{h} = \B{v_{h}\big|_{k} \in \mathscr{P}^{k}(K) \bigg| \forall K \in \mathcal{T}_{h}}
+		&& \Sigma_{h} = \bigoplus_{K \in \mathcal{T}_{h}} \Sigma(K) = \bigoplus_{K \in \mathcal{T}_{h}} \left(\mathscr{P}^{k}(K)\right)^{d} \\
+		&& V_{h} = \bigoplus_{K \in \mathcal{T}_{h}} V(K) = \bigoplus_{K \in \mathcal{T}_{h}} \mathscr{P}^{k}(K)
 	\end{eqnarray}
 \end{subequations}
 数值通量仍然取 LDG 格式的数值通量\eqref{LDG numerical flux}，\(p\)-Laplace 方程\eqref{p-Laplace mixed form}的 LDG 格式为：
 \begin{subequations}\label{p-Laplace LDG weak form 1}
 	\begin{equation}
 		\begin{aligned}
-			& \text{find \(\left(\sigma_{h}, u_{h}\right)  \in \Sigma_{h} \times V_{h}\) such that \(\forall \left(\tau_{h}, v_{h}\right) \in \Sigma_{h} \times V_{h}\):} \\
+			& \text{find \(\left(\bm\sigma_{h}, u_{h}\right)  \in \Sigma_{h} \times V_{h}\) such that \(\forall \left(\bm\tau_{h}, v_{h}\right) \in \Sigma_{h} \times V_{h}\):} \\
 			& \begin{cases}
-				a_{h}\left(\sigma_{h}, \tau_h\right) + b_{h}\left(u_{h}, \tau_{h}\right) = F_{h}\left(\tau_{h}\right) \\
-				-b_{h}\left(v_{h}, \sigma_{h}\right) + c_{h}\left(u_{h}, v_{h}\right) = G_{h}\left(v_{h}\right)
+				a_{h}\left(\bm\sigma_{h}, \bm\tau_h\right) + b_{h}\left(\bm\tau_{h}, u_{h}\right) = F_{h}\left(\bm\tau_{h}\right) \\
+				-b_{h}\left(\bm\sigma_{h}, v_{h}\right) + c_{h}\left(u_{h}, v_{h}\right) = G_{h}\left(v_{h}\right)
 			\end{cases}
 		\end{aligned}
 	\end{equation}
 	其中：
 	\begin{eqnarray}
-		&& a_{h}\left(\sigma_{h}, \tau_{h}\right) = \sum_{K\in\mathcal{T}_{h}} \int_{K} \mathcal{A}^{-1}\left(\sigma_{h}\right) \cdot \tau_{h} \d x + \int_{\Gamma^{o}} C_{22} \jump{\sigma_{h}} \jump{\tau_{h}} \d s + \int_{\Gamma^{N}} C_{22} (\sigma_{h} \cdot \bm n) (\tau_{h} \cdot \bm n) \d s \\
+		&& a_{h}\left(\bm\sigma_{h}, \bm\tau_{h}\right) = \sum_{K \in \mathcal{T}_{h}} \int_{K} \mathcal{A}^{-1}\left(\bm\sigma_{h}\right) \cdot \bm\tau_{h} \d x + \int_{\Gamma^{o}} C_{22} \jump{\bm\sigma_{h}} \jump{\bm\tau_{h}} \d s + \int_{\Gamma^{N}} C_{22} (\bm\sigma_{h} \cdot \bm n) (\bm\tau_{h} \cdot \bm n) \d s \\
 		&& \begin{aligned}
-			b_{h}\left(u_{h}, \tau_{h}\right)
-			= & \sum_{K\in\mathcal{T}_{h}} \int_{K} u_{h} \nabla \cdot \tau_{h} \d x - \int_{\Gamma^{o}} \left(\avg{u_{h}} + \bm{C}_{12} \cdot \jump{u_{h}}\right) \jump{\tau_{h}} \d s - \int_{\Gamma^{N}} u_{h} \tau_{h} \cdot n \d s \\
-			= & -\sum_{K\in\mathcal{T}_{h}} \int_{K} \tau_{h} \cdot \nabla u_{h} \d x + \int_{\Gamma^{o}} \left(\avg{\tau_{h}} - \bm C_{12} \jump{\tau_{h}}\right) \cdot \jump{u_{h}} \d s + \int_{\Gamma^{D}} u_{h} \tau_{h} \cdot \bm n \d s
+			b_{h}\left(\bm\tau_{h}, u_{h}\right)
+			= & \sum_{K\in\mathcal{T}_{h}} \int_{K} u_{h} \nabla \cdot \bm\tau_{h} \d x - \int_{\Gamma^{o}} \left(\avg{u_{h}} + \bm{C}_{12} \cdot \jump{u_{h}}\right) \jump{\bm\tau_{h}} \d s - \int_{\Gamma^{N}} u_{h} \bm\tau_{h} \cdot \bm n \d s \\
+			= & -\sum_{K\in\mathcal{T}_{h}} \int_{K} \bm\tau_{h} \cdot \nabla u_{h} \d x + \int_{\Gamma^{o}} \left(\avg{\bm\tau_{h}} - \bm C_{12} \jump{\bm\tau_{h}}\right) \cdot \jump{u_{h}} \d s + \int_{\Gamma^{D}} u_{h} \bm\tau_{h} \cdot \bm n \d s
 		\end{aligned} \\
 		&& c_{h}\left(u_{h}, v_{h}\right) = \int_{\Gamma^{o}} C_{11} \jump{u_{h}} \cdot \jump{v_{h}} \d s + \int_{\Gamma^{D}} C_{11} u_{h} v_{h} \d s \\
-		&& F_{h}(\tau_{h}) = \int_{\Gamma^{D}} g_{D} \tau_{h} \cdot \bm n \d s + \int_{\Gamma^{N}} C_{22} \left(\bm g_{N} \cdot \bm n\right) \left(\tau_{h} \cdot \bm n\right) \d s \\
-		&& G_{h}(v_{h}) = \sum_{K\in\mathcal{T}_{h}} \int_{K} f v_{h} \d x + \int_{\Gamma^{D}} C_{11} g_{D} v_{h} \d s + \int_{\Gamma^{N}} v_{h} \bm g_{N} \cdot \bm n \d s
+		&& F_{h}(\bm\tau_{h}) = \int_{\Gamma^{D}} g_{D} \bm\tau_{h} \cdot \bm n \d s + \int_{\Gamma^{N}} C_{22} \left(\bm g_{N} \cdot \bm n\right) \left(\bm\tau_{h} \cdot \bm n\right) \d s \\
+		&& G_{h}(v_{h}) = \sum_{K \in \mathcal{T}_{h}} \int_{K} f v_{h} \d x + \int_{\Gamma^{D}} C_{11} g_{D} v_{h} \d s + \int_{\Gamma^{N}} v_{h} \bm g_{N} \cdot \bm n \d s
 	\end{eqnarray}
 \end{subequations}
 对应的鞍点问题为\footnote{该鞍点问题属于 purturbed saddle-point problem，不能等价于关于 \(\tau_{h}\) 的限制优化问题。}：
@@ -201,20 +204,20 @@
 \begin{subequations}\label{p-Laplace LDG saddle-point problem 1}
 	\begin{equation}
 		\begin{aligned}
-			& \text{find \(\left(\sigma_{h}, u_{h}\right) \in \Sigma_{h} \times W_{h}\) such that \(\forall \left(\tau_{h}, v_{h}\right) \in \Sigma_{h} \times W_{h}\):} \\
-			& L_{h}\left(\sigma_{h}, v_{h}\right) \leqslant L_{h}\left(\sigma_{h}, u_{h}\right) \leqslant L_{h}\left(\tau_{h}, u_{h}\right)
+			& \text{find \(\left(\bm\sigma_{h}, u_{h}\right) \in \Sigma_{h} \times W_{h}\) such that \(\forall \left(\bm\tau_{h}, v_{h}\right) \in \Sigma_{h} \times W_{h}\):} \\
+			& L_{h}\left(\bm\sigma_{h}, v_{h}\right) \leqslant L_{h}\left(\bm\sigma_{h}, u_{h}\right) \leqslant L_{h}\left(\bm\tau_{h}, u_{h}\right)
 		\end{aligned}
 	\end{equation}
-	其中 \(L_{h}(\cdot, \cdot): \Sigma_{h}\times V_{h} \mapsto \R\) 是 convex-concave 的连续函数：
+	其中，泛函 \(L_{h}(\cdot, \cdot): \Sigma_{h} \times V_{h} \mapsto \R\) 如下：
 	\begin{equation}
 		\begin{aligned}
-			L_{h}(\tau_{h}, v_{h})
-			= & \frac{1}{p^{\ast}} \norm{\tau_{h}}_{L^{p^{\ast}}(\Omega)}^{p^{\ast}} + \frac{1}{2} \norm{\jump{\tau_{h}}}_{L^2(\Gamma^{o}, C_{22})}^2 + \frac{1}{2}\norm{\tau_{h}\cdot\bm n}_{L^2(\Gamma^{N}, C_{22})}^2 \\
-			& + b_{h}(v_{h}, \tau_{h}) - \frac{1}{2} c_{h}(v_{h}, v_{h}) - F_{h}(\tau_{h}) + G_{h}(v_{h}) \\
-			= & \frac{1}{p^{\ast}} \norm{\tau_{h}}_{L^{p^{\ast}}(\Omega)}^{p^{\ast}} + \frac{1}{2}\norm{\jump{\tau_{h}}}_{L^2(\Gamma^{o}, C_{22})}^2 + \frac{1}{2}\norm{\left(\tau_{h} - \bm g_{N}\right)\cdot\bm n}_{L^2(\Gamma^{N},C_{22})}^2 \\
-			& - \frac{1}{2}\norm{\bm g_{N} \cdot \bm n}_{L^2(\Gamma^{N}, C_{22})}^2 - \left(\tau_{h}, \nabla_{h} v_{h}\right)_{\Omega} + \left\langle \avg{\tau_{h}} - \bm C_{12}\jump{\tau_{h}}, \jump{v_{h}} \right\rangle_{\Gamma^{o}} \\
-			& + \left\langle v_{h} - g_{D}, \tau_{h} \cdot \bm n\right\rangle_{\Gamma^{D}} - \frac{1}{2}\norm{\jump{v_{h}}}_{L^2(\Gamma^{o}, C_{11})}^2 - \frac{1}{2}\norm{v - g_{D}}_{L^2(\Gamma^{D}, C_{11})}^2 \\
-			& + \frac{1}{2}\norm{g_{D}}_{L^2(\Gamma^{D}, C_{11})}^2 + \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}}
+			L_{h}(\bm\tau_{h}, v_{h})
+			= & \frac{1}{p^{\ast}} \norm{\bm\tau_{h}}_{L^{p^{\ast}}(\Omega)}^{p^{\ast}} + \frac{1}{2} \norm{\jump{\bm\tau_{h}}}_{L^2(\Gamma^{o}, C_{22})}^2 + \frac{1}{2}\norm{\bm\tau_{h} \cdot \bm n}_{L^2(\Gamma^{N}, C_{22})}^2 \\
+			& + b_{h}(\bm\tau_{h}, v_{h}) - \frac{1}{2} c_{h}(v_{h}, v_{h}) - F_{h}(\bm\tau_{h}) + G_{h}(v_{h}) \\
+			= & \frac{1}{p^{\ast}} \norm{\bm\tau_{h}}_{L^{p^{\ast}}(\Omega)}^{p^{\ast}} + \frac{1}{2}\norm{\jump{\bm\tau_{h}}}_{L^2(\Gamma^{o}, C_{22})}^2 + \frac{1}{2}\norm{\left(\bm\tau_{h} - \bm g_{N}\right)\cdot\bm n}_{L^2(\Gamma^{N},C_{22})}^2 \\
+			& - \frac{1}{2}\norm{\bm g_{N} \cdot \bm n}_{L^2(\Gamma^{N}, C_{22})}^2 - \left(\bm\tau_{h}, \nabla_{h} v_{h}\right)_{\Omega} + \left\langle \avg{\bm\tau_{h}} - \bm C_{12}\jump{\bm\tau_{h}}, \jump{v_{h}} \right\rangle_{\Gamma^{o}} \\
+			& + \left\langle v_{h} - g_{D}, \bm\tau_{h} \cdot \bm n\right\rangle_{\Gamma^{D}} - \frac{1}{2}\norm{\jump{v_{h}}}_{L^2(\Gamma^{o}, C_{11})}^2 - \frac{1}{2}\norm{v - g_{D}}_{L^2(\Gamma^{D}, C_{11})}^2 \\
+			& + \frac{1}{2}\norm{g_{D}}_{L^2(\Gamma^{D}, C_{11})}^2 + \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N} \cdot \bm n, v_{h}\right\rangle_{\Gamma^{N}}
 		\end{aligned}
 	\end{equation}
 \end{subequations}
@@ -226,81 +229,83 @@
 		\item 单元都是单纯形，\(C_{11} > 0\) 在 Dirichlet 边界上成立，同时每个单元有至少一条边 \(e\) 满足两条件之一：(1) \(\bm C_{12}\cdot\bm n = \frac{1}{2}\)，(2) \(e\in\mathcal{E}_{h}\backslash\mathcal{E}_{h}^{o}\).
 	\end{enumerate}
 	那么 LDG 问题\eqref{p-Laplace LDG weak form 1}的解唯一。
+
 	\begin{proof}
-		假设 \(\left(\sigma_{h,1}, u_{h,1}\right)\) 和 \(\left(\sigma_{h,2}, u_{h,2}\right)\) 都是解，那么，分别取测试函数 \(\left(\tau_{h}, v_{h}\right) = \left(\sigma_{h,i}, u_{h, j}\right)\)，\(1\leqslant i,j \leqslant 2\)，得到：
+		假设 \(\left(\bm\sigma_{h,1}, u_{h,1}\right)\) 和 \(\left(\bm\sigma_{h,2}, u_{h,2}\right)\) 都是解，那么，分别取测试函数 \(\left(\bm\tau_{h}, v_{h}\right) = \left(\bm\sigma_{h,i}, u_{h, j}\right)\)，\(1 \leqslant i,j \leqslant 2\) 得：
 		\begin{equation*}
 			\begin{cases}
-				a_{h}\left(\sigma_{h,1}, \sigma_{h,1}\right) + b_{h}\left(u_{h,1}, \sigma_{h,1}\right) - b_{h}\left(u_{h,1}, \sigma_{h,1}\right) + c_{h}\left(u_{h,1}, u_{h,1}\right) = F_{h}\left(\sigma_{h,1}\right) + G_{h}\left(u_{h,1}\right) \\
-				a_{h}\left(\sigma_{h,2}, \sigma_{h,2}\right) + b_{h}\left(u_{h,2}, \sigma_{h,2}\right) - b_{h}\left(u_{h,2}, \sigma_{h,2}\right) + c_{h}\left(u_{h,2}, u_{h,2}\right) = F_{h}\left(\sigma_{h,2}\right) + G_{h}\left(u_{h,2}\right) \\
-				a_{h}\left(\sigma_{h,1}, \sigma_{h,2}\right) + b_{h}\left(u_{h,1}, \sigma_{h,2}\right) - b_{h}\left(u_{h,2}, \sigma_{h,1}\right) + c_{h}\left(u_{h,1}, u_{h,2}\right) = F_{h}\left(\sigma_{h,2}\right) + G_{h}\left(u_{h,2}\right) \\
-				a_{h}\left(\sigma_{h,2}, \sigma_{h,1}\right) + b_{h}\left(u_{h,2}, \sigma_{h,1}\right) - b_{h}\left(u_{h,1}, \sigma_{h,2}\right) + c_{h}\left(u_{h,2}, u_{h,1}\right) = F_{h}\left(\sigma_{h,1}\right) + G_{h}\left(u_{h,1}\right)
+				a_{h}\left(\bm\sigma_{h,1}, \bm\sigma_{h,1}\right) + b_{h}\left(\bm\sigma_{h,1}, u_{h,1}\right) - b_{h}\left(\bm\sigma_{h,1}, u_{h,1}\right) + c_{h}\left(u_{h,1}, u_{h,1}\right) = F_{h}\left(\bm\sigma_{h,1}\right) + G_{h}\left(u_{h,1}\right) \\
+				a_{h}\left(\bm\sigma_{h,2}, \bm\sigma_{h,2}\right) + b_{h}\left(\bm\sigma_{h,2}, u_{h,2}\right) - b_{h}\left(\bm\sigma_{h,2}, u_{h,2}\right) + c_{h}\left(u_{h,2}, u_{h,2}\right) = F_{h}\left(\bm\sigma_{h,2}\right) + G_{h}\left(u_{h,2}\right) \\
+				a_{h}\left(\bm\sigma_{h,1}, \bm\sigma_{h,2}\right) + b_{h}\left(\bm\sigma_{h,2}, u_{h,1}\right) - b_{h}\left(\bm\sigma_{h,1}, u_{h,2}\right) + c_{h}\left(u_{h,1}, u_{h,2}\right) = F_{h}\left(\bm\sigma_{h,2}\right) + G_{h}\left(u_{h,2}\right) \\
+				a_{h}\left(\bm\sigma_{h,2}, \bm\sigma_{h,1}\right) + b_{h}\left(\bm\sigma_{h,1}, u_{h,2}\right) - b_{h}\left(\bm\sigma_{h,2}, u_{h,1}\right) + c_{h}\left(u_{h,2}, u_{h,1}\right) = F_{h}\left(\bm\sigma_{h,1}\right) + G_{h}\left(u_{h,1}\right)
 			\end{cases}
 		\end{equation*}
 		用前两式的和减去后两式的和，得到：
 		\begin{equation*}
 			\begin{aligned}
-				0 = & a_{h}\left(\sigma_{h,1}, \sigma_{h,1} - \sigma_{h,2}\right) - a_{h}\left(\sigma_{h,2}, \sigma_{h,1} - \sigma_{h,2}\right) + c_{h}\left(u_{h,1} - u_{h,2}, u_{h,1} - u_{h,2}\right) \\
-				= & \left(\mathcal{A}^{-1}(\sigma_{h,1}) - \mathcal{A}^{-1}(\sigma_{h,2}), \sigma_{h,1} - \sigma_{h,2}\right)_{\Omega} + \norm{\jump{\sigma_{h,1} - \sigma_{h,2}}}_{L^2(\Gamma^{o}, C_{22})}^2 \\
-				& + \norm{\left(\sigma_{h,1} - \sigma_{h,2}\right)\cdot\bm n}_{L^2(\Gamma^{N}, C_{22})}^2 + \norm{\jump{u_{h,1} - u_{h,2}}}_{L^2(\Gamma^{o}, C_{11})}^2 + \norm{u_{h,1} - u_{h,2}}_{L^2(\Gamma^{D}, C_{11})}^2
+				0 = & a_{h}\left(\bm\sigma_{h,1}, \bm\sigma_{h,1} - \bm\sigma_{h,2}\right) - a_{h}\left(\bm\sigma_{h,2}, \bm\sigma_{h,1} - \bm\sigma_{h,2}\right) + c_{h}\left(u_{h,1} - u_{h,2}, u_{h,1} - u_{h,2}\right) \\
+				= & \left(\mathcal{A}^{-1}(\bm\sigma_{h,1}) - \mathcal{A}^{-1}(\bm\sigma_{h,2}), \bm\sigma_{h,1} - \bm\sigma_{h,2}\right)_{\Omega} + \norm{\jump{\bm\sigma_{h,1} - \bm\sigma_{h,2}}}_{L^2(\Gamma^{o}, C_{22})}^2 \\
+				& + \norm{\left(\bm\sigma_{h,1} - \bm\sigma_{h,2}\right)\cdot\bm n}_{L^2(\Gamma^{N}, C_{22})}^2 + \norm{\jump{u_{h,1} - u_{h,2}}}_{L^2(\Gamma^{o}, C_{11})}^2 + \norm{u_{h,1} - u_{h,2}}_{L^2(\Gamma^{D}, C_{11})}^2
 			\end{aligned}
 		\end{equation*}
-		利用 \(\mathcal{A}^{-1}\) 的严格单调性得 \(\sigma_{h,1} = \sigma_{h,2}\)，从而 \(b_{h}\left(u_{h,1} - u_{h,2}, \cdot\right) = 0\)，以及 \(c_{h}\left(u_{h, 1} - u_{h,2}, \cdot\right) = 0\). 接下来，利用与 Poisson 方程的 LDG 格式解的唯一性证明类似的过程，可以证得 \(u_{h,1} = u_{h,2}\).
+		利用 \(\mathcal{A}^{-1}\) 的严格单调性得 \(\bm\sigma_{h,1} = \bm\sigma_{h,2}\)，从而 \(b_{h}\left(\cdot, u_{h,1} - u_{h,2}\right) = 0\)，以及 \(c_{h}\left(u_{h, 1} - u_{h,2}, \cdot\right) = 0\). 接下来，利用与 Poisson 方程的 LDG 格式解的唯一性证明类似的过程，可以证得 \(u_{h,1} = u_{h,2}\).
 	\end{proof}
 \end{theorem}
 
 
 \subsubsection{Numerical Discretization}
 
-方程\eqref{p-Laplace LDG weak form 1}对应的代数方程组为：
+方程\eqref{p-Laplace LDG weak form 1}对应的线性代数方程组为：
 \begin{equation}\label{p-Laplace LDG matrix equations 1}
 	\begin{pmatrix}
-		\bm A(\bm\sigma) & \bm B \\
-		-\bm B^T & \bm C
+		\bm A([\bm\sigma_{h}]) & \bm B^{T} \\
+		\bm B & -\bm C
 	\end{pmatrix}
 	\begin{pmatrix}
-		\bm\sigma \\
-		\bm u
+		[\bm\sigma_{h}] \\
+		[u_{h}]
 	\end{pmatrix}
 	= \begin{pmatrix}
 		\bm F \\
-		\bm G
+		-\bm G
 	\end{pmatrix}
 \end{equation}
-这里，\(\bm A(\bm\sigma)\) 是使得 \(\bm A(\bm\sigma)\bm\sigma = \bm M \left[\mathcal{A}^{-1}(\sigma_{h})\right]\) 的矩阵\footnote{这里，\(\bm M\) 是 \(\Sigma_{h}\) 的基于非负数值积分的 nodal 质量矩阵，\([\sigma_{h}]\) 是 \(\sigma_{h}\) 在 \(\Sigma_{h}\) 对应的系数向量。}，分块对角，但有的元素可能接近 \(0\) 或者 \(+\infty\)，只有当 \(\sigma_{h} \neq 0\) 时才有限，因此实际计算时可能会崩溃。我们在计算时，使用 Picard 不动点迭代法\cite{10.1016/j.cma.2006.11.023}求解：
+这里，\(\bm A([\bm\sigma_{h}])\) 是使得 \(\bm A([\bm\sigma_{h}]) [\bm\sigma_{h}] = \bm M \left[\mathcal{A}^{-1}(\sigma_{h})\right]\) 的矩阵\footnote{这里，\(\bm M\) 是 \(\Sigma_{h}\) 的基于非负数值积分的质量矩阵。}，分块对角，但有的元素可能接近 \(0\) 或者 \(+\infty\)，只有当 \(\bm\sigma_{h} \neq \bm 0\) 时才有限，因此实际计算时可能会崩溃。我们在计算时，使用 Picard 不动点迭代法\cite{10.1016/j.cma.2006.11.023}求解：
 \begin{equation}
 	\begin{pmatrix}
-		\bm A(\bm\sigma^{(k)}) & \bm B \\
-		-\bm B^T & \bm C
+		\bm A([\bm\sigma_{h}^{(k)}]) & \bm B^{T} \\
+		\bm B & -\bm C
 	\end{pmatrix}
 	\begin{pmatrix}
-		\bm \sigma^{(k+1)} \\
-		\bm u^{(k+1)}
+		[\bm\sigma_{h}^{(k+1)}] \\
+		[u_{h}^{(k+1)}]
 	\end{pmatrix}
 	= \begin{pmatrix}
 		\bm F \\
-		\bm G
+		-\bm G
 	\end{pmatrix}
 \end{equation}
 或者使用 Newton-Raphson 迭代法\cite{10.1002/fld.3955}求解：
 \begin{equation}
 	\begin{pmatrix}
-		\frac{\partial\left(\bm A(\bm\sigma^{(k)})\bm\sigma^{(k)}\right)}{\partial\bm\sigma} & \bm B \\
-		-\bm B^T & \bm C
+		\frac{\partial\left(\bm A([\bm\sigma_{h}^{(k)}]) [\bm\sigma_{h}^{(k)}]\right)}{\partial [\bm\sigma_{h}^{(k)}]} & \bm B^{T} \\
+		\bm B & -\bm C
 	\end{pmatrix}
 	\begin{pmatrix}
-		\bm\sigma^{(k+1)} - \bm\sigma^{(k)} \\
-		\bm u^{(k+1)} - \bm u^{(k)}
+		[\bm\sigma_{h}^{(k+1)}] - [\bm\sigma_{h}^{(k)}] \\
+		[u_{h}^{(k+1)}] - [u_{h}^{(k)}]
 	\end{pmatrix}
 	= \begin{pmatrix}
-		\bm F \\ \bm G
+		\bm F \\
+		-\bm G
 	\end{pmatrix}
 	- \begin{pmatrix}
-		\bm A(\bm\sigma^{(k)}) & \bm B \\
-		-\bm B^T & \bm C
+		\bm A([\bm\sigma_{h}^{(k)}]) & \bm B^{T} \\
+		\bm B & -\bm C
 	\end{pmatrix}
 	\begin{pmatrix}
-		\bm\sigma^{(k)} \\
-		\bm u^{(k)}
+		[\bm\sigma_{h}^{(k)}] \\
+		[u_{h}^{(k)}]
 	\end{pmatrix}
 \end{equation}
 
@@ -309,7 +314,7 @@
 
 \subsubsection{Numerical Example 1 (1D Dirichlet)}
 
-区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = (x+1)^{\frac{p-2}{p-1}}\)，采用 Dirichlet 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-\alpha}\)，\(C_{12} = \frac{1}{2}\)，其中 \(\eta = 1\)，\(\alpha = -1\). 我们使用 Legendre 配点法，使用 \(k\) 点的 Gauss-Legendre 公式进行数值积分和误差测量，使用 \(p = 2\) 的 Poisson 方程数解作为初值，并用 Picard 迭代法或 Newton-Raphson 迭代法求解\footnote{为了方便编程，我们人为指定迭代次数。}。部分测试结果如下：
+区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = (x+1)^{\frac{p-2}{p-1}}\)，采用 Dirichlet 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-\alpha}\)，\(C_{12} = \frac{1}{2}\)，其中 \(\eta = 1\)，\(\alpha = -1\). 我们使用 Legendre 配点法，并使用相同点数的 Gauss-Legendre 公式进行数值积分和误差测量，使用 \(p = 2\) 的 Poisson 方程数解作为初值，并用 Picard 迭代法或 Newton-Raphson 迭代法求解\footnote{为了方便编程，我们人为指定迭代次数。}。部分测试结果如下：
 
 \begin{table}[H]
 	\begin{center}
@@ -317,7 +322,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -341,7 +346,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -365,7 +370,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -389,7 +394,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -416,7 +421,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -440,7 +445,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -464,7 +469,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -488,7 +493,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -514,7 +519,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -538,7 +543,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -562,7 +567,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -586,7 +591,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -612,7 +617,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -636,7 +641,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -660,7 +665,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -684,7 +689,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -721,7 +726,7 @@
 	\item 当 \(p = 30\) 时，单独使用 Newton-Raphson 迭代会发散。此时如果先使用 50 次 Picard 迭代，再使用 10 次 Newton-Raphson 迭代，就可以测出收敛阶。
 \end{enumerate}
 
-在上面的算例中(以及其他收敛的 \(p\) 值测试中)，我们观察到对 \(\left(\sigma, u\right)\) 的 \(L^{p^{\ast}}\times L^{p}\) 的 \(\left(k, k+1\right)\) 阶收敛，这在 LDG 框架下是最优的。同时，当 \(p > 2\) 时，对 \(u\) 的 \(L^2\) 收敛阶比 \(L^{p}\) 收敛阶高，对 \(\sigma\) 的 \(L^2\) 收敛阶比 \(L^{p^{\ast}}\) 收敛阶低；当 \(p < 2\) 时反之。这与多项式逼近的反向估计结果一致。需要说明的是，上文测试中数值不稳定的主要原因是，在迭代过程中，矩阵 \(\bm A(\bm\sigma)\) 在 \(p \neq 2\) 时可能出现过大或过小的元。
+在上面的算例中(以及其他收敛的 \(p\) 值测试中)，我们观察到对 \(\left(\bm\sigma, u\right)\) 的 \(L^{p^{\ast}}\times L^{p}\) 的 \(\left(k, k+1\right)\) 阶收敛，这在 LDG 框架下是最优的。同时，当 \(p > 2\) 时，对 \(u\) 的 \(L^2\) 收敛阶比 \(L^{p}\) 收敛阶高，对 \(\bm\sigma\) 的 \(L^2\) 收敛阶比 \(L^{p^{\ast}}\) 收敛阶低；当 \(p < 2\) 时反之。这与多项式逼近的反向估计结果一致。需要说明的是，上文测试中数值不稳定的主要原因是，在迭代过程中，矩阵 \(\bm A([\bm\sigma_{h}])\) 在 \(p \neq 2\) 时可能出现过大或过小的元。
 
 
 \subsubsection{Conclusion}
@@ -731,7 +736,7 @@
 	\item 数值格式在形式上和方程的弱形式相同，同时也与 Poisson 方程的格式形式一致。
 	\item 未知函数数量较少。
 	\item 当使用 Picard 不动点迭代和 Newton-Raphson 迭代时，收敛速度较快。
-	\item 在数值实验中，对 \(\left(\sigma, u\right)\) 的 \(L^{p^{\ast}} \times L^{p}\) 误差有 \(\left(k, k+1\right)\) 阶收敛阶。
+	\item 在数值实验中，对 \(\left(\bm\sigma, u\right)\) 的 \(L^{p^{\ast}} \times L^{p}\) 误差有 \(\left(k, k+1\right)\) 阶收敛阶。
 \end{enumerate}
 此方法的劣势在于：
 \begin{enumerate}
@@ -748,17 +753,17 @@
 我们的第二种方法向对偶形式方程组\eqref{p-Laplace mixed form}添加了中间变量 \(q_{h}\) 以便于分析。取空间为：
 \begin{subequations}
 	\begin{eqnarray}
-		&& Q_{h} = \B{q_{h}\big|_{K} \in \left(\mathscr{P}^{k}(K)\right)^d \bigg| \forall K \in \mathcal{T}_{h}} \\
-		&& \Sigma_{h} = \B{\tau_{h}\big|_{k} \in \left(\mathscr{P}^{k}(K)\right)^d \bigg| \forall K \in \mathcal{T}_{h}} \\
-		&& V_{h} = \B{v_{h}\big|_{k} \in \mathscr{P}^{k}(K) \bigg| \forall K \in \mathcal{T}_{h}}
+		&& Q_{h} = \bigoplus_{K \in \mathcal{T}_{h}} Q(K) =  \bigoplus_{K \in \mathcal{T}_{h}} \left(\mathscr{P}^{k}(K)\right)^{d} \\
+		&& V_{h} = \bigoplus_{K \in \mathcal{T}_{h}} \Sigma(K) =  \bigoplus_{K \in \mathcal{T}_{h}} \left(\mathscr{P}^{k}(K)\right)^{d} \\
+		&& V_{h} = \bigoplus_{K \in \mathcal{T}_{h}} V(K) =  \bigoplus_{K \in \mathcal{T}_{h}} \mathscr{P}^{k}(K)
 	\end{eqnarray}
 \end{subequations}
 数值通量取为\cite{10.1093/imanum/drt040, IJNAM-19-315}：
 \begin{subequations}\label{p-Laplace LDG numerical flux 2}
 	\begin{eqnarray}
-		&& \widehat{\sigma}_{h}\big|_{e} = \begin{cases}
-			\avg{\sigma_{h}} - \bm C_{12} \jump{\sigma_{h}} - \eta\mathcal{A}\left(h^{-\alpha} \jump{u_{h}}\right), & e \in \mathcal{E}_{h}^{o} \\
-			\sigma_{h} - \eta\mathcal{A}\left(h^{-\alpha} \left(u_{h} - g_{D}\right)\bm{n}\right), & e \in \mathcal{E}_{h}^{D} \\
+		&& \widehat{\bm\sigma}_{h}\big|_{e} = \begin{cases}
+			\avg{\bm\sigma_{h}} - \bm C_{12} \jump{\bm\sigma_{h}} - \eta\mathcal{A}\left(h^{-\alpha} \jump{u_{h}}\right), & e \in \mathcal{E}_{h}^{o} \\
+			\bm\sigma_{h} - \eta\mathcal{A}\left(h^{-\alpha} \left(u_{h} - g_{D}\right) \bm n\right), & e \in \mathcal{E}_{h}^{D} \\
 			\bm g_{N}, & e \in \mathcal{E}_{h}^{N}
 		\end{cases} \\
 		&& \widehat{u}_{h}\big|_{e} = \begin{cases}
@@ -773,29 +778,29 @@
 将数值通量\eqref{p-Laplace LDG numerical flux 2}代入 DG 格式\eqref{Global DG Scheme}，\(p\)-Laplace 方程\eqref{p-Laplace mixed form}的 LDG 格式可以写作：
 \begin{equation}\label{p-Laplace LDG weak form 2}
 	\begin{aligned}
-		& \text{find \(\left(q_{h}, \sigma_{h}, u_{h}\right)  \in Q_{h} \times \Sigma_{h} \times V_{h}\) such that \(\forall \left(\zeta_{h}, \tau_{h}, v_{h}\right) \in Q_{h} \times \Sigma_{h} \times V_{h}\):} \\
+		& \text{find \(\left(\bm q_{h}, \bm\sigma_{h}, u_{h}\right) \in Q_{h} \times \Sigma_{h} \times V_{h}\) such that \(\forall \left(\bm\zeta_{h}, \bm\tau_{h}, v_{h}\right) \in Q_{h} \times \Sigma_{h} \times V_{h}\):} \\
 		& \begin{cases}
-			\left(q_{h}, \zeta_{h}\right)_{\Omega}
-			= \left(\nabla_{h} u_{h}, \zeta_{h}\right)_{\Omega} - \left\langle \jump{u_{h}}, \avg{\zeta_{h}} - \bm C_{12} \jump{\zeta_{h}} \right\rangle_{\Gamma^{o}} - \left\langle u_{h} - g_{D}, \zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}} \\
-			\left(\sigma_{h}, \tau_{h}\right)_{\Omega} = \left(\mathcal{A}(q_{h}), \tau_{h}\right)_{\Omega} \\
+			\left(\bm q_{h}, \bm\zeta_{h}\right)_{\Omega}
+			= \left(\nabla_{h} u_{h}, \bm\zeta_{h}\right)_{\Omega} - \left\langle \jump{u_{h}}, \avg{\bm\zeta_{h}} - \bm C_{12} \jump{\bm\zeta_{h}} \right\rangle_{\Gamma^{o}} - \left\langle u_{h} - g_{D}, \bm\zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}} \\
+			\left(\bm\sigma_{h}, \bm\tau_{h}\right)_{\Omega} = \left(\mathcal{A}(\bm q_{h}), \bm\tau_{h}\right)_{\Omega} \\
 			\begin{aligned}
-				\left(\sigma_{h}, \nabla_{h} v_{h}\right)_{\Omega} 
+				\left(\bm\sigma_{h}, \nabla_{h} v_{h}\right)_{\Omega} 
 				= & \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}} \\
-				& + \left\langle \jump{v_{h}}, \avg{\sigma_{h}} - \bm C_{12}\jump{\sigma_{h}}\right\rangle_{\Gamma^{o}} + \left\langle v_{h}, \sigma_{h}\cdot\bm n\right\rangle_{\Gamma^{D}} \\
-				& - \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} - \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right)\cdot\bm n\right), v_{h}\bm n \right\rangle_{\Gamma^{D}}
+				& + \left\langle \jump{v_{h}}, \avg{\bm\sigma_{h}} - \bm C_{12} \jump{\bm\sigma_{h}}\right\rangle_{\Gamma^{o}} + \left\langle v_{h}, \bm\sigma_{h} \cdot \bm n\right\rangle_{\Gamma^{D}} \\
+				& - \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} - \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}}
 			\end{aligned}
 		\end{cases}
 	\end{aligned}
 \end{equation}
-定义双线性算子 \(D_{DG}(\cdot; \cdot): V_{h} \times W^{\frac{1}{p}, p^{\ast}}(\Gamma^{D}) \mapsto \Sigma_{h}\) 如下：
+定义算子 \(D_{DG}(\cdot; \cdot): V_{h} \times W^{\frac{1}{p}, p^{\ast}}(\Gamma^{D}) \mapsto \Sigma_{h}\) 如下：
 \begin{equation}
 	\begin{aligned}
-		& \forall \zeta_{h} \in Q_{h}: \\
-        & \begin{aligned}
-            \left(D_{DG}\left(u_{h}; g_{D}\right), \zeta_{h}\right)_{\Omega}
-		    = & \left(\nabla_{h} u_{h}, \zeta_{h}\right)_{\Omega} - \left\langle \jump{u_{h}}, \avg{\zeta_{h}} - \bm C_{12} \jump{\zeta_{h}} \right\rangle_{\Gamma^{o}} \\
-            & - \left\langle u_{h} - g_{D}, \zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}}
-        \end{aligned}
+		& \forall \bm\zeta_{h} \in Q_{h}, \\
+		& \begin{aligned}
+			\left(D_{DG}\left(u_{h}; g_{D}\right), \bm\zeta_{h}\right)_{\Omega}
+			= & \left(\nabla_{h} u_{h}, \bm\zeta_{h}\right)_{\Omega} - \left\langle \jump{u_{h}}, \avg{\bm\zeta_{h}} - \bm C_{12} \jump{\bm\zeta_{h}} \right\rangle_{\Gamma^{o}} \\
+			& - \left\langle u_{h} - g_{D}, \bm\zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}}
+		\end{aligned}
 	\end{aligned}
 \end{equation}
 从形式上看，算子 \(D_{DG}\) 逼近以 \(g_{D}\) 为 Dirichlet 边值的 \(u_{h}\) 的广义梯度。利用此算子，LDG 方程组\eqref{p-Laplace LDG weak form 2}可以等价地写成：
@@ -803,20 +808,20 @@
 	\begin{aligned}
 		& \text{find \(u_{h} \in V_{h}\) such that \(\forall v_{h} \in V_{h}\):} \\
 		& \begin{aligned}
-			& \left(\sigma_{h}, D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right)\cdot\bm n\right), v_{h}\bm n \right\rangle_{\Gamma^{D}} \\
-			= & \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}}
+			& \left(\bm\sigma_{h}, D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}} \\
+			= & \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N} \cdot \bm n, v_{h}\right\rangle_{\Gamma^{N}}
 		\end{aligned} \\
-		& \text{where: \(q_{h} = D_{DG}\left(u_{h}, g_{D}\right)\), \(\sigma_{h} = \Pi_{\Sigma_{h}} \mathcal{A}\left(q_{h}\right)\)}
+		& \text{where: \(\bm q_{h} = D_{DG}\left(u_{h}; g_{D}\right)\), \(\bm\sigma_{h} = \Pi_{\Sigma_{h}} \mathcal{A}\left(\bm q_{h}\right)\)}
 	\end{aligned}
 \end{equation}
-其中，\(\Pi_{\Sigma_{h}}: L^2(\Omega) \mapsto \Sigma_{h}\) 是最小二乘投影。取测试函数 \(\tau_{h} = D_{DG}\left(v_{h}; 0\right)\)，则 LDG 方程组\eqref{p-Laplace LDG weak form 2}由 mixed form 转化为关于 \(u_{h}\) 的 primal form：
+其中，\(\Pi_{\Sigma_{h}}: L^2(\Omega) \mapsto \Sigma_{h}\) 是 \(L^2\) 投影。取测试函数 \(\bm\tau_{h} = D_{DG}\left(v_{h}; 0\right)\)，则 LDG 方程组\eqref{p-Laplace LDG weak form 2}由 mixed form 转化为关于 \(u_{h}\) 的 primal form：
 \begin{equation}\label{p-Laplace LDG primal weak form 2}
 	\begin{aligned}
 		& \text{find \(u_{h} \in V_{h}\) such that \(\forall v_{h} \in V_{h}\):} \\
 		& \begin{aligned}
 			& \left(\mathcal{A}\left(D_{DG}\left(u_{h}; g_{D}\right)\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} \\
-			& + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right)\bm n\right), v_{h}\bm n \right\rangle_{\Gamma^{D}} \\
-			= & \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}}
+			& + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}} \\
+			= & \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N} \cdot \bm n, v_{h}\right\rangle_{\Gamma^{N}}
 		\end{aligned}
 	\end{aligned}
 \end{equation}
@@ -832,7 +837,7 @@
 	\begin{equation}
 		\begin{aligned}
 			J_{h}(u_{h}) 
-            = & \frac{1}{p}\norm{D_{DG}\left(u_{h}; g_{D}\right)}_{L^p(\Omega)}^{p} + \frac{1}{p}\norm{\jump{u_{h}}}_{L^{p}(\Gamma^{o}, \eta h^{-(p-1)\alpha})}^{p} \\
+			= & \frac{1}{p}\norm{D_{DG}\left(u_{h}; g_{D}\right)}_{L^p(\Omega)}^{p} + \frac{1}{p}\norm{\jump{u_{h}}}_{L^{p}(\Gamma^{o}, \eta h^{-(p-1)\alpha})}^{p} \\
 			& + \frac{1}{p}\norm{u_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h^{-(p-1)\alpha})}^{p} - \left(f, u_{h}\right)_{\Omega} - \left\langle \bm g_{N}\cdot\bm n, u_{h}\right\rangle_{\Gamma^{N}}
 		\end{aligned}
 	\end{equation}
@@ -840,10 +845,12 @@
 
 \begin{theorem}[Existence, uniqueness, and equivalence]
 	当 \(\eta > 0\)，\(\alpha = 1\) 时，\(p\)-Laplace 方程的 LDG 弱形式\eqref{p-Laplace LDG weak form 2}和最优化形式\eqref{p-Laplace LDG minimization form 2}的解存在、唯一、相同。
+
 	\begin{proof}
 		文章\cite{10.1016/j.crma.2008.07.005}中给出了当 \(\partial\Omega = \Gamma^{D}\) 且 \(g_{D} = 0\) 时的证明。当 \(g_{D} \neq 0\) 时，证明是类似的。
-        % to be done: 把这个证明详细写一下
+		% to be done: 把这个证明详细写一下
 	\end{proof}
+
 \end{theorem}
 
 
@@ -858,7 +865,7 @@
 	\begin{aligned}
 		J_{h}'(u_{h})(v_{h})
 		= & \left(\mathcal{A}\left(D_{DG}\left(u_{h}; g_{D}\right)\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} \\
-		& + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right)\bm n\right), v_{h}\bm n \right\rangle_{\Gamma^{D}} \\
+		& + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}} \\
 		& - \left(f, v_{h}\right)_{\Omega} - \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}}
 	\end{aligned}
 \end{equation}
@@ -876,12 +883,12 @@
 			\norm{w_{h}}^{2}
 			= & \norm{D_{DG}\left(w_{h}; 0\right)}_{L^2(\Omega, \epsilon + \abs{D_{DG}\left(u_{h}; g_{D}\right)}^{p-2})}^{2} \\
 			& + \norm{\jump{w_{h}}}_{L^2(\Gamma^{o}, \eta h^{-\alpha}(\epsilon + \abs{h^{-\alpha} \jump{u_{h}}}^{p-2}))}^{2} \\
-            & + \norm{w_{h}}_{L^2(\Gamma^{D}, \eta h^{-\alpha}(\epsilon + \abs{h^{-\alpha}(u_{h} - g_{D})}^{p-2}))}^{2}
+			& + \norm{w_{h}}_{L^2(\Gamma^{D}, \eta h^{-\alpha}(\epsilon + \abs{h^{-\alpha}(u_{h} - g_{D})}^{p-2}))}^{2}
 		\end{aligned}
 	\end{equation}
-    \begin{equation}\label{p-Laplace LDG minimization descent norm 3}
-        \norm{w_{h}}^{2} = \norm{w_{h}}_{L^2(\Omega)}^{2}
-    \end{equation}
+	\begin{equation}\label{p-Laplace LDG minimization descent norm 3}
+		\norm{w_{h}}^{2} = \norm{w_{h}}_{L^2(\Omega)}^{2}
+	\end{equation}
 \end{subequations}
 其中，第一种范数\eqref{p-Laplace LDG minimization descent norm 1}是 Poisson 方程 LDG 格式中的能量范数；第二种范数\eqref{p-Laplace LDG minimization descent norm 2}是 \(p\)-Laplace 方程 LDG 格式的线性化的能量范数，\(\epsilon \geqslant 0\) 是稳定项；第三种范数\eqref{p-Laplace LDG minimization descent norm 3}则是标准的 \(L^2\) 范数。求解这三种范数下 \(J_{h}\) 在 \(u_{h}\) 处的最速下降方向 \(w_{h}\) (满足 \(\norm{w_h} = \norm{J_{h}'(u_{h})}_{\ast}\))的线性 LDG 格式分别为：
 \begin{subequations}
@@ -900,25 +907,25 @@
 			& \begin{aligned}
 				& \left( \left(\epsilon + \abs{D_{DG}\left(u_{h}; g_{D}\right)}^{p-2}\right) D_{DG}\left(w_{h}; 0\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} \\
 				& + \left\langle \eta h^{-\alpha}\left(\epsilon + \abs{h^{-\alpha} \jump{u_{h}}}^{p-2}\right) \jump{w_{h}}, \jump{v_{h}} \right\rangle_{\Gamma^{o}} \\
-                & + \left\langle \eta h^{-\alpha}\left(\epsilon + \abs{h^{-\alpha} (u_{h} - g_{D})}^{p-2}\right) w_{h}, v_{h}\right\rangle_{\Gamma^{D}} \\
+				& + \left\langle \eta h^{-\alpha}\left(\epsilon + \abs{h^{-\alpha} (u_{h} - g_{D})}^{p-2}\right) w_{h}, v_{h}\right\rangle_{\Gamma^{D}} \\
 				= & -J_{h}'(u_{h})(v_{h})
 			\end{aligned}
 		\end{aligned}
 	\end{equation}
-    \begin{equation}\label{p-Laplace LDG minimization descent direction 3}
+	\begin{equation}\label{p-Laplace LDG minimization descent direction 3}
 		\begin{aligned}
 			& \text{find \(w_{h} \in V_{h}\) such that \(\forall v_{h} \in V_{h}\):} \\
-            & \left(w_{h}, v_{h}\right)_{\Omega} = -J_{h}'(u_{h})(v_{h})
+			& \left(w_{h}, v_{h}\right)_{\Omega} = -J_{h}'(u_{h})(v_{h})
 		\end{aligned}
 	\end{equation}
 \end{subequations}
 我们分别称其为 Poisson 预条件子、加权预条件子、标准预条件子。
 
 \begin{remark}
-    当 \(p \in (1,2)\) 时，根据文章\cite{10.1007/s10915-007-9134-z}，上述加权项 \(\epsilon + \abs{\xi}^{p-2}\) 应更改为 \(\left(\epsilon + \abs{\xi}\right)^{p-2}\) 以加强稳定性。
+	当 \(p \in (1,2)\) 时，根据文章\cite{10.1007/s10915-007-9134-z}，上述加权项 \(\epsilon + \abs{\xi}^{p-2}\) 应替换为 \(\left(\epsilon + \abs{\xi}\right)^{p-2}\) 以加强稳定性。
 \end{remark}
 
-我们的算法如\ref{algo: Preconditioned Steepest Descent Algorithm}给出。需要说明的是，当使用不同的范数，也即不同的预处理方法时，只有收敛速度会受到影响，而是否收敛以及收敛极限都不会受到影响。为了提高收敛速度，可以使用 \(p = 2\) 的 Poisson 方程的解作为迭代的初值。
+我们的算法如\ref{algo: Preconditioned Steepest Descent Algorithm}给出。需要说明的是，在理论上，当使用不同的范数，也即不同的预处理方法时，只有收敛速度会受到影响，而是否收敛以及收敛极限都不会受到影响。为了提高收敛速度，可以使用 \(p = 2\) 的 Poisson 方程的解作为迭代的初值。
 \begin{algorithm}[htbp]
 	\SetAlgoLined
 
@@ -951,7 +958,7 @@
 
 \subsubsection{Numerical Example 1 (1D Dirichlet)}
 
-区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = (x+1)^{\frac{p-2}{p-1}}\)，采用 Dirichlet 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-\alpha}\)，\(C_{12} = \frac{1}{2}\)，其中 \(\eta = 1\)，\(\alpha = -1\). 我们使用 Lobatto 配点法，使用 \(k\) 点的 Gauss-Lobatto 公式进行数值积分和误差测量。迭代参数取 \(\delta_{w_{h}} = 10^{-16}\)，\(\delta_{\rho} = 10^{-16}\)，稳定项在 \(p < 2\) 时取 \(\epsilon = 10^{-10}\)，在 \(p > 2\) 时取 \(\epsilon = 10^{-4}\)，迭代初值取 Poisson 方程的数值解。部分测试结果如下：
+区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = (x+1)^{\frac{p-2}{p-1}}\)，采用 Dirichlet 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-\alpha}\)，\(C_{12} = \frac{1}{2}\)，其中 \(\eta = 1\)，\(\alpha = -1\). 我们使用 Lobatto 配点法，并使用相同点数的 Gauss-Lobatto 公式进行数值积分和误差测量。迭代参数取 \(\delta_{w_{h}} = 10^{-16}\)，\(\delta_{\rho} = 10^{-16}\)，稳定项在 \(p < 2\) 时取 \(\epsilon = 10^{-10}\)，在 \(p > 2\) 时取 \(\epsilon = 10^{-4}\)，迭代初值取 Poisson 方程的数值解。部分测试结果如下：
 
 
 
@@ -961,15 +968,15 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
 			16 & 2.0155e-02 & - & 6.2994e-02 & - & 3.6202e-02 & - & 3.4892e-02 & - \\
 			32 & 5.5310e-03 & 1.8655 & 3.4627e-02 & 0.8633 & 1.2061e-02 & 1.5857 & 1.6851e-02 & 1.0501 \\
-            64 & 1.4245e-03 & 1.9571 & 1.8377e-02 & 0.9140 & 3.8073e-03 & 1.6635 & 7.8055e-03 & 1.1103 \\
+			64 & 1.4245e-03 & 1.9571 & 1.8377e-02 & 0.9140 & 3.8073e-03 & 1.6635 & 7.8055e-03 & 1.1103 \\
 			128 & 3.6024e-04 & 1.9834 & 9.5768e-03 & 0.9403 & 1.1833e-03 & 1.6859 & 3.5371e-03 & 1.1419 \\
-            256 & 9.0656e-05 & 1.9905 & 4.9445e-03 & 0.9537 & 3.6626e-04 & 1.6919 & 1.5850e-03 & 1.1581 \\
+			256 & 9.0656e-05 & 1.9905 & 4.9445e-03 & 0.9537 & 3.6626e-04 & 1.6919 & 1.5850e-03 & 1.1581 \\
 			512 & 2.2802e-05 & 1.9912 & 2.5399e-03 & 0.9610 & 1.1331e-04 & 1.6926 & 7.0586e-04 & 1.1670 \\
 
 			\bottomrule
@@ -985,15 +992,15 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
 			16 & 8.7589e-04 & - & 7.4596e-03 & - & 2.5181e-03 & - & 2.6114e-03 & - \\
 			32 & 7.2743e-05 & 3.5899 & 2.2555e-03 & 1.7256 & 3.0375e-04 & 3.0514 & 6.1107e-04 & 2.0954 \\
-            64 & 5.4168e-06 & 3.7473 & 6.4097e-04 & 1.8152 & 3.3395e-05 & 3.1852 & 1.3261e-04 & 2.2041 \\
+			64 & 5.4168e-06 & 3.7473 & 6.4097e-04 & 1.8152 & 3.3395e-05 & 3.1852 & 1.3261e-04 & 2.2041 \\
 			128 & 3.9473e-07 & 3.7793 & 1.7501e-04 & 1.8728 & 3.6046e-06 & 3.2124 & 2.7415e-05 & 2.2742 \\
-            256 & 3.3982e-08 & 3.5380 & 4.6504e-05 & 1.9120 & 4.4829e-07 & 3.0073 & 5.4840e-06 & 2.3217 \\
+			256 & 3.3982e-08 & 3.5380 & 4.6504e-05 & 1.9120 & 4.4829e-07 & 3.0073 & 5.4840e-06 & 2.3217 \\
 			512 & 9.9192e-09 & 1.7765 & 1.2109e-05 & 1.9413 & 1.5740e-07 & 1.5100 & 1.0702e-06 & 2.3573 \\
 
 			\bottomrule
@@ -1009,16 +1016,16 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
 			8 & 6.3185e-04 & - & 4.4768e-03 & - & 1.9077e-03 & - & 1.4048e-03 & - \\
-            16 & 3.4651e-05 & 4.1886 & 9.5346e-04 & 2.2312 & 1.6172e-04 & 3.5603 & 2.1479e-04 & 2.7094 \\
+			16 & 3.4651e-05 & 4.1886 & 9.5346e-04 & 2.2312 & 1.6172e-04 & 3.5603 & 2.1479e-04 & 2.7094 \\
 			32 & 1.4803e-06 & 4.5490 & 1.6792e-04 & 2.5054 & 1.1086e-05 & 3.8666 & 2.6074e-05 & 3.0422 \\
-            64 & 5.2784e-08 & 4.8096 & 2.5341e-05 & 2.7283 & 6.5182e-07 & 4.0882 & 2.6237e-06 & 3.3129 \\
+			64 & 5.2784e-08 & 4.8096 & 2.5341e-05 & 2.7283 & 6.5182e-07 & 4.0882 & 2.6237e-06 & 3.3129 \\
 			128 & 1.6600e-09 & 4.9909 & 3.4772e-06 & 2.8654 & 3.4442e-08 & 4.2422 & 2.3523e-07 & 3.4795 \\
-            256 & 6.0761e-10 & 1.4499 & 4.5348e-07 & 2.9388 & 1.4658e-08 & 1.2324 & 1.9827e-08 & 3.5685 \\
+			256 & 6.0761e-10 & 1.4499 & 4.5348e-07 & 2.9388 & 1.4658e-08 & 1.2324 & 1.9827e-08 & 3.5685 \\
 
 			\bottomrule
 		\end{tabular}
@@ -1033,15 +1040,15 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
 			8 & 6.6289e-05 & - & 9.4002e-04 & - & 2.8069e-04 & - & 2.1112e-04 & - \\
-            16 & 2.2471e-06 & 4.8826 & 1.3001e-04 & 2.8541 & 1.5808e-05 & 4.1502 & 1.9110e-05 & 3.4657 \\
-            32 & 4.9379e-08 & 5.5080 & 1.2904e-05 & 3.3327 & 6.1590e-07 & 4.6818 & 1.1562e-06 & 4.0469 \\
+			16 & 2.2471e-06 & 4.8826 & 1.3001e-04 & 2.8541 & 1.5808e-05 & 4.1502 & 1.9110e-05 & 3.4657 \\
+			32 & 4.9379e-08 & 5.5080 & 1.2904e-05 & 3.3327 & 6.1590e-07 & 4.6818 & 1.1562e-06 & 4.0469 \\
 			64 & 1.4752e-08 & 1.7430 & 9.8935e-07 & 3.7052 & 2.2055e-07 & 1.4816 & 5.1147e-08 & 4.4986 \\
-            128 & 7.1273e-10 & 4.3714 & 6.6387e-08 & 3.8975 & 1.6788e-08 & 3.7157 & 1.9239e-09 & 4.7326 \\
+			128 & 7.1273e-10 & 4.3714 & 6.6387e-08 & 3.8975 & 1.6788e-08 & 3.7157 & 1.9239e-09 & 4.7326 \\
 			256 & 7.8648e-11 & 3.1799 & 4.9867e-09 & 3.7347 & 2.5783e-09 & 2.7029 & 8.3078e-11 & 4.5334 \\
 
 			\bottomrule
@@ -1062,15 +1069,15 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
 			16 & 1.8620e-01 & - & 4.3352e-02 & - & 1.0662e-01 & - & 1.7490e-01 & - \\
 			32 & 2.3868e-02 & 2.9637 & 2.4444e-02 & 0.8266 & 1.0354e-02 & 3.3643 & 1.2722e-01 & 0.4592 \\
-            64 & 2.5784e-03 & 3.2105 & 1.2867e-02 & 0.9259 & 8.4706e-04 & 3.6115 & 8.9064e-02 & 0.5144 \\
+			64 & 2.5784e-03 & 3.2105 & 1.2867e-02 & 0.9259 & 8.4706e-04 & 3.6115 & 8.9064e-02 & 0.5144 \\
 			128 & 2.8528e-04 & 3.1760 & 6.5861e-03 & 0.9662 & 7.0918e-05 & 3.5782 & 6.1394e-02 & 0.5368 \\
-            256 & 3.6095e-05 & 2.9825 & 3.3301e-03 & 0.9838 & 6.7821e-06 & 3.3863 & 4.2033e-02 & 0.5466 \\
+			256 & 3.6095e-05 & 2.9825 & 3.3301e-03 & 0.9838 & 6.7821e-06 & 3.3863 & 4.2033e-02 & 0.5466 \\
 			512 & 2.8897e-06 & 3.6428 & 1.6742e-03 & 0.9921 & 4.0383e-09 & 10.7138 & 2.8686e-02 & 0.5512 \\
 
 			\bottomrule
@@ -1086,15 +1093,15 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
 			16 & 1.8876e-01 & - & 4.3355e-02 & - & 1.0808e-01 & - & 1.7490e-01 & - \\
 			32 & 7.5171e-02 & 1.3283 & 2.4446e-02 & 0.8266 & 3.2601e-02 & 1.7292 & 1.2722e-01 & 0.4592 \\
-            64 & 2.9996e-02 & 1.3254 & 1.2867e-02 & 0.9260 & 9.8577e-03 & 1.7256 & 8.9064e-02 & 0.5144 \\
+			64 & 2.9996e-02 & 1.3254 & 1.2867e-02 & 0.9260 & 9.8577e-03 & 1.7256 & 8.9064e-02 & 0.5144 \\
 			128 & 1.1983e-02 & 1.3238 & 6.5861e-03 & 0.9661 & 2.9843e-03 & 1.7239 & 6.1394e-02 & 0.5367 \\
-            256 & 4.7894e-03 & 1.3230 & 3.3301e-03 & 0.9838 & 9.0398e-04 & 1.7230 & 4.2033e-02 & 0.5466 \\
+			256 & 4.7894e-03 & 1.3230 & 3.3301e-03 & 0.9838 & 9.0398e-04 & 1.7230 & 4.2033e-02 & 0.5466 \\
 			512 & 1.9148e-03 & 1.3227 & 1.6742e-03 & 0.9921 & 2.7390e-04 & 1.7226 & 2.8686e-02 & 0.5512 \\
 
 			\bottomrule
@@ -1110,15 +1117,15 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
 			16 & 1.0581e-01 & - & 2.7288e-03 & - & 3.9007e-02 & - & 3.7631e-02 & - \\
 			32 & 3.8911e-02 & 1.4432 & 8.2004e-04 & 1.7345 & 1.0871e-02 & 1.8433 & 1.9296e-02 & 0.9636 \\
-            64 & 1.4254e-02 & 1.4488 & 2.2077e-04 & 1.8932 & 3.0181e-03 & 1.8488 & 9.3079e-03 & 1.0518 \\
+			64 & 1.4254e-02 & 1.4488 & 2.2077e-04 & 1.8932 & 3.0181e-03 & 1.8488 & 9.3079e-03 & 1.0518 \\
 			128 & 2.2737e-05 & 9.2921 & 5.6964e-05 & 1.9544 & 3.6485e-06 & 9.6921 & 4.3853e-03 & 1.0858 \\
-            256 & 3.2222e-08 & 9.4628 & 1.4447e-05 & 1.9793 & 3.9205e-09 & 9.8620 & 2.0464e-03 & 1.0996 \\
+			256 & 3.2222e-08 & 9.4628 & 1.4447e-05 & 1.9793 & 3.9205e-09 & 9.8620 & 2.0464e-03 & 1.0996 \\
 			512 & 1.8373e-09 & 4.1324 & 3.6367e-06 & 1.9901 & 1.6956e-10 & 4.5312 & 9.5098e-04 & 1.1056 \\
 
 			\bottomrule
@@ -1134,16 +1141,16 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
 			8 & 1.8434e-01 & - & 1.1798e-03 & - & 6.7960e-02 & - & 2.3617e-02 & - \\
-            16 & 6.1927e-02 & 1.5737 & 2.4051e-04 & 2.2944 & 1.7302e-02 & 1.9737 & 9.7616e-03 & 1.2746 \\
+			16 & 6.1927e-02 & 1.5737 & 2.4051e-04 & 2.2944 & 1.7302e-02 & 1.9737 & 9.7616e-03 & 1.2746 \\
 			32 & 2.4492e-04 & 7.9821 & 3.8294e-05 & 2.6509 & 5.1860e-05 & 8.3821 & 3.5171e-03 & 1.4727 \\
-            64 & 4.2604e-08 & 12.4891 & 5.2574e-06 & 2.8647 & 6.8373e-09 & 12.8889 & 1.1671e-03 & 1.5915 \\
+			64 & 4.2604e-08 & 12.4891 & 5.2574e-06 & 2.8647 & 6.8373e-09 & 12.8889 & 1.1671e-03 & 1.5915 \\
 			128 & 1.8104e-09 & 4.5566 & 6.8276e-07 & 2.9449 & 1.6668e-10 & 5.3583 & 3.7548e-04 & 1.6361 \\
-            256 & 1.2510e-10 & 3.8551 & 8.6781e-08 & 2.9759 & 2.2261e-12 & 6.2264 & 1.1937e-04 & 1.6533 \\
+			256 & 1.2510e-10 & 3.8551 & 8.6781e-08 & 2.9759 & 2.2261e-12 & 6.2264 & 1.1937e-04 & 1.6533 \\
 
 			\bottomrule
 		\end{tabular}
@@ -1158,16 +1165,16 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
-            
+			
 			4 & 3.9355e-01 & - & 2.2114e-03 & - & 1.5635e-01 & - & 3.3483e-02 & - \\
-            8 & 1.1903e-01 & 1.7251 & 2.0667e-04 & 3.4195 & 3.5774e-02 & 2.1278 & 8.9730e-03 & 1.8997 \\
-            16 & 7.1856e-07 & 17.3378 & 2.4157e-05 & 3.0968 & 1.6377e-07 & 17.7369 & 2.7229e-03 & 1.7205 \\
+			8 & 1.1903e-01 & 1.7251 & 2.0667e-04 & 3.4195 & 3.5774e-02 & 2.1278 & 8.9730e-03 & 1.8997 \\
+			16 & 7.1856e-07 & 17.3378 & 2.4157e-05 & 3.0968 & 1.6377e-07 & 17.7369 & 2.7229e-03 & 1.7205 \\
 			32 & 2.1970e-08 & 5.0315 & 2.0433e-06 & 3.5635 & 1.3769e-09 & 6.8942 & 6.9036e-04 & 1.9797 \\
-            64 & 3.3794e-09 & 2.7007 & 1.4413e-07 & 3.8255 & 2.2896e-11 & 5.9101 & 1.5824e-04 & 2.1253 \\
+			64 & 3.3794e-09 & 2.7007 & 1.4413e-07 & 3.8255 & 2.2896e-11 & 5.9101 & 1.5824e-04 & 2.1253 \\
 			128 & 2.6099e-09 & 0.3727 & 1.2655e-08 & 3.5096 & 1.7105e-13 & 7.0646 & 4.0960e-05 & 1.9498 \\
 
 			\bottomrule
@@ -1189,15 +1196,15 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
 			16 & 8.0561e-02 & - & 4.9447e-02 & - & 4.4525e-02 & - & 2.1113e-01 & - \\
 			32 & 8.7395e-03 & 3.2045 & 2.7894e-02 & 0.8259 & 3.4942e-03 & 3.6716 & 1.5702e-01 & 0.4272 \\
-            64 & 9.8397e-04 & 3.1509 & 1.4661e-02 & 0.9280 & 2.8444e-04 & 3.6187 & 1.1258e-01 & 0.4800 \\
+			64 & 9.8397e-04 & 3.1509 & 1.4661e-02 & 0.9280 & 2.8444e-04 & 3.6187 & 1.1258e-01 & 0.4800 \\
 			128 & 1.1587e-04 & 3.0861 & 7.4991e-03 & 0.9672 & 2.4194e-05 & 3.5554 & 7.9592e-02 & 0.5003 \\
-            256 & 3.8383e-06 & 4.9159 & 3.7903e-03 & 0.9844 & 2.3852e-08 & 9.9863 & 5.5923e-02 & 0.5092 \\
+			256 & 3.8383e-06 & 4.9159 & 3.7903e-03 & 0.9844 & 2.3852e-08 & 9.9863 & 5.5923e-02 & 0.5092 \\
 			512 & 9.5983e-07 & 1.9996 & 1.9052e-03 & 0.9924 & 1.6780e-09 & 3.8294 & 3.9180e-02 & 0.5133 \\
 
 			\bottomrule
@@ -1213,15 +1220,15 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
 			16 & 4.1394e-01 & - & 4.9475e-02 & - & 2.2867e-01 & - & 2.1119e-01 & - \\
 			32 & 1.9253e-01 & 1.1043 & 2.7891e-02 & 0.8269 & 7.6957e-02 & 1.5711 & 1.5701e-01 & 0.4277 \\
-            64 & 8.9611e-02 & 1.1033 & 1.4661e-02 & 0.9278 & 2.5919e-02 & 1.5700 & 1.1258e-01 & 0.4799 \\
+			64 & 8.9611e-02 & 1.1033 & 1.4661e-02 & 0.9278 & 2.5919e-02 & 1.5700 & 1.1258e-01 & 0.4799 \\
 			128 & 4.1721e-02 & 1.1029 & 7.4991e-03 & 0.9672 & 8.7324e-03 & 1.5696 & 7.9592e-02 & 0.5003 \\
-            256 & 1.9418e-02 & 1.1034 & 3.7903e-03 & 0.9844 & 2.9410e-03 & 1.5701 & 5.5923e-02 & 0.5092 \\
+			256 & 1.9418e-02 & 1.1034 & 3.7903e-03 & 0.9844 & 2.9410e-03 & 1.5701 & 5.5923e-02 & 0.5092 \\
 			512 & 6.2392e-03 & 1.6379 & 1.9052e-03 & 0.9924 & 6.8383e-04 & 2.1046 & 3.9181e-02 & 0.5133 \\
 
 			\bottomrule
@@ -1237,15 +1244,15 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
 			16 & 3.4493e-01 & - & 2.9605e-03 & - & 1.1410e-01 & - & 4.9214e-02 & - \\
 			32 & 1.5650e-01 & 1.1402 & 8.8979e-04 & 1.7343 & 3.7462e-02 & 1.6068 & 2.6427e-02 & 0.8971 \\
-            64 & 1.1862e-02 & 3.7217 & 2.3916e-04 & 1.8955 & 2.0548e-03 & 4.1883 & 1.3394e-02 & 0.9804 \\
+			64 & 1.1862e-02 & 3.7217 & 2.3916e-04 & 1.8955 & 2.0548e-03 & 4.1883 & 1.3394e-02 & 0.9804 \\
 			128 & 4.5179e-07 & 14.6804 & 6.1662e-05 & 1.9556 & 5.6652e-08 & 15.1465 & 6.6439e-03 & 1.0115 \\
-            256 & 2.5439e-08 & 4.1505 & 1.5634e-05 & 1.9797 & 2.3144e-09 & 4.6134 & 3.2672e-03 & 1.0240 \\
+			256 & 2.5439e-08 & 4.1505 & 1.5634e-05 & 1.9797 & 2.3144e-09 & 4.6134 & 3.2672e-03 & 1.0240 \\
 			512 & 2.0557e-09 & 3.6293 & 3.9342e-06 & 1.9905 & 1.3525e-10 & 4.0969 & 1.6004e-03 & 1.0296 \\
 
 			\bottomrule
@@ -1261,15 +1268,15 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
 			8 & 6.6092e-01 & - & 1.2206e-03 & - & 2.1864e-01 & - & 3.1121e-02 & - \\
 			16 & 5.3070e-02 & 3.6385 & 2.5337e-04 & 2.2683 & 1.2704e-02 & 4.1053 & 1.3800e-02 & 1.1733 \\
-            32 & 3.0644e-06 & 14.0800 & 4.0223e-05 & 2.6551 & 5.3087e-07 & 14.5465 & 5.3266e-03 & 1.3734 \\
+			32 & 3.0644e-06 & 14.0800 & 4.0223e-05 & 2.6551 & 5.3087e-07 & 14.5465 & 5.3266e-03 & 1.3734 \\
 			64 & 3.2254e-08 & 6.5700 & 5.5088e-06 & 2.8682 & 4.0442e-09 & 7.0364 & 1.9048e-03 & 1.4836 \\
-            128 & 2.0817e-09 & 3.9537 & 7.1795e-07 & 2.9398 & 6.9563e-11 & 5.8614 & 6.6392e-04 & 1.5206 \\
+			128 & 2.0817e-09 & 3.9537 & 7.1795e-07 & 2.9398 & 6.9563e-11 & 5.8614 & 6.6392e-04 & 1.5206 \\
 			256 & 1.0661e-09 & 0.9654 & 9.5156e-08 & 2.9155 & 1.5390e-12 & 5.4982 & 2.3343e-04 & 1.5080 \\
 
 			\bottomrule
@@ -1285,15 +1292,15 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\sigma -\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
 			4 & 1.3495e+00 & - & 2.3773e-03 & - & 8.9680e+01 & - & 4.3934e-02 & - \\
 			16 & 6.3831e-02 & 4.4020 & 2.1255e-04 & 3.4835 & 1.6637e-02 & 12.3962 & 1.2601e-02 & 1.8018 \\
-            32 & 4.8155e-07 & 17.0162 & 2.4982e-05 & 3.0888 & 9.0844e-08 & 17.4826 & 4.1636e-03 & 1.5977 \\
+			32 & 4.8155e-07 & 17.0162 & 2.4982e-05 & 3.0888 & 9.0844e-08 & 17.4826 & 4.1636e-03 & 1.5977 \\
 			64 & 1.2134e-08 & 5.3105 & 2.0997e-06 & 3.5726 & 9.7288e-10 & 6.5450 & 1.1566e-03 & 1.8479 \\
-            128 & 1.5260e-09 & 2.9913 & 1.5515e-07 & 3.7585 & 1.0076e-11 & 6.5933 & 3.0059e-04 & 1.9440 \\
+			128 & 1.5260e-09 & 2.9913 & 1.5515e-07 & 3.7585 & 1.0076e-11 & 6.5933 & 3.0059e-04 & 1.9440 \\
 			256 & 2.3404e-09 & -0.6170 & 3.5516e-08 & 2.1271 & 1.0218e-13 & 6.6236 & 1.4021e-04 & 1.1002 \\
 
 			\bottomrule
@@ -1321,13 +1328,13 @@
 				\includegraphics[width=\linewidth]{includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps}
 			\end{center}
 		\end{subfigure}
-        \begin{subfigure}{0.49\linewidth}
+		\begin{subfigure}{0.49\linewidth}
 			\begin{center}
 				\includegraphics[width=\linewidth]{includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps}
 			\end{center}
 		\end{subfigure}
 
-        \caption{\(p = 10\)，\(k = 3\)，\(N = 64\)，加权预处理子}
+		\caption{\(p = 10\)，\(k = 3\)，\(N = 64\)，加权预处理子}
 	\end{center}
 \end{figure}
 
@@ -1343,13 +1350,13 @@
 				\includegraphics[width=\linewidth]{includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, grad.eps}
 			\end{center}
 		\end{subfigure}
-        \begin{subfigure}{0.49\linewidth}
+		\begin{subfigure}{0.49\linewidth}
 			\begin{center}
 				\includegraphics[width=\linewidth]{includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, rho.eps}
 			\end{center}
 		\end{subfigure}
 
-        \caption{\(p = 10\)，\(k = 3\)，\(N = 256\)，加权预处理子}
+		\caption{\(p = 10\)，\(k = 3\)，\(N = 256\)，加权预处理子}
 	\end{center}
 \end{figure}
 
@@ -1365,33 +1372,33 @@
 				\includegraphics[width=\linewidth]{includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, grad.eps}
 			\end{center}
 		\end{subfigure}
-        \begin{subfigure}{0.49\linewidth}
+		\begin{subfigure}{0.49\linewidth}
 			\begin{center}
 				\includegraphics[width=\linewidth]{includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps}
 			\end{center}
 		\end{subfigure}
 
-        \caption{\(p = 10\)，\(k = 4\)，\(N = 64\)，加权预处理子}
+		\caption{\(p = 10\)，\(k = 4\)，\(N = 64\)，加权预处理子}
 	\end{center}
 \end{figure}
 
 
 
-测试中，所有的三种预条件子都显示出了与网格、多项式次数均无关的迭代次数和下降曲线，符合我们的预期。其中，加权预条件子的收敛速度优于 Poisson 预处理子，并显著优于标准预条件子，速度之间的差距随着 \(p + \frac{1}{p-1}\) 增大而迅速增大。在测试收敛阶时，当 \(p > 2\) 且 \(k \geqslant 2\) 时，只有加权预条件子可以给出满意的结果；Poisson 预条件子可以得到最优的 \(\sigma_{h}\) 的收敛阶，但是 \(u_{h}\) 的收敛阶则会较低。有趣的是，当 \(p > 2\) 且 \(k = 1\) 时，Poisson 预条件子和加权预条件子给出的 \(\sigma_{h}\) 的误差几乎相等，但是加权预条件子给出的 \(u_{h}\) 误差明显高于 Poisson 预条件子，经过实验我们发现 \(u_{h}\) 的误差和稳定项 \(\epsilon\) 的取值有关。除这两个预条件子之外，标准预条件子需要的迭代次数显著高于其他两者，因此我们没有采用。
+测试中，所有的三种预条件子都显示出了与网格、多项式次数均无关的迭代次数和下降曲线，符合我们的预期。其中，加权预条件子的收敛速度优于 Poisson 预处理子，并显著优于标准预条件子，速度之间的差距随着 \(p + \frac{1}{p-1}\) 增大而迅速增大。在测试收敛阶时，当 \(p > 2\) 且 \(k \geqslant 2\) 时，只有加权预条件子可以给出满意的结果；Poisson 预条件子可以得到最优的 \(\bm\sigma_{h}\) 的收敛阶，但是 \(u_{h}\) 的收敛阶则会较低。有趣的是，当 \(p > 2\) 且 \(k = 1\) 时，Poisson 预条件子和加权预条件子给出的 \(\bm\sigma_{h}\) 的误差几乎相等，但是加权预条件子给出的 \(u_{h}\) 误差明显高于 Poisson 预条件子，经过实验我们发现 \(u_{h}\) 的误差和稳定项 \(\epsilon\) 的取值有关。除这两个预条件子之外，标准预条件子需要的迭代次数显著高于其他两者，因此我们没有采用。
 
-在上面的算例中(以及其他收敛的 \(p\) 值测试中)，我们观察到对 \(\left(\sigma, u\right)\) 的 \(L^{p^{\ast}}\times L^{p}\) 的 \(\left(k, k+1\right)\) 阶收敛，这在 LDG 框架下是最优的。同时，当 \(p > 2\) 时，对 \(u\) 的 \(L^2\) 收敛阶比 \(L^{p}\) 收敛阶高，对 \(\sigma\) 的 \(L^2\) 收敛阶比 \(L^{p^{\ast}}\) 收敛阶低；当 \(p < 2\) 时反之。这与多项式逼近的反向估计结果一致。
+在上面的算例中(以及其他收敛的 \(p\) 值测试中)，我们观察到对 \(\left(\bm\sigma, u\right)\) 的 \(L^{p^{\ast}}\times L^{p}\) 的 \(\left(k, k+1\right)\) 阶收敛，这在 LDG 框架下是最优的。同时，当 \(p > 2\) 时，对 \(u\) 的 \(L^2\) 收敛阶比 \(L^{p}\) 收敛阶高，对 \(\bm\sigma\) 的 \(L^2\) 收敛阶比 \(L^{p^{\ast}}\) 收敛阶低；当 \(p < 2\) 时反之。这与多项式逼近的反向估计结果一致。
 
 
 \subsubsection{Conclusion}
 
 我们的第而个 \(p\)-Laplace 方程 LDG 算法相当于用 LDG 方法直接离散最优化形式\eqref{p-Laplace primal minimization form}，而不引入中间变量。我们针对此方法，把文章\cite{10.1007/s10915-007-9134-z}中的预处理器推广到了 LDG 框架下。此方法的优势在于：
 \begin{enumerate}
-    \item 基于梯度下降的数值格式对任何迭代初值都保证收敛，且收敛性能与网格无关。
-    \item 未知函数数量少。
-    \item 在数值实验中，对 \(\left(\sigma, u\right)\) 的 \(L^{p^{\ast}} \times L^{p}\) 误差有 \(\left(k, k+1\right)\) 阶收敛阶。
+	\item 基于梯度下降的数值格式对任何迭代初值都保证收敛，且收敛性能与网格无关。
+	\item 未知函数数量少。
+	\item 在数值实验中，对 \(\left(\bm\sigma, u\right)\) 的 \(L^{p^{\ast}} \times L^{p}\) 误差有 \(\left(k, k+1\right)\) 阶收敛阶。
 \end{enumerate}
 此方法的劣势在于：
 \begin{enumerate}
-    \item 基于梯度下降的方法需要有效的预处理器，经过实验我们发现加权预条件子是三种预条件子里性能最好的，但是该预条件子需要加入稳定项 \(\epsilon\)，该稳定项对 \(u_{h}\) 的误差会产生的影响不可忽视。
-    \item 实验其他的预条件子时，例如 Poisson 预条件子，误差可以迅速下降，但是由于浮点误差或者其他因素，数值解暂时收敛不到准确解。
+	\item 基于梯度下降的方法需要有效的预处理器，经过实验我们发现加权预条件子是三种预条件子里性能最好的，但是该预条件子需要加入稳定项 \(\epsilon\)，该稳定项对 \(u_{h}\) 的误差会产生的影响不可忽视。
+	\item 实验其他的预条件子时，例如 Poisson 预条件子，误差可以迅速下降，但是由于浮点误差或者其他因素，数值解暂时收敛不到准确解。
 \end{enumerate}

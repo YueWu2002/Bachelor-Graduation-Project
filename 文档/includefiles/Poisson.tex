@@ -408,7 +408,7 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 \end{equation}
 这里下标以 3 为轮换周期。
 
-我们下面考虑单元上的有限元空间 \(V(K)\). 记 \(V(\widehat{K})\) 是参考单元上相应的函数空间，定义拉回(pull-back)算子 \(\Phi^{\ast}\) 和前推(push-forward)算子 \(\Phi_{\ast}\) 如下：
+我们下面考虑单元上的有限元空间 \(V(K)\). 记 \(V(\widehat{K})\) 是参考单元上相应的函数空间，定义拉回(pull-back)算子 \(\Phi^{\ast}\)\footnote{实际上是 Piola 变换，可以参考\cite{10.1007/978-3-030-27230-2_2}中对Piola变换的介绍。} 和前推(push-forward)算子 \(\Phi_{\ast}\) 如下：
 \begin{subequations}
 	\begin{eqnarray}
 		&& \Phi^{\ast}: V(K) \mapsto V(\widehat{K}): u(\bm x) \mapsto \widehat{u}(\bm\lambda) = u(\Phi(\bm\lambda)) \\
@@ -457,7 +457,7 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 		\left(\bm J[\Phi^{-1}] \otimes \bm I_{(N_{k})}\right)
 	\end{eqnarray}
 \end{subequations}
-这里，Jacobi 矩阵求逆公式为 \(\bm J[\Phi^{-1}] = \bm J[\Phi]^{-1}(\Phi)\).
+这里，利用一阶微分形式不变性，Jacobi 矩阵求逆公式为 \(\bm J[\Phi^{-1}] = \bm J[\Phi]^{-1}(\Phi)\).
 
 
 
@@ -1609,7 +1609,7 @@ print(gcf, '-depsc2', '-vector', 'error_q', '-r300');
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.8\linewidth]{includefiles/DOF compare.png}
-		\caption{DOFs of \(\mathscr{Q}^{2}\) HDG, DG, and CG-H elements\cite{10.48550/arXiv.1705.09907, 10.1137/17M1128903}}
+		\caption{DOFs of \(\mathscr{Q}^{2}\) HDG, DG, and CG-H elements\cite{10.1137/17M1128903}}
 		\label{pic: DOFs compare of HDG, DG and CG-H}
 	\end{center}
 \end{figure}
@@ -1743,7 +1743,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
     事实上，local solver 的存在是合理的，这是因为在方程\eqref{LDG-H weak form}中，单元 \(K\) 上的 \(\left(\bm\sigma_{h}, u_{h}\right)\) 只与 \(\partial K\) 上的 \(\widehat{u}_{h}\) 直接耦合。同时，我们不难发现耦合的方式正好就是 \(K\) 上的以 \(\widehat{u}_{h}\big|_{\partial K}\) 为 Dirichlet 边界条件的 LDG-H 格式。
 \end{remark}
 
-\begin{theorem}[Well-posedness\cite{10.1007/978-3-030-27230-2_3}]
+\begin{theorem}[Well-posedness]
     当至少一条边上是 Dirichlet 边界，且每个单元 \(K\) 满足以下两条中的至少一条时：
     \begin{enumerate}
         \item 惩罚系数 \(\tau > 0\) 在 \(\partial K\) 上成立；
@@ -1774,20 +1774,19 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 				& \oint_{\partial K} \left(u_{h} - \widehat{u}_{h}\right) \bm\tau_{h} \cdot \bm n \d s = 0
 			\end{aligned}
 		\end{equation*}
-        由于在单纯形单元 \(K\) 上有正交分解：% to be done: 引用文献，说明该正交分解的来源
+        由于在单纯形单元 \(K\) 上有正交分解\cite[Lemma 2.2]{10.1007/978-3-030-27230-2_2}：
 		\begin{equation*}
             \begin{aligned}
-                & \bigoplus_{e\in\mathcal{E}_{h}^{K}} \mathscr{P}^{k}(e)
-			    = & \B{u\big|_{\partial K} \bigg| u \in \left(\mathscr{P}^{k-1}(K)\right)^{\perp} \cap \mathscr{P}^{k}(K)} \oplus \B{\sigma\big|_{\partial K}\cdot\bm n \bigg| \sigma \in \left(\mathscr{P}^{k-1}(K)^{d}\right)^{\perp} \cap \mathscr{P}^{k}(K)^{d}}
+                \bigoplus_{e\in\mathcal{E}_{h}^{K}} \mathscr{P}^{k}(e)
+			    = & \B{u\big|_{\partial K} \bigg| u \in \left(\mathscr{P}^{k-1}(K)\right)^{\perp} \cap \mathscr{P}^{k}(K)} \\
+                & \oplus \B{\bm\sigma \big|_{\partial K} \cdot \bm n \bigg| \bm\sigma \in \left(\mathscr{P}^{k-1}(K)^{d}\right)^{\perp} \cap \mathscr{P}^{k}(K)^{d}}
             \end{aligned}
 		\end{equation*}
 		所以：
 		\begin{equation*}
 			\left(u_{h} - \widehat{u}_{h}\right)\big|_{\partial K} \in \B{u\big|_{\partial K} \bigg| u \in \left(\mathscr{P}^{k-1}(K)\right)^{\perp} \cap \mathscr{P}^{k}(K)}
 		\end{equation*}
-		因为存在一条边 \(e \in \mathcal{E}_{h}^{K}\) 使得 \(u_{h}\big|_{e} = \widehat{u}_{h}\)，所以 \(u_{h}\big|_{\partial K} = \widehat{u}_{h}\big|_{\partial K}\).
-        
-        至此，再利用 local solver 的存在性证明过程，可知 \(u_{h}\big|_{K} = C_{K}\) 且 \(\widehat{u}_{h}\big|_{\partial K} = C_{K}\). 利用 Dirichlet 边界 \(\widehat{u}_{h}\big|_{\Gamma^{D}} = g_{D} = 0\) 知 \(u_{h} = 0\) 且 \(\widehat{u}_{h} = 0\).
+		由于存在一条边 \(e \in \mathcal{E}_{h}^{K}\) 使得 \(\left(u_{h} - \widehat{u}_{h}\right)\big|_{e} = 0\)，利用\cite[Lemma 2.1(a)]{10.1007/978-3-030-27230-2_2}可知 \(u_{h}\big|_{\partial K} = \widehat{u}_{h}\big|_{\partial K}\) 且 \(u\big|_{K} = C_{K}\). 利用 Dirichlet 边界 \(\widehat{u}_{h}\big|_{\Gamma^{D}} = g_{D} = 0\) 则知 \(u_{h} = 0\) 且 \(\widehat{u}_{h} = 0\).
 	\end{proof}
 \end{theorem}
 

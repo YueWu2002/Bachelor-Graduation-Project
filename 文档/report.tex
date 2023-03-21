@@ -13,40 +13,43 @@
 }
 \date{\small{\today}}
 \pagestyle{headings}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 加入BibTex参考文献源
+% 加入BibLaTex参考文献源(请用BibLaTex而不是BibTex)
 \addbibresource{includefiles/refs.bib} % BibTeX数据文件及位置
+% 注意事项：
+% 英文标题以及姓名统一首字母大写
+% 需要不改变大小写的词用大括号括起来，例如 {Galerkin}, {HDG}, {GNU Octave}
+% 有的单词要斜体，例如 \emph{a Posteriori}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}%文件开始
 \maketitle
 \tableofcontents
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 正文
 
 % keyword: discontinuous Galerkin methods, p-Laplacian equation, nonlinear elliptic equations, variational inequalities
 
-\input{includefiles/Poisson.tex}
-
-% to be continued from: 
+\input{includefiles/Poisson.tex} 
 \input{includefiles/p-Laplacian.tex}
 
 % 备注：
 % 整文结构可以参考上海大学硕士论文《p-Laplace方程的自适应有限元方法》
-% 我们可以由椭圆方程的 DG 方法开始，一直介绍到 p-Laplace 问题的方法
+% 我们可以由1943年Courant最初的有限元开始，介绍到 IPDG 和 Reed&Hill的稳态双曲DG，然后到椭圆方程的 DG 方法，最后一直介绍到 p-Laplace 问题的方法
 % 每一部分结束时，都可以进行一个小总结
 % 全文的空间记号要统一
 % 可以借鉴徐岩老师、洪雪博士的博士毕业论文
 %
-% 正在做：把向量函数都加上\bm，把自由度向量加上[]，从标签[% to be continued...]处继续
 % 要做：二维 HDG 程序、二维 p-Laplace 程序
 %
-% to be done: 重做所有的数值算例(HDG增加后处理)，重新绘制spy图，数值结果保留两位小数，扩大表格
+% to be done: 在2D LDG里面添加三角形上全对称的Gauss积分公式，参考PHG源码
 % to be done: 编程实现二维 p-Laplace 方程的LDG方法1和2，其中，方法1可以对p使用通论方法(需要先说明对p的连续性，建议查文献)
 % to be done: 向量函数 sigma 和 tau 需要用\bm加粗
 % to be done: 在每个引用的地方，加上引用的是哪个定理
 % to be done: 在收敛阶的地方，要么假设真解光滑，要么就把Sobolev估计的范数写清楚
 % to be done: 改格式，把caption放在表格上方，放在图片下方，复杂表格统一不使用三线表(模仿洪雪的博士毕业论文)，有的测试数据合并成一张大表格
-% to be done: 在参考文献中，把固有的大写单词用大括号括起来，例如 {Galerkin} (不要只括一个首字母)
 % to be done: 把Poisson方程的理论部分换成系数是SPD矩阵的椭圆方程
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

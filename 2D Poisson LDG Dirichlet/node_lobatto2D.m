@@ -42,11 +42,11 @@ if (plot_flag)
     figure(1);
     x0 = [1, 0, 0];
     y0 = [0, 1, 0];
-    e1=plot([x0(2),x0(3)],[y0(2),y0(3)]);
+    e1 = plot([x0(2),x0(3)],[y0(2),y0(3)]);
     hold on;
-    e2=plot([x0(3),x0(1)],[y0(3),y0(1)]);
+    e2 = plot([x0(3),x0(1)],[y0(3),y0(1)]);
     hold on;
-    e3=plot([x0(1),x0(2)],[y0(3),y0(2)]);
+    e3 = plot([x0(1),x0(2)],[y0(3),y0(2)]);
     hold on;
     plot(x0(1)*x + x0(2)*y + x0(3)*z, y0(1)*x + y0(2)*y + y0(3)*z, 'o');
     hold on;

@@ -1,6 +1,6 @@
 function [T] = trace_lobatto_nodal2D(p)
 % [T] = trace_lobatto_nodal2D(p)
-%   maps the interior nodal DOFs at Lobatto points to boundary nodal DOFs at Lobatto points
+%   maps the interior nodal DOFs at triangular Lobatto points to boundary nodal DOFs at edge Lobatto points
 %   domain: the right triangle
 %   edge sequence: 
 %       EDGE1: (0,1)->(0,0);
@@ -11,8 +11,9 @@ function [T] = trace_lobatto_nodal2D(p)
 %   p:  the polynomial total degree
 % 
 % output: 
-%   T1, T2, T3: mapping matrices, size = [p+1, ((p+1)*(p+2))/2] (we combine them into a tensor)
-
+%   T1, T2, T3: mapping matrices, size = [p+1, ((p+1)*(p+2))/2] (we combine them into a dense tensor)
+%
+% REMARK: please make the matrix sparse before putting it into computing!
 % WARNING: please plot the nodal distribution WITH ORDER NUMBERS before writing such code!
 
 % checked.

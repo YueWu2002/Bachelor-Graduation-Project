@@ -152,7 +152,7 @@ parfor k = 1: nelem
     B_block{k} = sparse(([Dx, Dy]*kron(inv(Jac), speye(Np)))' * M_elem);
 
 
-    % for G, block size = [Np, 1] (use interpolation-based integral)
+    % for G, block size = [Np, 1] (use interpolation)
     % interpolation
     fval = zeros(Np, 1);
     for i = 1: Np
@@ -169,6 +169,8 @@ B = blkdiag(B_block{1:nelem});
 for k = 1: nelem
     G(ind_u(k)) = G_block{k};
 end
+% release temporary variables
+clear A_block Ainv_block B_block G_block;
 
 
 % REMARK: the face loop costs most of the time in the assembly process
@@ -231,6 +233,7 @@ B = B + sparse(iB(Bind), jB(Bind), vB(Bind), nelem*(2*Np), nelem*Np);
 C = C + sparse(iC(Cind), jC(Cind), vC(Cind), nelem*Np, nelem*Np);
 F = F + sparse(iF(Find), int32(1), vF(Find), nelem*(2*Np), 1);
 G = G + sparse(iG(Gind), int32(1), vG(Gind), nelem*Np, 1);
+clear iB jB vB Bind iC jC vC Cind iF jF Find iG jG Gind;
 
 assemble_time = toc;
 
@@ -248,6 +251,7 @@ case 'direct'
         spy(ZZ);
         print(gcf, '-depsc2', '-vector', 'spyZZ', '-r300');
     end
+    clear ZZ RHS;
 case 'reduce'
     % preferred method of solving
     SS = B'*Ainv*B + C;
@@ -259,6 +263,7 @@ case 'reduce'
         spy(SS);
         print(gcf, '-depsc2', '-vector', 'spySS', '-r300');
     end
+    clear SS RHSS u q;
 otherwise
     disp('Error solve_method!');
 end
@@ -271,6 +276,7 @@ sol = struct(...
     'x', zeros(nelem*Np,1),...
     'y', zeros(nelem*Np,1)...
 );
+clear SOL;
 
 for k = 1: nelem
     xx = mesh.nodes(mesh.elems(k,1:3), 1);

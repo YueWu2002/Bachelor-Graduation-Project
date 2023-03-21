@@ -9,23 +9,29 @@ show_spy = false;
 p = 2;      % advise: 1<=p<=7
 vel = [1.0, 0];
 
+cd("mesh");
 mymesh1
-mesh{1} = read_mesh(msh, false);
+raw_mesh{1} = msh;
 mymesh2
-mesh{2} = read_mesh(msh, false);
+raw_mesh{2} = msh;
 mymesh3
-mesh{3} = read_mesh(msh, false);
+raw_mesh{3} = msh;
 mymesh4
-mesh{4} = read_mesh(msh, false);
+raw_mesh{4} = msh;
 mymesh5
-mesh{5} = read_mesh(msh, false);
+raw_mesh{5} = msh;
 mymesh6
-mesh{6} = read_mesh(msh, false);
+raw_mesh{6} = msh;
+cd ..
+
+for k = 1: 6
+    mesh{k} = read_mesh(raw_mesh{k}, false);
+end
 
 m_test = 6;
 err = zeros(m_test, 2);
 for k = 1: m_test
-    sol = poisson2D_MDLDG(mesh{k}, ff, g_D, g_N, p, vel, show_spy, 'direct');
+    sol = poisson2D_MDLDG(mesh{k}, ff, g_D, g_N, p, vel, show_spy, 'reduce');
     err(k,1:2) = compute_error(mesh{k}, sol, p, uu, qqx, qqy);
 end
 % Remark: 使用Schur补对精度都暂时观察不到影响，对计算速度可以提高。

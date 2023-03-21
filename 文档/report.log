@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.6)  21 MAR 2023 12:01
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.6)  21 MAR 2023 22:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -896,26 +896,26 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
  (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -952,15 +952,15 @@ LaTeX Font Info:    ... okay on input line 20.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 20.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 26.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 20.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 26.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 20.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 26.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 20.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 26.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 20.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 26.
 
 Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
 (fontspec)             'latinmodern-math.otf' with options
@@ -992,13 +992,13 @@ Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 20.
+(Font)              `operators' in the math version `normal' on input line 26.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 20.
+(Font)                  OT1/cmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 26.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 20.
+(Font)              `operators' in the math version `bold' on input line 26.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 20.
+(Font)                  OT1/cmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 26.
 
 Package fontspec Info: latinmodern-math scale = 1.0001.
 
@@ -1062,13 +1062,13 @@ Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
 (fontspec)             \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 20.
+(Font)              `symbols' in the math version `normal' on input line 26.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 20.
+(Font)                  OMS/cmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 26.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 20.
+(Font)              `symbols' in the math version `bold' on input line 26.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 20.
+(Font)                  OMS/cmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 26.
 
 Package fontspec Info: latinmodern-math scale = 0.9999.
 
@@ -1114,13 +1114,13 @@ Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
 (fontspec)             =7.2pt\relax \fontdimen 13\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 20.
+(Font)              `largesymbols' in the math version `normal' on input line 26.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 20.
+(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 26.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 20.
+(Font)              `largesymbols' in the math version `bold' on input line 26.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 20.
+(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 26.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -1129,7 +1129,7 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 20.
+Package hyperref Info: Link coloring OFF on input line 26.
  (./report.out) (./report.out)
 \@outlinefile=\write4
 \openout4 = `report.out'.
@@ -1152,33 +1152,33 @@ Package biblatex Info: Data encoding 'utf8' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'report.bbl' found.
  (./report.bbl)
-Package biblatex Info: Reference section=0 on input line 20.
-Package biblatex Info: Reference segment=0 on input line 20.
+Package biblatex Info: Reference section=0 on input line 26.
+Package biblatex Info: Reference segment=0 on input line 26.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.40152pt on input line 22.
+(Font)              scaled to size 14.40152pt on input line 28.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00107pt on input line 22.
+(Font)              scaled to size 10.00107pt on input line 28.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 22.
+(Font)              scaled to size 7.00075pt on input line 28.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 14.39845pt on input line 22.
+(Font)              scaled to size 14.39845pt on input line 28.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 22.
+(Font)              scaled to size 9.99893pt on input line 28.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 22.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
+(Font)              scaled to size 6.99925pt on input line 28.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
  (d:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
  (d:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+esint on input line 22.
+LaTeX Font Info:    Trying to load font information for U+esint on input line 28.
  (d:/texlive/2022/texmf-dist/tex/latex/esint/uesint.fd
 File: uesint.fd 
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 22.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 28.
  (d:/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
@@ -1206,9 +1206,9 @@ Package fontspec Info: Font family 'KaiTi(0)' created for font 'KaiTi' with
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 22.
+(Font)              scaled to size 5.00053pt on input line 28.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 22.
+(Font)              scaled to size 4.99947pt on input line 28.
 
 Package fontspec Info: Could not resolve font "FangSong/BI" (it probably
 (fontspec)             doesn't exist).
@@ -1262,12 +1262,12 @@ Overfull \hbox (18.22755pt too wide) detected at line 287
 [8] [9] [10]
 File: includefiles/triangle nodes compare.png Graphic file (type bmp)
 <includefiles/triangle nodes compare.png>
- [11]
+ [11] [12]
 Overfull \hbox (21.82658pt too wide) in paragraph at lines 428--430
 []\TU/SimSun(0)/m/n/12 取 参 考 函 数 空 间 $\U/rsfs/m/n/12 P[][][][]$ \TU/SimSun(0)/m/n/12 的 基 函 数 $[]$[][][]，|  这 里 $[][] [] [] \U/rsfs/m/n/12 P[][][][]$\TU/lmr/m/n/12 .
  []
 
-[12] [13] [14]
+[13] [14]
 Overfull \hbox (44.3234pt too wide) in alignment at lines 512--522
  [][][] []
  []
@@ -1384,32 +1384,28 @@ Overfull \hbox (29.30186pt too wide) detected at line 1703
 [][][][][]
  []
 
-[34] [35]
-Overfull \hbox (82.93788pt too wide) detected at line 1783
-[][]
- []
-
-[36]
-Overfull \hbox (37.85878pt too wide) detected at line 1842
+[34] [35] [36]
+Overfull \hbox (37.85878pt too wide) detected at line 1841
 [][][][] [] [] [] []
  []
 
 [37]
-Overfull \hbox (5.9825pt too wide) in paragraph at lines 1919--1973
+Overfull \hbox (5.9825pt too wide) in paragraph at lines 1918--1972
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 77.75595pt on input line 1974.
+LaTeX Warning: Float too large for page by 77.75595pt on input line 1973.
 
 
-Overfull \hbox (21.67848pt too wide) in paragraph at lines 1986--2040
+Overfull \hbox (21.67848pt too wide) in paragraph at lines 1985--2039
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 76.1705pt on input line 2041.
+LaTeX Warning: Float too large for page by 76.1705pt on input line 2040.
 
+[38] [39] [40]
 File: includefiles/1D poisson HDG spy/legendre direct.eps Graphic file (type eps)
 <includefiles/1D poisson HDG spy/legendre direct.eps>
 File: includefiles/1D poisson HDG spy/legendre reduce.eps Graphic file (type eps)
@@ -1418,28 +1414,28 @@ File: includefiles/1D poisson HDG spy/lobatto direct.eps Graphic file (type eps)
 <includefiles/1D poisson HDG spy/lobatto direct.eps>
 File: includefiles/1D poisson HDG spy/lobatto reduce.eps Graphic file (type eps)
 <includefiles/1D poisson HDG spy/lobatto reduce.eps>
-[38] [39] [40] [41]
-Overfull \hbox (63.5285pt too wide) detected at line 2103
+
+Overfull \hbox (63.5285pt too wide) detected at line 2102
 [][][][][]
  []
 
-
-Overfull \hbox (5.9825pt too wide) in paragraph at lines 2114--2168
+[41]
+Overfull \hbox (5.9825pt too wide) in paragraph at lines 2113--2167
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 77.75595pt on input line 2169.
+LaTeX Warning: Float too large for page by 77.75595pt on input line 2168.
 
-
-Overfull \hbox (21.03047pt too wide) in paragraph at lines 2182--2236
+[42] [43]
+Overfull \hbox (21.03047pt too wide) in paragraph at lines 2181--2235
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 76.1705pt on input line 2237.
+LaTeX Warning: Float too large for page by 76.1705pt on input line 2236.
 
-) [42] [43] [44] (./includefiles/p-Laplacian.tex
+) (./includefiles/p-Laplacian.tex
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 17.28183pt on input line 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
@@ -1453,46 +1449,46 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\)' on input line 1.
 
-[45]
+[44] [45]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\(' on input line 41.
+(hyperref)                removing `\(' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\)' on input line 41.
+(hyperref)                removing `\)' on input line 42.
 
 [46] [47]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\(' on input line 150.
+(hyperref)                removing `\(' on input line 153.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\)' on input line 150.
+(hyperref)                removing `\)' on input line 153.
 
 [48]
-Overfull \hbox (50.84619pt too wide) in alignment at lines 187--197
+Overfull \hbox (60.39813pt too wide) in alignment at lines 190--200
  [][][] []
  []
 
-[49]
-Overfull \hbox (61.50467pt too wide) detected at line 238
+[49] [50]
+Overfull \hbox (68.40462pt too wide) detected at line 242
 []
  []
 
-[50]
-Overfull \hbox (23.15088pt too wide) detected at line 246
+
+Overfull \hbox (25.91086pt too wide) detected at line 250
 [][]
  []
 
-[51] [52] [53] [54] [55] [56] [57] [58] [59]
-Overfull \hbox (2.81421pt too wide) detected at line 789
-[][][][][]
+
+Overfull \hbox (24.19867pt too wide) detected at line 310
+[][][][] [] [] [] [] [] []
  []
 
-
-Overfull \hbox (7.76253pt too wide) detected at line 811
+[51] [52] [53] [54] [55] [56] [57] [58] [59]
+Overfull \hbox (2.47285pt too wide) detected at line 816
 [][][][][]
  []
 
@@ -1517,118 +1513,103 @@ File: includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, grad.eps Graphic file
 File: includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps>
  [70] [71]) [72]
-Overfull \hbox (7.18996pt too wide) in paragraph at lines 57--57
-[]\TU/lmr/m/n/12 Alexandre Ern and Jean-Luc Guermond. “Distributions and duality in Sobolev
+Overfull \hbox (9.63776pt too wide) in paragraph at lines 60--60
+[]\TU/lmr/m/n/12 Alexandre Ern and Jean-Luc Guermond. “Distributions and Duality in Sobolev
  []
 
 [73] [74]
-Overfull \hbox (4.56006pt too wide) in paragraph at lines 57--57
+Overfull \hbox (4.56006pt too wide) in paragraph at lines 60--60
 [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][][][][] [] [][][] [] [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . 
  []
 
 [75]
-Overfull \hbox (8.73256pt too wide) in paragraph at lines 57--57
-[]\TU/lmr/m/n/12 I. Bogaert. “Iteration-Free Computation of Gauss–Legendre Quadrature Nodes
+Overfull \hbox (20.59505pt too wide) in paragraph at lines 60--60
+[][][] [] [][][][]$[]\TU/lmr/m/n/12 . \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][] [] [][][] [] [][][][][][][][][][][][][] []
  []
 
 
-Overfull \hbox (1.79202pt too wide) in paragraph at lines 57--57
-\TU/lmr/m/n/12 and Weights”. In: \TU/lmr/m/it/12 SIAM Journal on Scientific Computing \TU/lmr/m/n/12 36.3 (2014), A1008–
- []
-
-
-Overfull \hbox (7.1121pt too wide) in paragraph at lines 57--57
+Overfull \hbox (7.1121pt too wide) in paragraph at lines 60--60
 \TU/lmr/m/n/12 Legendre Quadrature”. In: \TU/lmr/m/it/12 SIAM Journal on Scientific Computing \TU/lmr/m/n/12 24.3 (2003),
  []
 
 [76]
-Overfull \hbox (5.86456pt too wide) in paragraph at lines 57--57
-[]\TU/lmr/m/n/12 D. Wirasaet et al. “A performance comparison of nodal discontinuous Galerkin
- []
-
-
-Overfull \hbox (40.0807pt too wide) in paragraph at lines 57--57
+Overfull \hbox (40.0807pt too wide) in paragraph at lines 60--60
 [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . eprint: []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][][][][][][][][]$[].
  []
 
 [77]
-Overfull \hbox (5.0468pt too wide) in paragraph at lines 57--57
+Overfull \hbox (5.0468pt too wide) in paragraph at lines 60--60
 \TU/lmr/m/it/12 puting \TU/lmr/m/n/12 30.4 (2008), pp. 1806–1824. \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][][][][][]$[]. eprint: []$[][][][][] []
  []
 
 
-Overfull \hbox (7.15234pt too wide) in paragraph at lines 57--57
+Overfull \hbox (7.15234pt too wide) in paragraph at lines 60--60
 []\TU/lmr/m/n/12 J. A. Nitsche. “Über ein Variationsprinzip zur Lösung von Dirichlet-Problemen
  []
 
 
-Overfull \hbox (67.22784pt too wide) in paragraph at lines 57--57
+Overfull \hbox (67.22784pt too wide) in paragraph at lines 60--60
 \TU/lmr/m/it/12 nal on Numerical Analysis \TU/lmr/m/n/12 39.1 (2001), pp. 264–285. \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][][][][][][][][][][][][][]$[].
  []
 
-
-Overfull \hbox (15.49329pt too wide) in paragraph at lines 57--57
+[78]
+Overfull \hbox (15.49329pt too wide) in paragraph at lines 60--60
 \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][][][][][][]$[]. \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][]$[]. 
  []
 
-[78]
-Overfull \hbox (6.86217pt too wide) in paragraph at lines 57--57
+
+Overfull \hbox (6.86197pt too wide) in paragraph at lines 60--60
 \TU/lmr/m/n/12 fied Hybridization of Discontinuous Galerkin, Mixed, and Continuous Galerkin
  []
 
 [79]
-Overfull \hbox (4.56006pt too wide) in paragraph at lines 57--57
+Overfull \hbox (4.56006pt too wide) in paragraph at lines 60--60
 [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][][][][] [] [][][] [] [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . 
  []
 
-
-Overfull \hbox (16.97208pt too wide) in paragraph at lines 57--57
-\TU/lmr/m/n/12 problèmes de Dirichlet non linéaires”. French. In: \TU/lmr/m/it/12 Revue française d’automatique,
- []
-
 [80]
-Overfull \hbox (5.74744pt too wide) in paragraph at lines 57--57
-\TU/lmr/m/it/12 linear Elliptic Partial Differential Equations: An Introduction\TU/lmr/m/n/12 . Cham: Springer
- []
-
-
-Overfull \hbox (27.68668pt too wide) in paragraph at lines 57--57
+Overfull \hbox (27.68668pt too wide) in paragraph at lines 60--60
 [][][] [] [][] [] [][][][][][][][][] [] [][][][][][] [] [][][][][][][][][] [] [][][][][] [] [][][][][][][][][][][][][][][][][][][][][][] []
  []
 
 
-Overfull \hbox (0.58311pt too wide) in paragraph at lines 57--57
-\TU/lmr/m/n/12 Mathematics. Springer Cham, 2016. \TU/lmr/m/sc/12 isbn\TU/lmr/m/n/12 : 978-3-319-31531-7. \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] []
+Overfull \hbox (0.27206pt too wide) in paragraph at lines 60--60
+\TU/lmr/m/it/12 Equation\TU/lmr/m/n/12 . SpringerBriefs in Mathematics. Cham: Springer International Pub-
  []
 
 [81]
-Overfull \hbox (40.0807pt too wide) in paragraph at lines 57--57
+Overfull \hbox (5.60997pt too wide) in paragraph at lines 60--60
+[]\TU/lmr/m/n/12 Mohamed Farhloul and Hassan Manouzi. “On a Mixed Finite Element Method
+ []
+
+
+Overfull \hbox (40.0807pt too wide) in paragraph at lines 60--60
 [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . eprint: []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][][][][][][][][]$[].
  []
 
 [82]
-Overfull \hbox (4.56006pt too wide) in paragraph at lines 57--57
-[][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][][][][] [] [][][] [] [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . 
+Overfull \hbox (33.02225pt too wide) in paragraph at lines 60--60
+\TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][] [][] [][][][][][][] [] [][][][][] [][] []$[]. \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][] []
  []
 
 
-Overfull \hbox (11.59396pt too wide) in paragraph at lines 57--57
-[]\TU/lmr/m/n/12 Annalisa Buffa and Christoph Ortner. “Compact embeddings of broken Sobolev
+Overfull \hbox (4.7702pt too wide) in paragraph at lines 60--60
+\TU/lmr/m/n/12 Version Finite Element Method and Application to Non-linear Elliptic PDEs”.
  []
 
 [83]
-Overfull \hbox (4.56006pt too wide) in paragraph at lines 57--57
-[][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][][][][] [] [][][] [] [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . 
+Overfull \hbox (5.69835pt too wide) in paragraph at lines 60--60
+\TU/lmr/m/n/12 Solutions of Systems with $[][][] [][]$-Structure Using Local Discontinuous Galerkin
  []
 
 [84]
-Overfull \hbox (12.90994pt too wide) in paragraph at lines 57--57
+Overfull \hbox (12.90974pt too wide) in paragraph at lines 60--60
 []\TU/lmr/m/n/12 Bernardo Cockburn and Jiguang Shen. “A Hybridizable Discontinuous Galerkin
  []
 
 [85]
-Overfull \hbox (21.28865pt too wide) in paragraph at lines 57--57
-\TU/lmr/m/n/12 problems arising from lagrangian multipliers”. In: \TU/lmr/m/it/12 R.A.I.R.O. Analyse Numérique
+Overfull \hbox (0.36694pt too wide) in paragraph at lines 60--60
+\TU/lmr/m/it/12 D’Automatique, Informatique, Recherche Opérationnelle. Analyse Numérique
  []
 
 [86] [87] (./report.aux)
@@ -1651,12 +1632,12 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31410 strings out of 476848
- 655008 string characters out of 5820505
- 1400203 words of memory out of 5000000
- 52146 multiletter control sequences out of 15000+600000
+ 31403 strings out of 476848
+ 654847 string characters out of 5820505
+ 1396353 words of memory out of 5000000
+ 52139 multiletter control sequences out of 15000+600000
  484690 words of font info for 180 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 94i,22n,115p,1913b,5013s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,22n,115p,1913b,5015s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on report.pdf (87 pages).

@@ -47,7 +47,9 @@ for k = 1: 6
         indstar = (j-1)*(p+2)+1 : j*(p+2);
         uvals = Pnq*u(inds);
         qvals = Pnq*q(inds);
-        ustarvals = Pnqstar*ustar(indstar);
+        if post_process
+            ustarvals = Pnqstar*ustar(indstar);
+        end
         uuvals = zeros(length(qw),1);   % exact solution
         qqvals = zeros(length(qw),1);   % exact solution
 
