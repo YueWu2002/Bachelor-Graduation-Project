@@ -13,16 +13,16 @@
 \contentsline {subsection}{\numberline {1.5}The Local DG Method}{13}{subsection.1.5}%
 \contentsline {subsubsection}{\numberline {1.5.1}The LDG Formulation}{13}{subsubsection.1.5.1}%
 \contentsline {subsubsection}{\numberline {1.5.2}Numerical Discretization}{17}{subsubsection.1.5.2}%
-\contentsline {subsubsection}{\numberline {1.5.3}Numerical Example (1D Dirichlet)}{17}{subsubsection.1.5.3}%
-\contentsline {subsubsection}{\numberline {1.5.4}Numerical Example (1D Neumann)}{20}{subsubsection.1.5.4}%
+\contentsline {subsubsection}{\numberline {1.5.3}Numerical Example (1D Dirichlet)}{18}{subsubsection.1.5.3}%
+\contentsline {subsubsection}{\numberline {1.5.4}Numerical Example (1D Neumann)}{23}{subsubsection.1.5.4}%
 \contentsline {subsubsection}{\numberline {1.5.5}Numerical Example (2D Dirichlet)}{23}{subsubsection.1.5.5}%
-\contentsline {subsubsection}{\numberline {1.5.6}Conclusion}{31}{subsubsection.1.5.6}%
-\contentsline {subsection}{\numberline {1.6}The Hybridizable DG Method}{31}{subsection.1.6}%
-\contentsline {subsubsection}{\numberline {1.6.1}The HDG Formulation}{31}{subsubsection.1.6.1}%
+\contentsline {subsubsection}{\numberline {1.5.6}Conclusion}{28}{subsubsection.1.5.6}%
+\contentsline {subsection}{\numberline {1.6}The Hybridizable DG Method}{28}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}The HDG Formulation}{28}{subsubsection.1.6.1}%
 \contentsline {subsubsection}{\numberline {1.6.2}Numerical Discretization}{36}{subsubsection.1.6.2}%
 \contentsline {subsubsection}{\numberline {1.6.3}Numerical Example 1 (Dirichlet)}{38}{subsubsection.1.6.3}%
-\contentsline {subsubsection}{\numberline {1.6.4}Numerical Example 2 (Neumann)}{38}{subsubsection.1.6.4}%
-\contentsline {subsubsection}{\numberline {1.6.5}Conclusion}{42}{subsubsection.1.6.5}%
+\contentsline {subsubsection}{\numberline {1.6.4}Numerical Example 2 (Neumann)}{42}{subsubsection.1.6.4}%
+\contentsline {subsubsection}{\numberline {1.6.5}Conclusion}{45}{subsubsection.1.6.5}%
 \contentsline {section}{\numberline {2}DG for the \(p\)-Laplacian Equation}{45}{section.2}%
 \contentsline {subsection}{\numberline {2.1}General Theory for the \(p\)-Laplacian Equation}{46}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}Primal Form}{46}{subsubsection.2.1.1}%
