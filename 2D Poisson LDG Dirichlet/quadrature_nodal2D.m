@@ -11,7 +11,10 @@ function [qx, qy, qz, qw, npoints] = quadrature_nodal2D(deg, plot_flag)
 %   qw:             quadrature weights, size = [npoints, 1]
 %   npoints:        number of quadrature nodes, int32
 % 
+% References:
+%   [1] Zhang, Linbo, et al. "A SET OF SYMMETRIC QUADRATURE RULES ON TRIANGLES AND TETRAHEDRA." Journal of Computational Mathematics, vol. 27, no. 1, 2009, pp. 89–96. JSTOR, http://www.jstor.org/stable/43693493.
 % REMARK: These nodes and weights are extracted from the source of PHG.
+% WARNING: Please do NOT modify any of the codes below, otherwise unexpected error might occur!
 
 deg = max(deg, 0);
 
@@ -1035,6 +1038,35 @@ qx = reshape(pts(1,:), [npoints, 1]);
 qy = reshape(pts(2,:), [npoints, 1]);
 qz = reshape(pts(3,:), [npoints, 1]);
 
+if plot_flag
+    figure;
+
+    % plot the egdes for the equilateral triangle
+    x0 = [1, 0.5, 0];
+    y0 = [0, 0.5*sqrt(3.0), 0];
+    plot([x0(:); x0(1)], [y0(:); y0(1)]);
+    hold on;
+
+    % plot three altitudes for the equilateral triangle
+    plot([0, 3/4], [0, sqrt(3)/4]);
+    hold on;
+    plot([1, 1/4], [0, sqrt(3)/4]);
+    hold on;
+    plot([1/2, 1/2], [sqrt(3)/2, 0]);
+    hold on;
+
+    % plot the computed Gauss nodes
+    plot(x0(1)*qx + x0(2)*qy + x0(3)*qz, y0(1)*qx + y0(2)*qy + y0(3)*qz, 'k.', 'MarkerSize', 10);
+    hold on;
+
+    grid off;
+    axis equal;
+    axis([-0.05, 1.05, -0.05, sqrt(3)/2+0.05]);
+    print(gcf, '-depsc2', '-vector', 'Gauss2D', '-r300');
+    hold off;
+
+end
+
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1073,4 +1105,31 @@ y = [
     1-a-b;  a;      b; 
     1-a-b;  b;      a
 ];
+end
+
+
+function [err] = test_quad2D(deg)
+
+deg = max(deg, 0);
+[qx, qy, ~, qw, npoints] = quadrature_nodal2D(deg, false);
+
+% use Taylor basis for testing the error
+
+Np = ((deg+1)*(deg+2))/2;
+
+% evaluate point values at quadrature nodes
+vals = zeros(Np, npoints);
+for k = 1: npoints
+    vals(:,k) = Taylor_basis_eval(qx(k), qy(k), deg);
+end
+
+quads = zeros(Np, 1);
+for k = 1: Np
+    quads(k) = dot(qw, vals(k,:));
+end
+
+[M, ~, ~] = Taylor_basis_mat(deg);
+
+err = quads(:) - M(:,1);
+
 end

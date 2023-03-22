@@ -32,7 +32,7 @@ m_test = 6;
 err = zeros(m_test, 2);
 for k = 1: m_test
     sol = poisson2D_MDLDG(mesh{k}, ff, g_D, g_N, p, vel, show_spy, 'reduce');
-    err(k,1:2) = compute_error(mesh{k}, sol, p, uu, qqx, qqy);
+    err(k,:) = compute_error(mesh{k}, sol, p, uu, qqx, qqy);
 end
 % Remark: 使用Schur补对精度都暂时观察不到影响，对计算速度可以提高。
 % 问题：几乎所有的时间都用在组装矩阵上了。(通过我重写程序中的边界积分，时间迅速下降了，例如k=6的最密网格，时间从640秒缩到7.5秒)；使用 Schur 补会提高数值精度，且可以加速计算(k=7最密网格，使用Schur补的直接解法需要4.3秒，原本解法需要28.6秒)
@@ -51,7 +51,7 @@ disp(ord)
 for i = 1: size(err, 1)
     fprintf('%d ', i);
     for j = 1: size(err, 2)
-        fprintf("& %.2e & %.2f ", [err(i,j), ord(i,j)]);
+        fprintf("& %.4e & %.4f ", [err(i,j), ord(i,j)]);
     end
     fprintf('\\\\\n');
 end

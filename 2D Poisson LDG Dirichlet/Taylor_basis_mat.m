@@ -28,8 +28,8 @@ for i = 1: p+1
 end
 M = 0.5*(M + M');
 
-Minv = inv(M);  % It proves to be the most accurate method through numerical tests.
-Minv = 0.5*(Minv + Minv');
+% Minv = inv(M);  % It proves to be the most accurate method through numerical tests.
+% Minv = 0.5*(Minv + Minv');
 
 
 

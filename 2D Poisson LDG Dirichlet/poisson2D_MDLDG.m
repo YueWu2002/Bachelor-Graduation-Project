@@ -35,16 +35,27 @@ tic;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % prepare matrices
 
+Np = ((p+1)*(p+2))/2;
+
 % edge matrices (for the ref element: [-1,1]) (checked.)
 [qxe, ~] = gausslobatto(p+1);
 [Me, ~, ~, ~, ~] = matrix_nodal1D(qxe);
 
 % interior matrices (for the ref element: the right triangle) (checked.)
 [xn, yn, zn] = node_lobatto2D(p, false);
-[M, Minv, Dx, Dy, ~, ~] = matrix_nodal2D(xn, yn, zn, p);
+[M, Minv, Dx, Dy, Pmn, Pnm] = matrix_nodal2D(xn, yn, zn, p);
 [T] = trace_lobatto_nodal2D(p);
 
 % interior quadrature (for the ref element: the right triangle)
+[qx, qy, qz, qw, nquad] = quadrature_nodal2D(2*p, false); % algebraic exactness = 2*p
+Pmq = zeros(nquad, Np); % maps Taylor basis coefficients to quadrature nodal values
+for k = 1: nquad
+    Pmq(k,:) = Taylor_basis_eval(qx(k), qy(k), p);
+end
+Pnq = Pmq/Pmn;  % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
+% Pnq = Pmq*Pnm;
+
+
 
 % REMARK: we now do not use quadratures for volume integrals, instead we interpolate the function at nodal points and use the mass matrix for integration
 
@@ -110,8 +121,6 @@ end
 % define the variables: [q; u], length = Nelem*(2*Np) + Nelem*Np, where in "each element" q = [qx; qy]
 % arrangement: [qx(1); qy(1); qx(2); qy(2); ...; qx(nelem); qy(nelem); u(1); ...; u(nelem)]
 
-Np = ((p+1)*(p+2))/2;
-
 A = sparse(nelem*(2*Np), nelem*(2*Np));
 Ainv = sparse(nelem*(2*Np), nelem*(2*Np));
 B = sparse(nelem*(2*Np), nelem*Np);
@@ -152,16 +161,25 @@ parfor k = 1: nelem
     B_block{k} = sparse(([Dx, Dy]*kron(inv(Jac), speye(Np)))' * M_elem);
 
 
-    % for G, block size = [Np, 1] (use interpolation)
-    % interpolation
+    % for G, block size = [Np, 1]
+    %{
+    % pure interpolation
     fval = zeros(Np, 1);
     for i = 1: Np
         xp = dot(xx, [xn(i), yn(i), zn(i)]);
         yp = dot(yy, [xn(i), yn(i), zn(i)]);
         fval(i) = f(xp, yp);
     end
-    G_block{k} = M_elem*fval;  % can be upgraded to quadratures
-    
+    G_block{k} = M_elem*fval;
+    %}
+    % quadrature-based interpolation
+    fvals = zeros(nquad, 1);
+    for i = 1: nquad
+        xp = dot(xx, [qx(i), qy(i), qz(i)]);
+        yp = dot(yy, [qx(i), qy(i), qz(i)]);
+        fvals(i) = f(xp, yp);
+    end
+    G_block{k} = Pnq' * ((det(Jac)*qw) .* fvals);
 end
 A = blkdiag(A_block{1:nelem});
 Ainv = blkdiag(Ainv_block{1:nelem});
@@ -175,26 +193,6 @@ clear A_block Ainv_block B_block G_block;
 
 % REMARK: the face loop costs most of the time in the assembly process
 % face loop for face integrals (MUST be carried-out after volume integrals)
-
-%{
-% a method that cannot be parallized efficiently, and it is also slow in serial mode
-iB = int32([]); jB = int32([]); vB = [];
-iC = int32([]); jC = int32([]); vC = [];
-iF = int32([]); vF = [];
-iG = int32([]); vG = [];
-for k = 1: nface
-    % think of a way to parallelize it (do not use cells to collect, otherwise it will be slow)
-    [iB_new,jB_new,vB_new, iC_new,jC_new,vC_new, iF_new,vF_new, iG_new,vG_new] = face_integrals_assmebly(k, mesh, g_D, g_N, p, Np, qxe, Me, T, normals(k,:), C11(k), C12(k,:), face_len(k));
-    iB = [iB; int32(iB_new(:))]; jB = [jB; int32(jB_new(:))]; vB = [vB; vB_new(:)];
-    iC = [iC; int32(iC_new(:))]; jC = [jC; int32(jC_new(:))]; vC = [vC; vC_new(:)];
-    iF = [iF; int32(iF_new(:))]; vF = [vF; vF_new(:)];
-    iG = [iG; int32(iG_new(:))]; vG = [vG; vG_new(:)];
-end
-B = B + sparse(iB, jB, vB, nelem*(2*Np), nelem*Np);
-C = C + sparse(iC, jC, vC, nelem*Np, nelem*Np);
-F = F + sparse(iF, int32(1), vF, nelem*(2*Np), 1);
-G = G + sparse(iG, int32(1), vG, nelem*Np, 1);
-%}
 
 % a method that is VERY time-efficient in the serial mode, however, the storage-cost is twice as needed
 % this method could also be parallelized

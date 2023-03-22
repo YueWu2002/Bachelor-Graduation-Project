@@ -610,8 +610,11 @@
     \verb http://www.jstor.org/stable/43693493
     \endverb
     \field{volume}{27}
+    \list{location}{1}{%
+      {Beijing, China}%
+    }
     \field{journaltitle}{Journal of Computational Mathematics}
-    \field{month}{02}
+    \field{month}{01}
     \field{year}{2009}
   \endentry
 
@@ -827,13 +830,115 @@
     \field{year}{2020}
   \endentry
 
-  \entry{10.1093/acprof:oso/9780198528692.001.0001}{book}{}
-    \name{author}{2}{}{%
-      {{hash=KG}{%
-         family={Karniadakis},
-         familyi={K\bibinitperiod},
-         given={George},
+  \entry{10.1016/j.cpc.2015.02.008}{article}{}
+    \name{author}{19}{}{%
+      {{hash=CC}{%
+         family={Cantwell},
+         familyi={C\bibinitperiod},
+         given={Chris},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=MD}{%
+         family={Moxey},
+         familyi={M\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Comerford},
+         familyi={C\bibinitperiod},
+         given={Andrew},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BA}{%
+         family={Bolis},
+         familyi={B\bibinitperiod},
+         given={Alessandro},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=RG}{%
+         family={Rocco},
+         familyi={R\bibinitperiod},
+         given={Gabriele},
          giveni={G\bibinitperiod},
+      }}%
+      {{hash=MG}{%
+         family={Mengaldo},
+         familyi={M\bibinitperiod},
+         given={Gianmarco},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=DGD}{%
+         family={De\bibnamedelima Grazia},
+         familyi={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+         given={Daniele},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=YS}{%
+         family={Yakovlev},
+         familyi={Y\bibinitperiod},
+         given={Sergey},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=LJE}{%
+         family={Lombard},
+         familyi={L\bibinitperiod},
+         given={Jean-Eloi},
+         giveni={J\bibinithyphendelim E\bibinitperiod},
+      }}%
+      {{hash=ED}{%
+         family={Ekelschot},
+         familyi={E\bibinitperiod},
+         given={Dirk},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=JB}{%
+         family={Jordi},
+         familyi={J\bibinitperiod},
+         given={Bastien},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=XH}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Hui},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=MY}{%
+         family={Mohamied},
+         familyi={M\bibinitperiod},
+         given={Yumnah},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=EC}{%
+         family={Eskilsson},
+         familyi={E\bibinitperiod},
+         given={Claes},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=NB}{%
+         family={Nelson},
+         familyi={N\bibinitperiod},
+         given={Blake},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=VP}{%
+         family={Vos},
+         familyi={V\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=BC}{%
+         family={Biotto},
+         familyi={B\bibinitperiod},
+         given={Cristian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Kirby},
+         familyi={K\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
       }}%
       {{hash=SS}{%
          family={Sherwin},
@@ -842,28 +947,26 @@
          giveni={S\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {Oxford University Press}%
-    }
-    \strng{namehash}{KGSS1}
-    \strng{fullhash}{KGSS1}
+    \strng{namehash}{CC+1}
+    \strng{fullhash}{CCMDCABARGMGDGDYSLJEEDJBXHMYECNBVPBCKRSS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \verb{doi}
-    \verb 10.1093/acprof:oso/9780198528692.001.0001
+    \verb 10.1016/j.cpc.2015.02.008
     \endverb
-    \field{edition}{2nd}
-    \field{isbn}{9780198528692}
-    \field{title}{Spectral/\(hp\) Element Methods for Computational Fluid
-  Dynamics}
+    \verb{eprint}
+    \verb https://www.sciencedirect.com/science/article/pii/S0010465515000533
+    \endverb
+    \field{issn}{0010-4655}
+    \field{pages}{205\bibrangedash 219}
+    \field{title}{{Nektar++}: An Open-Source Spectral/\(hp\) Element Framework}
     \verb{url}
-    \verb https://doi.org/10.1093/acprof:oso/9780198528692.001.0001
+    \verb https://doi.org/10.1016/j.cpc.2015.02.008
     \endverb
-    \list{location}{1}{%
-      {Oxford}%
-    }
-    \field{month}{06}
-    \field{year}{2005}
+    \field{volume}{192}
+    \field{journaltitle}{Computer Physics Communications}
+    \field{month}{02}
+    \field{year}{2015}
   \endentry
 
   \entry{10.1007/s10665-006-9063-0}{article}{}
@@ -1605,6 +1708,35 @@
     \field{year}{1973}
   \endentry
 
+  \entry{parallel_hierarchical_grid}{software}{}
+    \name{author}{1}{}{%
+      {{hash=ZL}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Linbo},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \list{organization}{2}{%
+      {Institute of Computational Mathematics}%
+      {Scientific/Engineering Computing}%
+    }
+    \strng{namehash}{ZL1}
+    \strng{fullhash}{ZL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Parallel Hierarchical Grid}
+    \verb{url}
+    \verb http://lsec.cc.ac.cn/phg/index_en.htm
+    \endverb
+    \field{version}{0.9.7}
+    \list{location}{1}{%
+      {Beijing, China}%
+    }
+    \field{month}{09}
+    \field{year}{2022}
+  \endentry
+
   \entry{10.1016/j.camwa.2015.04.013}{article}{}
     \name{author}{4}{}{%
       {{hash=FF}{%
@@ -1642,7 +1774,7 @@
     \field{issn}{0898-1221}
     \field{number}{1}
     \field{pages}{11\bibrangedash 46}
-    \field{title}{{FESTUNG}: A {MATLAB}/{GNU Octave} Toolbox for the
+    \field{title}{{FESTUNG}: A {MATLAB}/{GNU} {Octave} Toolbox for the
   Discontinuous {Galerkin} Method, Part I: Diffusion Operator}
     \verb{url}
     \verb https://doi.org/10.1016/j.camwa.2015.04.013
@@ -3089,11 +3221,11 @@
 
   \entry{10.1007/s10915-007-9134-z}{article}{}
     \name{author}{3}{}{%
-      {{hash=HYQ}{%
+      {{hash=HY}{%
          family={Huang},
          familyi={H\bibinitperiod},
-         given={Y.\bibnamedelima Q.},
-         giveni={Y\bibinitperiod\bibinitdelim Q\bibinitperiod},
+         given={Yunqing},
+         giveni={Y\bibinitperiod},
       }}%
       {{hash=LR}{%
          family={Li},
@@ -3108,14 +3240,14 @@
          giveni={W\bibinitperiod},
       }}%
     }
-    \strng{namehash}{HYQLRLW1}
-    \strng{fullhash}{HYQLRLW1}
+    \strng{namehash}{HYLRLW1}
+    \strng{fullhash}{HYLRLW1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \verb{doi}
     \verb 10.1007/s10915-007-9134-z
     \endverb
-    \field{issn}{0885-7474}
+    \field{issn}{1573-7691}
     \field{number}{2}
     \field{pages}{343\bibrangedash 371}
     \field{title}{Preconditioned Descent Algorithms for \(p\)-{Laplacian}}
