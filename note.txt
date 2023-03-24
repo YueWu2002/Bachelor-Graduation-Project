@@ -1,0 +1,17 @@
+2022/12/16:
+写Laplace方程的DG程序，测精度，后续转到p-Laplacian方程。参考Unified analysis of discontinuous Galerkin methods for elliptic problems，如果可以的话试一下HDG。编程语言无要求，可以matlab。
+
+2022/12/27:
+再测精度，然后写纯NEumann边界条件的程序测精度。
+
+2023/3/3:
+别再耗时间在HDG的理论上了，直接继续写LDG的程序。
+
+2023/3/17:
+HDG的部分结果有超收敛性，这个可以用quadruple精度算这样就能看到收敛阶了
+p-laplace的问题能否做二维的程序？这样可以计算一些有趣的例子
+解的存在唯一性证明过于简略，建议过程补充完整
+如果你对理论分析感兴趣，也可以考虑做点理论，类似qiu weifeng文章里的分析，那篇文章也只做了误差估计。完整的理论分析还应该分析变分问题的收敛性。不过完整的理论分析可能难度比较大。本科毕业论文一般也不要求完成理论。
+
+to do: 编写HDG的后处理，以及2D程序
+(deal.II写HDG: https://dealii.org/developer/doxygen/deal.II/step_51.html#Results)(advanpix包使用：https://cloud.tencent.com/developer/article/2028643)

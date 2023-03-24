@@ -2904,6 +2904,46 @@
     \field{year}{2008}
   \endentry
 
+  \entry{10.1090/S0025-5718-10-02333-1}{article}{}
+    \name{author}{2}{}{%
+      {{hash=DPDA}{%
+         family={Di\bibnamedelima Pietro},
+         familyi={D\bibinitperiod\bibinitdelim P\bibinitperiod},
+         given={Daniele\bibnamedelima Antonio},
+         giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=EA}{%
+         family={Ern},
+         familyi={E\bibinitperiod},
+         given={Alexandre},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Society}%
+    }
+    \strng{namehash}{DPDAEA1}
+    \strng{fullhash}{DPDAEA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1090/S0025-5718-10-02333-1
+    \endverb
+    \field{issn}{0025-5718}
+    \field{number}{271}
+    \field{pages}{1303\bibrangedash 1330}
+    \field{title}{Discrete Functional Analysis Tools for Discontinuous
+  {Galerkin} Methods with Application to the Incompressible {Navier}-{Stokes}
+  Equations}
+    \verb{url}
+    \verb https://doi.org/10.1090/S0025-5718-10-02333-1
+    \endverb
+    \field{volume}{79}
+    \field{journaltitle}{Mathematics of Computation}
+    \field{month}{07}
+    \field{year}{2010}
+  \endentry
+
   \entry{10.1093/imanum/drt040}{article}{}
     \name{author}{4}{}{%
       {{hash=DL}{%

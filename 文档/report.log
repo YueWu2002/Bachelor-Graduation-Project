@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.6)  24 MAR 2023 12:41
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.6)  24 MAR 2023 18:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1452,38 +1452,37 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 17.27815pt on input line 1.
  [49] [50] [51] [52]
-Overfull \hbox (60.39813pt too wide) in alignment at lines 190--200
+Overfull \hbox (60.39813pt too wide) in alignment at lines 192--202
  [][][] []
  []
 
 [53]
-Overfull \hbox (59.22456pt too wide) detected at line 242
+Overfull \hbox (59.22456pt too wide) detected at line 244
 []
  []
 
 [54]
-Overfull \hbox (18.71082pt too wide) detected at line 250
+Overfull \hbox (18.71082pt too wide) detected at line 252
 [][]
  []
 
 
-Overfull \hbox (24.19867pt too wide) detected at line 310
+Overfull \hbox (24.19867pt too wide) detected at line 312
 [][][][] [] [] [] [] [] []
  []
 
 [55] [56] [57] [58] [59] [60] [61] [62] [63] [64]
-Overfull \hbox (3.00566pt too wide) detected at line 825
+Overfull \hbox (3.00566pt too wide) detected at line 832
 [][][][][]
  []
 
-[65] [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76]
+[65] [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77]
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, J.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, J.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps>
- [77]
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, J.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, J.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, grad.eps Graphic file (type eps)
@@ -1602,12 +1601,12 @@ Overfull \hbox (12.90974pt too wide) in paragraph at lines 69--69
 []\TU/lmr/m/n/12 Bernardo Cockburn and Jiguang Shen. “A Hybridizable Discontinuous Galerkin
  []
 
-[94]
+[94] [95]
 Overfull \hbox (0.36694pt too wide) in paragraph at lines 69--69
 \TU/lmr/m/it/12 D’Automatique, Informatique, Recherche Opérationnelle. Analyse Numérique
  []
 
-[95] [96] (./report.aux)
+[96] (./report.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.8pt have occurred.
@@ -1627,10 +1626,10 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31467 strings out of 476848
- 658754 string characters out of 5820505
- 1402540 words of memory out of 5000000
- 52201 multiletter control sequences out of 15000+600000
+ 31441 strings out of 476848
+ 657080 string characters out of 5820505
+ 1403581 words of memory out of 5000000
+ 52175 multiletter control sequences out of 15000+600000
  484690 words of font info for 180 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  94i,22n,115p,1913b,5015s stack positions out of 10000i,1000n,20000p,200000b,200000s

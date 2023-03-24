@@ -36,6 +36,6 @@
 \contentsline {subsubsection}{\numberline {2.3.4}Conclusion}{63}{subsubsection.2.3.4}%
 \contentsline {subsection}{\numberline {2.4}Local DG Method 2}{63}{subsection.2.4}%
 \contentsline {subsubsection}{\numberline {2.4.1}The LDG Formulation}{63}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Numerical Discretization}{70}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Numerical Example 1 (1D Dirichlet)}{72}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.2}Numerical Discretization}{71}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Numerical Example 1 (1D Dirichlet)}{73}{subsubsection.2.4.3}%
 \contentsline {subsubsection}{\numberline {2.4.4}Conclusion}{81}{subsubsection.2.4.4}%
