@@ -17,6 +17,78 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
+  \entry{folland_ch6}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=FGB}{%
+         family={Folland},
+         familyi={F\bibinitperiod},
+         given={Gerald\bibnamedelima B.},
+         giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {John Wiley \& Sons}%
+    }
+    \strng{namehash}{FGB1}
+    \strng{fullhash}{FGB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Real Analysis: Modern Techniques and Their Applications}
+    \field{chapter}{6}
+    \field{edition}{2nd}
+    \field{isbn}{978-0-471-31716-6}
+    \field{pages}{181\bibrangedash 210}
+    \field{series}{Pure and Applied Mathematics: A Wiley Series of Texts,
+  Monographs, and Tracts}
+    \field{title}{\(L^p\) Spaces}
+    \field{volume}{125}
+    \list{location}{1}{%
+      {New York}%
+    }
+    \field{month}{04}
+    \field{year}{1999}
+  \endentry
+
+  \entry{10.1007/978-3-030-56341-7_3}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=EA}{%
+         family={Ern},
+         familyi={E\bibinitperiod},
+         given={Alexandre},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=GJL}{%
+         family={Guermond},
+         familyi={G\bibinitperiod},
+         given={Jean-Luc},
+         giveni={J\bibinithyphendelim L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer International Publishing}%
+    }
+    \strng{namehash}{EAGJL1}
+    \strng{fullhash}{EAGJL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Finite Elements I: Approximation and Interpolation}
+    \verb{doi}
+    \verb 10.1007/978-3-030-56341-7_3
+    \endverb
+    \field{isbn}{978-3-030-56341-7}
+    \field{pages}{39\bibrangedash 45}
+    \field{series}{Texts in Applied Mathematics}
+    \field{title}{Traces and Poincar\'{e} Inequalities}
+    \verb{url}
+    \verb https://doi.org/10.1007/978-3-030-56341-7_3
+    \endverb
+    \field{volume}{72}
+    \list{location}{1}{%
+      {Cham}%
+    }
+    \field{year}{2021}
+  \endentry
+
   \entry{PDE_Evans_ch6}{inbook}{}
     \name{author}{1}{}{%
       {{hash=ELC}{%
@@ -40,6 +112,7 @@
     \field{pages}{453\bibrangedash 528}
     \field{series}{Graduate Studies in Mathematics}
     \field{title}{Second Order Elliptic Equations}
+    \field{volume}{19}
     \list{location}{1}{%
       {Providence, Rhode Island}%
     }
@@ -69,6 +142,7 @@
     \field{pages}{453\bibrangedash 528}
     \field{series}{Graduate Studies in Mathematics}
     \field{title}{The Calculus of Variations}
+    \field{volume}{19}
     \list{location}{1}{%
       {Providence, Rhode Island}%
     }
@@ -1158,7 +1232,7 @@
       {{hash=SRM}{%
          family={Slevinsky},
          familyi={S\bibinitperiod},
-         given={Richard\bibnamedelima Mika\:{e}l},
+         given={Richard\bibnamedelima Mika\"{e}l},
          giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
       }}%
       {{hash=TA}{%
@@ -1274,6 +1348,7 @@
     \verb{url}
     \verb https://doi.org/10.1007/978-0-387-72067-8
     \endverb
+    \field{volume}{54}
     \field{year}{2007}
   \endentry
 
@@ -2254,46 +2329,6 @@
     \field{year}{1993}
   \endentry
 
-  \entry{10.1007/978-3-030-56341-7_3}{inbook}{}
-    \name{author}{2}{}{%
-      {{hash=EA}{%
-         family={Ern},
-         familyi={E\bibinitperiod},
-         given={Alexandre},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=GJL}{%
-         family={Guermond},
-         familyi={G\bibinitperiod},
-         given={Jean-Luc},
-         giveni={J\bibinithyphendelim L\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Springer International Publishing}%
-    }
-    \strng{namehash}{EAGJL1}
-    \strng{fullhash}{EAGJL1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{booktitle}{Finite Elements I: Approximation and Interpolation}
-    \verb{doi}
-    \verb 10.1007/978-3-030-56341-7_3
-    \endverb
-    \field{isbn}{978-3-030-56341-7}
-    \field{pages}{39\bibrangedash 45}
-    \field{series}{Texts in Applied Mathematics}
-    \field{title}{Traces and Poincar\'{e} Inequalities}
-    \verb{url}
-    \verb https://doi.org/10.1007/978-3-030-56341-7_3
-    \endverb
-    \field{volume}{72}
-    \list{location}{1}{%
-      {Cham}%
-    }
-    \field{year}{2021}
-  \endentry
-
   \entry{10.1007/978-3-319-78390-1_6}{inbook}{}
     \name{author}{1}{}{%
       {{hash=LDH}{%
@@ -2473,10 +2508,7 @@
     \verb{doi}
     \verb 10.1137/1.9780898719208.ch5
     \endverb
-    \verb{eprint}
-    \verb https://epubs.siam.org/doi/pdf/10.1137/1.9780898719208.ch5
-    \endverb
-    \field{isbn}{0-89871-514-8}
+    \field{isbn}{978-0-89871-514-9}
     \field{pages}{287\bibrangedash 332}
     \field{series}{Classics in Applied Mathematics}
     \field{title}{Application of the Finite Element Method to Some Nonlinear
@@ -2484,6 +2516,8 @@
     \verb{url}
     \verb https://epubs.siam.org/doi/abs/10.1137/1.9780898719208.ch5
     \endverb
+    \field{volume}{40}
+    \field{year}{2002}
   \endentry
 
   \entry{10.1137/S0036142901393589}{article}{}
@@ -2879,7 +2913,7 @@
          giveni={L\bibinitperiod},
       }}%
       {{hash=KD}{%
-         family={Kr\:{o}ner},
+         family={Kr\"{o}ner},
          familyi={K\bibinitperiod},
          given={Dietmar},
          giveni={D\bibinitperiod},
@@ -2925,7 +2959,7 @@
   \entry{10.1002/fld.3955}{article}{}
     \name{author}{3}{}{%
       {{hash=KD}{%
-         family={Kr\:{o}ner},
+         family={Kr\"{o}ner},
          familyi={K\bibinitperiod},
          given={Dietmar},
          giveni={D\bibinitperiod},
@@ -3645,7 +3679,7 @@
     \verb https://doi.org/10.4171/zaa/1107
     \endverb
     \field{volume}{21}
-    \field{journaltitle}{Zeitschrift f\:{u}r Analysis und ihre Anwendungen}
+    \field{journaltitle}{Zeitschrift f\"{u}r Analysis und ihre Anwendungen}
     \field{month}{01}
     \field{year}{2002}
   \endentry

@@ -21,13 +21,50 @@
 
 \subsection{Mathematical Preliminaries}
 
-to be done...
+% Sobolev space:  weak derivative, dual space, Sobolev embedding, compact embedding, trace operator(见TAM72详细), (inverse) trace estimate, weak derivative=0 lemma, (inverse) Poincar{\'{e}}-Friedrichs' inequality
 
-% Sobolev space:  weak derivative, dual space, Sobolev embedding, compact embedding, trace operator(见TAM72详细), (inverse) trace estimate, weak derivative=0 lemma, (inverse) Poincare-Friedrichs inequality
-
-% Function analysis:  Riesz' representation theorem, Lax-Milgram's theorem, Gat{\^{a}}eux derivative, Ladyzhenskaya–Babu{\v{s}}ka–Brezzi (LBB, or inf-sup) condition (Brezzi and Fortin 1991), Cea's lemma
+% Function analysis: inequalities, Lp-Lq, weak topology, Riesz' representation theorem, Lax-Milgram's theorem, Gat{\^{a}}eux derivative, Ladyzhenskaya–Babu{\v{s}}ka–Brezzi (LBB, or inf-sup) condition (Brezzi and Fortin 1991), Cea's lemma
 
 % Finite element method:  definition of mesh(conforming and nonconforming), broken Sobolev space, Bramble-Hilbert's lemma, (hp-)polynomial approximation error estimate (via quotient spaces), inverse estimate
+
+\begin{definition}[Sobolev Spaces]
+    
+\end{definition}
+
+\begin{definition}[Dual index]
+    对于 \(p \in [1, +\infty]\)，定义 \(p\) 的共轭指标 \(p'\)，使得 \(\frac{1}{p} + \frac{1}{p'} = 1\).
+\end{definition}
+
+\begin{theorem}[\(L^p\) duality]
+    设 \(\Omega\) 是开区域，当 \(p \in [1, +\infty)\) 时，\(L^{p}(\Omega)\) 的对偶空间为 \(L^{p'}(\Omega)\).
+\end{theorem}
+
+\begin{theorem}[H{\"{o}}lder's inequality\cite{folland_ch6}]
+    设 \(\left(X, \mathcal{M}, \mu\right)\) 是一个测度空间，\(p \in [1, +\infty]\). 若 \(f \in L^{p}(X)\)，\(g \in L^{p'}(X)\)，那么 \(f g \in L^{1}(X)\)，且：
+    \begin{equation}
+        \norm{f g}_{L^1(X)} \leqslant \norm{f}_{L^{p}(X)} \norm{g}_{L^{p'}(X)}
+    \end{equation}
+\end{theorem}
+
+\begin{theorem}[Brunn-Minkowski's inequality for integrals\cite{folland_ch6}]
+    设 \(\left(X, \mathcal{M}_{X}, \mu_{X}\right)\) 和 \(\left(Y, \mathcal{M}_{Y}, \mu_{Y}\right)\) 都是 \(\sigma\)-有限的测度空间，\(f(x,y)\) 是 \(X \times Y\) 上的 \(\mathcal{M}_{X} \times \mathcal{Y}_{X}\)-可测函数。设 \(p \in [1, +\infty)\)，那么：
+    \begin{equation}
+        \norm{\norm{f(x,y)}_{L^{1}(Y)}}_{L^{p}(X)} \leqslant \norm{\norm{f(x,y)}_{L^{p}(X)}}_{L^{1}(Y)}
+    \end{equation}
+\end{theorem}
+
+\begin{definition}[Sobolev conjugate index]
+    在 \(\R^n\) 空间中，对于 \(p \in [1, n)\)，定义 \(p\) 的 Sobolev 共轭指标为 \(p^{\ast}\)，其满足 \(\frac{1}{p^{\ast}} = \frac{1}{p} - \frac{1}{n}\).
+\end{definition}
+
+\begin{theorem}[Trace \cite{10.1007/978-3-030-56341-7_3}]\label{trace theorem}
+    设 \(\Omega\) 是 Lipschitz 区域，并设 \(p \in [1, +\infty)\). 若 \(s > \frac{1}{p}\) 且 \(p > 1\)，或 \(s \geqslant 1\) 且 \(p = 1\)，那么存在有界线性映射 \(\gamma: W^{s,p}(\Omega) \mapsto L^{p}(\partial \Omega)\) 使得：
+    \begin{enumerate}
+        \item \(\forall v \in C^{0}(\overline{\Omega}), \gamma(v) = v\big|_{\partial \Omega}\)；
+        \item \(\ker\gamma = W^{s,p}_{0}(\Omega)\)；
+        \item 若 \(s = 1\) 且 \(p = 1\)，或 \(s \in (\frac{1}{2}, \frac{3}{2})\) 且 \(p = 2\)，或 \(s \in (\frac{1}{p}, 1]\) 且 \(p \not\in \B{1,2}\)，那么 \(\gamma: W^{s,p}(\Omega) \mapsto W^{s-\frac{1}{p}, p}(\partial \Omega)\) 是有界的线性满射，并且，存在 \(C > 0\) 使得 \(\gamma\) 的右逆 \(E\) 的算子范数满足 \(\norm{E} \leqslant C (\diam \Omega)^{\frac{1}{p}}\).
+    \end{enumerate}
+\end{theorem}
 
 
 \subsection{General Theory for the Poisson Equation}
@@ -93,7 +130,7 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 		\end{cases}
 	\end{aligned}
 \end{equation}
-将 \(u\) 视作 Lagrange 乘子，其对应的带约束的优化问题为：% to be done: 验证这里的约束满足LBB条件，且左上角的能量在 B 的kernel上是coercive的、弱下半连续、强凸的，因此由Lax-Milgram定理知存在唯一解
+将 \(u\) 视作 Lagrange 乘子，其对应的带约束的优化问题为：% to be done: 验证这里的约束满足LBB条件，且左上角的能量在 B 的kernel上是coercive的、弱下半连续、严格凸的，因此由Lax-Milgram定理知存在唯一解
 \begin{equation}\label{Poisson mixed constrained optimization form}
 	\begin{aligned}
 		& \text{minimize:} & \frac{1}{2}\norm{\bm\sigma}_{L^2(\Omega)}^2 - \left\langle g_{D}, \bm\sigma \cdot \bm n \right\rangle_{\Gamma^{D}} \\
@@ -113,7 +150,7 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 		L(\tau, v) = \frac{1}{2} \norm{\bm\tau}_{L^2(\Omega)}^2 - \left\langle g_{D}, \bm\tau \cdot \bm n \right\rangle_{\Gamma^{D}} + \left(\nabla \cdot \bm\tau, v\right)_{\Omega} + \left(f, v\right)_{\Omega}
 	\end{equation}
 \end{subequations}
-这里，\(f \in L^2(\Omega)\)，\(g_{D} \in H^{\frac{1}{2}}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in H^{-\frac{1}{2}}(\Gamma^{N})\)\footnote{存在从 \(W^{1,p}({\rm div},\Omega)\) 到 \(W^{-\frac{1}{p^{\ast}}, p}(\partial\Omega)\) 的有界线性满射\cite{10.1007/978-3-030-56341-7_4}。}.
+这里，\(f \in L^2(\Omega)\)，\(g_{D} \in H^{\frac{1}{2}}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in H^{-\frac{1}{2}}(\Gamma^{N})\)\footnote{存在从 \(W^{1,p}({\rm div},\Omega)\) 到 \(W^{-\frac{1}{p'}, p}(\partial\Omega)\) 的有界线性满射\cite{10.1007/978-3-030-56341-7_4}。}.
 
 % to be done: 加入上面三个形式相互等价的定理、解的存在性定理(见混合有限元)
 

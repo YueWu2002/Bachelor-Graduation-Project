@@ -33,26 +33,33 @@
 
 % keyword: discontinuous Galerkin methods, p-Laplacian equation, nonlinear elliptic equations, variational inequalities
 
-\input{includefiles/Poisson.tex} 
+\input{includefiles/Poisson.tex}
 \input{includefiles/p-Laplacian.tex}
 
 % 备注：
-% 整文结构可以参考上海大学硕士论文《p-Laplace方程的自适应有限元方法》
-% 我们可以由1943年Courant最初的有限元开始，介绍到 IPDG 和 Reed&Hill的稳态双曲DG，然后到椭圆方程的 DG 方法，最后一直介绍到 p-Laplace 问题的方法
-% 每一部分结束时，都可以进行一个小总结
-% 全文的空间记号要统一
-% 可以借鉴徐岩老师、洪雪博士的博士毕业论文
 %
-% 要做：证明p-Laplace LDG2的存在唯一性、二维 p-Laplace 程序、二维 HDG 程序
+% 要做：证明p-Laplace LDG2的存在唯一性、二维 p-Laplace LDG 程序、二维 Poisson HDG 程序、二维 p-Laplace HDG 程序
 %
+% to be done: aligned对齐时，"&"号要放在等号前面，防止等号与后面内容过近
 % to be done: 编程实现二维 p-Laplace 方程的LDG方法1和2，其中，方法1可以对p使用同伦方法(需要先说明对p的连续性，建议查文献)
 % to be done: 向量函数 sigma 和 tau 需要用\bm加粗
 % to be done: 在每个引用的地方，加上引用的是哪个定理
 % to be done: 在收敛阶的地方，要么假设真解光滑，要么就把Sobolev估计的范数写清楚
 % to be done: 改格式，把caption放在表格上方，放在图片下方，复杂表格统一不使用三线表(模仿洪雪的博士毕业论文)，有的测试数据合并成一张大表格
-% to be done: 把\cite和\ref前后加上空格，括号前后也要加上空格
+% to be done: 把\cite和\ref前后加上空格，括号前后也要加上空格，公式里面也要多加\quad
 % to be done: 把Poisson方程的理论部分换成系数是SPD矩阵\kappa的椭圆方程
 % to be done: 把每一种格式的纯Neumann边界问题格式附加在原格式下面
+%
+% 正式论文：
+% 
+% 整文结构可以参考上海大学硕士论文《p-Laplace方程的自适应有限元方法》
+% 一、介绍与引入分为两部分：
+%   (1) p-Laplace 问题：介绍物理背景、作为拟线性椭圆方程与经典椭圆方程之间的关系(变分形式的奇异、退化；能量形式的一致)
+%   (2) DG 方法：由1943年Courant最初的有限元开始，介绍到 IPDG 和 Reed&Hill的稳态双曲DG，然后到椭圆方程的 DG 方法(先介绍IPDG等其他方法，然后引入推广的 LDG 框架，在这里就可以先引入一堆多项式空间符号以及跳跃、平均、积分符号)，最后到 HDG 方法(利用static condensation引入，说明与其他FEM方法之间的关系)
+%   (3) p-Laplace 问题的数值方法：从连续有限元、混合有限元，到间断有限元，简要介绍即可(后文会详细展开)
+% 每一部分结束时，都可以进行一个小总结
+% 全文的空间记号要统一
+% 可以借鉴徐岩老师、洪雪博士的博士毕业论文
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 附录

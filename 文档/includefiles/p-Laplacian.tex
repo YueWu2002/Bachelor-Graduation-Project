@@ -4,7 +4,7 @@
 \begin{enumerate}
 	\item 严格单调性：\(\forall \bm\tau_2 \neq \bm\tau_1\)，\(\left(\bm\tau_{2} - \bm\tau_{1}\right) \cdot \left(\mathcal{A}(\bm\tau_{2}) - \mathcal{A}(\bm\tau_{1})\right) > 0\)\cite{10.1051/m2an/197509R200411}；
 	\item \((p-1)\)-齐次性：\(\forall \lambda \in \R\)，\(\mathcal{A}(\lambda \bm\tau) = \lambda^{p-1} \mathcal{A}(\bm\tau)\)；
-	\item 可逆性：当且仅当 \(p \in (1, +\infty)\) 时，\(\mathcal{A}\) 在 \(\bm\tau = \bm 0\) 处良定义，且 \(\mathcal{A}\) 是双射，\(\mathcal{A}^{-1}(\bm\tau) = \abs{\bm\tau}^{p^{\ast} - 2} \bm\tau\).
+	\item 可逆性：当且仅当 \(p \in (1, +\infty)\) 时，\(\mathcal{A}\) 在 \(\bm\tau = \bm 0\) 处良定义，且 \(\mathcal{A}\) 是双射，\(\mathcal{A}^{-1}(\bm\tau) = \abs{\bm\tau}^{p' - 2} \bm\tau\).
 \end{enumerate}
 
 \begin{lemma}
@@ -36,7 +36,7 @@
 		\bm\sigma \cdot \bm n = \bm g_{N} \cdot \bm n, & \text{on \(\Gamma^{N}\)}
 	\end{cases}
 \end{equation}
-这里，\(\frac{1}{p} + \frac{1}{p^\ast} = 1\)，\(p\in(1,+\infty)\).
+这里，\(\frac{1}{p} + \frac{1}{p'} = 1\)，\(p\in(1,+\infty)\).
 
 
 \subsection{General Theory for the \texorpdfstring{\(p\)}{p}-Laplacian Equation}
@@ -71,13 +71,13 @@
 		J(u) = \frac{1}{p}\norm{\nabla u}_{L^p(\Omega)}^{p} - \left(f, u\right)_{\Omega} - \left\langle \bm g_{N} \cdot \bm n, u \right\rangle_{\Gamma^{N}}
 	\end{equation}
 \end{subequations}
-这里，\(p\in\left(1, +\infty\right)\)，\(f \in W^{-1, p^\ast}(\Omega)\)，\(g_{D} \in W^{\frac{1}{p^\ast}, p}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in W^{-\frac{1}{p^\ast}, q}(\Gamma^{N})\)\footnote{存在从 \(W^{1,p}(\Omega)\) 到 \(W^{\frac{1}{p^\ast}, p}(\Omega)\) 的有界线性满射\cite{10.1007/978-3-030-56341-7_3}。}. 
+这里，\(p\in\left(1, +\infty\right)\)，\(f \in W^{-1, p'}(\Omega)\)，\(g_{D} \in W^{\frac{1}{p'}, p}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in W^{-\frac{1}{p'}, q}(\Gamma^{N})\). 
 
 \begin{theorem}[Existence, uniqueness, and equivalence]
 	当 \(p \in (1, +\infty)\) 时，\(p\)-Laplace 方程的弱形式\eqref{p-Laplace primal weak form}和最优化形式\eqref{p-Laplace primal minimization form}的解存在、唯一、相同。
 
 	\begin{proof}
-		See \cite[Section 6.2]{10.1007/978-3-319-78390-1_6}.
+		\cite[Section 6.2]{10.1007/978-3-319-78390-1_6}给出了当 \(\Gamma^{N} = \emptyset\) 且 \(g_{D} = 0\) 时的证明，当没有上述两个假设时，证明也是类似的。
 	\end{proof}
 \end{theorem}
 
@@ -100,8 +100,8 @@
 当 \(m(\Gamma^{D}) > 0\) 时，取空间：
 \begin{subequations}
 	\begin{eqnarray}
-		&& \Sigma = \B{\bm\tau \in W^{1, p^\ast}({\rm div}, \Omega) \bigg| \bm\tau \cdot \bm n\big|_{\Gamma^{N}} = \bm g_{N} \cdot \bm n} \\
-		&& \widetilde{\Sigma} = \B{\bm\tau \in W^{1, p^\ast}({\rm div}, \Omega) \bigg| \bm\tau \cdot \bm n\big|_{\Gamma^{N}} = \bm 0} \\
+		&& \Sigma = \B{\bm\tau \in W^{1, p'}({\rm div}, \Omega) \bigg| \bm\tau \cdot \bm n\big|_{\Gamma^{N}} = \bm g_{N} \cdot \bm n} \\
+		&& \widetilde{\Sigma} = \B{\bm\tau \in W^{1, p'}({\rm div}, \Omega) \bigg| \bm\tau \cdot \bm n\big|_{\Gamma^{N}} = \bm 0} \\
 		&& W = L^p(\Omega)
 	\end{eqnarray}
 \end{subequations}
@@ -115,10 +115,10 @@
 		\end{cases}
 	\end{aligned}
 \end{equation}
-将 \(u\) 视作 Lagrange 乘子，其对应的带约束的优化问题为：% to be done: 验证这里的约束满足LBB条件(参考文章 10.1216/camq/1008957338)，且左上角的能量在 B 的kernel上是coercive的、弱下半连续、强凸(这里利用了算子 \mathcal{A} 的严格单调性)的，因此由变分法知存在唯一解
+将 \(u\) 视作 Lagrange 乘子，其对应的带约束的优化问题为：% to be done: 验证这里的约束满足LBB条件(参考文章 10.1216/camq/1008957338)，且左上角的能量在 B 的kernel上是coercive的、弱下半连续、严格凸(这里利用了算子 \mathcal{A} 的严格单调性)的，因此由变分法知存在唯一解
 \begin{equation}\label{p-Laplace mixed constrained minimization form}
 	\begin{aligned}
-		& \text{minimize:} & \frac{1}{p^\ast}\norm{\bm\sigma}_{L^{p^\ast}(\Omega)}^{p^\ast} - \left\langle g_{D}, \bm\sigma \cdot \bm n \right\rangle_{\Gamma^{D}} \\
+		& \text{minimize:} & \frac{1}{p'}\norm{\bm\sigma}_{L^{p'}(\Omega)}^{p'} - \left\langle g_{D}, \bm\sigma \cdot \bm n \right\rangle_{\Gamma^{D}} \\
 		& \text{subject to:} & -\nabla \cdot \bm\sigma = f, \quad \bm\sigma \in \Sigma
 	\end{aligned}
 \end{equation}
@@ -132,16 +132,16 @@
 	\end{equation}
 	其中，Lagrange 泛函 \(L(\cdot, \cdot): \Sigma \times W \mapsto \R\) 如下：
 	\begin{equation}
-		L(\bm\tau, v) = \frac{1}{p^\ast}\norm{\bm\tau}_{L^{p^\ast}(\Omega)}^{p^\ast} - \left\langle g_{D}, \bm\tau \cdot \bm n \right\rangle_{\Gamma^{D}} + \left(\nabla \cdot \bm\tau, v\right)_{\Omega} + \left(f, v\right)_{\Omega}
+		L(\bm\tau, v) = \frac{1}{p'}\norm{\bm\tau}_{L^{p'}(\Omega)}^{p'} - \left\langle g_{D}, \bm\tau \cdot \bm n \right\rangle_{\Gamma^{D}} + \left(\nabla \cdot \bm\tau, v\right)_{\Omega} + \left(f, v\right)_{\Omega}
 	\end{equation}
 \end{subequations}
-这里，\(f \in L^{p^\ast}(\Omega)\)，\(g_{D} \in W^{\frac{1}{p}, p^\ast}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in W^{-\frac{1}{p}, p}(\Gamma^{N})\).
+这里，\(f \in L^{p'}(\Omega)\)，\(g_{D} \in W^{\frac{1}{p}, p'}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in W^{-\frac{1}{p}, p}(\Gamma^{N})\).
 
 \begin{theorem}[Well-posedness of the weak form]
-	当 \(g_{N} \cdot \bm n = 0\) 时，\(p\)-Laplace 方程的弱形式\eqref{p-Laplace mixed weak form}存在唯一解。
+	\(p\)-Laplace 方程的弱形式\eqref{p-Laplace mixed weak form}存在唯一解。
 
 	\begin{proof}
-		See \cite[Theorem 2.1]{10.1216/camq/1008957338}.
+		\cite[Theorem 2.1]{10.1216/camq/1008957338}给出了当 \(g_{D} = 0\) 且 \(\bm g_{N} = \bm 0\) 时的证明，当没有上述两个假设时，证明也是类似的。
 	\end{proof}
 \end{theorem}
 
@@ -212,9 +212,9 @@
 	\begin{equation}
 		\begin{aligned}
 			L_{h}(\bm\tau_{h}, v_{h})
-			= & \frac{1}{p^{\ast}} \norm{\bm\tau_{h}}_{L^{p^{\ast}}(\Omega)}^{p^{\ast}} + \frac{1}{2} \norm{\jump{\bm\tau_{h}}}_{L^2(\Gamma^{o}, C_{22})}^2 + \frac{1}{2}\norm{\bm\tau_{h} \cdot \bm n}_{L^2(\Gamma^{N}, C_{22})}^2 \\
+			= & \frac{1}{p'} \norm{\bm\tau_{h}}_{L^{p'}(\Omega)}^{p'} + \frac{1}{2} \norm{\jump{\bm\tau_{h}}}_{L^2(\Gamma^{o}, C_{22})}^2 + \frac{1}{2}\norm{\bm\tau_{h} \cdot \bm n}_{L^2(\Gamma^{N}, C_{22})}^2 \\
 			& + b_{h}(\bm\tau_{h}, v_{h}) - \frac{1}{2} c_{h}(v_{h}, v_{h}) - F_{h}(\bm\tau_{h}) + G_{h}(v_{h}) \\
-			= & \frac{1}{p^{\ast}} \norm{\bm\tau_{h}}_{L^{p^{\ast}}(\Omega)}^{p^{\ast}} + \frac{1}{2}\norm{\jump{\bm\tau_{h}}}_{L^2(\Gamma^{o}, C_{22})}^2 + \frac{1}{2}\norm{\left(\bm\tau_{h} - \bm g_{N}\right)\cdot\bm n}_{L^2(\Gamma^{N},C_{22})}^2 \\
+			= & \frac{1}{p'} \norm{\bm\tau_{h}}_{L^{p'}(\Omega)}^{p'} + \frac{1}{2}\norm{\jump{\bm\tau_{h}}}_{L^2(\Gamma^{o}, C_{22})}^2 + \frac{1}{2}\norm{\left(\bm\tau_{h} - \bm g_{N}\right)\cdot\bm n}_{L^2(\Gamma^{N},C_{22})}^2 \\
 			& - \frac{1}{2}\norm{\bm g_{N} \cdot \bm n}_{L^2(\Gamma^{N}, C_{22})}^2 - \left(\bm\tau_{h}, \nabla_{h} v_{h}\right)_{\Omega} + \left\langle \avg{\bm\tau_{h}} - \bm C_{12}\jump{\bm\tau_{h}}, \jump{v_{h}} \right\rangle_{\Gamma^{o}} \\
 			& + \left\langle v_{h} - g_{D}, \bm\tau_{h} \cdot \bm n\right\rangle_{\Gamma^{D}} - \frac{1}{2}\norm{\jump{v_{h}}}_{L^2(\Gamma^{o}, C_{11})}^2 - \frac{1}{2}\norm{v - g_{D}}_{L^2(\Gamma^{D}, C_{11})}^2 \\
 			& + \frac{1}{2}\norm{g_{D}}_{L^2(\Gamma^{D}, C_{11})}^2 + \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N} \cdot \bm n, v_{h}\right\rangle_{\Gamma^{N}}
@@ -231,24 +231,24 @@
 	那么 LDG 问题\eqref{p-Laplace LDG weak form 1}的解唯一。
 
 	\begin{proof}
-		假设 \(\left(\bm\sigma_{h,1}, u_{h,1}\right)\) 和 \(\left(\bm\sigma_{h,2}, u_{h,2}\right)\) 都是解，那么，分别取测试函数 \(\left(\bm\tau_{h}, v_{h}\right) = \left(\bm\sigma_{h,i}, u_{h, j}\right)\)，\(1 \leqslant i,j \leqslant 2\) 得：
+		假设 \(\left(\bm\sigma_{h}^{(1)}, u_{h}^{(1)}\right)\) 和 \(\left(\bm\sigma_{h}^{(2)}, u_{h}^{(1)}\right)\) 都是解，那么，分别取测试函数 \(\left(\bm\tau_{h}, v_{h}\right) = \left(\bm\sigma_{h,i}, u_{h, j}\right)\)，\(1 \leqslant i,j \leqslant 2\) 得：
 		\begin{equation*}
 			\begin{cases}
-				a_{h}\left(\bm\sigma_{h,1}, \bm\sigma_{h,1}\right) + b_{h}\left(\bm\sigma_{h,1}, u_{h,1}\right) - b_{h}\left(\bm\sigma_{h,1}, u_{h,1}\right) + c_{h}\left(u_{h,1}, u_{h,1}\right) = F_{h}\left(\bm\sigma_{h,1}\right) + G_{h}\left(u_{h,1}\right) \\
-				a_{h}\left(\bm\sigma_{h,2}, \bm\sigma_{h,2}\right) + b_{h}\left(\bm\sigma_{h,2}, u_{h,2}\right) - b_{h}\left(\bm\sigma_{h,2}, u_{h,2}\right) + c_{h}\left(u_{h,2}, u_{h,2}\right) = F_{h}\left(\bm\sigma_{h,2}\right) + G_{h}\left(u_{h,2}\right) \\
-				a_{h}\left(\bm\sigma_{h,1}, \bm\sigma_{h,2}\right) + b_{h}\left(\bm\sigma_{h,2}, u_{h,1}\right) - b_{h}\left(\bm\sigma_{h,1}, u_{h,2}\right) + c_{h}\left(u_{h,1}, u_{h,2}\right) = F_{h}\left(\bm\sigma_{h,2}\right) + G_{h}\left(u_{h,2}\right) \\
-				a_{h}\left(\bm\sigma_{h,2}, \bm\sigma_{h,1}\right) + b_{h}\left(\bm\sigma_{h,1}, u_{h,2}\right) - b_{h}\left(\bm\sigma_{h,2}, u_{h,1}\right) + c_{h}\left(u_{h,2}, u_{h,1}\right) = F_{h}\left(\bm\sigma_{h,1}\right) + G_{h}\left(u_{h,1}\right)
+				a_{h}\left(\bm\sigma_{h}^{(1)}, \bm\sigma_{h}^{(1)}\right) + b_{h}\left(\bm\sigma_{h}^{(1)}, u_{h}^{(1)}\right) - b_{h}\left(\bm\sigma_{h}^{(1)}, u_{h}^{(1)}\right) + c_{h}\left(u_{h}^{(1)}, u_{h}^{(1)}\right) = F_{h}\left(\bm\sigma_{h}^{(1)}\right) + G_{h}\left(u_{h}^{(1)}\right) \\
+				a_{h}\left(\bm\sigma_{h}^{(2)}, \bm\sigma_{h}^{(2)}\right) + b_{h}\left(\bm\sigma_{h}^{(2)}, u_{h}^{(2)}\right) - b_{h}\left(\bm\sigma_{h}^{(2)}, u_{h}^{(2)}\right) + c_{h}\left(u_{h}^{(2)}, u_{h}^{(2)}\right) = F_{h}\left(\bm\sigma_{h}^{(2)}\right) + G_{h}\left(u_{h}^{(2)}\right) \\
+				a_{h}\left(\bm\sigma_{h}^{(1)}, \bm\sigma_{h}^{(2)}\right) + b_{h}\left(\bm\sigma_{h}^{(2)}, u_{h}^{(1)}\right) - b_{h}\left(\bm\sigma_{h}^{(1)}, u_{h}^{(2)}\right) + c_{h}\left(u_{h}^{(1)}, u_{h}^{(2)}\right) = F_{h}\left(\bm\sigma_{h}^{(2)}\right) + G_{h}\left(u_{h}^{(2)}\right) \\
+				a_{h}\left(\bm\sigma_{h}^{(2)}, \bm\sigma_{h}^{(1)}\right) + b_{h}\left(\bm\sigma_{h}^{(1)}, u_{h}^{(2)}\right) - b_{h}\left(\bm\sigma_{h}^{(2)}, u_{h}^{(1)}\right) + c_{h}\left(u_{h}^{(2)}, u_{h}^{(1)}\right) = F_{h}\left(\bm\sigma_{h}^{(1)}\right) + G_{h}\left(u_{h}^{(1)}\right)
 			\end{cases}
 		\end{equation*}
 		用前两式的和减去后两式的和，得到：
 		\begin{equation*}
 			\begin{aligned}
-				0 = & a_{h}\left(\bm\sigma_{h,1}, \bm\sigma_{h,1} - \bm\sigma_{h,2}\right) - a_{h}\left(\bm\sigma_{h,2}, \bm\sigma_{h,1} - \bm\sigma_{h,2}\right) + c_{h}\left(u_{h,1} - u_{h,2}, u_{h,1} - u_{h,2}\right) \\
-				= & \left(\mathcal{A}^{-1}(\bm\sigma_{h,1}) - \mathcal{A}^{-1}(\bm\sigma_{h,2}), \bm\sigma_{h,1} - \bm\sigma_{h,2}\right)_{\Omega} + \norm{\jump{\bm\sigma_{h,1} - \bm\sigma_{h,2}}}_{L^2(\Gamma^{o}, C_{22})}^2 \\
-				& + \norm{\left(\bm\sigma_{h,1} - \bm\sigma_{h,2}\right)\cdot\bm n}_{L^2(\Gamma^{N}, C_{22})}^2 + \norm{\jump{u_{h,1} - u_{h,2}}}_{L^2(\Gamma^{o}, C_{11})}^2 + \norm{u_{h,1} - u_{h,2}}_{L^2(\Gamma^{D}, C_{11})}^2
+				0 = & a_{h}\left(\bm\sigma_{h}^{(1)}, \bm\sigma_{h}^{(1)} - \bm\sigma_{h}^{(2)}\right) - a_{h}\left(\bm\sigma_{h}^{(2)}, \bm\sigma_{h}^{(1)} - \bm\sigma_{h}^{(2)}\right) + c_{h}\left(u_{h}^{(1)} - u_{h}^{(2)}, u_{h}^{(1)} - u_{h}^{(2)}\right) \\
+				= & \left(\mathcal{A}^{-1}(\bm\sigma_{h}^{(1)}) - \mathcal{A}^{-1}(\bm\sigma_{h}^{(2)}), \bm\sigma_{h}^{(1)} - \bm\sigma_{h}^{(2)}\right)_{\Omega} + \norm{\jump{\bm\sigma_{h}^{(1)} - \bm\sigma_{h}^{(2)}}}_{L^2(\Gamma^{o}, C_{22})}^2 \\
+				& + \norm{\left(\bm\sigma_{h}^{(1)} - \bm\sigma_{h}^{(2)}\right)\cdot\bm n}_{L^2(\Gamma^{N}, C_{22})}^2 + \norm{\jump{u_{h}^{(1)} - u_{h}^{(2)}}}_{L^2(\Gamma^{o}, C_{11})}^2 + \norm{u_{h}^{(1)} - u_{h}^{(2)}}_{L^2(\Gamma^{D}, C_{11})}^2
 			\end{aligned}
 		\end{equation*}
-		利用 \(\mathcal{A}^{-1}\) 的严格单调性得 \(\bm\sigma_{h,1} = \bm\sigma_{h,2}\)，从而 \(b_{h}\left(\cdot, u_{h,1} - u_{h,2}\right) = 0\)，以及 \(c_{h}\left(u_{h, 1} - u_{h,2}, \cdot\right) = 0\). 接下来，利用与 Poisson 方程的 LDG 格式解的唯一性证明类似的过程，可以证得 \(u_{h,1} = u_{h,2}\).
+		利用 \(\mathcal{A}^{-1}\) 的严格单调性得 \(\bm\sigma_{h}^{(1)} = \bm\sigma_{h}^{(2)}\)，从而 \(b_{h}\left(\cdot, u_{h}^{(1)} - u_{h}^{(2)}\right) = 0\)，以及 \(c_{h}\left(u_{h}^{(1)} - u_{h}^{(2)}, \cdot \right) = 0\). 接下来，利用与 Poisson 方程的 LDG 格式解的唯一性证明类似的过程，可以证得 \(u_{h}^{(1)} = u_{h}^{(2)}\).
 	\end{proof}
 \end{theorem}
 
@@ -314,7 +314,7 @@
 
 \subsubsection{Numerical Example 1 (1D Dirichlet)}
 
-区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = (x+1)^{\frac{p-2}{p-1}}\)，采用 Dirichlet 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-\alpha}\)，\(C_{12} = \frac{1}{2}\)，其中 \(\eta = 1\)，\(\alpha = -1\). 我们使用 Legendre 配点法，并使用相同点数的 Gauss-Legendre 公式进行数值积分和误差测量，使用 \(p = 2\) 的 Poisson 方程数解作为初值，并用 Picard 迭代法或 Newton-Raphson 迭代法求解\footnote{为了方便编程，我们人为指定迭代次数。}。部分测试结果如下：
+区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = (x+1)^{\frac{p-2}{p-1}}\)，采用 Dirichlet 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-1}\)，\(C_{12} = \frac{1}{2}\)，其中 \(\eta = 1\). 我们使用 Legendre 配点法，并使用相同点数的 Gauss-Legendre 公式进行数值积分和误差测量，使用 \(p = 2\) 的 Poisson 方程数解作为初值，并用 Picard 迭代法或 Newton-Raphson 迭代法求解\footnote{为了方便编程，我们人为指定迭代次数。}。部分测试结果如下：
 
 \begin{table}[H]
 	\begin{center}
@@ -322,7 +322,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -346,7 +346,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -370,7 +370,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -394,7 +394,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -421,7 +421,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -445,7 +445,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -469,7 +469,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -493,7 +493,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -519,7 +519,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -543,7 +543,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -567,7 +567,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -591,7 +591,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -617,7 +617,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -641,7 +641,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -665,7 +665,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -689,7 +689,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -726,7 +726,7 @@
 	\item 当 \(p = 30\) 时，单独使用 Newton-Raphson 迭代会发散。此时如果先使用 50 次 Picard 迭代，再使用 10 次 Newton-Raphson 迭代，就可以测出收敛阶。
 \end{enumerate}
 
-在上面的算例中(以及其他收敛的 \(p\) 值测试中)，我们观察到对 \(\left(\bm\sigma, u\right)\) 的 \(L^{p^{\ast}}\times L^{p}\) 的 \(\left(k, k+1\right)\) 阶收敛，这在 LDG 框架下是最优的。同时，当 \(p > 2\) 时，对 \(u\) 的 \(L^2\) 收敛阶比 \(L^{p}\) 收敛阶高，对 \(\bm\sigma\) 的 \(L^2\) 收敛阶比 \(L^{p^{\ast}}\) 收敛阶低；当 \(p < 2\) 时反之。这与多项式逼近的反向估计结果一致。需要说明的是，上文测试中数值不稳定的主要原因是，在迭代过程中，矩阵 \(\bm A([\bm\sigma_{h}])\) 在 \(p \neq 2\) 时可能出现过大或过小的元。
+在上面的算例中(以及其他收敛的 \(p\) 值测试中)，我们观察到对 \(\left(\bm\sigma, u\right)\) 的 \(L^{p'}\times L^{p}\) 的 \(\left(k, k+1\right)\) 阶收敛，这在 LDG 框架下是最优的。同时，当 \(p > 2\) 时，对 \(u\) 的 \(L^2\) 收敛阶比 \(L^{p}\) 收敛阶高，对 \(\bm\sigma\) 的 \(L^2\) 收敛阶比 \(L^{p'}\) 收敛阶低；当 \(p < 2\) 时反之。这与多项式逼近的反向估计结果一致。需要说明的是，上文测试中数值不稳定的主要原因是，在迭代过程中，矩阵 \(\bm A([\bm\sigma_{h}])\) 在 \(p \neq 2\) 时可能出现过大或过小的元。
 
 
 \subsubsection{Conclusion}
@@ -736,7 +736,7 @@
 	\item 数值格式在形式上和方程的弱形式相同，同时也与 Poisson 方程的格式形式一致。
 	\item 未知函数数量较少。
 	\item 当使用 Picard 不动点迭代和 Newton-Raphson 迭代时，收敛速度较快。
-	\item 在数值实验中，对 \(\left(\bm\sigma, u\right)\) 的 \(L^{p^{\ast}} \times L^{p}\) 误差有 \(\left(k, k+1\right)\) 阶收敛阶。
+	\item 在数值实验中，对 \(\left(\bm\sigma, u\right)\) 的 \(L^{p'} \times L^{p}\) 误差有 \(\left(k, k+1\right)\) 阶收敛阶。
 \end{enumerate}
 此方法的劣势在于：
 \begin{enumerate}
@@ -762,8 +762,8 @@
 \begin{subequations}\label{p-Laplace LDG numerical flux 2}
 	\begin{eqnarray}
 		&& \widehat{\bm\sigma}_{h}\big|_{e} = \begin{cases}
-			\avg{\bm\sigma_{h}} - \bm C_{12} \jump{\bm\sigma_{h}} - \eta\mathcal{A}\left(h^{-\alpha} \jump{u_{h}}\right), & e \in \mathcal{E}_{h}^{o} \\
-			\bm\sigma_{h} - \eta\mathcal{A}\left(h^{-\alpha} \left(u_{h} - g_{D}\right) \bm n\right), & e \in \mathcal{E}_{h}^{D} \\
+			\avg{\bm\sigma_{h}} - \bm C_{12} \jump{\bm\sigma_{h}} - \eta\mathcal{A}\left(h^{-1} \jump{u_{h}}\right), & e \in \mathcal{E}_{h}^{o} \\
+			\bm\sigma_{h} - \eta\mathcal{A}\left(h^{-1} \left(u_{h} - g_{D}\right) \bm n\right), & e \in \mathcal{E}_{h}^{D} \\
 			\bm g_{N}, & e \in \mathcal{E}_{h}^{N}
 		\end{cases} \\
 		&& \widehat{u}_{h}\big|_{e} = \begin{cases}
@@ -773,7 +773,7 @@
 		\end{cases}
 	\end{eqnarray}
 \end{subequations}
-这里惩罚参数 \(\eta \geqslant 0\)，\(\alpha \in \R\).
+这里惩罚参数 \(\eta > 0\) 与网格无关，需要有正的下界。
 
 将数值通量\eqref{p-Laplace LDG numerical flux 2}代入 DG 格式\eqref{Global DG Scheme}，\(p\)-Laplace 方程\eqref{p-Laplace mixed form}的 LDG 格式可以写作：
 \begin{equation}\label{p-Laplace LDG weak form 2}
@@ -787,29 +787,29 @@
 				\left(\bm\sigma_{h}, \nabla_{h} v_{h}\right)_{\Omega} 
 				= & \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}} \\
 				& + \left\langle \jump{v_{h}}, \avg{\bm\sigma_{h}} - \bm C_{12} \jump{\bm\sigma_{h}}\right\rangle_{\Gamma^{o}} + \left\langle v_{h}, \bm\sigma_{h} \cdot \bm n\right\rangle_{\Gamma^{D}} \\
-				& - \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} - \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}}
+				& - \left\langle \eta\mathcal{A}\left(h^{-1}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} - \left\langle \eta\mathcal{A}\left(h^{-1}\left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}}
 			\end{aligned}
 		\end{cases}
 	\end{aligned}
 \end{equation}
 
 \begin{definition}[DG discrete weak gradient operator]
-    定义双线性算子 \(D_{DG}(\cdot, \cdot)\) 如下：
-    \begin{equation}
-        \begin{aligned}
-            & D_{DG}(\cdot; \cdot): \bigoplus_{K \in \mathcal{T}_{h}} H^{1}(K) \times W^{\frac{1}{p}, p^{\ast}}(\Gamma^{D}) \mapsto \Sigma_{h}: \\
-            & \begin{aligned}
-                \forall \bm\zeta_{h} \in Q_{h}, 
-                & \left(D_{DG}\left(u_{h}; g_{D}\right), \bm\zeta_{h}\right)_{\Omega} \\
-                = & \left(\nabla_{h} u_{h}, \bm\zeta_{h}\right)_{\Omega} - \left\langle \jump{u_{h}}, \avg{\bm\zeta_{h}} - \bm C_{12} \jump{\bm\zeta_{h}} \right\rangle_{\Gamma^{o}} \\
-                & - \left\langle u_{h} - g_{D}, \bm\zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}}
-            \end{aligned}
-        \end{aligned}
-    \end{equation}
-    从形式上看，算子 \(D_{DG}\) 逼近以 \(g_{D}\) 为 Dirichlet 边值的 \(u_{h}\) 的广义梯度，易见其满足：
-    \begin{equation}
-        D_{DG}(u_{h}; g_{D}) = D_{DG}(u_{h}; 0) + D_{DG}(0; g_{D})
-    \end{equation}
+	定义双线性算子 \(D_{DG}(\cdot, \cdot)\) 如下：
+	\begin{equation}
+		\begin{aligned}
+			& D_{DG}(\cdot; \cdot): \bigoplus_{K \in \mathcal{T}_{h}} H^{1}(K) \times W^{\frac{1}{p}, p'}(\Gamma^{D}) \mapsto \Sigma_{h}: \\
+			& \begin{aligned}
+				\forall \bm\zeta_{h} \in Q_{h}, 
+				& \left(D_{DG}\left(u_{h}; g_{D}\right), \bm\zeta_{h}\right)_{\Omega} \\
+				= & \left(\nabla_{h} u_{h}, \bm\zeta_{h}\right)_{\Omega} - \left\langle \jump{u_{h}}, \avg{\bm\zeta_{h}} - \bm C_{12} \jump{\bm\zeta_{h}} \right\rangle_{\Gamma^{o}} \\
+				& - \left\langle u_{h} - g_{D}, \bm\zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}}
+			\end{aligned}
+		\end{aligned}
+	\end{equation}
+	从形式上看，算子 \(D_{DG}\) 逼近以 \(g_{D}\) 为 Dirichlet 边值的 \(u_{h}\) 的广义梯度，易见其满足：
+	\begin{equation}
+		D_{DG}(u_{h}; g_{D}) = D_{DG}(u_{h}; 0) + D_{DG}(0; g_{D})
+	\end{equation}
 \end{definition}
 
 利用此算子，LDG 方程组\eqref{p-Laplace LDG weak form 2}可以等价地写成：
@@ -817,7 +817,7 @@
 	\begin{aligned}
 		& \text{find \(u_{h} \in V_{h}\) such that \(\forall v_{h} \in V_{h}\):} \\
 		& \begin{aligned}
-			& \left(\bm\sigma_{h}, D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}} \\
+			& \left(\bm\sigma_{h}, D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h^{-1}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} + \left\langle \eta\mathcal{A}\left(h^{-1}\left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}} \\
 			= & \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N} \cdot \bm n, v_{h}\right\rangle_{\Gamma^{N}}
 		\end{aligned} \\
 		& \text{and: \(\bm q_{h} = D_{DG}\left(u_{h}; g_{D}\right)\), \(\bm\sigma_{h} = \Pi_{\Sigma_{h}} \mathcal{A}\left(\bm q_{h}\right)\)}
@@ -828,8 +828,8 @@
 	\begin{aligned}
 		& \text{find \(u_{h} \in V_{h}\) such that \(\forall v_{h} \in V_{h}\):} \\
 		& \begin{aligned}
-			& \left(\mathcal{A}\left(D_{DG}\left(u_{h}; g_{D}\right)\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} \\
-			& + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}} \\
+			& \left(\mathcal{A}\left(D_{DG}\left(u_{h}; g_{D}\right)\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h^{-1}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} \\
+			& + \left\langle \eta\mathcal{A}\left(h^{-1}\left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}} \\
 			= & \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N} \cdot \bm n, v_{h}\right\rangle_{\Gamma^{N}}
 		\end{aligned}
 	\end{aligned}
@@ -846,23 +846,242 @@
 	\begin{equation}
 		\begin{aligned}
 			J_{h}(u_{h}) 
-			= & \frac{1}{p}\norm{D_{DG}\left(u_{h}; g_{D}\right)}_{L^p(\Omega)}^{p} + \frac{1}{p}\norm{\jump{u_{h}}}_{L^{p}(\Gamma^{o}, \eta h^{-(p-1)\alpha})}^{p} \\
-			& + \frac{1}{p}\norm{u_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h^{-(p-1)\alpha})}^{p} - \left(f, u_{h}\right)_{\Omega} - \left\langle \bm g_{N}\cdot\bm n, u_{h}\right\rangle_{\Gamma^{N}}
+			= & \frac{1}{p}\norm{D_{DG}\left(u_{h}; g_{D}\right)}_{L^p(\Omega)}^{p} + \frac{1}{p}\norm{\jump{u_{h}}}_{L^{p}(\Gamma^{o}, \eta h^{-(p-1)})}^{p} \\
+			& + \frac{1}{p}\norm{u_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h^{-(p-1)})}^{p} - \left(f, u_{h}\right)_{\Omega} - \left\langle \bm g_{N}\cdot\bm n, u_{h}\right\rangle_{\Gamma^{N}}
 		\end{aligned}
 	\end{equation}
 \end{subequations}
 
-\begin{theorem}[Existence, uniqueness, and equivalence]
-	当 \(\eta > 0\)，\(\alpha = 1\) 时，\(p\)-Laplace 方程的 LDG 弱形式\eqref{p-Laplace LDG weak form 2}和最优化形式\eqref{p-Laplace LDG minimization form 2}的解存在、唯一、相同。
+
+\begin{definition}[Energy norm]
+	设 \(p \in [1, +\infty)\)，在 \(W^{1,p}(\mathcal{T}_{h})\) 上定义泛函 \(\norm{\cdot}_{J, p}\) 如下：
+	\begin{equation}
+		\norm{u}_{J, p}
+			= \left(\norm{D_{DG}\left(u; 0\right)}_{L^p(\Omega)}^{p} + \norm{\jump{u}}_{L^{p}(\Gamma^{o}, \eta h^{-(p-1)})}^{p} + \norm{u}_{L^{p}(\Gamma^{D}, \eta h^{-(p-1)})}^{p}\right)^{\frac{1}{p}}
+	\end{equation}
+	由于 \(\Gamma^{D} \neq \emptyset\)，于是上面所定义的是一个范数。
+
+	\begin{proof}
+		由于 \(D_{DG}(u; 0)\) 对 \(u\) 是线性的，三角不等式和齐次性都显然成立。我们下面只证明正定性。
+
+		假设 \(\norm{u}_{J, p} = 0\)，那么 \(u\big|_{\Gamma^{D}} = 0\)，\(\jump{u}\big|_{\Gamma{^o}} = \bm 0\)，\(D_{DG}(u; 0) = 0\). 根据 \(D_{DG}\) 的定义，可以证明 \(\nabla_{h} u = \bm 0\)，因此 \(u = 0\). 正定性成立。
+	\end{proof}
+\end{definition}
+
+
+\begin{definition}[Broken Sobolev norms\cite{10.1093/imanum/drn038}]
+	设 \(p \in [1, +\infty)\). 在 \(W^{1,p}(\mathcal{T}_{h})\) 上定义半范数 \(\norm{\cdot}_{W^{1,p}(\mathcal{T}_{h})}\) 和范数 \(\norm{\cdot}_{W^{1,p}_{D}(\mathcal{T}_{h})}\) 如下：
+	\begin{subequations}
+		\begin{eqnarray}
+			&& \abs{u}_{W^{1,p}(\mathcal{T}_{h})} = \left(\norm{\nabla_{h} u}_{L^p(\Omega)}^{p} + \norm{\jump{u}}_{L^p(\Gamma^{D}, h^{1-p})}^{p}\right)^{\frac{1}{p}} \\
+			&& \norm{u}_{W^{1,p}_{D}(\mathcal{T}_{h})} = \left(\abs{u}_{W^{1,p}(\mathcal{T}_{h})}^{p} + \norm{u}_{L^p(\Gamma^{D}, h^{1-p})}^{p}\right)^{\frac{1}{p}}
+		\end{eqnarray}
+	\end{subequations}
+\end{definition}
+
+
+\begin{lemma}[Norm equivalence]\label{Broken norm equivalence}
+	当 \(p \in (1, +\infty)\) 时\footnote{这里，如果细致地推导常数 \(\widetilde{C}\) 与 \(p\) 之间的关系，再利用范数对 \(p\) 的连续性，其实把结果推广到 \(p \in [1, +\infty)\).}，当 \(h \leqslant h_{\rm max}\) 时，存在与 \(h\) 无关的常数 \(C_1, C_2 > 0\) 使得：
+	\begin{equation}
+		\forall v_{h} \in V_{h}, \quad
+		C_1^{-1} \norm{v_{h}}_{W^{1,p}_{D}(\mathcal{T}_{h})} 
+		\leqslant \norm{v_{h}}_{J, p}
+		\leqslant C_2 \norm{v_{h}}_{W^{1,p}_{D}(\mathcal{T}_{h})}
+	\end{equation}
+
+	\begin{proof}
+		利用 \(D_{DG}\) 的定义，结合 \(L^{p}\) 对偶关系以及反估计，当 \(p \in (1, +\infty)\) 时，存在与 \(h\) 无关的常数 \(\widetilde{C}\) 使得\cite[Lemma 2.1]{10.1016/j.crma.2008.07.005}：
+		\begin{equation*}
+			\norm{D_{DG}(v_{h}; 0) - \nabla_{h} v_{h}}_{L^{p}(\Omega)}
+			\leqslant \widetilde{C} \left( \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o}, h^{1-p})}^{p} + \norm{v_{h}}_{L^{p}(\Gamma^{D}, h^{1-p})}^{p} \right)^{\frac{1}{p}}
+		\end{equation*}
+		于是，一方面：
+		\begin{equation*}
+			\begin{aligned}
+				\norm{v_{h}}_{W^{1,p}_{D}(\mathcal{T}_{h})} 
+				& \leqslant \norm{\nabla_{h} v_{h}}_{L^p(\Omega)} + \left( \norm{\jump{v_{h}}}_{L^p(\Gamma^{o})}^{p} + \norm{v_{h}}_{L^p(\Gamma^{D})}^{p} \right)^{\frac{1}{p}} \\
+				& \leqslant \norm{D_{DG}(v_{h}; 0)}_{L^{p}(\Omega)} + (1 + \widetilde{C}) \left( \norm{\jump{v_{h}}}_{L^p(\Gamma^{D})}^{p} + \norm{v_{h}}_{L^p(\Gamma^{D})}^{p} \right)^{\frac{1}{p}} \\
+				& \leqslant 2^{\frac{1}{p'}} \max\B{1, (1 + \widetilde{C}) \eta^{-\frac{1}{p}} h_{\rm max}^{\frac{1}{p'}}} \norm{v_{h}}_{J, p}
+			\end{aligned}
+		\end{equation*}
+		另一方面：
+		\begin{equation*}
+			\begin{aligned}
+				\norm{v_{h}}_{J, p} 
+				& \leqslant \norm{D_{DG}(v_{h}; 0)}_{L^{p}(\Omega)} + \left( \norm{\jump{v_{h}}}_{L^p(\Gamma^{o}, h^{1-p})}^{p} + \norm{v_{h}}_{L^p(\Gamma^{D}, h^{1-p})}^{p} \right)^{\frac{1}{p}} \\
+				& \leqslant \norm{\nabla_{h} v_{h}}_{L^p(\Omega)} + (\eta^{-\frac{1}{p}} h_{\rm max}^{\frac{1}{p'}} + \widetilde{C}) \left( \norm{\jump{v_{h}}}_{L^p(\Gamma^{D})}^{p} + \norm{v_{h}}_{L^p(\Gamma^{D})}^{p} \right)^{\frac{1}{p}} \\
+				& \leqslant 2^{\frac{1}{p'}} \max\B{1, \eta^{-\frac{1}{p}} h_{\rm max}^{\frac{1}{p'}} + \widetilde{C}} \norm{v_{h}}_{W^{1,p}_{D}(\mathcal{T}_{h})}
+			\end{aligned}
+		\end{equation*}
+		这里，两个不等式各自的最后一个不等号利用了离散的 H{\"{o}}lder 不等式。
+	\end{proof}
+\end{lemma}
+
+
+\begin{lemma}[Broken Poincar{\'{e}}-Friedrichs' inequality]
+	当 \(h \leqslant h_{\rm max}\) 时，存在与 \(h\) 无关的常数 \(C > 0\) 使得：
+	\begin{equation}
+		\forall v_{h} \in V_{h}, \quad
+		\norm{v_{h}}_{L^{p^{\ast}}(\Omega)} \leqslant C \norm{v_{h}}_{J, p}
+	\end{equation}
+	这里，若 \(n = 1\)，则补充定义 \(p^{\ast} = \infty\).
+
+	\begin{proof}
+		利用 \cite[Corollary 4.3]{10.1093/imanum/drn038} 以及引理 \ref{Broken norm equivalence}，当 \(p \in (1, n)\) 时，利用 H{\"{o}}lder 不等式：
+		\begin{equation*}
+			\begin{aligned}
+				\forall v_{h} \in V_{h}, \quad
+				\norm{v_{h}}_{L^{p}(\Omega)}
+				& \leqslant \norm{v_{h}}_{L^{p^{\ast}}(\Omega)} \\
+				& \leqslant \widetilde{C} \left(\norm{v_{h}}_{L^{p}(\Gamma^{D})} + \abs{v_{h}}_{W^{1,p}(\mathcal{T}_{h})}\right) \\
+				& \leqslant \widetilde{C} \left(\norm{v_{h}}_{L^{p}(\Gamma^{D})} + \norm{v_{h}}_{W^{1,p}_{D}(\mathcal{T}_{h})}\right) \\
+				& \leqslant \widetilde{C} \left(\norm{v_{h}}_{L^{p}(\Gamma^{D})} + C_{1} \norm{v_{h}}_{J, p}\right) \\
+				& \leqslant C_{2} \norm{v_{h}}_{J, p}
+			\end{aligned}
+		\end{equation*}
+		当 \(p \geqslant n\) 时，取 \(q \in (1, n)\) 使得 \(q^{\ast} \geqslant p\)，利用上面的过程，我们有：
+		\begin{equation*}
+			\begin{aligned}
+				\forall v_{h} \in V_{h}, \quad
+				\norm{v_{h}}_{L^{p}(\Omega)}
+				& \leqslant \abs{\Omega}^{\frac{1}{p} - \frac{1}{q^{\ast}}} \norm{v_{h}}_{L^{q^{\ast}}(\Omega)} \\
+				& \leqslant \widehat{C} \norm{v_{h}}_{J, q} \\
+				& \leqslant C_{3} \norm{v_{h}}_{J, p}
+			\end{aligned}
+		\end{equation*}
+		其中，最后一个不等号的证明过程如下：
+		\begin{equation*}
+			\begin{aligned}
+				\norm{v_{h}}_{J, q}
+				& \leqslant \norm{D_{DG}(v_{h}; 0)}_{L^{q}} + \left(\norm{\jump{v_{h}}}_{L^{q}(\Gamma^{o}, \eta h^{1-q})}^{q} + \norm{v_{h}}_{L^{q}(\Gamma^{D}, \eta h^{1-q})}^{q}\right)^{\frac{1}{q}} \\
+				& \leqslant \abs{\Omega}^{\frac{1}{q} - \frac{1}{p}} \norm{D_{DG}(v_{h}; 0)}_{L^{p}} + \left(\sum_{e \in \mathcal{E}_{h}^{o} \cup \mathcal{E}_{h}^{D}} \left(\eta h_{e} \abs{e}\right)^{1-\frac{q}{p}} \norm{\jump{v_{h}}}_{L^{p}(e, \eta h_{e}^{1-p})}^{q} \right)^{\frac{1}{q}} \\
+				& \leqslant 
+			\end{aligned}
+		\end{equation*}
+		这里，我们假设了 \(h_{e}\) 取为面 \(e\) 上的较短的法向特征尺度\footnote{事实上，这种取法在椭圆方程的 LDG 方法中已被使用，因此是合理的。}，也即存在常数 \(c\) 使得：
+		\begin{equation*}
+			\forall K \in \mathcal{T}_{h}, \forall e \in \mathcal{E}_{h}^{K}, \quad
+			h_{e} \abs{e} \leqslant c \abs{K}
+		\end{equation*}
+
+		其中，\(\gamma_{h}\) 是当前网格中最大单元尺度与最小单元尺度之比。这里，我们利用了连续和离散的 H{\"{o}}lder 不等式：
+		\begin{eqnarray*}
+			&& \norm{f}_{L^q} \leqslant \norm{f}_{L^p} \norm{1}_{L^{\frac{pq}{p-q}}} \\
+			&& \begin{aligned}
+				& \left(\sum_{e \in \mathcal{E}_{h}^{o}} \norm{\jump{v_{h}}}_{L^p(e)}^{q} + \sum_{e \in \mathcal{E}_{h}^{D}} \norm{v_{h}}_{L^p(e)}^{q}\right)^{\frac{1}{q}} \\
+				& \leqslant \left(\abs{\mathcal{E}_{h}^{o}} + \abs{\mathcal{E}_{h}^{D}}\right)^{\frac{1}{q} - \frac{1}{p}} \left(\sum_{e \in \mathcal{E}_{h}^{o}} \norm{\jump{v_{h}}}_{L^p(e)}^{p} + \sum_{e \in \mathcal{E}_{h}^{D}} \norm{v_{h}}_{L^p(e)}^{p}\right)^{\frac{1}{p}}
+			\end{aligned}
+		\end{eqnarray*}
+	\end{proof}
+\end{lemma}
+
+\begin{remark}
+	由于我们这里需要说明 “常数 \(C\) 与 \(h\) 无关”，所以并不能直接使用反证法。
+\end{remark}
+
+
+\begin{lemma}[Broken trace inequality]
+	当 \(h \leqslant h_{\rm max}\) 时，存在与 \(h\) 无关的常数 \(C > 0\) 使得：
+	\begin{equation}
+		\forall v_{h} \in V_{h}, \quad
+		\norm{v_{h}}_{L^p(\Gamma^{N})} \leqslant C \norm{v_{h}}_{J, p}
+	\end{equation}
+	
+	\begin{proof}
+		
+	\end{proof}
+\end{lemma}
+
+
+\begin{lemma}[Coercivity] % 推出最小值点一定在有限远处
+	泛函 \(J_{h}\) 是强制的，也即：
+	\begin{equation*}
+		\lim_{\norm{u_{h}} \to +\infty} J_{h}(u_{h}) = +\infty
+	\end{equation*}
+
+	\begin{proof}
+		泛函 \(J_{h}\) 可以表示为如下形式：
+		\begin{equation*}
+			J_{h}(v_{h}) = \frac{1}{p}\norm{v_{h}}_{J, p}^{p} - \left(f, v_{h}\right)_{\Omega} - \left\langle \bm g_{N} \cdot \bm n, v_{h} \right\rangle_{\Gamma^{N}}
+		\end{equation*}
+		由于 \(\norm{\cdot}_{J, p}\) 是 \(V_{h}\) 上的范数，且 \(p > 1\)，所以成立。
+		% 可能还要证明：v的Lp范数可以被控制、v的边界Lp范数也可以被控制
+	\end{proof}
+\end{lemma}
+
+
+\begin{lemma}[Strict convexity]
+	泛函 \(J_{h}\) 在 \(V_{h}\) 上是严格凸的，也即： 
+	\begin{equation*}
+		\forall u_{h}^{(1)} \neq u_{h}^{(2)}, \forall \lambda\in[0,1], \quad 
+		J_{h}(\lambda u_{h}^{(1)} + (1-\lambda) u_{h}^{(2)}) < \lambda J_{h}(u_{h}^{(1)}) + (1-\lambda) J_{h}(u_{h}^{(2)})
+	\end{equation*}
+
+	\begin{proof}
+		假设存在 \(\lambda \in (0,1)\) 使得：
+		\begin{equation*}
+			\lambda J_{h}(u_{h}^{(1)}) + (1-\lambda)J_{h}(u_{h}^{(2)}) = J_{h}(\lambda u_{h}^{(1)} + (1-\lambda) u_{h}^{(2)})
+		\end{equation*}
+		那么，利用映射 \(t \mapsto \abs{t}^{p}\) 的严格凸性可得 \(\left(u_{h}^{(1)} - u_{h}^{(2)}\right)\big|_{\Gamma^{D}} = 0\)，\(\jump{u_{h}^{(1)} - u_{h}^{(2)}}\big|_{\Gamma^{o}} = \bm 0\)，\(D_{DG}(u_{h}^{(1)} - u_{h}^{(2)}; 0) = 0\). 根据 \(D_{DG}\) 的定义，可以证明 \(\nabla_{h} (u_{h}^{(1)} - u_{h}^{(2)}) = \bm 0\). 因此 \(u_{h}^{(1)} = u_{h}^{(2)}\).
+	\end{proof}
+\end{lemma}
+
+
+\begin{lemma}[Weak lower semicontinuity]
+	泛函 \(J_{h}\) 是弱下半连续的。
+
+	\begin{proof}
+		利用 \(J_{h}\) 的结构，易证。
+	\end{proof}
+\end{lemma}
+
+
+\begin{theorem}[Existence of the minimizer]
+	最小化问题\eqref{p-Laplace LDG minimization form 2}的解存在。
+
+	\begin{proof}
+		因为 \(J_{h}\) 是下有界的和coercive 的，所以存在有界的最小化列。由于在自反的 Banach 空间中，有界列存在弱收敛子列，于是可以不妨设该最小化列弱收敛。又因为 \(J_{h}\) 是弱下半连续的，所以弱极限就是最小化子。
+	\end{proof}
+\end{theorem}
+
+
+\begin{theorem}[Uniqueness of the minimizer]
+	最小化问题\eqref{p-Laplace LDG minimization form 2}的解唯一。
+
+	\begin{proof}
+		由于 \(J_{h}\) 是严格凸的，显然成立。
+	\end{proof}
+\end{theorem}
+
+
+\begin{lemma}[G{\^{a}}teaux derivative of \(J_{h}\)]\label{Gateaux derivative of Jh}
+	泛函 \(J_{h}(\cdot)\) 是 G{\^{a}}teaux 可导的，其在 \(u_{h} \in V_{h}\) 处的一阶 G{\^{a}}teaux 导数在 \(v_{h} \in V_{h}\) 上的作用为：
+	\begin{equation}
+		\begin{aligned}
+			J_{h}'(u_{h})(v_{h})
+			= & \left(\mathcal{A}\left(D_{DG}\left(u_{h}; g_{D}\right)\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h^{-1}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} \\
+			& + \left\langle \eta\mathcal{A}\left(h^{-1}\left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}} \\
+			& - \left(f, v_{h}\right)_{\Omega} - \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}}
+		\end{aligned}
+	\end{equation}
+\end{lemma}
+
+
+\begin{theorem}[Equivalence]
+	当 \(\eta > 0\) 时，\(p\)-Laplace 方程的 LDG 弱形式\eqref{p-Laplace LDG weak form 2}和最优化形式\eqref{p-Laplace LDG minimization form 2}的解存在、唯一、相同。
 
 	\begin{proof}
 		文章\cite{10.1016/j.crma.2008.07.005}中给出了当 \(\partial\Omega = \Gamma^{D}\) 且 \(g_{D} = 0\) 时的证明。当 \(g_{D} \neq 0\) 时，证明是类似的。
 		% to be done: 把这个证明详细写一下
 
-
+		
 	\end{proof}
-
 \end{theorem}
+
+
+\begin{remark}
+	由于泛函 \(J_{h}\) 是严格凸的，所以该泛函的梯度流总可以收敛到其在有限远处的最小值点。与此对应地，在数值计算中，使用梯度下降类方法可以保证收敛。
+\end{remark}
 
 
 \subsubsection{Numerical Discretization}
@@ -871,30 +1090,21 @@
 
 这里，我们只考虑使用梯度下降法求解最优化形式。现有的 \(p\)-Laplace 方程的梯度下降法有：PRNCG 方法\cite{10.1090/S0025-5718-1993-1192966-4}，多重网格 PRNCG 方法\cite{10.1137/S1064827598339098}；预条件梯度下降法\cite{10.1007/s10915-007-9134-z}、混合预条件共轭梯度法\cite{IJNAM-2-123}、加速的最速下降法\cite{10.1016/j.amc.2013.07.096}。特别地，在文章\cite{10.1007/s10915-007-9134-z}中，作者提出了一种基于线性化范数的预条件子，以使得收敛性能与网格无关。
 
-我们这里采用预条件梯度下降法，将文章\cite{10.1007/s10915-007-9134-z}的工作推广到 LDG 格式中。\(J_{h}(\cdot): V_{h} \mapsto \R\) 在 \(u_{h} \in V_{h}\) 处的一阶 G{\^{a}}teaux 导数在 \(v_{h} \in V_{h}\) 上的作用为：
-\begin{equation}
-	\begin{aligned}
-		J_{h}'(u_{h})(v_{h})
-		= & \left(\mathcal{A}\left(D_{DG}\left(u_{h}; g_{D}\right)\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} \\
-		& + \left\langle \eta\mathcal{A}\left(h^{-\alpha}\left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}} \\
-		& - \left(f, v_{h}\right)_{\Omega} - \left\langle \bm g_{N}\cdot\bm n, v_{h}\right\rangle_{\Gamma^{N}}
-	\end{aligned}
-\end{equation}
-同时，\(J_{h}(\cdot)\) 在 \(u_{h} \in V_{h}\) 处的最速下降方向(未归一) \(w_{h} \in V_{h}\) 满足：
+我们这里采用预条件梯度下降法，将文章\cite{10.1007/s10915-007-9134-z}的工作推广到 LDG 格式中。利用引理~\ref{Gateaux derivative of Jh}，\(J_{h}(\cdot)\) 在 \(u_{h} \in V_{h}\) 处的最速下降方向(未归一) \(w_{h} \in V_{h}\) 满足：
 \begin{equation}
 	J_{h}'(u_{h})(w_{h}) = -\norm{J'(u_{h})}_{\ast} \norm{w_{h}} = -\sup_{v_{h} \in V_{h}}\frac{J_{h}'(u_{h})(v_{h})}{\norm{v_{h}}} \norm{w_{h}}
 \end{equation}
 这里，\(\norm{\cdot}\) 是待定的范数。模仿文章\cite{10.1007/s10915-007-9134-z}，并利用间断有限元近似广义梯度的算子 \(D_{DG}(\cdot; \cdot)\)，我们将给出三种选择：
 \begin{subequations}
 	\begin{equation}\label{p-Laplace LDG minimization descent norm 1}
-		\norm{w_{h}}^{2} = \norm{D_{DG}\left(w_{h}; 0\right)}_{L^2(\Omega)}^{2} + \norm{\jump{w_{h}}}_{L^2(\Gamma^{o}, \eta h^{-\alpha})}^{2} + \norm{w_{h}}_{L^2(\Gamma^{D}, \eta h^{-\alpha})}^{2}
+		\norm{w_{h}}^{2} = \norm{D_{DG}\left(w_{h}; 0\right)}_{L^2(\Omega)}^{2} + \norm{\jump{w_{h}}}_{L^2(\Gamma^{o}, \eta h^{-1})}^{2} + \norm{w_{h}}_{L^2(\Gamma^{D}, \eta h^{-1})}^{2}
 	\end{equation}
 	\begin{equation}\label{p-Laplace LDG minimization descent norm 2}
 		\begin{aligned}
 			\norm{w_{h}}^{2}
 			= & \norm{D_{DG}\left(w_{h}; 0\right)}_{L^2(\Omega, \epsilon + \abs{D_{DG}\left(u_{h}; g_{D}\right)}^{p-2})}^{2} \\
-			& + \norm{\jump{w_{h}}}_{L^2(\Gamma^{o}, \eta h^{-\alpha}(\epsilon + \abs{h^{-\alpha} \jump{u_{h}}}^{p-2}))}^{2} \\
-			& + \norm{w_{h}}_{L^2(\Gamma^{D}, \eta h^{-\alpha}(\epsilon + \abs{h^{-\alpha}(u_{h} - g_{D})}^{p-2}))}^{2}
+			& + \norm{\jump{w_{h}}}_{L^2(\Gamma^{o}, \eta h^{-1}(\epsilon + \abs{h^{-1} \jump{u_{h}}}^{p-2}))}^{2} \\
+			& + \norm{w_{h}}_{L^2(\Gamma^{D}, \eta h^{-1}(\epsilon + \abs{h^{-1}(u_{h} - g_{D})}^{p-2}))}^{2}
 		\end{aligned}
 	\end{equation}
 	\begin{equation}\label{p-Laplace LDG minimization descent norm 3}
@@ -907,7 +1117,7 @@
 		\begin{aligned}
 			& \text{find \(w_{h} \in V_{h}\) such that \(\forall v_{h} \in V_{h}\):} \\
 			& \begin{aligned}
-				& \left(D_{DG}\left(w_{h}; 0\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta h^{-\alpha} \jump{w_{h}}, \jump{v_{h}} \right\rangle_{\Gamma^{o}} + \left\langle \eta h^{-\alpha} w_{h}, v_{h}\right\rangle_{\Gamma^{D}} \\
+				& \left(D_{DG}\left(w_{h}; 0\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta h^{-1} \jump{w_{h}}, \jump{v_{h}} \right\rangle_{\Gamma^{o}} + \left\langle \eta h^{-1} w_{h}, v_{h}\right\rangle_{\Gamma^{D}} \\
 				= & -J_{h}'(u_{h})(v_{h})
 			\end{aligned}
 		\end{aligned}
@@ -917,8 +1127,8 @@
 			& \text{find \(w_{h} \in V_{h}\) such that \(\forall v_{h} \in V_{h}\):} \\
 			& \begin{aligned}
 				& \left( \left(\epsilon + \abs{D_{DG}\left(u_{h}; g_{D}\right)}^{p-2}\right) D_{DG}\left(w_{h}; 0\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} \\
-				& + \left\langle \eta h^{-\alpha}\left(\epsilon + \abs{h^{-\alpha} \jump{u_{h}}}^{p-2}\right) \jump{w_{h}}, \jump{v_{h}} \right\rangle_{\Gamma^{o}} \\
-				& + \left\langle \eta h^{-\alpha}\left(\epsilon + \abs{h^{-\alpha} (u_{h} - g_{D})}^{p-2}\right) w_{h}, v_{h}\right\rangle_{\Gamma^{D}} \\
+				& + \left\langle \eta h^{-1}\left(\epsilon + \abs{h^{-1} \jump{u_{h}}}^{p-2}\right) \jump{w_{h}}, \jump{v_{h}} \right\rangle_{\Gamma^{o}} \\
+				& + \left\langle \eta h^{-1}\left(\epsilon + \abs{h^{-1} (u_{h} - g_{D})}^{p-2}\right) w_{h}, v_{h}\right\rangle_{\Gamma^{D}} \\
 				= & -J_{h}'(u_{h})(v_{h})
 			\end{aligned}
 		\end{aligned}
@@ -969,7 +1179,7 @@
 
 \subsubsection{Numerical Example 1 (1D Dirichlet)}
 
-区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = (x+1)^{\frac{p-2}{p-1}}\)，采用 Dirichlet 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-\alpha}\)，\(C_{12} = \frac{1}{2}\)，其中 \(\eta = 1\)，\(\alpha = -1\). 我们使用 Lobatto 配点法，并使用相同点数的 Gauss-Lobatto 公式进行数值积分和误差测量。迭代参数取 \(\delta_{w_{h}} = 10^{-16}\)，\(\delta_{\rho} = 10^{-16}\)，稳定项在 \(p < 2\) 时取 \(\epsilon = 10^{-10}\)，在 \(p > 2\) 时取 \(\epsilon = 10^{-4}\)，迭代初值取 Poisson 方程的数值解。部分测试结果如下：
+区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = (x+1)^{\frac{p-2}{p-1}}\)，采用 Dirichlet 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-1}\)，\(C_{12} = \frac{1}{2}\)，其中 \(\eta = 1\). 我们使用 Lobatto 配点法，并使用相同点数的 Gauss-Lobatto 公式进行数值积分和误差测量。迭代参数取 \(\delta_{w_{h}} = 10^{-16}\)，\(\delta_{\rho} = 10^{-16}\)，稳定项在 \(p < 2\) 时取 \(\epsilon = 10^{-10}\)，在 \(p > 2\) 时取 \(\epsilon = 10^{-4}\)，迭代初值取 Poisson 方程的数值解。部分测试结果如下：
 
 
 
@@ -979,7 +1189,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1003,7 +1213,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1027,7 +1237,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1051,7 +1261,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1080,7 +1290,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1104,7 +1314,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1128,7 +1338,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1152,7 +1362,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1176,7 +1386,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1207,7 +1417,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1231,7 +1441,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1255,7 +1465,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1279,7 +1489,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1303,7 +1513,7 @@
 		\begin{tabular}{c | c c | c c | c c | c c }
 			\toprule
 
-			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p^{\ast}}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
+			\(N\) & \(\norm{u - u_{h}}_{L^p}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}}\) & order & \(\norm{u - u_{h}}_{L^2}\) & order & \(\norm{\bm\sigma - \bm\sigma_{h}}_{L^2}\) & order \\
 
 			\midrule
 
@@ -1397,7 +1607,7 @@
 
 测试中，所有的三种预条件子都显示出了与网格、多项式次数均无关的迭代次数和下降曲线，符合我们的预期。其中，加权预条件子的收敛速度优于 Poisson 预条件子，并显著优于标准预条件子，速度之间的差距随着 \(p + \frac{1}{p-1}\) 增大而迅速增大。在测试收敛阶时，当 \(p > 2\) 且 \(k \geqslant 2\) 时，只有加权预条件子可以给出满意的结果；Poisson 预条件子可以得到最优的 \(\bm\sigma_{h}\) 的收敛阶，但是 \(u_{h}\) 的收敛阶则会较低。有趣的是，当 \(p > 2\) 且 \(k = 1\) 时，Poisson 预条件子和加权预条件子给出的 \(\bm\sigma_{h}\) 的误差几乎相等，但是加权预条件子给出的 \(u_{h}\) 误差明显高于 Poisson 预条件子，经过实验我们发现 \(u_{h}\) 的误差和稳定项 \(\epsilon\) 的取值有关。除这两个预条件子之外，标准预条件子需要的迭代次数显著高于其他两者，因此我们没有采用。
 
-在上面的算例中(以及其他收敛的 \(p\) 值测试中)，我们观察到对 \(\left(\bm\sigma, u\right)\) 的 \(L^{p^{\ast}}\times L^{p}\) 的 \(\left(k, k+1\right)\) 阶收敛，这在 LDG 框架下是最优的。同时，当 \(p > 2\) 时，对 \(u\) 的 \(L^2\) 收敛阶比 \(L^{p}\) 收敛阶高，对 \(\bm\sigma\) 的 \(L^2\) 收敛阶比 \(L^{p^{\ast}}\) 收敛阶低；当 \(p < 2\) 时反之。这与多项式逼近的反向估计结果一致。
+在上面的算例中(以及其他收敛的 \(p\) 值测试中)，我们观察到对 \(\left(\bm\sigma, u\right)\) 的 \(L^{p'}\times L^{p}\) 的 \(\left(k, k+1\right)\) 阶收敛，这在 LDG 框架下是最优的。同时，当 \(p > 2\) 时，对 \(u\) 的 \(L^2\) 收敛阶比 \(L^{p}\) 收敛阶高，对 \(\bm\sigma\) 的 \(L^2\) 收敛阶比 \(L^{p'}\) 收敛阶低；当 \(p < 2\) 时反之。这与多项式逼近的反向估计结果一致。
 
 
 \subsubsection{Conclusion}
@@ -1406,7 +1616,7 @@
 \begin{enumerate}
 	\item 基于梯度下降的数值格式对任何迭代初值都保证收敛，且收敛性能与网格无关。
 	\item 未知函数数量少。
-	\item 在数值实验中，对 \(\left(\bm\sigma, u\right)\) 的 \(L^{p^{\ast}} \times L^{p}\) 误差有 \(\left(k, k+1\right)\) 阶收敛阶。
+	\item 在数值实验中，对 \(\left(\bm\sigma, u\right)\) 的 \(L^{p'} \times L^{p}\) 误差有 \(\left(k, k+1\right)\) 阶收敛阶。
 \end{enumerate}
 此方法的劣势在于：
 \begin{enumerate}
