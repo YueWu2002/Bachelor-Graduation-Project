@@ -1,6 +1,3 @@
-\documentclass[UTF8,oneside,12pt]{ctexart} % oneside防止主动空页，11pt设置normalsize，仅可以设置10,11,12
-
-
 \usepackage[a4paper]{geometry} % 页面尺寸设置包(窄)
 % 窄边：left=1.27cm,right=1.27cm,top=1.27cm,bottom=1.27cm
 % 正常：left=2.5cm,right=2.5cm,top=2.54cm,bottom=2.54cm
@@ -43,7 +40,7 @@
 % \usepackage{enumerate} % 改变enumerate编号格式
 
 
-\usepackage{mathrsfs} % 花体\mathscr
+\usepackage{mathrsfs} % 花体\mathscr，需要安装jknapltx(TexLive)或者jknappen(MikTex)包
 
 
 \usepackage{hyperref} % 可以在前面加入[hidelinks]来不显示超链接框，提供各种超链接；在标题需要写数学公式时，用\texorpdfstring{Tex}{String}替代，其中Tex写数学公式，String写用于替代公式的文本串(用于在书签中显式)
@@ -73,7 +70,7 @@
 %\usepackage{xcolor}%字体颜色
 
 
-\usepackage[backend=bibtex, sorting=none]{biblatex} % 选择后端处理方式为bibtex(需要运行bibtex)，编号方式是数值编号，禁用重排序，引用格式是gb7714-2015(需要xstring.sty)
+\usepackage[backend=bibtex, sorting=none]{biblatex} % 选择后端处理方式为bibtex(需要运行bibtex)，编号方式是数值编号，禁用重排序，引用格式是gb7714-2015(需要xstring.sty)，需要安装biblatex包(以及biblatex-gb7714-2015包)
 
 
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}} % 表格单元格内换行

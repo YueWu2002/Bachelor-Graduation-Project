@@ -1,3 +1,4 @@
+\documentclass[UTF8, oneside, 12pt]{ctexart} % oneside防止主动空页，11pt设置normalsize，仅可以设置10,11,12
 \input{includefiles/headfile.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %封面设置
@@ -24,7 +25,9 @@
 % 有的单词要斜体，例如 \emph{a Posteriori}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{document}%文件开始
+
+\begin{document}
+
 \maketitle
 \tableofcontents
 
@@ -33,9 +36,7 @@
 
 % keyword: discontinuous Galerkin methods, p-Laplacian equation, nonlinear elliptic equations, variational inequalities
 
-\iffalse
 \input{includefiles/Poisson.tex}
-\fi
 \input{includefiles/p-Laplacian.tex}
 
 % 备注：

@@ -38,8 +38,7 @@
     \field{edition}{2nd}
     \field{isbn}{978-0-471-31716-6}
     \field{pages}{181\bibrangedash 210}
-    \field{series}{Pure and Applied Mathematics: A Wiley Series of Texts,
-  Monographs, and Tracts}
+    \field{series}{Pure and Applied Mathematics: A Wiley Series of Texts, Monographs, and Tracts}
     \field{title}{\(L^p\) Spaces}
     \field{volume}{125}
     \list{location}{1}{%
@@ -275,8 +274,7 @@
     \endverb
     \field{number}{5}
     \field{pages}{1749\bibrangedash 1779}
-    \field{title}{Unified Analysis of Discontinuous {Galerkin} Methods for
-  Elliptic Problems}
+    \field{title}{Unified Analysis of Discontinuous {Galerkin} Methods for Elliptic Problems}
     \verb{url}
     \verb https://doi.org/10.1137/S0036142901384162
     \endverb
@@ -339,8 +337,7 @@
     \strng{fullhash}{ADNBFCBMD1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Discontinuous {Galerkin} Methods: Theory, Computation and
-  Applications}
+    \field{booktitle}{Discontinuous {Galerkin} Methods: Theory, Computation and Applications}
     \verb{doi}
     \verb 10.1007/978-3-642-59721-3_5
     \endverb
@@ -383,8 +380,7 @@
     \field{issn}{1572-9265}
     \field{number}{2}
     \field{pages}{349\bibrangedash 366}
-    \field{title}{Spectral Element Methods on Unstructured Meshes: Which
-  Interpolation Points?}
+    \field{title}{Spectral Element Methods on Unstructured Meshes: Which Interpolation Points?}
     \verb{url}
     \verb https://doi.org/10.1007/s11075-010-9390-0
     \endverb
@@ -499,8 +495,7 @@
     \field{issn}{0025-5718}
     \field{number}{236}
     \field{pages}{1543\bibrangedash 1547}
-    \field{title}{Tensor Product {Gauss}-{Lobatto} Points are {Fekete} Points
-  for the Cube}
+    \field{title}{Tensor Product {Gauss}-{Lobatto} Points are {Fekete} Points for the Cube}
     \verb{url}
     \verb https://doi.org/10.1090/S0025-5718-00-01262-X
     \endverb
@@ -531,8 +526,7 @@
     \endverb
     \field{number}{2}
     \field{pages}{1304\bibrangedash 1318}
-    \field{title}{On the Existence of Explicit \(hp\)-Finite Element Methods
-  Using {Gauss}-{Lobatto} Integration on the Triangle}
+    \field{title}{On the Existence of Explicit \(hp\)-Finite Element Methods Using {Gauss}-{Lobatto} Integration on the Triangle}
     \verb{url}
     \verb https://doi.org/10.1137/070685439
     \endverb
@@ -566,8 +560,7 @@
     \field{issn}{0045-7825}
     \field{number}{3}
     \field{pages}{405\bibrangedash 417}
-    \field{title}{Approximate Optimal Points for Polynomial Interpolation of
-  Real Functions in an Interval and in a Triangle}
+    \field{title}{Approximate Optimal Points for Polynomial Interpolation of Real Functions in an Interval and in a Triangle}
     \verb{url}
     \verb https://www.sciencedirect.com/science/article/pii/0045782595008896
     \endverb
@@ -597,8 +590,7 @@
     \endverb
     \field{number}{2}
     \field{pages}{655\bibrangedash 676}
-    \field{title}{From Electrostatics to Almost Optimal Nodal Sets for
-  Polynomial Interpolation in a Simplex}
+    \field{title}{From Electrostatics to Almost Optimal Nodal Sets for Polynomial Interpolation in a Simplex}
     \verb{url}
     \verb https://doi.org/10.1137/S003614299630587X
     \endverb
@@ -678,8 +670,7 @@
     \field{issn}{1991-7139}
     \field{number}{1}
     \field{pages}{89\bibrangedash 96}
-    \field{title}{A Set of Symmetric Quadrature Rules on Triangles and
-  Tetrahedra}
+    \field{title}{A Set of Symmetric Quadrature Rules on Triangles and Tetrahedra}
     \verb{url}
     \verb http://www.jstor.org/stable/43693493
     \endverb
@@ -717,8 +708,7 @@
     \field{issn}{0898-1221}
     \field{number}{2}
     \field{pages}{663\bibrangedash 676}
-    \field{title}{A Numerical Algorithm for the Construction of Efficient
-  Quadrature Rules in Two and Higher Dimensions}
+    \field{title}{A Numerical Algorithm for the Construction of Efficient Quadrature Rules in Two and Higher Dimensions}
     \verb{url}
     \verb https://www.sciencedirect.com/science/article/pii/S0898122109007263
     \endverb
@@ -748,14 +738,12 @@
     \endverb
     \field{number}{6}
     \field{pages}{1129\bibrangedash 1148}
-    \field{title}{High Degree Efficient Symmetrical {Gaussian} Quadrature Rules
-  for the Triangle}
+    \field{title}{High Degree Efficient Symmetrical {Gaussian} Quadrature Rules for the Triangle}
     \verb{url}
     \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.1620210612
     \endverb
     \field{volume}{21}
-    \field{journaltitle}{International Journal for Numerical Methods in
-  Engineering}
+    \field{journaltitle}{International Journal for Numerical Methods in Engineering}
     \field{year}{1985}
   \endentry
 
@@ -784,8 +772,7 @@
     \field{issn}{1573-7691}
     \field{number}{1}
     \field{pages}{377\bibrangedash 387}
-    \field{title}{Spectral Element Methods on Unstructured Meshes: Comparisons
-  and Recent Advances}
+    \field{title}{Spectral Element Methods on Unstructured Meshes: Comparisons and Recent Advances}
     \verb{url}
     \verb https://doi.org/10.1007/s10915-005-9048-6
     \endverb
@@ -884,16 +871,14 @@
     \strng{fullhash}{OSTAVGM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Spectral and High Order Methods for Partial Differential
-  Equations {ICOSAHOM} 2018}
+    \field{booktitle}{Spectral and High Order Methods for Partial Differential Equations {ICOSAHOM} 2018}
     \verb{doi}
     \verb 10.1007/978-3-030-39647-3_5
     \endverb
     \field{isbn}{978-3-030-39647-3}
     \field{pages}{79\bibrangedash 92}
     \field{series}{Lecture Notes in Computational Science and Engineering}
-    \field{title}{Recurrence Relations for a Family of Orthogonal Polynomials
-  on a Triangle}
+    \field{title}{Recurrence Relations for a Family of Orthogonal Polynomials on a Triangle}
     \verb{url}
     \verb https://doi.org/10.1007/978-3-030-39647-3_5
     \endverb
@@ -1074,8 +1059,7 @@
     \field{issn}{1573-2703}
     \field{number}{3}
     \field{pages}{263\bibrangedash 272}
-    \field{title}{A Comparison of Interpolation Grids over the Triangle or the
-  Tetrahedron}
+    \field{title}{A Comparison of Interpolation Grids over the Triangle or the Tetrahedron}
     \verb{url}
     \verb https://doi.org/10.1007/s10665-006-9063-0
     \endverb
@@ -1154,8 +1138,7 @@
     \verb https://doi.org/10.2514/3.2874
     \endverb
     \field{volume}{3}
-    \field{journaltitle}{American Institute of Aeronautics and Astronautics
-  Journal}
+    \field{journaltitle}{American Institute of Aeronautics and Astronautics Journal}
     \field{year}{1965}
   \endentry
 
@@ -1180,8 +1163,7 @@
     \endverb
     \field{number}{3}
     \field{pages}{A1008\bibrangedash A1026}
-    \field{title}{Iteration-Free Computation of {Gauss}-{Legendre} Quadrature
-  Nodes and Weights}
+    \field{title}{Iteration-Free Computation of {Gauss}-{Legendre} Quadrature Nodes and Weights}
     \verb{url}
     \verb https://doi.org/10.1137/140954969
     \endverb
@@ -1211,8 +1193,7 @@
     \endverb
     \field{number}{3}
     \field{pages}{945\bibrangedash 954}
-    \field{title}{On Computing the Points and Weights for {Gauss}-{Legendre}
-  Quadrature}
+    \field{title}{On Computing the Points and Weights for {Gauss}-{Legendre} Quadrature}
     \verb{url}
     \verb https://doi.org/10.1137/S1064827500379690
     \endverb
@@ -1305,13 +1286,13 @@
     \endverb
     \field{number}{10-12}
     \field{pages}{1336\bibrangedash 1362}
-    \field{title}{A Performance Comparison of Nodal Discontinuous {Galerkin}
-  Methods on Triangles and Quadrilaterals}
+    \field{title}{A Performance Comparison of Nodal Discontinuous {Galerkin} Methods on Triangles and Quadrilaterals}
     \verb{url}
     \verb https://doi.org/10.1002/fld.2376
     \endverb
     \field{volume}{64}
     \field{journaltitle}{International Journal for Numerical Methods in Fluids}
+    \field{month}{01}
     \field{year}{2010}
   \endentry
 
@@ -1343,8 +1324,7 @@
     \field{edition}{1st}
     \field{isbn}{0387720650}
     \field{series}{Texts in Applied Mathematics}
-    \field{title}{Nodal Discontinuous {Galerkin} Methods: Algorithms, Analysis,
-  and Applications}
+    \field{title}{Nodal Discontinuous {Galerkin} Methods: Algorithms, Analysis, and Applications}
     \verb{url}
     \verb https://doi.org/10.1007/978-0-387-72067-8
     \endverb
@@ -1374,8 +1354,7 @@
     \strng{fullhash}{DSSFJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{An Invitation to the Theory of the Hybridizable
-  Discontinuous {Galerkin} Method: Projections, Estimates, Tools}
+    \field{booktitle}{An Invitation to the Theory of the Hybridizable Discontinuous {Galerkin} Method: Projections, Estimates, Tools}
     \verb{doi}
     \verb 10.1007/978-3-030-27230-2_2
     \endverb
@@ -1412,8 +1391,7 @@
     \endverb
     \field{number}{2}
     \field{pages}{524\bibrangedash 547}
-    \field{title}{Performance of Discontinuous {Galerkin} Methods for Elliptic
-  {PDE}s}
+    \field{title}{Performance of Discontinuous {Galerkin} Methods for Elliptic {PDE}s}
     \verb{url}
     \verb https://doi.org/10.1137/S1064827501388339
     \endverb
@@ -1455,8 +1433,7 @@
     \endverb
     \field{number}{4}
     \field{pages}{1742\bibrangedash 1776}
-    \field{title}{Locally Conservative Fluxes for the Continuous {Galerkin}
-  Method}
+    \field{title}{Locally Conservative Fluxes for the Continuous {Galerkin} Method}
     \verb{url}
     \verb https://doi.org/10.1137/060666305
     \endverb
@@ -1492,8 +1469,7 @@
     \endverb
     \field{number}{6}
     \field{pages}{2440\bibrangedash 2463}
-    \field{title}{The Local Discontinuous {Galerkin} Method for Time-Dependent
-  Convection-Diffusion Systems}
+    \field{title}{The Local Discontinuous {Galerkin} Method for Time-Dependent Convection-Diffusion Systems}
     \verb{url}
     \verb https://doi.org/10.1137/S0036142997316712
     \endverb
@@ -1541,8 +1517,7 @@
     \endverb
     \field{number}{5}
     \field{pages}{1676\bibrangedash 1706}
-    \field{title}{An \emph{a Priori} Error Analysis of the Local Discontinuous
-  {Galerkin} Method for Elliptic Problems}
+    \field{title}{An \emph{a Priori} Error Analysis of the Local Discontinuous {Galerkin} Method for Elliptic Problems}
     \verb{url}
     \verb https://doi.org/10.1137/S0036142900371003
     \endverb
@@ -1578,8 +1553,7 @@
     \endverb
     \field{number}{4}
     \field{pages}{1806\bibrangedash 1824}
-    \field{title}{The Compact Discontinuous {Galerkin} ({CDG}) Method for
-  Elliptic Problems}
+    \field{title}{The Compact Discontinuous {Galerkin} ({CDG}) Method for Elliptic Problems}
     \verb{url}
     \verb https://doi.org/10.1137/070685518
     \endverb
@@ -1613,8 +1587,7 @@
     \field{issn}{1573-7691}
     \field{number}{2}
     \field{pages}{233\bibrangedash 262}
-    \field{title}{An Analysis of the Minimal Dissipation Local Discontinuous
-  {Galerkin} Method for Convection-Diffusion Problems}
+    \field{title}{An Analysis of the Minimal Dissipation Local Discontinuous {Galerkin} Method for Convection-Diffusion Problems}
     \verb{url}
     \verb https://doi.org/10.1007/s10915-007-9130-3
     \endverb
@@ -1643,15 +1616,12 @@
     \field{issn}{1865-8784}
     \field{number}{1}
     \field{pages}{9\bibrangedash 15}
-    \field{title}{\"{U}ber ein Variationsprinzip zur L\"{o}sung von
-  {Dirichlet}-Problemen bei Verwendung von Teilr\"{a}umen, die keinen
-  Randbedingungen unterworfen sind}
+    \field{title}{\"{U}ber ein Variationsprinzip zur L\"{o}sung von {Dirichlet}-Problemen bei Verwendung von Teilr\"{a}umen, die keinen Randbedingungen unterworfen sind}
     \verb{url}
     \verb https://doi.org/10.1007/BF02995904
     \endverb
     \field{volume}{36}
-    \field{journaltitle}{Abhandlungen aus dem Mathematischen Seminar der
-  Universit\"{a}t Hamburg}
+    \field{journaltitle}{Abhandlungen aus dem Mathematischen Seminar der Universit\"{a}t Hamburg}
     \field{month}{07}
     \field{year}{1971}
   \endentry
@@ -1693,9 +1663,7 @@
     \field{issn}{0025-5718}
     \field{number}{238}
     \field{pages}{455\bibrangedash 478}
-    \field{title}{Optimal \emph{a Priori} Error Estimates for the
-  \(hp\)-Version of the Local Discontinuous {Galerkin} Method for
-  Convection-Diffusion Problems}
+    \field{title}{Optimal \emph{a Priori} Error Estimates for the \(hp\)-Version of the Local Discontinuous {Galerkin} Method for Convection-Diffusion Problems}
     \verb{url}
     \verb https://doi.org/10.1090/S0025-5718-01-01317-5
     \endverb
@@ -1744,8 +1712,7 @@
     \endverb
     \field{number}{1}
     \field{pages}{264\bibrangedash 285}
-    \field{title}{Superconvergence of the Local Discontinuous {Galerkin} Method
-  for Elliptic Problems on {Cartesian} Grids}
+    \field{title}{Superconvergence of the Local Discontinuous {Galerkin} Method for Elliptic Problems on {Cartesian} Grids}
     \verb{url}
     \verb https://doi.org/10.1137/S0036142900371544
     \endverb
@@ -1849,8 +1816,7 @@
     \field{issn}{0898-1221}
     \field{number}{1}
     \field{pages}{11\bibrangedash 46}
-    \field{title}{{FESTUNG}: A {MATLAB}/{GNU} {Octave} Toolbox for the
-  Discontinuous {Galerkin} Method, Part I: Diffusion Operator}
+    \field{title}{{FESTUNG}: A {MATLAB}/{GNU} {Octave} Toolbox for the Discontinuous {Galerkin} Method, Part I: Diffusion Operator}
     \verb{url}
     \verb https://doi.org/10.1016/j.camwa.2015.04.013
     \endverb
@@ -1945,8 +1911,7 @@
     \endverb
     \field{number}{2}
     \field{pages}{C73\bibrangedash C96}
-    \field{title}{Manycore Parallel Computing for a Hybridizable Discontinuous
-  {Galerkin} Nested Multigrid Method}
+    \field{title}{Manycore Parallel Computing for a Hybridizable Discontinuous {Galerkin} Nested Multigrid Method}
     \verb{url}
     \verb https://doi.org/10.1137/17M1128903
     \endverb
@@ -1988,8 +1953,7 @@
     \endverb
     \field{number}{2}
     \field{pages}{1319\bibrangedash 1365}
-    \field{title}{Unified Hybridization of Discontinuous {Galerkin}, Mixed, and
-  Continuous {Galerkin} Methods for Second Order Elliptic Problems}
+    \field{title}{Unified Hybridization of Discontinuous {Galerkin}, Mixed, and Continuous {Galerkin} Methods for Second Order Elliptic Problems}
     \verb{url}
     \verb https://doi.org/10.1137/070706616
     \endverb
@@ -2043,8 +2007,7 @@
     \endverb
     \field{number}{5}
     \field{pages}{3827\bibrangedash 3846}
-    \field{title}{A Hybridizable Discontinuous {Galerkin} Method for
-  Steady-State Convection-Diffusion-Reaction Problems}
+    \field{title}{A Hybridizable Discontinuous {Galerkin} Method for Steady-State Convection-Diffusion-Reaction Problems}
     \verb{url}
     \verb https://doi.org/10.1137/080728810
     \endverb
@@ -2086,8 +2049,7 @@
     \endverb
     \field{number}{264}
     \field{pages}{1887\bibrangedash 1916}
-    \field{title}{A Superconvergent {LDG}-Hybridizable {Galerkin} Method for
-  Second-Order Elliptic Problems}
+    \field{title}{A Superconvergent {LDG}-Hybridizable {Galerkin} Method for Second-Order Elliptic Problems}
     \verb{url}
     \verb https://doi.org/10.1090/S0025-5718-08-02123-6
     \endverb
@@ -2173,8 +2135,7 @@
     \field{issn}{0025-5718}
     \field{number}{265}
     \field{pages}{1\bibrangedash 24}
-    \field{title}{Superconvergent Discontinuous {Galerkin} Methods for
-  Second-Order Elliptic Problems}
+    \field{title}{Superconvergent Discontinuous {Galerkin} Methods for Second-Order Elliptic Problems}
     \verb{url}
     \verb https://www.ams.org/journals/mcom/2009-78-265/S0025-5718-08-02146-7/h
     \verb ome.html
@@ -2203,8 +2164,7 @@
     \field{issn}{0045-7825}
     \field{number}{41}
     \field{pages}{4675\bibrangedash 4685}
-    \field{title}{A Superconvergence Result for Discontinuous {Galerkin}
-  Methods Applied to Elliptic Problems}
+    \field{title}{A Superconvergence Result for Discontinuous {Galerkin} Methods Applied to Elliptic Problems}
     \verb{url}
     \verb https://www.sciencedirect.com/science/article/pii/S0045782503004456
     \endverb
@@ -2235,8 +2195,7 @@
     \strng{fullhash}{DSSFJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{An Invitation to the Theory of the Hybridizable
-  Discontinuous {Galerkin} Method: Projections, Estimates, Tools}
+    \field{booktitle}{An Invitation to the Theory of the Hybridizable Discontinuous {Galerkin} Method: Projections, Estimates, Tools}
     \field{chapter}{3}
     \verb{doi}
     \verb 10.1007/978-3-030-27230-2_3
@@ -2280,15 +2239,12 @@
     \endverb
     \field{number}{R2}
     \field{pages}{41\bibrangedash 76}
-    \field{title}{Sur L'Approximation, Par \'{E}l\'{e}ments Finis D'Ordre Un,
-  et la R\'{e}solution, Par P\'{e}nalisation-Dualit\'{e} D'une Classe de
-  Probl\`{e}mes de {Dirichlet} Non Lin\'{e}aires}
+    \field{title}{Sur L'Approximation, Par \'{E}l\'{e}ments Finis D'Ordre Un, et la R\'{e}solution, Par P\'{e}nalisation-Dualit\'{e} D'une Classe de Probl\`{e}mes de {Dirichlet} Non Lin\'{e}aires}
     \verb{url}
     \verb https://doi.org/10.1051/m2an/197509R200411
     \endverb
     \field{volume}{9}
-    \field{journaltitle}{Revue Fran\c{c}aise D'automatique, Informatique,
-  Recherche Op\'{e}rationnelle. Analyse Num\'{e}rique}
+    \field{journaltitle}{Revue Fran\c{c}aise D'automatique, Informatique, Recherche Op\'{e}rationnelle. Analyse Num\'{e}rique}
     \field{year}{1975}
   \endentry
 
@@ -2345,8 +2301,7 @@
     \strng{fullhash}{LDH1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Nonlinear Elliptic Partial Differential Equations: An
-  Introduction}
+    \field{booktitle}{Nonlinear Elliptic Partial Differential Equations: An Introduction}
     \field{chapter}{6}
     \verb{doi}
     \verb 10.1007/978-3-319-78390-1_6
@@ -2387,8 +2342,7 @@
     \verb https://jyx.jyu.fi/bitstream/handle/123456789/54658/Lindqvistplaplace
     \verb notes.pdf?sequence=1
     \endverb
-    \field{journaltitle}{Report / University of Jyv{\"a}skyl{\"a}, Department
-  of Mathematics and Statistics}
+    \field{journaltitle}{Report / University of Jyv{\"a}skyl{\"a}, Department of Mathematics and Statistics}
     \field{year}{2017}
   \endentry
 
@@ -2448,8 +2402,7 @@
     \field{issn}{0272-4979}
     \field{number}{1}
     \field{pages}{121\bibrangedash 132}
-    \field{title}{A Mixed Finite Element Method for a Nonlinear {Dirichlet}
-  Problem}
+    \field{title}{A Mixed Finite Element Method for a Nonlinear {Dirichlet} Problem}
     \verb{url}
     \verb https://doi.org/10.1093/imanum/18.1.121
     \endverb
@@ -2511,8 +2464,7 @@
     \field{isbn}{978-0-89871-514-9}
     \field{pages}{287\bibrangedash 332}
     \field{series}{Classics in Applied Mathematics}
-    \field{title}{Application of the Finite Element Method to Some Nonlinear
-  Problems}
+    \field{title}{Application of the Finite Element Method to Some Nonlinear Problems}
     \verb{url}
     \verb https://epubs.siam.org/doi/abs/10.1137/1.9780898719208.ch5
     \endverb
@@ -2547,8 +2499,7 @@
     \endverb
     \field{number}{5}
     \field{pages}{1870\bibrangedash 1895}
-    \field{title}{On Quasi-Norm Interpolation Error Estimation and \emph{a
-  Posteriori} Error Estimates for \(p\)-{Laplacian}}
+    \field{title}{On Quasi-Norm Interpolation Error Estimation and \emph{a Posteriori} Error Estimates for \(p\)-{Laplacian}}
     \verb{url}
     \verb https://doi.org/10.1137/S0036142901393589
     \endverb
@@ -2581,8 +2532,7 @@
     \endverb
     \field{issn}{0168-9274}
     \field{pages}{323\bibrangedash 337}
-    \field{title}{The Adaptive Finite Element Method for the \(p\)-{Laplace}
-  Problem}
+    \field{title}{The Adaptive Finite Element Method for the \(p\)-{Laplace} Problem}
     \verb{url}
     \verb https://doi.org/10.1016/j.apnum.2019.11.018
     \endverb
@@ -2658,8 +2608,7 @@
     \field{issn}{0945-3245}
     \field{number}{2}
     \field{pages}{233\bibrangedash 258}
-    \field{title}{Quasi-Norm Interpolation Error Estimates for the Piecewise
-  Linear Finite Element Approximation of \(p\)-{Laplacian} Problems}
+    \field{title}{Quasi-Norm Interpolation Error Estimates for the Piecewise Linear Finite Element Approximation of \(p\)-{Laplacian} Problems}
     \verb{url}
     \verb https://doi.org/10.1007/s00211-005-0594-5
     \endverb
@@ -2704,8 +2653,7 @@
     \field{issn}{0272-4979}
     \field{number}{2}
     \field{pages}{484\bibrangedash 510}
-    \field{title}{Optimality of an Adaptive Finite Element Method for the
-  \(p\)-{Laplacian} Equation}
+    \field{title}{Optimality of an Adaptive Finite Element Method for the \(p\)-{Laplacian} Equation}
     \verb{url}
     \verb https://doi.org/10.1093/imanum/drr016
     \endverb
@@ -2740,8 +2688,7 @@
     \field{issn}{0168-9274}
     \field{number}{4}
     \field{pages}{329\bibrangedash 344}
-    \field{title}{Approximation Theory for the \(hp\)-Version Finite Element
-  Method and Application to the Non-linear {Laplacian}}
+    \field{title}{Approximation Theory for the \(hp\)-Version Finite Element Method and Application to the Non-linear {Laplacian}}
     \verb{url}
     \verb https://www.sciencedirect.com/science/article/pii/S0168927499000409
     \endverb
@@ -2777,8 +2724,7 @@
     \endverb
     \field{number}{2}
     \field{pages}{614\bibrangedash 638}
-    \field{title}{Linear Convergence of an Adaptive Finite Element Method for
-  the \(p\)-{Laplacian} Equation}
+    \field{title}{Linear Convergence of an Adaptive Finite Element Method for the \(p\)-{Laplacian} Equation}
     \verb{url}
     \verb https://doi.org/10.1137/070681508
     \endverb
@@ -2818,8 +2764,7 @@
     \field{issn}{0045-7825}
     \field{number}{25}
     \field{pages}{2570\bibrangedash 2582}
-    \field{title}{\emph{A Posteriori} Error Estimation for the Dual Mixed
-  Finite Element Method for the \(p\)-{Laplacian} in a Polygonal Domain}
+    \field{title}{\emph{A Posteriori} Error Estimation for the Dual Mixed Finite Element Method for the \(p\)-{Laplacian} in a Polygonal Domain}
     \verb{url}
     \verb https://doi.org/10.1016/j.cma.2006.11.023
     \endverb
@@ -2853,8 +2798,7 @@
     \field{issn}{0945-3245}
     \field{number}{3}
     \field{pages}{351\bibrangedash 388}
-    \field{title}{The Approximation Theory for the \(p\)-Version Finite Element
-  Method and Application to Non-linear Elliptic {PDE}s}
+    \field{title}{The Approximation Theory for the \(p\)-Version Finite Element Method and Application to Non-linear Elliptic {PDE}s}
     \verb{url}
     \verb https://doi.org/10.1007/s002110050423
     \endverb
@@ -2893,8 +2837,7 @@
     \field{issn}{0272-4979}
     \field{number}{4}
     \field{pages}{827\bibrangedash 855}
-    \field{title}{Compact Embeddings of Broken {Sobolev} Spaces and
-  Applications}
+    \field{title}{Compact Embeddings of Broken {Sobolev} Spaces and Applications}
     \verb{url}
     \verb https://doi.org/10.1093/imanum/drn038
     \endverb
@@ -2932,9 +2875,7 @@
     \field{issn}{0025-5718}
     \field{number}{271}
     \field{pages}{1303\bibrangedash 1330}
-    \field{title}{Discrete Functional Analysis Tools for Discontinuous
-  {Galerkin} Methods with Application to the Incompressible {Navier}-{Stokes}
-  Equations}
+    \field{title}{Discrete Functional Analysis Tools for Discontinuous {Galerkin} Methods with Application to the Incompressible {Navier}-{Stokes} Equations}
     \verb{url}
     \verb https://doi.org/10.1090/S0025-5718-10-02333-1
     \endverb
@@ -2985,8 +2926,7 @@
     \field{issn}{0272-4979}
     \field{number}{4}
     \field{pages}{1447\bibrangedash 1488}
-    \field{title}{A Local Discontinuous {Galerkin} Approximation for Systems
-  with \(p\)-Structure}
+    \field{title}{A Local Discontinuous {Galerkin} Approximation for Systems with \(p\)-Structure}
     \verb{url}
     \verb https://doi.org/10.1093/imanum/drt040
     \endverb
@@ -3029,8 +2969,7 @@
     \endverb
     \field{number}{11}
     \field{pages}{855\bibrangedash 874}
-    \field{title}{Numerical Solutions of Systems with \((p, \delta)\)-Structure
-  Using Local Discontinuous {Galerkin} Finite Element Methods}
+    \field{title}{Numerical Solutions of Systems with \((p, \delta)\)-Structure Using Local Discontinuous {Galerkin} Finite Element Methods}
     \verb{url}
     \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/fld.3955
     \endverb
@@ -3064,8 +3003,7 @@
     \field{issn}{1631-073X}
     \field{number}{17}
     \field{pages}{1013\bibrangedash 1016}
-    \field{title}{Discontinuous {Galerkin} Approximation with Discrete
-  Variational Principle for the Nonlinear {Laplacian}}
+    \field{title}{Discontinuous {Galerkin} Approximation with Discrete Variational Principle for the Nonlinear {Laplacian}}
     \verb{url}
     \verb https://www.sciencedirect.com/science/article/pii/S1631073X08002057
     \endverb
@@ -3107,8 +3045,7 @@
     \verb https://global-sci.com/intro/article_detail/ijnam/20483.html
     \endverb
     \field{volume}{19}
-    \field{journaltitle}{International Journal of Numerical Analysis and
-  Modeling}
+    \field{journaltitle}{International Journal of Numerical Analysis and Modeling}
     \field{month}{02}
     \field{year}{2022}
   \endentry
@@ -3131,8 +3068,7 @@
     \endverb
     \field{issn}{0168-874X}
     \field{pages}{42\bibrangedash 50}
-    \field{title}{An Interior Penalty Discontinuous {Galerkin} Finite Element
-  Method for Quasilinear Parabolic Problems}
+    \field{title}{An Interior Penalty Discontinuous {Galerkin} Finite Element Method for Quasilinear Parabolic Problems}
     \verb{url}
     \verb https://www.sciencedirect.com/science/article/pii/S0168874X1400211X
     \endverb
@@ -3174,8 +3110,7 @@
     \endverb
     \field{number}{5}
     \field{pages}{2497\bibrangedash 2521}
-    \field{title}{Interior Penalty Discontinuous {Galerkin} {FEM} for the
-  \(p(x)\)-{Laplacian}}
+    \field{title}{Interior Penalty Discontinuous {Galerkin} {FEM} for the \(p(x)\)-{Laplacian}}
     \verb{url}
     \verb https://doi.org/10.1137/110820324
     \endverb
@@ -3211,8 +3146,7 @@
     \endverb
     \field{number}{1}
     \field{pages}{A545\bibrangedash A566}
-    \field{title}{A Hybridizable Discontinuous {Galerkin} Method for the
-  \(p\)-{Laplacian}}
+    \field{title}{A Hybridizable Discontinuous {Galerkin} Method for the \(p\)-{Laplacian}}
     \verb{url}
     \verb https://doi.org/10.1137/15M1008014
     \endverb
@@ -3246,8 +3180,7 @@
     \field{issn}{1573-7691}
     \field{number}{2}
     \field{pages}{1019\bibrangedash 1032}
-    \field{title}{Analysis on an {HDG} Method for the \(p\)-{Laplacian}
-  Equations}
+    \field{title}{Analysis on an {HDG} Method for the \(p\)-{Laplacian} Equations}
     \verb{url}
     \verb https://doi.org/10.1007/s10915-019-00967-6
     \endverb
@@ -3366,14 +3299,12 @@
     \field{issn}{2617-8710}
     \field{number}{0}
     \field{pages}{123\bibrangedash 130}
-    \field{title}{Preconditioned Hybrid Conjugate Gradient Algorithm for
-  \(p\)-{Laplacian}}
+    \field{title}{Preconditioned Hybrid Conjugate Gradient Algorithm for \(p\)-{Laplacian}}
     \verb{url}
     \verb http://global-sci.org/intro/article_detail/ijnam/952.html
     \endverb
     \field{volume}{2}
-    \field{journaltitle}{International Journal of Numerical Analysis and
-  Modeling}
+    \field{journaltitle}{International Journal of Numerical Analysis and Modeling}
     \field{month}{01}
     \field{year}{2005}
   \endentry
@@ -3402,8 +3333,7 @@
     \endverb
     \field{issn}{0096-3003}
     \field{pages}{36\bibrangedash 45}
-    \field{title}{The Steepest Descent Algorithm without Line Search for
-  \(p\)-{Laplacian}}
+    \field{title}{The Steepest Descent Algorithm without Line Search for \(p\)-{Laplacian}}
     \verb{url}
     \verb https://doi.org/10.1016/j.amc.2013.07.096
     \endverb
@@ -3469,8 +3399,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{pages}{8\bibrangedash 34}
-    \field{title}{An Efficient Primal-Dual Hybrid Gradient Algorithm for Total
-  Variation Image Restoration}
+    \field{title}{An Efficient Primal-Dual Hybrid Gradient Algorithm for Total Variation Image Restoration}
     \field{volume}{34}
     \field{journaltitle}{UCLA CAM Report}
     \field{year}{2008}
@@ -3501,8 +3430,7 @@
     \field{issn}{1573-7683}
     \field{number}{1}
     \field{pages}{120\bibrangedash 145}
-    \field{title}{A First-Order Primal-Dual Algorithm for Convex Problems with
-  Applications to Imaging}
+    \field{title}{A First-Order Primal-Dual Algorithm for Convex Problems with Applications to Imaging}
     \verb{url}
     \verb https://doi.org/10.1007/s10851-010-0251-1
     \endverb
@@ -3559,14 +3487,12 @@
     \endverb
     \field{number}{R2}
     \field{pages}{129\bibrangedash 151}
-    \field{title}{On the Existence, Uniqueness and Approximation of
-  Saddle-Point Problems Arising from {Lagrangian} Multipliers}
+    \field{title}{On the Existence, Uniqueness and Approximation of Saddle-Point Problems Arising from {Lagrangian} Multipliers}
     \verb{url}
     \verb https://doi.org/10.1051/m2an/197408R201291
     \endverb
     \field{volume}{8}
-    \field{journaltitle}{Revue Fran\c{c}aise D'Automatique, Informatique,
-  Recherche Op\'{e}rationnelle. Analyse Num\'{e}rique}
+    \field{journaltitle}{Revue Fran\c{c}aise D'Automatique, Informatique, Recherche Op\'{e}rationnelle. Analyse Num\'{e}rique}
     \field{year}{1974}
   \endentry
 
@@ -3591,8 +3517,7 @@
     \endverb
     \field{number}{2}
     \field{pages}{349\bibrangedash 357}
-    \field{title}{Existence, Uniqueness and Approximation for Generalized
-  Saddle Point Problems}
+    \field{title}{Existence, Uniqueness and Approximation for Generalized Saddle Point Problems}
     \verb{url}
     \verb https://doi.org/10.1137/0719021
     \endverb
@@ -3682,8 +3607,7 @@
     \endverb
     \field{number}{340}
     \field{pages}{607\bibrangedash 634}
-    \field{title}{A New Practical Framework for the Stability Analysis of
-  Perturbed Saddle-Point Problems and Applications}
+    \field{title}{A New Practical Framework for the Stability Analysis of Perturbed Saddle-Point Problems and Applications}
     \verb{url}
     \verb https://doi.org/10.1090/mcom/3795
     \endverb
@@ -3713,8 +3637,7 @@
     \endverb
     \field{number}{3}
     \field{pages}{761\bibrangedash 781}
-    \field{title}{Solvability and {Galerkin} Approximations of a Class of
-  Nonlinear Operator Equations}
+    \field{title}{Solvability and {Galerkin} Approximations of a Class of Nonlinear Operator Equations}
     \verb{url}
     \verb https://doi.org/10.4171/zaa/1107
     \endverb
