@@ -36,7 +36,7 @@
 		\bm\sigma \cdot \bm n = \bm g_{N} \cdot \bm n, & \text{on \(\Gamma^{N}\)}
 	\end{cases}
 \end{equation}
-这里，\(\frac{1}{p} + \frac{1}{p'} = 1\)，\(p\in(1,+\infty)\).
+这里，\(p\in(1,+\infty)\).
 
 
 \subsection{General Theory for the \texorpdfstring{\(p\)}{p}-Laplacian Equation}
@@ -71,13 +71,13 @@
 		J(u) = \frac{1}{p}\norm{\nabla u}_{L^p(\Omega)}^{p} - \left(f, u\right)_{\Omega} - \left\langle \bm g_{N} \cdot \bm n, u \right\rangle_{\Gamma^{N}}
 	\end{equation}
 \end{subequations}
-这里，\(p\in\left(1, +\infty\right)\)，\(f \in W^{-1, p'}(\Omega)\)，\(g_{D} \in W^{\frac{1}{p'}, p}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in W^{-\frac{1}{p'}, q}(\Gamma^{N})\). 
+这里，\(p\in\left(1, +\infty\right)\)，\(f \in W^{-1, p'}(\Omega)\)，\(g_{D} \in W^{\frac{1}{p'}, p}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in W^{-\frac{1}{p'}, p'}(\Gamma^{N})\). 
 
 \begin{theorem}[Existence, uniqueness, and equivalence]
 	当 \(p \in (1, +\infty)\) 时，\(p\)-Laplace 方程的弱形式\eqref{p-Laplace primal weak form}和最优化形式\eqref{p-Laplace primal minimization form}的解存在、唯一、相同。
 
 	\begin{proof}
-		\cite[Section 6.2]{10.1007/978-3-319-78390-1_6}给出了当 \(\Gamma^{N} = \emptyset\) 且 \(g_{D} = 0\) 时的证明，当没有上述两个假设时，证明也是类似的。
+		\cite[Section 6.2]{10.1007/978-3-319-78390-1_6}给出了当 \(\abs{\Gamma^{N}} > 0\) 且 \(g_{D} = 0\) 时的证明，当没有上述两个假设时，证明也是类似的。
 	\end{proof}
 \end{theorem}
 
@@ -154,7 +154,7 @@
 
 % 注记：写LDG的介绍时，可以参考Numerical solutions of systems with (p,δ)-structure using local discontinuous Galerkin finite element methods；写p-Laplace方程数值方法的介绍时，可以参考A Hybridizable Discontinuous Galerkin Method for p-Laplacian
 
-\(p\)-Laplace 方程最早的有限元方法是 Ciarlet 的基于变分方程的连续有限元方法\cite{10.1137/1.9780898719208.ch5}，\(W^{1,p}\)-conforming \(P^1\) 有限元的 \(W^{1,p}\) 误差收敛阶只有 \(\frac{1}{p-1}\)，未达到最优。之后，\(p\)-Laplace 方程的协调有限元和非协调有限元\cite{10.1137/S0036142901393589, 10.1016/j.apnum.2019.11.018, 10.4208/aamm.OA-2018-0117, 10.1007/s00211-005-0594-5, 10.1093/imanum/drr016, 10.1016/S0168-9274(99)00040-9, 10.1137/070681508}、混合有限元\cite{10.1093/imanum/18.1.121, 10.1216/camq/1008957338, 10.1016/j.cma.2006.11.023}被开发。上述这些文章均只考虑了低阶单元，文章\cite{10.1007/s002110050423}则首次考虑了使用 \(p\)-加密的高阶连续有限元，在数值实验上取得了良好的效果。
+\(p\)-Laplace 方程最早的有限元方法是 Ciarlet 的基于变分方程的连续有限元方法\cite{10.1137/1.9780898719208.ch5}，\(W^{1,p}\)-conforming \(P^1\) 有限元的 \(W^{1,p}\) 误差收敛阶只有 \(\frac{1}{p-1}\)，未达到最优。之后，\(p\)-Laplace 方程的协调有限元和非协调有限元\cite{10.1137/S0036142901393589, 10.1016/j.apnum.2019.11.018, 10.4208/aamm.OA-2018-0117, 10.1007/s00211-005-0594-5, 10.1093/imanum/drr016, AINSWORTH2000329, 10.1137/070681508}、混合有限元\cite{10.1093/imanum/18.1.121, 10.1216/camq/1008957338, 10.1016/j.cma.2006.11.023}被开发。上述这些文章均只考虑了低阶单元，文章\cite{10.1007/s002110050423}则首次考虑了使用 \(p\)-加密的高阶连续有限元，在数值实验上取得了良好的效果。
 
 针对空间维数 \(d > 1\) 的情形，文章 \cite{10.1093/imanum/drn038} 对指标为 \((k, p) \in \B{1} \times [1, d)\) 的 broken Sobolev 空间提出了一系列估计，这些估计后续被用于证明 \(p\)-Laplace 方程的 DG 格式的收敛性，但是一般情形下的收敛阶没有得到估计；文章 \cite[Theorem 6.1]{10.1090/S0025-5718-10-02333-1} 提出并证明了指标为 \((k, p) \in \B{1} \times [1, +\infty)\) 的 broken Sobolev 空间嵌入定理。
 
@@ -761,7 +761,7 @@
 \begin{subequations}
 	\begin{eqnarray}
 		&& Q_{h} = \bigoplus_{K \in \mathcal{T}_{h}} Q(K) =  \bigoplus_{K \in \mathcal{T}_{h}} \left(\mathscr{P}^{k}(K)\right)^{d} \\
-		&& V_{h} = \bigoplus_{K \in \mathcal{T}_{h}} \Sigma(K) =  \bigoplus_{K \in \mathcal{T}_{h}} \left(\mathscr{P}^{k}(K)\right)^{d} \\
+		&& \Sigma_{h} = \bigoplus_{K \in \mathcal{T}_{h}} \Sigma(K) =  \bigoplus_{K \in \mathcal{T}_{h}} \left(\mathscr{P}^{k}(K)\right)^{d} \\
 		&& V_{h} = \bigoplus_{K \in \mathcal{T}_{h}} V(K) =  \bigoplus_{K \in \mathcal{T}_{h}} \mathscr{P}^{k}(K)
 	\end{eqnarray}
 \end{subequations}
@@ -780,7 +780,7 @@
 		\end{cases}
 	\end{eqnarray}
 \end{subequations}
-这里惩罚参数 \(\eta > 0\) 与网格无关，需要有正的下界。
+这里，惩罚参数 \(\eta > 0\) 与网格无关，且有正的上下界；\(h_{e}\) 是单元边界 \(e\) 上的法向特征尺度。
 
 将数值通量\eqref{p-Laplace LDG numerical flux 2}代入 DG 格式\eqref{Global DG Scheme}，\(p\)-Laplace 方程\eqref{p-Laplace mixed form}的 LDG 格式可以写作：
 \begin{equation}\label{p-Laplace LDG weak form 2}
@@ -804,12 +804,12 @@
 	定义双线性算子 \(D_{DG}(\cdot, \cdot)\) 如下：
 	\begin{equation}
 		\begin{aligned}
-			& D_{DG}(\cdot; \cdot): \bigoplus_{K \in \mathcal{T}_{h}} H^{1}(K) \times W^{\frac{1}{p}, p'}(\Gamma^{D}) \mapsto \Sigma_{h}: \\
+			& D_{DG}(\cdot; \cdot): \bigoplus_{K \in \mathcal{T}_{h}} W^{1,1}(K) \times L^{1}(\Gamma^{D}) \mapsto \Sigma_{h}: \\
 			& \begin{aligned}
-				\forall \bm\zeta_{h} \in Q_{h}, 
+				\forall \bm\zeta_{h} \in Q_{h}, \quad 
 				& \left(D_{DG}\left(u_{h}; g_{D}\right), \bm\zeta_{h}\right)_{\Omega} \\
-				= & \left(\nabla_{h} u_{h}, \bm\zeta_{h}\right)_{\Omega} - \left\langle \jump{u_{h}}, \avg{\bm\zeta_{h}} - \bm C_{12} \jump{\bm\zeta_{h}} \right\rangle_{\Gamma^{o}} \\
-				& - \left\langle u_{h} - g_{D}, \bm\zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}}
+				& = \left(\nabla_{h} u_{h}, \bm\zeta_{h}\right)_{\Omega} - \left\langle \jump{u_{h}}, \avg{\bm\zeta_{h}} - \bm C_{12} \jump{\bm\zeta_{h}} \right\rangle_{\Gamma^{o}} \\& - \left\langle u_{h} - g_{D}, \bm\zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}} \\
+				& = -\left(u_{h}, \nabla_{h} \cdot \bm\zeta_{h}\right)_{\Omega} + \left\langle \avg{u_{h}} + \bm C_{12} \cdot \jump{u_{h}}, \jump{\bm\zeta_{h}}\right\rangle_{\Gamma^{o}} \\& + \left\langle u_{h}, \bm\zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle g_{D}, \bm\zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}}
 			\end{aligned}
 		\end{aligned}
 	\end{equation}
@@ -830,14 +830,14 @@
 		& \text{and: \(\bm q_{h} = D_{DG}\left(u_{h}; g_{D}\right)\), \(\bm\sigma_{h} = \Pi_{\Sigma_{h}} \mathcal{A}\left(\bm q_{h}\right)\)}
 	\end{aligned}
 \end{equation}
-其中，\(\Pi_{\Sigma_{h}}: L^2(\Omega) \mapsto \Sigma_{h}\) 是 \(L^2\) 投影。于是 LDG 方程组\eqref{p-Laplace LDG weak form 2}由 mixed form 转化为关于 \(u_{h}\) 的 primal form：
+其中，\(\Pi_{\Sigma_{h}}: L^2(\Omega) \mapsto \Sigma_{h}\) 是积分插值算子。于是，LDG 方程组\eqref{p-Laplace LDG weak form 2}由 mixed form 转化为关于 \(u_{h}\) 的 primal form：
 \begin{equation}\label{p-Laplace LDG primal weak form 2}
 	\begin{aligned}
 		& \text{find \(u_{h} \in V_{h}\) such that \(\forall v_{h} \in V_{h}\):} \\
 		& \begin{aligned}
 			& \left(\mathcal{A}\left(D_{DG}\left(u_{h}; g_{D}\right)\right), D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h_{e}^{-1} \jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} \\
 			& + \left\langle \eta\mathcal{A}\left(h_{e}^{-1} \left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}} \\
-			= & \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N} \cdot \bm n, v_{h}\right\rangle_{\Gamma^{N}}
+			& = \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N} \cdot \bm n, v_{h}\right\rangle_{\Gamma^{N}}
 		\end{aligned}
 	\end{aligned}
 \end{equation}
@@ -852,9 +852,9 @@
 	其中，泛函 \(J_{h}(\cdot): V_{h} \mapsto \R\) 如下：
 	\begin{equation}
 		\begin{aligned}
-			J_{h}(u_{h}) 
-			= & \frac{1}{p}\norm{D_{DG}\left(u_{h}; g_{D}\right)}_{L^p(\Omega)}^{p} + \frac{1}{p}\norm{\jump{u_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p} \\
-			& + \frac{1}{p}\norm{u_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})}^{p} - \left(f, u_{h}\right)_{\Omega} - \left\langle \bm g_{N}\cdot\bm n, u_{h}\right\rangle_{\Gamma^{N}}
+			J_{h}(v_{h}) 
+			& = \frac{1}{p}\norm{D_{DG}\left(v_{h}; g_{D}\right)}_{L^p(\Omega)}^{p} + \frac{1}{p}\norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p} \\
+			& + \frac{1}{p}\norm{v_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})}^{p} - \left(f, v_{h}\right)_{\Omega} - \left\langle \bm g_{N} \cdot \bm n, v_{h}\right\rangle_{\Gamma^{N}}
 		\end{aligned}
 	\end{equation}
 \end{subequations}
@@ -862,30 +862,36 @@
 
 
 
-为了便于分析上述最小化问题 \eqref{p-Laplace LDG minimization form 2}，我们根据其形式定义了一种能量范数。为了利用文章 \cite{10.1093/imanum/drn038, 10.1090/S0025-5718-10-02333-1} 中对指标为 \((1, p)\) 的 broken Sobolev 范数的估计，我们证明了我们所定义的能量范数与其中一种 broken Sobolev 范数相等价 (不依赖于网格尺寸 \(h\))，然后把一部分针对指标 \((k, p) \in \B{1} \times [1, d)\) 的估计推广到 \((k, p) \in \B{1} \times [1, +\infty)\).
+为了便于分析上述最优化问题 \eqref{p-Laplace LDG minimization form 2}，我们根据其形式定义了一种能量范数。为了利用文章 \cite{10.1093/imanum/drn038, 10.1090/S0025-5718-10-02333-1} 中对指标为 \((1, p)\) 的 broken Sobolev 范数的估计，我们证明了我们所定义的能量范数与其中一种 broken Sobolev 范数相等价 (不依赖于网格尺寸 \(h\))，然后把一部分针对指标 \((k, p) \in \B{1} \times [1, d)\) 的估计结果推广到 \((k, p) \in \B{1} \times [1, +\infty)\).
 
 在下面的证明中，我们对所考虑的一系列网格 \(\B{\mathcal{T}_{h}}\) 提出以下要求：
 \begin{enumerate}
 	\item 惩罚系数 \(\eta\) 满足 \(\forall e \in \mathcal{E}_{h}^{o} \cap \mathcal{E}_{h}^{D}\)，\(\eta\big|_{e} \in [\eta_{\rm min}, \eta_{\rm max}]\). 这里，\(\eta_{\rm min}\) 和 \(\eta_{\rm max}\) 可以是任意的与网格无关的正数；
-	\item 每个单元的长宽比一致有界，单元的面数 \(N_{\partial}^{K}\) 一致有界；
+	\item 每个单元的长宽比 (或外接圆--内切圆半径比) 一致有界，每个单元的面数 \(N_{\partial}^{K}\) 一致有界；
 	\item 存在常数 \(c_1, c_2 > 0\)，对于单元 \(K\) 的每个面 \(e\)，都有 \(h_{e}\abs{e} \in [c_1 \abs{K}, c_2 \abs{K}]\).
 \end{enumerate}
 
 \begin{definition}[Energy norms]
-	设 \(p \in [1, +\infty)\)，在 \(W^{1,p}(\mathcal{T}_{h})\) 上定义泛函 \(\abs{\cdot}_{J, p}\) 和 \(\norm{\cdot}_{J, p}\) 如下：
+	设 \(p \in [1, +\infty)\)，在 \(W^{1,p}(\mathcal{T}_{h})\) 上定义泛函 \(\abs{\cdot}_{J, p}\)、\(\norm{\cdot}_{J, p}\) 如下：
 	\begin{subequations}
 		\begin{eqnarray}
-			&& \abs{v}_{J, p} = \left( \norm{D_{DG}\left(v; v\big|_{\Gamma^{D}}\right)}_{L^p(\Omega)}^{p} + \norm{\jump{v}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{-(p-1)})}^{p} \right)^{\frac{1}{p}} \\
+			&& \abs{v}_{J, p} = \left( \norm{D_{DG}\left(v; v\right)}_{L^p(\Omega)}^{p} + \norm{\jump{v}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p} \right)^{\frac{1}{p}} \\
 			&& \norm{v}_{J, p}
 			= \left(\norm{D_{DG}\left(v; 0\right)}_{L^p(\Omega)}^{p} + \norm{\jump{v}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, \eta h_{e}^{1-p})}^{p} \right)^{\frac{1}{p}}
 		\end{eqnarray}
 	\end{subequations}
-	由于 \(\Gamma^{D} \neq \emptyset\)，于是上面所定义的分别是一个半范数和范数。
+	由于 \(\abs{\Gamma^{D}} > 0\)，于是上面所定义的分别是 \(V_{h}\) 上的一个半范数和范数。同时，我们再定义：
+	\begin{equation}
+		\begin{aligned}
+			& E_{h}(u_{h}; g_{D}) \\
+			& = \left(\norm{D_{DG}(u_{h}; g_{D})}_{L^{p}(\Omega)}^{p} + \norm{\jump{u_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p} + \norm{u_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})}^{p}\right)^{\frac{1}{p}}
+		\end{aligned}
+	\end{equation}
 
 	\begin{proof}
-		由于 \(D_{DG}(u; 0)\) 对 \(u\) 是线性的，三角不等式和齐次性都显然成立。我们下面只证明 \(\norm{\cdot}_{J, p}\) 的正定性。
+		由于 \(D_{DG}(v; 0)\) 对 \(v\) 是线性的，三角不等式和齐次性都显然成立。我们下面只证明 \(\norm{\cdot}_{J, p}\) 的正定性。
 
-		假设 \(\norm{u}_{J, p} = 0\)，那么 \(u\big|_{\Gamma^{D}} = 0\)，\(\jump{u}\big|_{\Gamma{^o}} = \bm 0\)，\(D_{DG}(u; 0) = 0\). 根据 \(D_{DG}\) 的定义，可以证明 \(\nabla_{h} u = \bm 0\)，因此 \(u = 0\). 正定性成立。
+		假设 \(\norm{v}_{J, p} = 0\)，那么 \(v\big|_{\Gamma^{D}} = 0\)，\(\jump{v}\big|_{\Gamma{^o}} = \bm 0\)，\(D_{DG}(v; 0) = 0\). 根据 \(D_{DG}\) 的定义，可以证明 \(\nabla_{h} v \perp \Sigma_{h}\)，因此 \(v = 0\). 正定性成立。
 	\end{proof}
 \end{definition}
 
@@ -900,9 +906,13 @@
 	\end{subequations}
 \end{definition}
 
+\begin{remark}
+	\(\norm{\cdot}_{J, p}\) 的三角不等式在 \(W^{1,p}(\mathcal{T}_{h})\) 上也成立。
+\end{remark}
 
-\begin{lemma}[Norm equivalence]\label{Broken norm equivalence}
-	当 \(p \in (1, +\infty)\) 时\footnote{这里，如果细致地推导常数 \(\widetilde{C}\) 与 \(p\) 之间的关系，再利用范数对 \(p\) 的连续性，其实可以把结果推广到 \(p \in [1, +\infty)\).}，存在与 \(h\) 无关的常数 \(C_1, C_2 > 0\) 使得：
+
+\begin{lemma}[Norm equivalence]\label{p-Laplace LDG2 broken norm equivalence}
+	当 \(p \in (1, +\infty)\) 时，存在与 \(h\) 无关的常数 \(C_1, C_2 > 0\) 使得：
 	\begin{equation}
 		\forall v_{h} \in V_{h}, \quad
 		C_1^{-1} \norm{v_{h}}_{W^{1,p}_{D}(\mathcal{T}_{h})} 
@@ -911,10 +921,10 @@
 	\end{equation}
 
 	\begin{proof}
-		利用 \(D_{DG}\) 的定义，结合 \(L^{p}\) 对偶关系以及反估计，当 \(p \in (1, +\infty)\) 时，存在与 \(h\) 无关的常数 \(\widetilde{C}\) 使得\cite[Lemma 2.1]{10.1016/j.crma.2008.07.005}：
+		利用 \(D_{DG}\) 的定义，结合 \(L^{p}\) 对偶关系以及多项式反估计，当 \(p \in (1, +\infty)\) 时，存在与 \(h\) 无关的常数 \(\widetilde{C}\) 使得 \cite[Lemma 2.1]{10.1016/j.crma.2008.07.005}：
 		\begin{equation*}
-			\norm{D_{DG}(v_{h}; 0) - \nabla_{h} v_{h}}_{L^{p}(\Omega)}
-			\leqslant \widetilde{C} \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, h_{e}^{1-p})}
+			\norm{D_{DG}(v_{h}; g_{D}) - \nabla_{h} v_{h}}_{L^{p}(\Omega)}
+			\leqslant \widetilde{C} \left(\norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o}, h_{e}^{1-p})} + \norm{v_{h} - g_{D}}_{L^{p}(\Gamma^{D}, h_{e}^{1-p})}\right)
 		\end{equation*}
 		于是，一方面：
 		\begin{equation*}
@@ -939,7 +949,7 @@
 \end{lemma}
 
 
-\begin{lemma}[Broken energy norms inequalities]\label{Broken energy norms inequalities}
+\begin{lemma}[H\"{o}lder-type energy norm inequality]\label{p-Laplace LDG2 Holder-type energy norm inequality}
 	设 \(1 \leqslant q \leqslant p < +\infty\)，那么存在不依赖于 \(h\) 和 \(\abs{\Omega}\) 的常数 \(C > 0\) 使得：
 	\begin{equation}
 		\norm{v}_{J, q} \leqslant C \abs{\Omega}^{\frac{1}{q} - \frac{1}{p}} \norm{v}_{J, p}
@@ -953,7 +963,7 @@
 				& \leqslant \abs{\Omega}^{1 - \frac{q}{p}} \norm{D_{DG}\left(v; 0\right)}_{L^p(\Omega)}^{q} + \sum_{e \in \mathcal{E}_{h}^{o} \cup \mathcal{E}_{h}^{D}} \norm{\jump{v}}_{L^{p}(e, \eta h_{e}^{1-p})}^{q} \left(\eta h_{e} \abs{e}\right)^{1-\frac{q}{p}} \\
 				& \leqslant \abs{\Omega}^{1 - \frac{q}{p}} \norm{D_{DG}\left(v; 0\right)}_{L^p(\Omega)}^{q} + \sum_{e \in \mathcal{E}_{h}^{o} \cup \mathcal{E}_{h}^{D}} \norm{\jump{v}}_{L^{p}(e, \eta h_{e}^{1-p})}^{q} \left(c_2 \eta_{\rm max} \abs{K}\right)^{1-\frac{q}{p}} \\
 				& \leqslant \abs{\Omega}^{1 - \frac{q}{p}} \left(\norm{D_{DG}\left(v; 0\right)}_{L^p(\Omega)}^{q} + \left(c_{2} \eta_{\rm max} N_{\partial}^{\rm max}\right)^{1-\frac{q}{p}} \norm{\jump{v}}_{L^{p}(\Gamma^{o}\cup\Gamma^{D}, \eta h_{e}^{1-p})}^{p}\right) \\
-				& \leqslant \widetilde{C} \abs{\Omega}^{1 - \frac{q}{p}} \norm{v}_{J, p}^{q}
+				& \leqslant C \abs{\Omega}^{1 - \frac{q}{p}} \norm{v}_{J, p}^{q}
 			\end{aligned}
 		\end{equation}
 		这里，我们同时使用了连续和离散的 H{\"{o}}lder 不等式。
@@ -961,7 +971,7 @@
 \end{lemma}
 
 
-\begin{lemma}[Broken Poincar{\'{e}}-Friedrichs' inequality]\label{Broken Poincare-Friedrichs' inequality}
+\begin{lemma}[Broken Poincar{\'{e}}-Friedrichs' inequality]\label{p-Laplace LDG2 broken Poincare-Friedrichs inequality}
 	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast}]\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in [1, +\infty)\) 且 \(q \in [1, +\infty]\). 当 \(h \leqslant h_{\rm max}\) 时，存在与 \(h\) 无关的常数 \(C > 0\) 使得：
 	\begin{equation}
 		\forall v_{h} \in V_{h}, \quad
@@ -969,7 +979,7 @@
 	\end{equation}
 
 	\begin{proof}
-		若 \(d > 1\)，利用 \cite[Corollary 4.3]{10.1093/imanum/drn038} 以及引理 \ref{Broken norm equivalence}，当 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast}]\) 时，存在与 \(h\) 无关的 \(\widetilde{C} = \widetilde{C}(h_{\rm max})\) 使得：
+		若 \(d > 1\)，利用 \cite[Corollary 4.3]{10.1093/imanum/drn038} 以及引理 \ref{p-Laplace LDG2 broken norm equivalence}，当 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast}]\) 时，存在与 \(h\) 无关的 \(\widetilde{C}\) 使得：
 		\begin{equation*}
 			\begin{aligned}
 				\forall v_{h} \in V_{h}, \quad
@@ -981,7 +991,7 @@
 				& \leqslant C_{2} \abs{\Omega}^{\frac{1}{q} - \frac{1}{p^{\ast}}} \norm{v_{h}}_{J, p}
 			\end{aligned}
 		\end{equation*}
-		当 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\) 时，取 \(r \in (1, d)\) 使得 \(r^{\ast} \geqslant p\)，利用上面的过程以及引理 \ref{Broken energy norms inequalities}，我们有：
+		当 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\) 时，取 \(r \in (1, d)\) 使得 \(r^{\ast} \geqslant p\)，利用上面的过程以及引理 \ref{p-Laplace LDG2 Holder-type energy norm inequality}，我们有：
 		\begin{equation*}
 			\begin{aligned}
 				\forall v_{h} \in V_{h}, \quad
@@ -1002,12 +1012,12 @@
 				& \leqslant \min\B{1, \eta_{\rm min}^{-1}} \norm{v_{h}}_{J, 1}
 			\end{aligned}
 		\end{equation*}
-		利用 H{\"{o}}lder 不等式以及引理 \ref{Broken energy norms inequalities}，同样也成立。
+		利用 H{\"{o}}lder 不等式以及引理 \ref{p-Laplace LDG2 Holder-type energy norm inequality}，同样也成立。
 	\end{proof}
 \end{lemma}
 
 
-\begin{lemma}[Broken trace inequality]\label{Broken trace inequality}
+\begin{lemma}[Broken trace inequality]\label{p-Laplace LDG2 broken trace inequality}
 	当 \(d > 1\) 时，设 \(p \in (1, d]\) 且 \(q \in [1, \frac{p(d-1)}{d-p}]\)，或 \(p \in (d, +\infty)\) 且 \(q \in [1, +\infty]\)；当 \(d = 1\) 时，设 \(p \in [1, +\infty)\) 且 \(q \in [1, +\infty]\). 当 \(h \leqslant h_{\rm max}\) 时，存在与 \(h\) 无关的常数 \(C > 0\) 使得：
 	\begin{equation}
 		\forall v_{h} \in V_{h}, \quad
@@ -1015,9 +1025,9 @@
 	\end{equation}
 	
 	\begin{proof}
-		当 \(d = 1\) 时，利用引理 \ref{Broken Poincare-Friedrichs' inequality} 则立即证毕。我们下面只考虑 \(d > 1\) 的情形。
+		当 \(d = 1\) 时，利用引理 \ref{p-Laplace LDG2 broken Poincare-Friedrichs inequality} 则立即证毕。我们下面只考虑 \(d > 1\) 的情形。
 
-		当 \(p \in (1, d]\) 且 \(q \in [1, \frac{p(d-1)}{d-p}]\) 时，令 \(\widetilde{p} = \frac{p(d-1)}{d-p}\)，利用 \cite[Theorem 4.4]{10.1093/imanum/drn038} 和引理 \ref{Broken energy norms inequalities}、\ref{Broken Poincare-Friedrichs' inequality} 得：
+		当 \(p \in (1, d]\) 且 \(q \in [1, \frac{p(d-1)}{d-p}]\) 时，令 \(\widetilde{p} = \frac{p(d-1)}{d-p}\)，利用 \cite[Theorem 4.4]{10.1093/imanum/drn038} 和引理 \ref{p-Laplace LDG2 Holder-type energy norm inequality}、\ref{p-Laplace LDG2 broken Poincare-Friedrichs inequality} 得：
 		\begin{equation*}
 			\begin{aligned}
 				\forall v_{h} \in V_{h}, \quad 
@@ -1042,44 +1052,100 @@
 \end{lemma}
 
 
-\begin{lemma}[Coercivity] % 推出最小值点一定在有限远处
+\begin{lemma}[Coercivity]\label{p-Laplace LDG2 discrete coercivity} % 推出最小值点一定在有限远处
 	泛函 \(J_{h}\) 是强制的，也即：
 	\begin{equation*}
-		\lim_{\norm{u_{h}} \to +\infty} J_{h}(u_{h}) = +\infty
+		\lim_{\norm{v_{h}} \to +\infty} J_{h}(v_{h}) = +\infty
 	\end{equation*}
 
 	\begin{proof}
-		显然，存在 \(u_{h,D} \in V_{h}\) 使得 \(u_{h,D}\big|_{\Gamma^{D}} = \Pi g_{D}\). 此时，利用引理 \ref{Broken Poincare-Friedrichs' inequality}、\ref{Broken trace inequality}，我们有：
+		由三角不等式和离散的 H\"{o}lder 不等式，我们注意到：
 		\begin{equation*}
-			\begin{aligned}
-				& J_{h}(v_{h} + u_{h,D}) \\
-				= & \frac{1}{p}\norm{D_{DG}(v_{h} + u_{h,D}; g_{D})}_{L^{p}(\Omega)}^{p} + \frac{1}{p}\norm{\jump{v_{h} + u_{h, D}}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, \eta h^{1-p})}^{p} \\
-				& - \left(f, v_{h}\right)_{\Omega} - \left\langle \bm g_{N} \cdot \bm n, v_{h} \right\rangle_{\Gamma^{N}} \\
-				= & \frac{1}{p}\norm{D_{DG}(v_{h}; 0) + D_{DG}(u_{h, D}; g_{D})}_{L^{p}(\Omega)}^{p} + \frac{1}{p}\norm{\jump{v_{h} + u_{h, D}}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, \eta h^{1-p})}^{p} \\
-				& - \left(f, v_{h}\right)_{\Omega} - \left\langle \bm g_{N} \cdot \bm n, v_{h} \right\rangle_{\Gamma^{N}} \\
-				\geqslant & \frac{1}{p}\norm{v_{h}}_{J, p}^{p} - \left(f, v_{h}\right)_{\Omega} - \norm{f}_{L^{p'}(\Omega)} \norm{v_{h}}_{L^p(\Omega)} \\
-				& - \norm{\bm g_{N}\cdot\bm n}_{L^{p'}(\Gamma^{N})} \norm{v_{h}}_{L^{p}(\Gamma^{N})} - C(u_{h, D}, g_{D})\\
-				\geqslant & \left(\frac{1}{p}\norm{v_{h}}_{J, p}^{p-1} - C_1 \norm{f}_{L^{p'}} - C_2 \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})}\right) \norm{v_{h}}_{J, p} - C(u_{h, D}, g_{D})
-			\end{aligned}
+			\forall \alpha \in [0, +\infty), \quad 
+			\norm{f + g}^{\alpha} 
+			\leqslant 2^{\max\B{\alpha-1, 0}} \left(\norm{f}^{\alpha} + \norm{g}^{\alpha}\right)
 		\end{equation*}
-		因此，当 \(\norm{v_{h}}_{J, p} \to \infty\) 时，\(J_{h}(v_{h}) \to \infty\).
+		对于任意的 \(u_{D} \in V_{h}\)，记 \(w_{h} = v_{h} - u_{D}\). 利用引理 \ref{p-Laplace LDG2 broken Poincare-Friedrichs inequality}、\ref{p-Laplace LDG2 broken trace inequality}，可得：
+		\begin{align*}
+			& J_{h}(v_{h}) \\
+			& \geqslant 2^{1-p} \norm{w_{h}}_{J, p}^{p} - \left(f, w_{h}\right)_{\Omega} - \left\langle \bm g_{N} \cdot \bm n, w_{h} \right\rangle_{\Gamma^{N}} \\& - E_{h}(u_{D}; g_{D})^{p} - \left(f, u_{D}\right)_{\Omega} - \left\langle \bm g_{N} \cdot \bm n, u_{D} \right\rangle_{\Gamma^{N}} \\
+			& \geqslant 2^{1-p} \norm{w_{h}}_{J, p}^{p} - \norm{f}_{L^{p'}(\Omega)} \norm{w_{h}}_{L^{p}(\Omega)} - \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})} \norm{w_{h}}_{L^{p}(\Gamma^{N})} \\& - E_{h}(u_{D}; g_{D})^{p} - \left(f, u_{D}\right)_{\Omega} - \left\langle \bm g_{N} \cdot \bm n, u_{D} \right\rangle_{\Gamma^{N}} \\
+			& \geqslant 2^{1-p} \norm{w_{h}}_{J, p}^{p} - C_{1} \norm{f}_{L^{p'}(\Omega)} \norm{w_{h}}_{J, p} - C_{2} \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})} \norm{w_{h}}_{J, p} \\& - E_{h}(u_{D}; g_{D})^{p} - \left(f, u_{D}\right)_{\Omega} - \left\langle \bm g_{N} \cdot \bm n, u_{D} \right\rangle_{\Gamma^{N}} 
+		\end{align*}
+		因此，当 \(\norm{v_{h}}_{J, p} \to +\infty\) 时，\(J_{h}(v_{h}) \to +\infty\).
+
+
+		\iffalse
+		根据 Sobolev 延拓定理和迹定理 \ref{trace theorem}，任给 \(g_{D} \in W^{\frac{1}{p'}, p}(\Gamma^{D})\)，总存在 \(u_{D} \in W^{1,p}(\Omega)\) 使得：
+		\begin{eqnarray*}
+			&& u_{D} \big|_{\Gamma^{D}} = g_{D} \\
+			&& \norm{u_{D}}_{W^{1,p}(\Omega)} \leqslant C_{D} \norm{g_{D}}_{W^{\frac{1}{p'}, p}(\Gamma^{D})}
+		\end{eqnarray*}
+		对于 \(v_{h} \in V_{h}\)，记 \(\widetilde{v} = v_{h} - u_{D}\). 注意到：
+		\begin{equation*}
+			\forall \alpha \in [0, +\infty), \quad 
+			\norm{f + g}^{\alpha} \leqslant 2^{\max\B{\alpha - 1, 0}} \left(\norm{f}^{\alpha} + \norm{g}^{\alpha}\right)
+		\end{equation*}
+		利用上面的不等式以及 G\^{a}teaux 导数的中值定理，存在 \(\xi \in (0,1)\) 使得：
+		\begin{align*}
+			& \frac{1}{p} \abs{\norm{D_{DG}(v_{h}; g_{D})}_{L^{p}(\Omega)}^{p} - \norm{D_{DG}(\widetilde{v}; 0)}_{L^{p}(\Omega)}^{p}} \\
+			& = \abs{\left( \abs{D_{DG}(\widetilde{v} + \xi u_{D}; \xi g_{D})}^{p-1}, D_{DG}(u_{D}; g_{D})\right)_{\Omega}} \\
+			& \leqslant \norm{D_{DG}(\widetilde{v} + \xi u_{D}; \xi g_{D})}_{L^{p}(\Omega)}^{p-1} \norm{D_{DG}(u_{D}; g_{D})}_{L^{p}(\Omega)} \\
+			& \leqslant 2^{\max\B{p-2, 0}} \left( \norm{D_{DG}(\widetilde{v}; 0)}_{L^{p}(\Omega)}^{p-1} + \xi^{p-1} \norm{D_{DG}(u_{D}; g_{D})}_{L^{p}(\Omega)}^{p-1} \right) \norm{D_{DG}(u_{D}; g_{D})}_{L^{p}(\Omega)} \\
+			& \leqslant 2^{\max\B{p-2, 0}} \left( \norm{D_{DG}(u_{D}; g_{D})}_{L^{p}(\Omega)} \norm{D_{DG}(\widetilde{v}; 0)}_{L^{p}(\Omega)}^{p-1} + \norm{D_{DG}(u_{D}; g_{D})}_{L^{p}(\Omega)}^{p} \right)
+		\end{align*}
+		同时，由 \(u_{D}\) 的定义知：
+		\begin{equation*}
+			\norm{v_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})}^{p} 
+			= \norm{\widetilde{v}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})}^{p}
+		\end{equation*}
+		再利用引理 \ref{p-Laplace LDG2 broken Poincare-Friedrichs inequality}、\ref{p-Laplace LDG2 broken trace inequality}，可得：
+		\begin{align*}
+			& J_{h}(v_{h}) \\
+			& = \frac{1}{p} E_{h}(v_{h}; g_{D})^{p} - \left(f, v_{h}\right)_{\Omega} - \left\langle \bm g_{N} \cdot \bm n, v_{h}\right\rangle_{\Gamma^{N}} \\
+			& = \frac{1}{p} E_{h}(\widetilde{v}; 0)^{p} - \left(f, v_{h}\right)_{\Omega} - \left\langle \bm g_{N} \cdot \bm n, v_{h}\right\rangle_{\Gamma^{N}} + \frac{1}{p} \left( E_{h}(v_{h}; g_{D})^{p} - E_{h}(\widetilde{v}; 0)^{p} \right) \\
+			& \geqslant \frac{1}{p} E_{h}(\widetilde{v}; 0)^{p} - \norm{f}_{L^{p'}(\Omega)} \norm{v_{h}}_{L^{p}(\Omega)} - \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})} \norm{v_{h}}_{L^{p}(\Gamma^{N})} \\& - C_0 \norm{D_{DG}(u_{D}; g_{D})}_{L^{p}(\Omega)} \norm{D_{DG}(\widetilde{v}; 0)}_{L^{p}(\Omega)}^{p-1} - C_0 \norm{D_{DG}(u_{D}; g_{D})}_{L^{p}(\Omega)}^{p} \\
+			& \geqslant \frac{1}{p} E_{h}(\widetilde{v}; 0)^{p} - C_{1} \norm{f}_{L^{p'}(\Omega)} \norm{v_{h}}_{L^{p}(\Omega)} - \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})} \norm{v_{h}}_{L^{p}(\Gamma^{N})} \\& - C_0 \norm{D_{DG}(u_{D}; g_{D})}_{L^{p}(\Omega)} \norm{D_{DG}(\widetilde{v}; 0)}_{L^{p}(\Omega)}^{p-1} - C_0 \norm{D_{DG}(u_{D}; g_{D})}_{L^{p}(\Omega)}^{p}
+		\end{align*}
+		\fi
 	\end{proof}
 \end{lemma}
+
+% 我们在上面进行分裂的原因：\norm{}_{J,p} 范数是逼近边界为0的函数的导数范数，所以如果用它作一般函数的范数，在估计时会严重掉阶
+
+\begin{corollary}[Uniform lower bound]
+	在上述分裂中，如果取 \(u_{D} = \Pi_{V_{h}} E g_{D}\)，其中，\(E\) 是迹定理 \ref{trace theorem} 中的有界右逆，\(\Pi_{V_{h}}\) 是积分插值算子，那么当 \(h \leqslant h_{\rm max}\) 时，存在与 \(h\) 无关的常数 \(\beta\) 使得 \(J_{h}(\cdot) \geqslant \beta\).
+	\begin{proof}
+		事实上，我们只需要证明 \(E_{h}(u_{D}; g_{D})\) 在 \(h \leqslant h_{\rm max}\) 时一致有界即可。利用 \(D_{DG}\) 的定义，结合 \(L^{p}\) 对偶关系以及多项式反估计，当 \(p \in (1, +\infty)\) 时，存在与 \(h\) 无关的常数 \(\widetilde{C}\) 使得：
+		\begin{equation*}
+			\norm{D_{DG}(u_{D}; g_{D}) - \nabla_{h} u_{D}}_{L^{p}(\Omega)}
+			\leqslant \widetilde{C} \left(\norm{\jump{u_{D}}}_{L^{p}(\Gamma^{o}, h_{e}^{1-p})} + \norm{u_{D} - g_{D}}_{L^{p}(\Gamma^{D}, h_{e}^{1-p})}\right)
+		\end{equation*}
+		因此：
+		\begin{align*}
+			& E_{h}(u_{D}; g_{D}) - \norm{\nabla_{h} u_{D}}_{L^{p}(\Omega)} \\
+			& \leqslant \norm{D_{DG}(u_{D}; g_{D})}_{L^{p}(\Omega)} - \norm{\nabla_{h} u_{D}}_{L^{p}(\Omega)} + \norm{\jump{u_{D}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} + \norm{u_{D} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} \\
+			& \leqslant \norm{D_{DG}(u_{D}; g_{D}) - \nabla_{h} u_{D}}_{L^{p}(\Omega)} + \norm{\jump{u_{D}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} + \norm{u_{D} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} \\
+			& \leqslant \left( \eta_{\rm max}^{\frac{1}{p}} + \widetilde{C} \right) \left( \norm{\jump{u_{D}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} + \norm{u_{D} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} \right)
+		\end{align*}
+		根据反向估计：% to be continued
+	\end{proof}
+\end{corollary}
 
 
 \begin{lemma}[Strict convexity]
 	泛函 \(J_{h}\) 在 \(V_{h}\) 上是严格凸的，也即： 
 	\begin{equation*}
-		\forall u_{h}^{(1)} \neq u_{h}^{(2)}, \forall \lambda\in[0,1], \quad 
-		J_{h}(\lambda u_{h}^{(1)} + (1-\lambda) u_{h}^{(2)}) < \lambda J_{h}(u_{h}^{(1)}) + (1-\lambda) J_{h}(u_{h}^{(2)})
+		\forall v_{h}^{(1)} \neq v_{h}^{(2)}, \forall \lambda \in (0,1), \quad 
+		J_{h}(\lambda v_{h}^{(1)} + (1-\lambda) v_{h}^{(2)}) < \lambda J_{h}(v_{h}^{(1)}) + (1-\lambda) J_{h}(v_{h}^{(2)})
 	\end{equation*}
 
 	\begin{proof}
 		假设存在 \(\lambda \in (0,1)\) 使得：
 		\begin{equation*}
-			\lambda J_{h}(u_{h}^{(1)}) + (1-\lambda)J_{h}(u_{h}^{(2)}) = J_{h}(\lambda u_{h}^{(1)} + (1-\lambda) u_{h}^{(2)})
+			\lambda J_{h}(v_{h}^{(1)}) + (1-\lambda)J_{h}(v_{h}^{(2)}) = J_{h}(\lambda v_{h}^{(1)} + (1-\lambda) v_{h}^{(2)})
 		\end{equation*}
-		那么，利用映射 \(t \mapsto \abs{t}^{p}\) 的严格凸性可得 \(\left(u_{h}^{(1)} - u_{h}^{(2)}\right)\big|_{\Gamma^{D}} = 0\)，\(\jump{u_{h}^{(1)} - u_{h}^{(2)}}\big|_{\Gamma^{o}} = \bm 0\)，\(D_{DG}(u_{h}^{(1)} - u_{h}^{(2)}; 0) = 0\). 根据 \(D_{DG}\) 的定义，可以证明 \(\nabla_{h} (u_{h}^{(1)} - u_{h}^{(2)}) = \bm 0\). 因此 \(u_{h}^{(1)} = u_{h}^{(2)}\).
+		那么，利用映射 \(t \mapsto \abs{t}^{p}\) 的严格凸性可得 \(\left(v_{h}^{(1)} - v_{h}^{(2)}\right)\big|_{\Gamma^{D}} = 0\)，\(\jump{v_{h}^{(1)} - v_{h}^{(2)}}\big|_{\Gamma^{o}} = \bm 0\)，\(D_{DG}(v_{h}^{(1)} - v_{h}^{(2)}; 0) = 0\). 根据 \(D_{DG}\) 的定义，可以证明 \(\nabla_{h} (v_{h}^{(1)} - v_{h}^{(2)}) = \bm 0\). 因此 \(v_{h}^{(1)} = v_{h}^{(2)}\).
 	\end{proof}
 \end{lemma}
 
@@ -1094,16 +1160,16 @@
 
 
 \begin{theorem}[Existence of the minimizer]
-	最小化问题\eqref{p-Laplace LDG minimization form 2}的解存在。
+	最优化问题 \eqref{p-Laplace LDG minimization form 2} 的解存在。
 
 	\begin{proof}
-		因为 \(J_{h}\) 是下有界的和coercive 的，所以存在有界的最小化列。由于在自反的 Banach 空间中，有界列存在弱收敛子列，于是可以不妨设该最小化列弱收敛。又因为 \(J_{h}\) 是弱下半连续的，所以弱极限就是最小化子。
+		因为 \(J_{h}\) 是下有界的和coercive 的，所以存在有界的最优化列。由于在自反的 Banach 空间中，有界列存在弱收敛子列，于是可以不妨设该最优化列弱收敛。又因为 \(J_{h}\) 是弱下半连续的，所以弱极限就是最小化子。
 	\end{proof}
 \end{theorem}
 
 
 \begin{theorem}[Uniqueness of the minimizer]
-	最小化问题\eqref{p-Laplace LDG minimization form 2}的解唯一。
+	最优化问题 \eqref{p-Laplace LDG minimization form 2} 的解唯一。
 
 	\begin{proof}
 		由于 \(J_{h}\) 是严格凸的，显然成立。
@@ -1111,8 +1177,8 @@
 \end{theorem}
 
 
-\begin{lemma}[G{\^{a}}teaux derivative of \(J_{h}\)]\label{Gateaux derivative of Jh}
-	泛函 \(J_{h}\) 是 G{\^{a}}teaux 可导的，其在 \(u_{h} \in V_{h}\) 处的一阶 G{\^{a}}teaux 导数在 \(v_{h} \in V_{h}\) 上的作用为：
+\begin{lemma}[G{\^{a}}teaux derivative]\label{p-Laplace LGD2 Gateaux derivative of Jh}
+	泛函 \(J_{h}\) 是 G{\^{a}}teaux 可导的，其在 \(u_{h} \in V_{h}\) 处作用在切向量 \(v_{h} \in V_{h}\) 上的一阶 G{\^{a}}teaux 导数为：
 	\begin{equation}
 		\begin{aligned}
 			J_{h}'(u_{h})(v_{h})
@@ -1125,10 +1191,10 @@
 
 
 \begin{theorem}[Equivalence]
-	当 \(\eta > 0\) 时，\(p\)-Laplace 方程的 LDG 弱形式\eqref{p-Laplace LDG weak form 2}和最优化形式\eqref{p-Laplace LDG minimization form 2}的解相同。
+	\(p\)-Laplace 方程的 LDG primal 弱形式 \eqref{p-Laplace LDG primal weak form 2} 和最优化形式 \eqref{p-Laplace LDG minimization form 2} 的解 \(u_{h}\) 相同。
 
 	\begin{proof}
-		利用引理 \ref{Gateaux derivative of Jh}，当 \(u_{h}\) 是最小化子时，显然也是方程\eqref{p-Laplace LDG weak form 2}的解。当 \(u_{h}\) 是方程\eqref{p-Laplace LDG weak form 2}的解时，\(J_{h}'(u_{h})(\cdot) = 0\). 由于 \(J_{h}\) 是凸泛函，利用凸函数的一阶特征以及 G{\^{a}}teaux 导数的定义：
+		利用引理 \ref{p-Laplace LGD2 Gateaux derivative of Jh}，当 \(u_{h}\) 是最小化子时，显然也是方程\eqref{p-Laplace LDG primal weak form 2}的解。当 \(u_{h}\) 是方程\eqref{p-Laplace LDG primal weak form 2}的解时，\(J_{h}'(u_{h})(\cdot) = 0\). 由于 \(J_{h}\) 是凸泛函，利用凸函数的一阶特征以及 G{\^{a}}teaux 导数的定义：
 		\begin{equation*}
 			\forall v_{h} \in V_{h}, \forall t \in \R, \quad
 			J_{h}(u_{h} + t v_{h}) 
@@ -1140,20 +1206,27 @@
 \end{theorem}
 
 
+\begin{corollary}
+	弱形式问题 \eqref{p-Laplace LDG weak form 2} 的解 \((\bm q_{h}, \bm\sigma_{h}, u_{h})\) 存在、唯一。
+	\begin{proof}
+		由上文已知 \eqref{p-Laplace LDG primal weak form 2} 的解 \(u_{h}\) 存在、唯一，又因为 \((\bm q_{h}, \bm\sigma_{h})\) 可以由 \(u_{h}\) 显式表达：\(\bm q_{h} = D_{DG}(u_{h}; g_{D})\)，\(\bm\sigma_{h} = \Pi_{\Sigma_{h}} \mathcal{A}(\bm q_{h})\)，所以\eqref{p-Laplace LDG weak form 2} 的解也存在、唯一。
+	\end{proof}
+\end{corollary}
+
+
 \begin{remark}
 	由于泛函 \(J_{h}\) 是严格凸的，所以该泛函的梯度流总可以收敛到其在有限远处的最小值点。与此对应地，在数值计算中，使用梯度下降类方法可以保证收敛。
 \end{remark}
 
-% to be done: 加入收敛性的证明，因为做了这么多估计，也差不多可以证出收敛性了
 
 
 \subsubsection{Numerical Discretization}
 
-我们既可以基于弱形式\eqref{p-Laplace LDG primal weak form 2}，利用 Picard 不动点迭代法或 Newton-Raphson 方法求解，也可以基于最优化形式\eqref{p-Laplace LDG minimization form 2}，利用梯度下降法求解。Picard 不动点迭代法和 Newton-Raphson 方法对初值敏感，如果收敛，则收敛速度较快；梯度下降法对初值不敏感，保证收敛，但是收敛速度较慢。
+我们既可以基于弱形式 \eqref{p-Laplace LDG primal weak form 2}，利用 Picard 不动点迭代法或 Newton-Raphson 方法求解，也可以基于最优化形式 \eqref{p-Laplace LDG minimization form 2}，利用梯度下降法求解。Picard 不动点迭代法和 Newton-Raphson 方法对初值敏感，如果收敛，则收敛速度较快；梯度下降法对初值不敏感，保证收敛，但是收敛速度较慢。
 
-这里，我们只考虑使用梯度下降法求解最优化形式。现有的 \(p\)-Laplace 方程的梯度下降法有：PRNCG 方法\cite{10.1090/S0025-5718-1993-1192966-4}，多重网格 PRNCG 方法\cite{10.1137/S1064827598339098}；预条件梯度下降法\cite{10.1007/s10915-007-9134-z}、混合预条件共轭梯度法\cite{IJNAM-2-123}、加速的最速下降法\cite{10.1016/j.amc.2013.07.096}。特别地，在文章\cite{10.1007/s10915-007-9134-z}中，作者提出了一种基于线性化范数的预条件子，以使得收敛性能与网格无关。
+这里，我们只考虑使用梯度下降法求解最优化形式。现有的 \(p\)-Laplace 方程的梯度下降法有：PRNCG 方法 \cite{10.1090/S0025-5718-1993-1192966-4}，多重网格 PRNCG 方法 \cite{10.1137/S1064827598339098}；预条件梯度下降法 \cite{10.1007/s10915-007-9134-z}、混合预条件共轭梯度法 \cite{IJNAM-2-123}、加速的最速下降法 \cite{10.1016/j.amc.2013.07.096}。特别地，在文章 \cite{10.1007/s10915-007-9134-z} 中，作者提出了一种基于线性化范数的预条件子，以使得收敛性能与网格无关。
 
-我们这里采用预条件梯度下降法，将文章\cite{10.1007/s10915-007-9134-z}的工作推广到 LDG 格式中。利用引理~\ref{Gateaux derivative of Jh}，\(J_{h}(\cdot)\) 在 \(u_{h} \in V_{h}\) 处的最速下降方向(未归一) \(w_{h} \in V_{h}\) 满足：
+我们这里采用预条件梯度下降法，将文章 \cite{10.1007/s10915-007-9134-z} 的工作推广到 LDG 格式中。利用引理 \ref{p-Laplace LGD2 Gateaux derivative of Jh}，\(J_{h}(\cdot)\) 在 \(u_{h} \in V_{h}\) 处的最速下降方向(未归一) \(w_{h} \in V_{h}\) 满足：
 \begin{equation}
 	J_{h}'(u_{h})(w_{h}) = -\norm{J'(u_{h})}_{\ast} \norm{w_{h}} = -\sup_{v_{h} \in V_{h}}\frac{J_{h}'(u_{h})(v_{h})}{\norm{v_{h}}} \norm{w_{h}}
 \end{equation}

@@ -62,7 +62,7 @@
     \begin{enumerate}
         \item \(\forall v \in C^{0}(\overline{\Omega}), \gamma(v) = v\big|_{\partial \Omega}\)；
         \item \(\ker\gamma = W^{s,p}_{0}(\Omega)\)；
-        \item 若 \(s = 1\) 且 \(p = 1\)，或 \(s \in (\frac{1}{2}, \frac{3}{2})\) 且 \(p = 2\)，或 \(s \in (\frac{1}{p}, 1]\) 且 \(p \not\in \B{1,2}\)，那么 \(\gamma: W^{s,p}(\Omega) \mapsto W^{s-\frac{1}{p}, p}(\partial \Omega)\) 是有界的线性满射，并且，存在 \(C > 0\) 使得 \(\gamma\) 的右逆 \(E\) 的算子范数满足 \(\norm{E} \leqslant C (\diam \Omega)^{\frac{1}{p}}\).
+        \item 若 \(s = 1\) 且 \(p = 1\)，或 \(s \in (\frac{1}{2}, \frac{3}{2})\) 且 \(p = 2\)，或 \(s \in (\frac{1}{p}, 1]\) 且 \(p \not\in \B{1,2}\)，那么 \(\gamma: W^{s,p}(\Omega) \mapsto W^{s-\frac{1}{p}, p}(\partial \Omega)\) 是有界的线性满射，并且，存在 \(C > 0\) 使得 \(\gamma\) 的右逆 \(E\) 的满足 \(\norm{E} \leqslant C (\diam \Omega)^{\frac{1}{p}}\).
     \end{enumerate}
 \end{theorem}
 
@@ -374,7 +374,7 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 
 在高维情形下(维数大于等于2)，经典的间断有限元方法在理论上支持任何形状的单元。然而，由于DG格式中经常涉及对非线性项或者多项式乘积的积分，在常见的DG方法中，高阶数值积分和特殊的配点选取仍然是必不可少的。
 
-在高维的谱元法中，如果在单纯形单元上使用 \(\mathscr{P}^k\) 多项式空间，需要减小矩阵的条件数和多项式插值的 Lebesgue number，同时使质量矩阵对角化(为了速度)、非负化(为了稳定性)\footnote{显然，以点值为自由度的质量矩阵 \(\bm M\) 显然是正定的；在同样的点上的数值积分系数向量则是 \(\bm 1^T\bm M\)，该数值积分保界当且仅当 \(\bm 1^T\bm M \geqslant \bm 0\) 逐元素成立}。较为流行的一种方式是取特定的配点集\cite{10.1007/s11075-010-9390-0}，例如 Fekete 点\cite{10.1137/S0036142998337247, WingatezAbstract1998FeketeCP}(其是 Lobatto 点在高维的自然推广\cite{10.1090/S0025-5718-00-01262-X}，但是三角形上不存在 Gauss-Lobatto 数值积分公式\cite{10.1137/070685439}，因此还需要另取积分点)、Chen-Babu{\v{s}}ka 点\cite{10.1016/0045-7825(95)00889-6}、Hesthaven 点\cite{10.1137/S003614299630587X}、Lobatto 点\cite{10.1093/imamat/hxh077}(不需要在高维迭代求解)，并取单纯形上的 Gauss 点\cite{10.2307/43693493, 10.1016/j.camwa.2009.10.027, 10.1002/nme.1620210612}作为积分点。其优点是仿射单元的 Jacobian 是常矩阵；缺点则是配点和数值积分需要使用两套不同的点集\cite{10.1007/s10915-005-9048-6}，单纯形单元上低条件数的配点集以及对称且具有正系数的高阶数值积分公式难以构造。另一种方式则是取正交多项式基\cite{10.1007/BF01060030, 10.1007/978-3-030-39647-3_5}，以模态系数为变量，使用 Duffy 变换将正方形上的张量积积分点变换到三角形上进行数值积分，例如 Nektar++ 项目\cite{10.1016/j.cpc.2015.02.008}。
+在高维的谱元法中，如果在单纯形单元上使用 \(\mathscr{P}^k\) 多项式空间，需要减小矩阵的条件数和多项式插值的 Lebesgue number，同时使质量矩阵对角化(为了速度)、非负化(为了稳定性)\footnote{显然，以点值为自由度的质量矩阵 \(\bm M\) 显然是正定的；在同样的点上的数值积分系数向量则是 \(\bm 1^T\bm M\)，该数值积分保界当且仅当 \(\bm 1^T\bm M \geqslant \bm 0\) 逐元素成立}。较为流行的一种方式是取特定的配点集\cite{10.1007/s11075-010-9390-0}，例如 Fekete 点\cite{10.1137/S0036142998337247, WingatezAbstract1998FeketeCP}(其是 Lobatto 点在高维的自然推广\cite{10.1090/S0025-5718-00-01262-X}，但是三角形上不存在 Gauss-Lobatto 数值积分公式\cite{10.1137/070685439}，因此还需要另取积分点)、Chen-Babu{\v{s}}ka 点\cite{CHEN1995405}、Hesthaven 点\cite{10.1137/S003614299630587X}、Lobatto 点\cite{10.1093/imamat/hxh077}(不需要在高维迭代求解)，并取单纯形上的 Gauss 点\cite{10.2307/43693493, 10.1016/j.camwa.2009.10.027, 10.1002/nme.1620210612}作为积分点。其优点是仿射单元的 Jacobian 是常矩阵；缺点则是配点和数值积分需要使用两套不同的点集\cite{10.1007/s10915-005-9048-6}，单纯形单元上低条件数的配点集以及对称且具有正系数的高阶数值积分公式难以构造。另一种方式则是取正交多项式基\cite{10.1007/BF01060030, 10.1007/978-3-030-39647-3_5}，以模态系数为变量，使用 Duffy 变换将正方形上的张量积积分点变换到三角形上进行数值积分，例如 Nektar++ 项目\cite{10.1016/j.cpc.2015.02.008}。
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -1601,7 +1601,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 	= \sqrt{\sum_{K\in \mathcal{T}_{h}} h_{K} \norm{u - \widehat{u}_{h}}_{L^2(\partial K)}^2}
 	\leqslant C(\nabla u) h^{k+2}
 \end{equation}
-而在 Dirichlet 边值问题中，当空间维数 \(d = 1\) 且 \(k \geqslant 1\) 时，根据\cite[Lemma 1]{10.1016/S0045-7825(03)00445-6}，由于 LDG-H 格式作为一种推广的 LDG 格式，其数值通量是守恒且相容的，那么 \(\widehat{u}_{h}\) 是\textbf{精确}的，也即 \(\widehat{u}_{h} = u\big|_{\Gamma}\).
+而在 Dirichlet 边值问题中，当空间维数 \(d = 1\) 且 \(k \geqslant 1\) 时，根据\cite[Lemma 1]{CASTILLO20034675}，由于 LDG-H 格式作为一种推广的 LDG 格式，其数值通量是守恒且相容的，那么 \(\widehat{u}_{h}\) 是\textbf{精确}的，也即 \(\widehat{u}_{h} = u\big|_{\Gamma}\).
 
 除此之外，由于 LDG-H 对 \(u\) 的单元平均是 \(k + 2\) 阶收敛的，所以可以逐单元后处理，使得到的 \(u^{\ast}_{h} \in \bigoplus_{K \in \mathcal{T}_{h}}\mathscr{P}^{k+1}(K)\) 对 \(u\) 的 \(L^2\) 误差有 \(k + 2\) 阶收敛\cite[Theorem 2.9]{10.1090/S0025-5718-08-02123-6}(或者\cite[Theorem 2.4, Proposition 3.2]{10.1090/S0025-5718-08-02146-7})。同时，利用与 RT/BDM 混合有限元类似的方法，可以对 \(\bm\sigma_{h}\) 进行逐单元后处理，使得到的 \(\bm\sigma_{h}^{\ast} \in H({\rm div}, \Omega) \cap \bigoplus_{K \in \mathcal{T}_{h}}{\rm RT}_{k}(K)\) 对 \(\sigma\) 的 \(H({\rm div})\) 误差有 \(k + 1\) 阶收敛\cite[Theorem 2.2]{10.1090/S0025-5718-08-02146-7}。
 
@@ -1911,7 +1911,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 	\end{center}
 \end{table}
 
-数值结果显示出 \((\bm\sigma_{h}, u_{h}, u_{h}^{\ast})\) 在 \(k \geqslant 1\) 时的 \((k+1, k+1, k+2)\) 阶收敛，以及 \(k = 0\) 时的 \((1,1,1)\) 阶收敛，符合理论估计\cite{10.1090/S0025-5718-08-02123-6}。同时，我们观察到 \(\widehat{u}_{h}\) 在 \(k \geqslant 1\) 时出现了超收敛。实际上，根据\cite[Lemma 2.1]{10.1016/S0045-7825(03)00445-6}，当在一维两点 Dirichlet 边值问题中使用 \(k \geqslant 1\) 的多项式时，\(\widehat{u}_{h}\) 没有离散误差，也即若数值积分和浮点运算是准确的，则 \(\widehat{u}_{h} = u\big|_{\Gamma}\). 我们下面对源项 \(f\) 的积分使用不同阶的 Gauss-Lobatto 数值积分以验证。由于逐单元 \(n\) 点的 Gauss-Lobatto 复化积分的收敛阶是 \(2n-2\)，我们希望看到 \(\widehat{u}_{h}\) 对 \(u\big|_{\Gamma}\) 的 \(2n-2\) 阶收敛。数值结果如表\ref{table: 1D Poisson Dirichlet LDG-H trace superconvergence}所示，我们发现：
+数值结果显示出 \((\bm\sigma_{h}, u_{h}, u_{h}^{\ast})\) 在 \(k \geqslant 1\) 时的 \((k+1, k+1, k+2)\) 阶收敛，以及 \(k = 0\) 时的 \((1,1,1)\) 阶收敛，符合理论估计\cite{10.1090/S0025-5718-08-02123-6}。同时，我们观察到 \(\widehat{u}_{h}\) 在 \(k \geqslant 1\) 时出现了超收敛。实际上，根据\cite[Lemma 2.1]{CASTILLO20034675}，当在一维两点 Dirichlet 边值问题中使用 \(k \geqslant 1\) 的多项式时，\(\widehat{u}_{h}\) 没有离散误差，也即若数值积分和浮点运算是准确的，则 \(\widehat{u}_{h} = u\big|_{\Gamma}\). 我们下面对源项 \(f\) 的积分使用不同阶的 Gauss-Lobatto 数值积分以验证。由于逐单元 \(n\) 点的 Gauss-Lobatto 复化积分的收敛阶是 \(2n-2\)，我们希望看到 \(\widehat{u}_{h}\) 对 \(u\big|_{\Gamma}\) 的 \(2n-2\) 阶收敛。数值结果如表\ref{table: 1D Poisson Dirichlet LDG-H trace superconvergence}所示，我们发现：
 \begin{enumerate}
 	\item 当 \(k = 0\) 时，\(\widehat{u}_{h}\) 的收敛阶只有 \(1\) 阶；
 	\item 当 \(k \geqslant 1\) 时，实验中 \(\widehat{u}_{h}\) 的收敛阶依赖于 \(n\)，且达到了 \(n\) 点 Gauss-Lobatto 积分收敛阶 \(2n-2\)，这验证了理论结果。
