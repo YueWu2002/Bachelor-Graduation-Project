@@ -23,9 +23,9 @@
 
 % Sobolev space:  weak derivative, dual space, Sobolev embedding, compact embedding, trace operator(见TAM72详细), (inverse) trace estimate, weak derivative=0 lemma, (inverse) Poincar{\'{e}}-Friedrichs' inequality
 
-% Function analysis: inequalities, Lp-Lq, weak topology, Riesz' representation theorem, Lax-Milgram's theorem, Gat{\^{a}}eux derivative, Ladyzhenskaya–Babu{\v{s}}ka–Brezzi (LBB, or inf-sup) condition (Brezzi and Fortin 1991), Cea's lemma
+% Function analysis:  inequalities, Lp-Lq, weak topology, Riesz' representation theorem, Lax-Milgram's theorem, Gat{\^{a}}eux derivative, Ladyzhenskaya–Babu{\v{s}}ka–Brezzi (LBB, or inf-sup) condition (Brezzi and Fortin 1991), Cea's lemma
 
-% Finite element method:  definition of mesh(conforming and nonconforming), broken Sobolev space, Bramble-Hilbert's lemma, (hp-)polynomial approximation error estimate (via quotient spaces), inverse estimate
+% Finite element method:  definition of mesh(conforming and nonconforming), broken Sobolev space, Bramble-Hilbert's lemma, (hp-)polynomial approximation error estimate (via quotient spaces), trace interpolation error estimate, inverse estimate
 
 \begin{definition}[Sobolev Spaces]
     
@@ -57,13 +57,23 @@
     在 \(\R^d\) 空间中，对于 \(p \in [1, d)\)，定义 \(p\) 的 Sobolev 共轭指标为 \(p^{\ast}\)，其满足 \(\frac{1}{p^{\ast}} = \frac{1}{p} - \frac{1}{d}\).
 \end{definition}
 
-\begin{theorem}[Trace \cite{10.1007/978-3-030-56341-7_3}]\label{trace theorem}
+\begin{theorem}[Trace \cite{10.1007/978-3-030-56341-7_3}]\label{thm: trace theorem}
     设 \(\Omega\) 是 Lipschitz 区域，并设 \(p \in [1, +\infty)\). 若 \(s > \frac{1}{p}\) 且 \(p > 1\)，或 \(s \geqslant 1\) 且 \(p = 1\)，那么存在有界线性映射 \(\gamma: W^{s,p}(\Omega) \mapsto L^{p}(\partial \Omega)\) 使得：
     \begin{enumerate}
         \item \(\forall v \in C^{0}(\overline{\Omega}), \gamma(v) = v\big|_{\partial \Omega}\)；
         \item \(\ker\gamma = W^{s,p}_{0}(\Omega)\)；
-        \item 若 \(s = 1\) 且 \(p = 1\)，或 \(s \in (\frac{1}{2}, \frac{3}{2})\) 且 \(p = 2\)，或 \(s \in (\frac{1}{p}, 1]\) 且 \(p \not\in \B{1,2}\)，那么 \(\gamma: W^{s,p}(\Omega) \mapsto W^{s-\frac{1}{p}, p}(\partial \Omega)\) 是有界的线性满射，并且，存在 \(C > 0\) 使得 \(\gamma\) 的右逆 \(E\) 的满足 \(\norm{E} \leqslant C (\diam \Omega)^{\frac{1}{p}}\).
+        \item 若 \(s = 1\) 且 \(p = 1\)，或 \(s \in (\frac{1}{2}, \frac{3}{2})\) 且 \(p = 2\)，或 \(s \in (\frac{1}{p}, 1]\) 且 \(p \not\in \B{1,2}\)，那么 \(\gamma: W^{s,p}(\Omega) \mapsto W^{s-\frac{1}{p}, p}(\partial \Omega)\) 是有界的线性满射，并且，存在 \(C > 0\) 使得 \(\gamma\) 的右逆 \(E_{\gamma}\) (提升算子) 满足 \(\norm{E_{\gamma}} \leqslant C (\diam \Omega)^{\frac{1}{p}}\).
     \end{enumerate}
+\end{theorem}
+
+
+
+\begin{theorem}[Multiplicative trace inequality \cite{10.1007/978-3-030-56341-7_12}]\label{thm: Multiplicative trace inequality}
+    设 \(\B{\mathcal{T}_{h}}\) 是形状规则的网格序列，那么存在常数 \(c > 0\)，使得 \(\forall p \in [1, +\infty]\)，\(\forall v \in W^{1,p}(K)\)，\(\forall K \in \mathcal{T}_{h}\)，\(\forall e \in \mathcal{E}_{h}^{K}\)，\(\forall h \in \mathcal{H}\)：
+    \begin{equation}
+        \norm{v}_{L^{p}(e)} 
+        \leqslant c \norm{v}_{L^{p}(K)}^{1 - \frac{1}{p}} \left(h_{K}^{-\frac{1}{p}} \norm{v}_{L^{p}(K)}^{\frac{1}{p}} + \norm{\nabla v}_{L^{p}(K)}^{\frac{1}{p}}\right)
+    \end{equation}
 \end{theorem}
 
 

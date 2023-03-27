@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}DG for the \(p\)-Laplacian Equation}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}General Theory for the \(p\)-Laplacian Equation}{3}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Primal Form}{3}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Mixed Form}{4}{subsubsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.2}Review of FEM Methods for the \(p\)-Laplacian Equation}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Local DG Method 1}{6}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}The LDG Formulation}{6}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Numerical Discretization}{8}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Numerical Example 1 (1D Dirichlet)}{9}{subsubsection.1.3.3}%
+\contentsline {subsubsection}{\numberline {1.3.4}Conclusion}{15}{subsubsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.4}Local DG Method 2}{16}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}The LDG Formulation}{16}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Numerical Discretization}{30}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.3}Numerical Example 1 (1D Dirichlet)}{32}{subsubsection.1.4.3}%
+\contentsline {subsubsection}{\numberline {1.4.4}Conclusion}{41}{subsubsection.1.4.4}%
