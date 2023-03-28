@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber report"] 1679979264 "report.bcf" "report.bbl" "report" 1679979304 0
+["biber report"] 1679986982 "report.bcf" "report.bbl" "report" 1679987284 0
   "./includefiles/refs.bib" 1679900506 53199 41cc60ce68e8dd19f2d3738be0cf03dc ""
-  "report.bcf" 1679979289 119132 5fdc070948be408249d9b214383b1895 "xelatex"
+  "report.bcf" 1679987269 119218 6e547cf1cfb2501eb9a482cae6d41a03 "xelatex"
   (generated)
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["xdvipdfmx"] 1679979289 "report.xdv" "report.pdf" "report" 1679979304 0
-  "report.xdv" 1679979289 1874700 d624d3dcf9088918b79c6edc65934c7b "xelatex"
+["xdvipdfmx"] 1679987269 "report.xdv" "report.pdf" "report" 1679987284 0
+  "report.xdv" 1679987269 1876192 96c68e3ad553f55011c5311a8a55e4da "xelatex"
   (generated)
   "report.pdf"
   (rewritten before read)
-["xelatex"] 1679979282 "c:/Users/20333/Desktop/毕业设计/文档/report.tex" "report.xdv" "report" 1679979304 0
+["xelatex"] 1679987262 "c:/Users/20333/Desktop/毕业设计/文档/report.tex" "report.xdv" "report" 1679987284 0
   "c:/Users/20333/Desktop/毕业设计/文档/report.tex" 1679979233 4126 a04e9aed590aa60d4647fb68b2783877 ""
   "c:/Windows/Fonts/msyh.ttc" 1575709707 19647736 ff2e53a6131130a07589812ea5b5b0d0 ""
   "d:/TeXLive/2023/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1679714928 1528 7e12f4c0fcf5a072cebdcfbfc610f54c ""
@@ -188,16 +188,16 @@
   "includefiles/2D poisson LDG Neumann/error_q.eps" 1679470826 56955 3fad3b303bb9fba7e0f541767c440448 ""
   "includefiles/2D poisson LDG Neumann/error_u.eps" 1679470825 63238 8d052251fd88af9b5417f2b6f1c0b7c1 ""
   "includefiles/DOF compare.png" 1679278520 15294 805c31f2a2411e2a6d848c10351b7a43 ""
-  "includefiles/Poisson.tex" 1679976445 126881 093c1d4f03c19a3a44ab363513cda0a8 ""
+  "includefiles/Poisson.tex" 1679985882 127089 810e13e8bcf1d906d12011249cb005e4 ""
   "includefiles/headfile.tex" 1679897887 4989 7e4e56824d5edae5067cad3149e621dd ""
-  "includefiles/p-Laplacian.tex" 1679979254 121526 2eb04b586b1a80961f2628f24c939c95 ""
+  "includefiles/p-Laplacian.tex" 1679987114 121605 8b4efebeea7d687db979423f6ac5f380 ""
   "includefiles/triangle nodes compare.png" 1679278522 118710 c34a2534464b94c33f32064955b2400a ""
-  "report.aux" 1679979289 47636 0f8e9d8436e702601fdb2a426b24d8de "xelatex"
-  "report.bbl" 1679979267 169902 d26f8f71d009373131ea454bba0dabad "biber report"
-  "report.out" 1679979289 7734 0698c18ce1ce5d1d5ac735c453e43795 "xelatex"
-  "report.run.xml" 1679979289 2361 18f2b1bf7464ba32e7a137057cc6ca5d "xelatex"
+  "report.aux" 1679987269 47749 c2e6f8dc140ad0684f54b82db219d2ce "xelatex"
+  "report.bbl" 1679986987 169902 d26f8f71d009373131ea454bba0dabad "biber report"
+  "report.out" 1679987269 7734 0698c18ce1ce5d1d5ac735c453e43795 "xelatex"
+  "report.run.xml" 1679987269 2361 18f2b1bf7464ba32e7a137057cc6ca5d "xelatex"
   "report.tex" 1679979233 4126 a04e9aed590aa60d4647fb68b2783877 ""
-  "report.toc" 1679979289 3971 33f7ca9e9d18b90f79a3ced3dea79bcf "xelatex"
+  "report.toc" 1679987269 3971 8285448dba73fdd1d15edaecc23cfc21 "xelatex"
   (generated)
   "report.aux"
   "report.bcf"

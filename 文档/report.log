@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.3.25)  28 MAR 2023 12:54
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.3.25)  28 MAR 2023 15:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/20333/Desktop/毕业设计/文档/report.tex
+**c:/Users/20333/Desktop/毕业设计/文档/report
 (c:/Users/20333/Desktop/毕业设计/文档/report.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (d:/TeXLive/2023/texmf-dist/tex/latex/ctex/ctexart.cls (d:/TeXLive/2023/texmf-dist/tex/latex/ctex/config/ctexbackend.cfg
@@ -1458,36 +1458,36 @@ Overfull \hbox (24.19867pt too wide) detected at line 327
  []
 
 [56] [57] [58] [59] [60] [61] [62] [63] [64]
-Overfull \hbox (3.00566pt too wide) detected at line 847
+Overfull \hbox (3.00566pt too wide) detected at line 848
 [][][][][]
  []
 
-[65] [66] [67] [68] [69]
-Overfull \hbox (47.32556pt too wide) detected at line 1098
+[65] [66]
+Overfull \hbox (114.99704pt too wide) detected at line 934
+[][][][][][] [] [][][] [][][] [] [][][][][][][]  [][] [] [] []
+ []
+
+[67] [68] [69]
+Overfull \hbox (47.32556pt too wide) detected at line 1109
 []
  []
 
 [70] [71] [72] [73] [74]
-Overfull \hbox (52.89915pt too wide) in alignment at lines 1301--1315
+Overfull \hbox (52.89915pt too wide) in alignment at lines 1313--1327
  [][][] []
  []
 
 [75]
-Overfull \hbox (7.28375pt too wide) detected at line 1347
+Overfull \hbox (6.82773pt too wide) detected at line 1359
 []
  []
 
 [76]
-Overfull \hbox (21.41205pt too wide) in alignment at lines 1375--1388
+Overfull \hbox (20.95602pt too wide) in alignment at lines 1392--1405
  [][][] []
  []
 
-[77] [78]
-Overfull \hbox (0.1093pt too wide) detected at line 1444
-[]
- []
-
-[79] [80] [81] [82] [83] [84] [85]
+[77] [78] [79] [80] [81] [82] [83] [84] [85]
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, J.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, J.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps Graphic file (type eps)
@@ -1631,11 +1631,11 @@ Package logreq Info: Writing requests to 'report.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  31339 strings out of 478630
- 652842 string characters out of 5847730
- 1942012 words of memory out of 5000000
+ 652834 string characters out of 5847730
+ 1941012 words of memory out of 5000000
  50964 multiletter control sequences out of 15000+600000
  527718 words of font info for 184 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 89i,22n,115p,1138b,5024s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,22n,115p,1134b,5024s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on report.xdv (106 pages, 1874700 bytes).
+Output written on report.pdf (106 pages).

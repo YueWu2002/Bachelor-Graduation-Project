@@ -191,8 +191,8 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 算子：% to be done: 写得详细一点
 \begin{enumerate}
 	\item \(\nabla_h\): \(\nabla_h u_{h} = \sum_{K\in\mathcal{T}_h} \nabla u_{h}\)
-	\item \(\jump{\cdot}\): \(\forall e\in\mathcal{E}_{h}^{o}, \jump{q}\big|_{e} = q_1 \bm n_1 + q_2 \bm n_2, \jump{\bm\varphi}\big|_{e} = \bm\varphi_1 \cdot \bm n_1 + \bm\varphi_2 \cdot \bm n_2\)；\(\forall e\in\mathcal{E}_{h}^{\partial}, \jump{q}\big|_{e} = q^{-} \bm n\)
-	\item \(\avg{\cdot}\): \(\forall e\in\mathcal{E}_{h}^{o}, \avg{q}\big|_{e} = \frac{q_1 + q_2}{2}, \avg{\bm\varphi}\big|_{e} = \frac{\bm\varphi_1 + \bm\varphi_2}{2}\)；\(\forall e\in\mathcal{E}_{h}^{\partial}, \avg{\bm\varphi}\big|_{e} = \bm\varphi^{-}\)
+	\item \(\jump{\cdot}\): \(\forall e\in\mathcal{E}_{h}^{o}, \jump{q}\big|_{e} = q_1 \bm n_1 + q_2 \bm n_2, \jump{\bm\varphi}\big|_{e} = \bm\varphi_1 \cdot \bm n_1 + \bm\varphi_2 \cdot \bm n_2\)；\(\forall e\in\mathcal{E}_{h}^{\partial}, \jump{q}\big|_{e} = q^{-} \bm n\) \footnote{在 \(e \in \mathcal{E}_{h}^{\partial}\) 上，\(\jump{\cdot}\) 对向量值函数无定义。}
+	\item \(\avg{\cdot}\): \(\forall e\in\mathcal{E}_{h}^{o}, \avg{q}\big|_{e} = \frac{q_1 + q_2}{2}, \avg{\bm\varphi}\big|_{e} = \frac{\bm\varphi_1 + \bm\varphi_2}{2}\)；\(\forall e\in\mathcal{E}_{h}^{\partial}, \avg{\bm\varphi}\big|_{e} = \bm\varphi^{-}\) \footnote{在 \(e \in \mathcal{E}_{h}^{\partial}\) 上，\(\avg{\cdot}\) 对标量函数无定义。}
 \end{enumerate}
 
 \begin{lemma}
