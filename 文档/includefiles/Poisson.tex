@@ -39,6 +39,14 @@
     设 \(\Omega\) 是开区域，当 \(p \in [1, +\infty)\) 时，\(L^{p}(\Omega)\) 的对偶空间为 \(L^{p'}(\Omega)\).
 \end{theorem}
 
+\begin{lemma}[Discrete H\"{o}lder's inequality]\label{lemma: Discrete Holder inequality}
+    设 \(\abs{\cdot}\) 是一个半范数。那么：
+    \begin{equation}
+        \forall \alpha \in [0, +\infty), \quad 
+        \abs{f + g}^{\alpha} \leqslant 2^{\max\B{\alpha-1, 0}} \left(\abs{f}^{\alpha} + \abs{g}^{\alpha}\right)
+    \end{equation}
+\end{lemma}
+
 \begin{theorem}[H{\"{o}}lder's inequality\cite{folland_ch6}]
     设 \(\left(X, \mathcal{M}, \mu\right)\) 是一个测度空间，\(p \in [1, +\infty]\). 若 \(f \in L^{p}(X)\)，\(g \in L^{p'}(X)\)，那么 \(f g \in L^{1}(X)\)，且：
     \begin{equation}
