@@ -1420,20 +1420,20 @@
 			& = \norm{ h_{e}^{\frac{1}{p} - 1} (u_{h}^{\ast} - u) \bm n}_{L^{p}(\Gamma^{o} \cup \Gamma^{D})}^{p-1} \norm{\jump{e_{h}}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, \eta h_{e}^{1-p})} \\
 			& \lesssim h^{s(p-1)} \abs{u}_{W^{s+1,p}(\Omega)}^{p-1} \norm{\jump{e_{h}}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, \eta h_{e}^{1-p})} 
 		\end{align*}
-		利用引理 \ref{lemma: Consistency of the DG-gradient operator}、多项式插值估计、定理 \ref{thm: Multiplicative trace inequality} 得：
+		利用引理 \ref{lemma: Consistency of the DG-gradient operator}、多项式插值估计、定理 \ref{thm: Multiplicative trace inequality}，任取 \(0 \leqslant l \leqslant s\)，有：
 		\begin{subequations}\label{Eh(uhs;gd) estimate}
 			\begin{eqnarray}
 				&& \norm{D_{DG}(u_{h}^{\ast}; g_{D}) - \nabla_{h} u_{h}^{\ast}}_{L^{p}(\Omega)} 
 				\lesssim \norm{\jump{u_{h}^{\ast}}}_{L^{p}(\Gamma^{o}, h_{e}^{1-p})} + \norm{u_{h}^{\ast} - g_{D}}_{L^{p}(\Gamma^{D}, h_{e}^{1-p})} \\
 				&& \norm{\nabla_{h} u_{h}^{\ast} - \nabla u}_{L^{p}(\Omega)} 
-				\lesssim h^{s} \abs{u}_{W^{s + 1,p}(\Omega)} \\
+				\lesssim h^{l} \abs{u}_{W^{l + 1,p}(\Omega)} \\
 				&& \norm{\jump{u_{h}^{\ast}}}_{L^{p}(\Gamma^{o}, h_{e}^{1-p})} + \norm{u_{h}^{\ast} - g_{D}}_{L^{p}(\Gamma^{D}, h_{e}^{1-p})} 
-				\lesssim h^{s} \abs{u}_{W^{s+1,p}(\Omega)} 
+				\lesssim h^{l} \abs{u}_{W^{l+1,p}(\Omega)} 
 			\end{eqnarray}
-			从而：
+			从而可以得到 \(u_{h}^{\ast}\) 的能量估计：
 			\begin{equation}
 				E_{h}(u_{h}^{\ast}; g_{D}) 
-				\lesssim h^{s} \abs{u}_{W^{s+1, p}(\Omega)}
+                \leqslant \norm{\nabla u}_{L^{p}(\Omega)} + C h^{l} \abs{u}_{W^{l+1, p}(\Omega)}
 			\end{equation}
 		\end{subequations}
 		
