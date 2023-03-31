@@ -31,6 +31,21 @@
     
 \end{definition}
 
+\begin{definition}[BV norms]
+    对于 \(u \in L^{1}_{{\rm loc}}(\Omega)\) 定义如下的半范数和范数：
+    \begin{subequations}
+        \begin{equation}
+            \abs{u}_{{\rm BV}(\Omega)} 
+            = \sup_{\substack{\bm\phi \in C_{c}^{1}(\Omega) \\ \norm{\bm\phi}_{L^{\infty}(\Omega)} \leqslant 1}} \int_{\Omega} u \nabla \cdot \bm\phi \d x
+        \end{equation}
+        \begin{equation}
+            \norm{u}_{{\rm BV}(\Omega)} 
+            = \norm{u}_{L^{1}(\Omega)} + \abs{u}_{{\rm BV}(\Omega)} 
+        \end{equation}
+    \end{subequations}
+\end{definition}
+
+
 \begin{definition}[Dual index]
     对于 \(p \in [1, +\infty]\)，定义 \(p\) 的共轭指标 \(p'\)，使得 \(\frac{1}{p} + \frac{1}{p'} = 1\).
 \end{definition}
