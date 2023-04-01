@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.3.25)  31 MAR 2023 19:40
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.3.25)  1 APR 2023 23:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1464,63 +1464,58 @@ Overfull \hbox (47.32556pt too wide) detected at line 1138
 []
  []
 
-[71] [72] [73]
-Overfull \hbox (9.85089pt too wide) in paragraph at lines 1269--1270
-\TU/SimSun(0)/m/n/12 为 $[][]$ 在 $[][][][][][]$ 中 的 聚 点，|  存 在 子 列 $[][]$ 使 得 $[][] [][] []
- []
-
-[74] [75]
-Overfull \hbox (15.6291pt too wide) detected at line 1341
+[71] [72] [73] [74] [75] [76]
+Overfull \hbox (15.6291pt too wide) detected at line 1377
 []
  []
 
-[76] [77]
-Overfull \hbox (9.34636pt too wide) in alignment at lines 1445--1462
+[77] [78]
+Overfull \hbox (9.34636pt too wide) in alignment at lines 1465--1482
  [][][] []
- []
-
-[78]
-Overfull \hbox (6.82773pt too wide) detected at line 1495
-[]
  []
 
 [79]
-Overfull \hbox (5.07222pt too wide) in alignment at lines 1537--1550
- [][][] []
- []
-
-[80] [81]
-Overfull \hbox (27.93114pt too wide) detected at line 1621
+Overfull \hbox (6.82773pt too wide) detected at line 1515
 []
  []
 
-[82]
-Overfull \hbox (33.37036pt too wide) in alignment at lines 1651--1684
+[80]
+Overfull \hbox (5.07222pt too wide) in alignment at lines 1557--1570
  [][][] []
  []
 
-[83] [84] [85] [86] [87] [88] [89] [90]
+[81] [82]
+Overfull \hbox (27.93114pt too wide) detected at line 1641
+[]
+ []
+
+[83]
+Overfull \hbox (33.37036pt too wide) in alignment at lines 1671--1704
+ [][][] []
+ []
+
+[84] [85] [86] [87] [88] [89] [90] [91]
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, J.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, J.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps>
- [91]
+ [92]
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, J.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, J.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, grad.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, grad.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, rho.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, rho.eps>
- [92]
+ [93]
 File: includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, J.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, J.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, grad.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, grad.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps>
- [93] [94]) [95]
+ [94] [95]) [96]
 Overfull \hbox (4.69646pt too wide) in paragraph at lines 79--79
 \TU/lmr/m/it/12 Equations\TU/lmr/m/n/12 . 2nd. Vol. 19. Graduate Studies in Mathematics. Providence, Rhode
  []
@@ -1530,12 +1525,12 @@ Overfull \hbox (9.63776pt too wide) in paragraph at lines 79--79
 []\TU/lmr/m/n/12 Alexandre Ern and Jean-Luc Guermond. “Distributions and Duality in Sobolev
  []
 
-[96] [97]
+[97] [98]
 Overfull \hbox (4.56006pt too wide) in paragraph at lines 79--79
 [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][][][][] [] [][][] [] [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . 
  []
 
-[98]
+[99]
 Overfull \hbox (5.56123pt too wide) in paragraph at lines 79--79
 \TU/lmr/m/n/12 Framework”. In: \TU/lmr/m/it/12 Computer Physics Communications \TU/lmr/m/n/12 192 (Feb. 2015), pp. 205–
  []
@@ -1545,7 +1540,7 @@ Overfull \hbox (17.75537pt too wide) in paragraph at lines 79--79
 [] [] [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][][][][] [] [][][] [] [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 .
  []
 
-[99]
+[100]
 Overfull \hbox (7.1121pt too wide) in paragraph at lines 79--79
 \TU/lmr/m/n/12 Legendre Quadrature”. In: \TU/lmr/m/it/12 SIAM Journal on Scientific Computing \TU/lmr/m/n/12 24.3 (2003),
  []
@@ -1555,7 +1550,7 @@ Overfull \hbox (33.41148pt too wide) in paragraph at lines 79--79
 \TU/lmr/m/n/12 Mathematics. Springer Publishing Company, Incorporated, 2007. \TU/lmr/m/sc/12 isbn\TU/lmr/m/n/12 : 0387720650.
  []
 
-[100]
+[101]
 Overfull \hbox (40.0807pt too wide) in paragraph at lines 79--79
 [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . eprint: []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][][][][][][][][]$[].
  []
@@ -1565,7 +1560,7 @@ Overfull \hbox (5.0468pt too wide) in paragraph at lines 79--79
 \TU/lmr/m/it/12 puting \TU/lmr/m/n/12 30.4 (2008), pp. 1806–1824. \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][][][][][]$[]. eprint: []$[][][][][] []
  []
 
-[101]
+[102]
 Overfull \hbox (7.14717pt too wide) in paragraph at lines 79--79
 []\TU/lmr/m/n/12 J. A. Nitsche. “Über ein Variationsprinzip zur Lösung von Dirichlet-Problemen
  []
@@ -1580,12 +1575,12 @@ Overfull \hbox (15.49329pt too wide) in paragraph at lines 79--79
 \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][][][][][][]$[]. \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][]$[]. 
  []
 
-[102]
+[103]
 Overfull \hbox (6.86197pt too wide) in paragraph at lines 79--79
 \TU/lmr/m/n/12 fied Hybridization of Discontinuous Galerkin, Mixed, and Continuous Galerkin
  []
 
-[103] [104]
+[104] [105]
 Overfull \hbox (27.68668pt too wide) in paragraph at lines 79--79
 [][][] [] [][] [] [][][][][][][][][] [] [][][][][][] [] [][][][][][][][][] [] [][][][][] [] [][][][][][][][][][][][][][][][][][][][][][] []
  []
@@ -1605,7 +1600,7 @@ Overfull \hbox (38.97647pt too wide) in paragraph at lines 79--79
 \TU/lmr/m/n/12 Classe de Problèmes de Dirichlet Non Linéaires”. In: \TU/lmr/m/it/12 Revue Française D’automatique,
  []
 
-[105]
+[106]
 Overfull \hbox (40.0807pt too wide) in paragraph at lines 79--79
 [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . eprint: []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][][][][][][][][]$[].
  []
@@ -1615,39 +1610,39 @@ Overfull \hbox (33.02225pt too wide) in paragraph at lines 79--79
 \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][] [][] [][][][][][][] [] [][][][][] [][] []$[]. \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][] []
  []
 
-[106]
+[107]
 Overfull \hbox (4.7702pt too wide) in paragraph at lines 79--79
 \TU/lmr/m/n/12 Version Finite Element Method and Application to Non-linear Elliptic PDEs”.
  []
 
-[107] [108]
+[108] [109]
 Overfull \hbox (12.90974pt too wide) in paragraph at lines 79--79
 []\TU/lmr/m/n/12 Bernardo Cockburn and Jiguang Shen. “A Hybridizable Discontinuous Galerkin
  []
 
-[109]
+[110]
 Overfull \hbox (0.36694pt too wide) in paragraph at lines 79--79
 \TU/lmr/m/it/12 D’Automatique, Informatique, Recherche Opérationnelle. Analyse Numérique
  []
 
-[110] [111] (./report.aux)
+[111] [112] (./report.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.8pt have occurred.
 
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: BACA918E520486449508FC44AEF8FED5;8080.
+(rerunfilecheck)             Checksum: 656331BB6F7B9845108DD69AA9814019;8085.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31386 strings out of 478630
- 655521 string characters out of 5847730
- 1952012 words of memory out of 5000000
- 51009 multiletter control sequences out of 15000+600000
+ 31387 strings out of 478630
+ 655553 string characters out of 5847730
+ 1954012 words of memory out of 5000000
+ 51010 multiletter control sequences out of 15000+600000
  527726 words of font info for 185 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  89i,22n,115p,1138b,5024s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on report.xdv (111 pages, 1973676 bytes).
+Output written on report.xdv (112 pages, 1991484 bytes).
