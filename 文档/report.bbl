@@ -103,6 +103,91 @@
       \verb https://doi.org/10.1007/978-3-030-56341-7_3
       \endverb
     \endentry
+    \entry{10.1137/0707006}{article}{}
+      \name{author}{2}{}{%
+        {{hash=d0e2e17a6fdb92d812bb0a5341a26870}{%
+           family={Bramble},
+           familyi={B\bibinitperiod},
+           given={James\bibnamedelima H.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=acd8d4ee6d6fe8784035c903cbe8903c}{%
+           family={Hilbert},
+           familyi={H\bibinitperiod},
+           given={Stephen\bibnamedelima R.},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{51c49925333155bfd434cc6820bd220e}
+      \strng{fullhash}{51c49925333155bfd434cc6820bd220e}
+      \strng{bibnamehash}{51c49925333155bfd434cc6820bd220e}
+      \strng{authorbibnamehash}{51c49925333155bfd434cc6820bd220e}
+      \strng{authornamehash}{51c49925333155bfd434cc6820bd220e}
+      \strng{authorfullhash}{51c49925333155bfd434cc6820bd220e}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SIAM Journal on Numerical Analysis}
+      \field{number}{1}
+      \field{title}{Estimation of Linear Functionals on Sobolev Spaces with Application to Fourier Transforms and Spline Interpolation}
+      \field{volume}{7}
+      \field{year}{1970}
+      \field{pages}{112\bibrangedash 124}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1137/0707006
+      \endverb
+      \verb{eprint}
+      \verb https://doi.org/10.1137/0707006
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1137/0707006
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1137/0707006
+      \endverb
+    \endentry
+    \entry{10.1007/BF00252458}{article}{}
+      \name{author}{2}{}{%
+        {{hash=8f4868678b32f146658519d06d8e44f6}{%
+           family={Ciarlet},
+           familyi={C\bibinitperiod},
+           given={P.\bibnamedelimi G.},
+           giveni={P\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=c4ebe38117cda0b142689e8a84abb34e}{%
+           family={Raviart},
+           familyi={R\bibinitperiod},
+           given={P.\bibnamedelimi A.},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{518d0f51cc845812bd4f397f8146c656}
+      \strng{fullhash}{518d0f51cc845812bd4f397f8146c656}
+      \strng{bibnamehash}{518d0f51cc845812bd4f397f8146c656}
+      \strng{authorbibnamehash}{518d0f51cc845812bd4f397f8146c656}
+      \strng{authornamehash}{518d0f51cc845812bd4f397f8146c656}
+      \strng{authorfullhash}{518d0f51cc845812bd4f397f8146c656}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1432-0673}
+      \field{journaltitle}{Archive for Rational Mechanics and Analysis}
+      \field{month}{01}
+      \field{number}{3}
+      \field{title}{General Lagrange and Hermite Interpolation in \(\mathbb{R}^{n}\) with Applications to Finite Element Methods}
+      \field{volume}{46}
+      \field{year}{1972}
+      \field{pages}{177\bibrangedash 199}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1007/BF00252458
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/BF00252458
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/BF00252458
+      \endverb
+    \endentry
     \entry{10.1007/978-3-030-56341-7_12}{inbook}{}
       \name{author}{2}{}{%
         {{hash=e85a4a72db4d523e27330f9eacdfc4a7}{%
@@ -129,8 +214,8 @@
       \strng{authornamehash}{eedb8ad8b78016d85df98a4344f910db}
       \strng{authorfullhash}{eedb8ad8b78016d85df98a4344f910db}
       \field{extraname}{2}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Finite Elements I: Approximation and Interpolation}
@@ -172,8 +257,8 @@
       \strng{authornamehash}{0d72932a7775f85a51622d3af75ae26e}
       \strng{authorfullhash}{0d72932a7775f85a51622d3af75ae26e}
       \field{extraname}{1}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Partial Differential Equations}
@@ -208,8 +293,8 @@
       \strng{authornamehash}{0d72932a7775f85a51622d3af75ae26e}
       \strng{authorfullhash}{0d72932a7775f85a51622d3af75ae26e}
       \field{extraname}{2}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Partial Differential Equations}
@@ -253,8 +338,8 @@
       \strng{authorbibnamehash}{d31744655bd82754b56fc79111ba7d49}
       \strng{authornamehash}{d31744655bd82754b56fc79111ba7d49}
       \strng{authorfullhash}{d31744655bd82754b56fc79111ba7d49}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Mixed Finite Element Methods and Applications}
@@ -302,14 +387,14 @@
       \strng{authornamehash}{eedb8ad8b78016d85df98a4344f910db}
       \strng{authorfullhash}{eedb8ad8b78016d85df98a4344f910db}
       \field{extraname}{3}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Finite Elements I: Approximation and Interpolation}
       \field{isbn}{978-3-030-56341-7}
       \field{series}{Texts in Applied Mathematics}
-      \field{title}{Distributions and Duality in {Sobolev} Spaces}
+      \field{title}{Distributions and Duality in Sobolev Spaces}
       \field{volume}{72}
       \field{year}{2021}
       \field{pages}{39\bibrangedash 45}
@@ -354,22 +439,19 @@
       \strng{authornamehash}{fad6cdd262848538d3da2f146cb69908}
       \strng{authorfullhash}{d34c603fad4f4cf19bd43d57d6d58c72}
       \field{extraname}{1}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
       \field{number}{5}
-      \field{title}{Unified Analysis of Discontinuous {Galerkin} Methods for Elliptic Problems}
+      \field{title}{Unified Analysis of Discontinuous Galerkin Methods for Elliptic Problems}
       \field{volume}{39}
       \field{year}{2002}
       \field{pages}{1749\bibrangedash 1779}
       \range{pages}{31}
       \verb{doi}
       \verb 10.1137/S0036142901384162
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/S0036142901384162
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/S0036142901384162
@@ -434,14 +516,14 @@
       \strng{editornamehash}{ecedc417e75381fe0394d3429f61709c}
       \strng{editorfullhash}{ecedc417e75381fe0394d3429f61709c}
       \field{extraname}{2}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Discontinuous {Galerkin} Methods: Theory, Computation and Applications}
+      \field{booktitle}{Discontinuous Galerkin Methods: Theory, Computation and Applications}
       \field{isbn}{978-3-642-59721-3}
       \field{series}{Lecture Notes in Computational Science and Engineering}
-      \field{title}{Discontinuous {Galerkin} Methods for Elliptic Problems}
+      \field{title}{Discontinuous Galerkin Methods for Elliptic Problems}
       \field{volume}{11}
       \field{year}{2000}
       \field{pages}{89\bibrangedash 101}
@@ -529,16 +611,13 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
       \field{number}{5}
-      \field{title}{An Algorithm for Computing {Fekete} Points in the Triangle}
+      \field{title}{An Algorithm for Computing Fekete Points in the Triangle}
       \field{volume}{38}
       \field{year}{2000}
       \field{pages}{1707\bibrangedash 1720}
       \range{pages}{14}
       \verb{doi}
       \verb 10.1137/S0036142998337247
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/S0036142998337247
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/S0036142998337247
@@ -572,7 +651,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
       \field{month}{09}
-      \field{title}{{Fekete} Collocation Points for Triangular Spectral Elements}
+      \field{title}{Fekete Collocation Points for Triangular Spectral Elements}
       \field{year}{1998}
       \verb{urlraw}
       \verb https://www.researchgate.net/publication/2709759_Fekete_Collocation_Points_for_Triangular_Spectral_Elements
@@ -616,7 +695,7 @@
       \field{journaltitle}{Mathematics of Compututation}
       \field{month}{10}
       \field{number}{236}
-      \field{title}{Tensor Product {Gauss}-{Lobatto} Points are {Fekete} Points for the Cube}
+      \field{title}{Tensor Product Gauss-Lobatto Points are Fekete Points for the Cube}
       \field{volume}{70}
       \field{year}{2001}
       \field{pages}{1543\bibrangedash 1547}
@@ -651,16 +730,13 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
       \field{number}{2}
-      \field{title}{On the Existence of Explicit \(hp\)-Finite Element Methods Using {Gauss}-{Lobatto} Integration on the Triangle}
+      \field{title}{On the Existence of Explicit \(hp\)-Finite Element Methods Using Gauss-Lobatto Integration on the Triangle}
       \field{volume}{47}
       \field{year}{2009}
       \field{pages}{1304\bibrangedash 1318}
       \range{pages}{15}
       \verb{doi}
       \verb 10.1137/070685439
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/070685439
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/070685439
@@ -738,9 +814,6 @@
       \verb{doi}
       \verb 10.1137/S003614299630587X
       \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/S003614299630587X
-      \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/S003614299630587X
       \endverb
@@ -767,15 +840,15 @@
       \strng{authorbibnamehash}{ceee2640d22d1efc250316664d103d58}
       \strng{authornamehash}{ceee2640d22d1efc250316664d103d58}
       \strng{authorfullhash}{ceee2640d22d1efc250316664d103d58}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0272-4960}
       \field{journaltitle}{IMA Journal of Applied Mathematics}
       \field{month}{02}
       \field{number}{1}
-      \field{title}{A {Lobatto} Interpolation Grid over the Triangle}
+      \field{title}{A Lobatto Interpolation Grid over the Triangle}
       \field{volume}{71}
       \field{year}{2006}
       \field{pages}{153\bibrangedash 169}
@@ -824,8 +897,8 @@
       \strng{authorbibnamehash}{eda35ff6fa665539dd9b3cf1e5018240}
       \strng{authornamehash}{eda35ff6fa665539dd9b3cf1e5018240}
       \strng{authorfullhash}{eda35ff6fa665539dd9b3cf1e5018240}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1991-7139}
@@ -863,8 +936,8 @@
       \strng{authorbibnamehash}{b6625ea40eb534ef7dd5483b4b2b6934}
       \strng{authornamehash}{b6625ea40eb534ef7dd5483b4b2b6934}
       \strng{authorfullhash}{b6625ea40eb534ef7dd5483b4b2b6934}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0898-1221}
@@ -899,13 +972,13 @@
       \strng{authorbibnamehash}{f07714dbff76bd9d0d1a970492de8f2b}
       \strng{authornamehash}{f07714dbff76bd9d0d1a970492de8f2b}
       \strng{authorfullhash}{f07714dbff76bd9d0d1a970492de8f2b}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{International Journal for Numerical Methods in Engineering}
       \field{number}{6}
-      \field{title}{High Degree Efficient Symmetrical {Gaussian} Quadrature Rules for the Triangle}
+      \field{title}{High Degree Efficient Symmetrical Gaussian Quadrature Rules for the Triangle}
       \field{volume}{21}
       \field{year}{1985}
       \field{pages}{1129\bibrangedash 1148}
@@ -943,8 +1016,8 @@
       \strng{authornamehash}{4e4b1c83c694c1db028188d440835731}
       \strng{authorfullhash}{4e4b1c83c694c1db028188d440835731}
       \field{extraname}{2}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1573-7691}
@@ -980,8 +1053,8 @@
       \strng{authorbibnamehash}{ff796707be0cc7877f654201e1761081}
       \strng{authornamehash}{ff796707be0cc7877f654201e1761081}
       \strng{authorfullhash}{ff796707be0cc7877f654201e1761081}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1573-7691}
@@ -1063,11 +1136,11 @@
       \strng{editorbibnamehash}{cbb9683431800c7ac3b860cc0c45f0cf}
       \strng{editornamehash}{cbb9683431800c7ac3b860cc0c45f0cf}
       \strng{editorfullhash}{65ebcee0397e12fa0f7a8277418bcf89}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Spectral and High Order Methods for Partial Differential Equations {ICOSAHOM} 2018}
+      \field{booktitle}{Spectral and High Order Methods for Partial Differential Equations ICOSAHOM 2018}
       \field{isbn}{978-3-030-39647-3}
       \field{series}{Lecture Notes in Computational Science and Engineering}
       \field{title}{Recurrence Relations for a Family of Orthogonal Polynomials on a Triangle}
@@ -1196,7 +1269,7 @@
       \field{issn}{0010-4655}
       \field{journaltitle}{Computer Physics Communications}
       \field{month}{02}
-      \field{title}{{Nektar++}: An Open-Source Spectral/\(hp\) Element Framework}
+      \field{title}{Nektar++: An Open-Source Spectral/\(hp\) Element Framework}
       \field{volume}{192}
       \field{year}{2015}
       \field{pages}{205\bibrangedash 219}
@@ -1368,16 +1441,13 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Scientific Computing}
       \field{number}{3}
-      \field{title}{Iteration-Free Computation of {Gauss}-{Legendre} Quadrature Nodes and Weights}
+      \field{title}{Iteration-Free Computation of Gauss-Legendre Quadrature Nodes and Weights}
       \field{volume}{36}
       \field{year}{2014}
       \field{pages}{A1008\bibrangedash A1026}
       \range{pages}{-1}
       \verb{doi}
       \verb 10.1137/140954969
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/140954969
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/140954969
@@ -1406,16 +1476,13 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Scientific Computing}
       \field{number}{3}
-      \field{title}{On Computing the Points and Weights for {Gauss}-{Legendre} Quadrature}
+      \field{title}{On Computing the Points and Weights for Gauss-Legendre Quadrature}
       \field{volume}{24}
       \field{year}{2003}
       \field{pages}{945\bibrangedash 954}
       \range{pages}{10}
       \verb{doi}
       \verb 10.1137/S1064827500379690
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/S1064827500379690
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/S1064827500379690
@@ -1500,14 +1567,14 @@
       \strng{authorbibnamehash}{d85e7caa6cf17bba637eb4b85ecd7d58}
       \strng{authornamehash}{d85e7caa6cf17bba637eb4b85ecd7d58}
       \strng{authorfullhash}{cafafa5a94d21af1dd3fd74e8e6c9b7b}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{International Journal for Numerical Methods in Fluids}
       \field{month}{01}
       \field{number}{10-12}
-      \field{title}{A Performance Comparison of Nodal Discontinuous {Galerkin} Methods on Triangles and Quadrilaterals}
+      \field{title}{A Performance Comparison of Nodal Discontinuous Galerkin Methods on Triangles and Quadrilaterals}
       \field{volume}{64}
       \field{year}{2010}
       \field{pages}{1336\bibrangedash 1362}
@@ -1547,14 +1614,14 @@
       \strng{authorbibnamehash}{2076bfc50205e085ffe3213f5c3f46c8}
       \strng{authornamehash}{2076bfc50205e085ffe3213f5c3f46c8}
       \strng{authorfullhash}{2076bfc50205e085ffe3213f5c3f46c8}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{1st}
       \field{isbn}{0387720650}
       \field{series}{Texts in Applied Mathematics}
-      \field{title}{Nodal Discontinuous {Galerkin} Methods: Algorithms, Analysis, and Applications}
+      \field{title}{Nodal Discontinuous Galerkin Methods: Algorithms, Analysis, and Applications}
       \field{volume}{54}
       \field{year}{2007}
       \verb{doi}
@@ -1593,11 +1660,11 @@
       \strng{authornamehash}{20209202e63ec9c1214aba242d1b631c}
       \strng{authorfullhash}{20209202e63ec9c1214aba242d1b631c}
       \field{extraname}{1}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{An Invitation to the Theory of the Hybridizable Discontinuous {Galerkin} Method: Projections, Estimates, Tools}
+      \field{booktitle}{An Invitation to the Theory of the Hybridizable Discontinuous Galerkin Method: Projections, Estimates, Tools}
       \field{isbn}{978-3-030-27230-2}
       \field{title}{Projection Analysis of Mixed Methods}
       \field{year}{2019}
@@ -1628,22 +1695,19 @@
       \strng{authornamehash}{efb33ba389ba94e0b3aba7758f2b3f43}
       \strng{authorfullhash}{efb33ba389ba94e0b3aba7758f2b3f43}
       \field{extraname}{1}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Scientific Computing}
       \field{number}{2}
-      \field{title}{Performance of Discontinuous {Galerkin} Methods for Elliptic {PDE}s}
+      \field{title}{Performance of Discontinuous Galerkin Methods for Elliptic PDEs}
       \field{volume}{24}
       \field{year}{2002}
       \field{pages}{524\bibrangedash 547}
       \range{pages}{24}
       \verb{doi}
       \verb 10.1137/S1064827501388339
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/S1064827501388339
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/S1064827501388339
@@ -1682,16 +1746,13 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
       \field{number}{4}
-      \field{title}{Locally Conservative Fluxes for the Continuous {Galerkin} Method}
+      \field{title}{Locally Conservative Fluxes for the Continuous Galerkin Method}
       \field{volume}{45}
       \field{year}{2007}
       \field{pages}{1742\bibrangedash 1776}
       \range{pages}{35}
       \verb{doi}
       \verb 10.1137/060666305
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/060666305
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/060666305
@@ -1725,16 +1786,13 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
       \field{number}{6}
-      \field{title}{The Local Discontinuous {Galerkin} Method for Time-Dependent Convection-Diffusion Systems}
+      \field{title}{The Local Discontinuous Galerkin Method for Time-Dependent Convection-Diffusion Systems}
       \field{volume}{35}
       \field{year}{1998}
       \field{pages}{2440\bibrangedash 2463}
       \range{pages}{24}
       \verb{doi}
       \verb 10.1137/S0036142997316712
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/S0036142997316712
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/S0036142997316712
@@ -1779,16 +1837,13 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
       \field{number}{5}
-      \field{title}{An \emph{A Priori} Error Analysis of the Local Discontinuous {Galerkin} Method for Elliptic Problems}
+      \field{title}{An \emph{A Priori} Error Analysis of the Local Discontinuous Galerkin Method for Elliptic Problems}
       \field{volume}{38}
       \field{year}{2000}
       \field{pages}{1676\bibrangedash 1706}
       \range{pages}{31}
       \verb{doi}
       \verb 10.1137/S0036142900371003
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/S0036142900371003
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/S0036142900371003
@@ -1822,16 +1877,13 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Scientific Computing}
       \field{number}{4}
-      \field{title}{The Compact Discontinuous {Galerkin} ({CDG}) Method for Elliptic Problems}
+      \field{title}{The Compact Discontinuous Galerkin (CDG) Method for Elliptic Problems}
       \field{volume}{30}
       \field{year}{2008}
       \field{pages}{1806\bibrangedash 1824}
       \range{pages}{19}
       \verb{doi}
       \verb 10.1137/070685518
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/070685518
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/070685518
@@ -1867,7 +1919,7 @@
       \field{journaltitle}{Journal of Scientific Computing}
       \field{month}{08}
       \field{number}{2}
-      \field{title}{An Analysis of the Minimal Dissipation Local Discontinuous {Galerkin} Method for Convection-Diffusion Problems}
+      \field{title}{An Analysis of the Minimal Dissipation Local Discontinuous Galerkin Method for Convection-Diffusion Problems}
       \field{volume}{32}
       \field{year}{2007}
       \field{pages}{233\bibrangedash 262}
@@ -1896,15 +1948,15 @@
       \strng{authorbibnamehash}{5c7943e7b9b646fd9e343700d210ce2b}
       \strng{authornamehash}{5c7943e7b9b646fd9e343700d210ce2b}
       \strng{authorfullhash}{5c7943e7b9b646fd9e343700d210ce2b}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1865-8784}
       \field{journaltitle}{Abhandlungen aus dem Mathematischen Seminar der Universität Hamburg}
       \field{month}{07}
       \field{number}{1}
-      \field{title}{Über ein Variationsprinzip zur Lösung von {Dirichlet}-Problemen bei Verwendung von Teilräumen, die keinen Randbedingungen unterworfen sind}
+      \field{title}{Über ein Variationsprinzip zur Lösung von Dirichlet-Problemen bei Verwendung von Teilräumen, die keinen Randbedingungen unterworfen sind}
       \field{volume}{36}
       \field{year}{1971}
       \field{pages}{9\bibrangedash 15}
@@ -1957,7 +2009,7 @@
       \field{journaltitle}{Mathematics of Computation}
       \field{month}{04}
       \field{number}{238}
-      \field{title}{Optimal \emph{A Priori} Error Estimates for the \(hp\)-Version of the Local Discontinuous {Galerkin} Method for Convection-Diffusion Problems}
+      \field{title}{Optimal \emph{A Priori} Error Estimates for the \(hp\)-Version of the Local Discontinuous Galerkin Method for Convection-Diffusion Problems}
       \field{volume}{71}
       \field{year}{2002}
       \field{pages}{455\bibrangedash 478}
@@ -2008,16 +2060,13 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
       \field{number}{1}
-      \field{title}{Superconvergence of the Local Discontinuous {Galerkin} Method for Elliptic Problems on {Cartesian} Grids}
+      \field{title}{Superconvergence of the Local Discontinuous Galerkin Method for Elliptic Problems on Cartesian Grids}
       \field{volume}{39}
       \field{year}{2001}
       \field{pages}{264\bibrangedash 285}
       \range{pages}{22}
       \verb{doi}
       \verb 10.1137/S0036142900371544
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/S0036142900371544
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/S0036142900371544
@@ -2049,7 +2098,7 @@
       \field{journaltitle}{Numerische Mathematik}
       \field{month}{06}
       \field{number}{3}
-      \field{title}{The Finite Element Method with {Lagrangian} Multipliers}
+      \field{title}{The Finite Element Method with Lagrangian Multipliers}
       \field{volume}{20}
       \field{year}{1973}
       \field{pages}{179\bibrangedash 192}
@@ -2085,8 +2134,8 @@
       \strng{authorbibnamehash}{28b41e90212a8dacb288efc9ca511543}
       \strng{authornamehash}{28b41e90212a8dacb288efc9ca511543}
       \strng{authorfullhash}{28b41e90212a8dacb288efc9ca511543}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{09}
@@ -2129,14 +2178,14 @@
       \strng{authorbibnamehash}{f985c5b56ea59bdffaa73cef5926a74b}
       \strng{authornamehash}{f985c5b56ea59bdffaa73cef5926a74b}
       \strng{authorfullhash}{04e969f7a15581f0db818f3c1c7ab4d6}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0898-1221}
       \field{journaltitle}{Computers and Mathematics with Applications}
       \field{number}{1}
-      \field{title}{{FESTUNG}: A {MATLAB}/{GNU} {Octave} Toolbox for the Discontinuous {Galerkin} Method, Part I: Diffusion Operator}
+      \field{title}{FESTUNG: A MATLAB/GNU Octave Toolbox for the Discontinuous Galerkin Method, Part I: Diffusion Operator}
       \field{volume}{70}
       \field{year}{2015}
       \field{pages}{11\bibrangedash 46}
@@ -2188,7 +2237,7 @@
       \field{journaltitle}{Journal of Scientific Computing}
       \field{month}{04}
       \field{number}{1}
-      \field{title}{To {CG} or to {HDG}: A Comparative Study in 3D}
+      \field{title}{To CG or to HDG: A Comparative Study in 3D}
       \field{volume}{67}
       \field{year}{2016}
       \field{pages}{192\bibrangedash 220}
@@ -2238,16 +2287,13 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Scientific Computing}
       \field{number}{2}
-      \field{title}{Manycore Parallel Computing for a Hybridizable Discontinuous {Galerkin} Nested Multigrid Method}
+      \field{title}{Manycore Parallel Computing for a Hybridizable Discontinuous Galerkin Nested Multigrid Method}
       \field{volume}{41}
       \field{year}{2019}
       \field{pages}{C73\bibrangedash C96}
       \range{pages}{-1}
       \verb{doi}
       \verb 10.1137/17M1128903
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/17M1128903
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/17M1128903
@@ -2286,7 +2332,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
       \field{number}{2}
-      \field{title}{Unified Hybridization of Discontinuous {Galerkin}, Mixed, and Continuous {Galerkin} Methods for Second Order Elliptic Problems}
+      \field{title}{Unified Hybridization of Discontinuous Galerkin, Mixed, and Continuous Galerkin Methods for Second Order Elliptic Problems}
       \field{volume}{47}
       \field{year}{2009}
       \field{pages}{1319\bibrangedash 1365}
@@ -2345,7 +2391,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Scientific Computing}
       \field{number}{5}
-      \field{title}{A Hybridizable Discontinuous {Galerkin} Method for Steady-State Convection-Diffusion-Reaction Problems}
+      \field{title}{A Hybridizable Discontinuous Galerkin Method for Steady-State Convection-Diffusion-Reaction Problems}
       \field{volume}{31}
       \field{year}{2009}
       \field{pages}{3827\bibrangedash 3846}
@@ -2390,14 +2436,14 @@
       \strng{authorbibnamehash}{dc90a71740d53350ee010e663137610f}
       \strng{authornamehash}{dc90a71740d53350ee010e663137610f}
       \strng{authorfullhash}{dc90a71740d53350ee010e663137610f}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Mathematics of Computation}
       \field{month}{10}
       \field{number}{264}
-      \field{title}{A Superconvergent {LDG}-Hybridizable {Galerkin} Method for Second-Order Elliptic Problems}
+      \field{title}{A Superconvergent LDG-Hybridizable Galerkin Method for Second-Order Elliptic Problems}
       \field{volume}{77}
       \field{year}{2008}
       \field{pages}{1887\bibrangedash 1916}
@@ -2439,13 +2485,13 @@
       \strng{authorbibnamehash}{42492726e05b235afa3c3e936a7327eb}
       \strng{authornamehash}{42492726e05b235afa3c3e936a7327eb}
       \strng{authorfullhash}{42492726e05b235afa3c3e936a7327eb}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Mathematics of Computation}
       \field{month}{07}
-      \field{title}{A Projection-Based Error Analysis of {HDG} Methods}
+      \field{title}{A Projection-Based Error Analysis of HDG Methods}
       \field{volume}{79}
       \field{year}{2010}
       \field{pages}{1351\bibrangedash 1367}
@@ -2487,14 +2533,14 @@
       \strng{authorbibnamehash}{a6305ad090011be068793d55da09bcdb}
       \strng{authornamehash}{a6305ad090011be068793d55da09bcdb}
       \strng{authorfullhash}{a6305ad090011be068793d55da09bcdb}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0025-5718}
       \field{journaltitle}{Mathematics of Computation}
       \field{number}{265}
-      \field{title}{Superconvergent Discontinuous {Galerkin} Methods for Second-Order Elliptic Problems}
+      \field{title}{Superconvergent Discontinuous Galerkin Methods for Second-Order Elliptic Problems}
       \field{volume}{78}
       \field{year}{2009}
       \field{pages}{1\bibrangedash 24}
@@ -2524,14 +2570,14 @@
       \strng{authornamehash}{efb33ba389ba94e0b3aba7758f2b3f43}
       \strng{authorfullhash}{efb33ba389ba94e0b3aba7758f2b3f43}
       \field{extraname}{2}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0045-7825}
       \field{journaltitle}{Computer Methods in Applied Mechanics and Engineering}
       \field{number}{41}
-      \field{title}{A Superconvergence Result for Discontinuous {Galerkin} Methods Applied to Elliptic Problems}
+      \field{title}{A Superconvergence Result for Discontinuous Galerkin Methods Applied to Elliptic Problems}
       \field{volume}{192}
       \field{year}{2003}
       \field{pages}{4675\bibrangedash 4685}
@@ -2576,10 +2622,10 @@
       \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{An Invitation to the Theory of the Hybridizable Discontinuous {Galerkin} Method: Projections, Estimates, Tools}
+      \field{booktitle}{An Invitation to the Theory of the Hybridizable Discontinuous Galerkin Method: Projections, Estimates, Tools}
       \field{chapter}{3}
       \field{isbn}{978-3-030-27230-2}
-      \field{title}{The Hybridizable Discontinuous {Galerkin} Method}
+      \field{title}{The Hybridizable Discontinuous Galerkin Method}
       \field{year}{2019}
       \field{pages}{45\bibrangedash 67}
       \range{pages}{23}
@@ -2621,7 +2667,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Mathematics of Computation}
       \field{number}{204}
-      \field{title}{Finite Element Approximation of the \(p\)-{Laplacian}}
+      \field{title}{Finite Element Approximation of the \(p\)-Laplacian}
       \field{volume}{61}
       \field{year}{1993}
       \field{pages}{523\bibrangedash 537}
@@ -2703,7 +2749,7 @@
       \field{edition}{2nd}
       \field{journaltitle}{Report / University of Jyväskylä, Department of Mathematics and Statistics}
       \field{number}{161}
-      \field{title}{Notes on the \(p\)-{Laplace} Equation}
+      \field{title}{Notes on the \(p\)-Laplace Equation}
       \field{year}{2017}
       \verb{urlraw}
       \verb https://jyx.jyu.fi/bitstream/handle/123456789/54658/Lindqvistplaplacenotes.pdf?sequence=1
@@ -2737,7 +2783,7 @@
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Notes on the Infinity {Laplace} Equation}
+      \field{booktitle}{Notes on the Infinity Laplace Equation}
       \field{isbn}{978-3-319-31532-4}
       \field{series}{SpringerBriefs in Mathematics}
       \field{title}{Viscosity Solutions}
@@ -2776,7 +2822,7 @@
       \field{journaltitle}{IMA Journal of Numerical Analysis}
       \field{month}{01}
       \field{number}{1}
-      \field{title}{A Mixed Finite Element Method for a Nonlinear {Dirichlet} Problem}
+      \field{title}{A Mixed Finite Element Method for a Nonlinear Dirichlet Problem}
       \field{volume}{18}
       \field{year}{1998}
       \field{pages}{121\bibrangedash 132}
@@ -2820,7 +2866,7 @@
       \field{journaltitle}{The Canadian Applied Mathematics Quarterly}
       \field{month}{04}
       \field{number}{1}
-      \field{title}{On a Mixed Finite Element Method for the \(p\)-{Laplacian}}
+      \field{title}{On a Mixed Finite Element Method for the \(p\)-Laplacian}
       \field{volume}{8}
       \field{year}{2000}
       \field{pages}{67\bibrangedash 78}
@@ -2843,8 +2889,8 @@
       \strng{authorbibnamehash}{9663587898fba0874409eb2d832ac224}
       \strng{authornamehash}{9663587898fba0874409eb2d832ac224}
       \strng{authorfullhash}{9663587898fba0874409eb2d832ac224}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{The Finite Element Method for Elliptic Problems}
@@ -2885,14 +2931,14 @@
       \strng{authorbibnamehash}{fdf59ec1a9a38747efc1d9160f17457f}
       \strng{authornamehash}{fdf59ec1a9a38747efc1d9160f17457f}
       \strng{authorfullhash}{fdf59ec1a9a38747efc1d9160f17457f}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Revue Française D'automatique, Informatique, Recherche Opérationnelle. Analyse Numérique}
       \field{langid}{French}
       \field{number}{R2}
-      \field{title}{Sur L'Approximation, Par Éléments Finis D'Ordre Un, et la Résolution, Par Pénalisation-Dualité D'une Classe de Problèmes de {Dirichlet} Non Linéaires}
+      \field{title}{Sur L'Approximation, Par Éléments Finis D'Ordre Un, et la Résolution, Par Pénalisation-Dualité D'une Classe de Problèmes de Dirichlet Non Linéaires}
       \field{volume}{9}
       \field{year}{1975}
       \field{pages}{41\bibrangedash 76}
@@ -2926,22 +2972,19 @@
       \strng{authorbibnamehash}{b953b8b172fc52200f82c5c0876f1c4d}
       \strng{authornamehash}{b953b8b172fc52200f82c5c0876f1c4d}
       \strng{authorfullhash}{b953b8b172fc52200f82c5c0876f1c4d}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
       \field{number}{5}
-      \field{title}{On Quasi-Norm Interpolation Error Estimation and \emph{a Posteriori} Error Estimates for \(p\)-{Laplacian}}
+      \field{title}{On Quasi-Norm Interpolation Error Estimation and \emph{a Posteriori} Error Estimates for \(p\)-Laplacian}
       \field{volume}{40}
       \field{year}{2002}
       \field{pages}{1870\bibrangedash 1895}
       \range{pages}{26}
       \verb{doi}
       \verb 10.1137/S0036142901393589
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/S0036142901393589
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/S0036142901393589
@@ -2969,14 +3012,14 @@
       \strng{authorbibnamehash}{ec467da5013d027e6e041b9159bd2fe7}
       \strng{authornamehash}{ec467da5013d027e6e041b9159bd2fe7}
       \strng{authorfullhash}{ec467da5013d027e6e041b9159bd2fe7}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0168-9274}
       \field{journaltitle}{Applied Numerical Mathematics}
       \field{month}{06}
-      \field{title}{The Adaptive Finite Element Method for the \(p\)-{Laplace} Problem}
+      \field{title}{The Adaptive Finite Element Method for the \(p\)-Laplace Problem}
       \field{volume}{152}
       \field{year}{2020}
       \field{pages}{323\bibrangedash 337}
@@ -3015,15 +3058,15 @@
       \strng{authorbibnamehash}{06fc6e989b0bc568e1c5b2fa10945902}
       \strng{authornamehash}{06fc6e989b0bc568e1c5b2fa10945902}
       \strng{authorfullhash}{06fc6e989b0bc568e1c5b2fa10945902}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2075-1354}
       \field{journaltitle}{Advances in Applied Mathematics and Mechanics}
       \field{month}{12}
       \field{number}{6}
-      \field{title}{Nonconforming {FEM}s for the \(p\)-{Laplace} Problem}
+      \field{title}{Nonconforming FEMs for the \(p\)-Laplace Problem}
       \field{volume}{10}
       \field{year}{2018}
       \field{pages}{1365\bibrangedash 1383}
@@ -3057,15 +3100,15 @@
       \strng{authorbibnamehash}{bee8829ede36b465423ce2b195414315}
       \strng{authornamehash}{bee8829ede36b465423ce2b195414315}
       \strng{authorfullhash}{bee8829ede36b465423ce2b195414315}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0945-3245}
       \field{journaltitle}{Numerische Mathematik}
       \field{month}{04}
       \field{number}{2}
-      \field{title}{Quasi-Norm Interpolation Error Estimates for the Piecewise Linear Finite Element Approximation of \(p\)-{Laplacian} Problems}
+      \field{title}{Quasi-Norm Interpolation Error Estimates for the Piecewise Linear Finite Element Approximation of \(p\)-Laplacian Problems}
       \field{volume}{100}
       \field{year}{2005}
       \field{pages}{233\bibrangedash 258}
@@ -3104,15 +3147,15 @@
       \strng{authorbibnamehash}{f825408768030d6e8ac1cf71e3d78d7d}
       \strng{authornamehash}{f825408768030d6e8ac1cf71e3d78d7d}
       \strng{authorfullhash}{f825408768030d6e8ac1cf71e3d78d7d}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0272-4979}
       \field{journaltitle}{IMA Journal of Numerical Analysis}
       \field{month}{07}
       \field{number}{2}
-      \field{title}{Optimality of an Adaptive Finite Element Method for the \(p\)-{Laplacian} Equation}
+      \field{title}{Optimality of an Adaptive Finite Element Method for the \(p\)-Laplacian Equation}
       \field{volume}{32}
       \field{year}{2011}
       \field{pages}{484\bibrangedash 510}
@@ -3150,14 +3193,14 @@
       \strng{authornamehash}{b1081bbde3b8b98f76cd90ca21199ed7}
       \strng{authorfullhash}{b1081bbde3b8b98f76cd90ca21199ed7}
       \field{extraname}{1}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0168-9274}
       \field{journaltitle}{Applied Numerical Mathematics}
       \field{number}{4}
-      \field{title}{Approximation Theory for the \(hp\)-Version Finite Element Method and Application to the Non-linear {Laplacian}}
+      \field{title}{Approximation Theory for the \(hp\)-Version Finite Element Method and Application to the Non-linear Laplacian}
       \field{volume}{34}
       \field{year}{2000}
       \field{pages}{329\bibrangedash 344}
@@ -3191,22 +3234,19 @@
       \strng{authorbibnamehash}{bcfe0c16929298712e48622f35e6f2d6}
       \strng{authornamehash}{bcfe0c16929298712e48622f35e6f2d6}
       \strng{authorfullhash}{bcfe0c16929298712e48622f35e6f2d6}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
       \field{number}{2}
-      \field{title}{Linear Convergence of an Adaptive Finite Element Method for the \(p\)-{Laplacian} Equation}
+      \field{title}{Linear Convergence of an Adaptive Finite Element Method for the \(p\)-Laplacian Equation}
       \field{volume}{46}
       \field{year}{2008}
       \field{pages}{614\bibrangedash 638}
       \range{pages}{25}
       \verb{doi}
       \verb 10.1137/070681508
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/070681508
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/070681508
@@ -3239,14 +3279,14 @@
       \strng{authorbibnamehash}{9aa346f0d27043a371a97c2408fb5616}
       \strng{authornamehash}{9aa346f0d27043a371a97c2408fb5616}
       \strng{authorfullhash}{9aa346f0d27043a371a97c2408fb5616}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0045-7825}
       \field{journaltitle}{Computer Methods in Applied Mechanics and Engineering}
       \field{number}{25}
-      \field{title}{\emph{A Posteriori} Error Estimation for the Dual Mixed Finite Element Method for the \(p\)-{Laplacian} in a Polygonal Domain}
+      \field{title}{\emph{A Posteriori} Error Estimation for the Dual Mixed Finite Element Method for the \(p\)-Laplacian in a Polygonal Domain}
       \field{volume}{196}
       \field{year}{2007}
       \field{pages}{2570\bibrangedash 2582}
@@ -3289,7 +3329,7 @@
       \field{journaltitle}{Numerische Mathematik}
       \field{month}{05}
       \field{number}{3}
-      \field{title}{The Approximation Theory for the \(p\)-Version Finite Element Method and Application to Non-linear Elliptic {PDE}s}
+      \field{title}{The Approximation Theory for the \(p\)-Version Finite Element Method and Application to Non-linear Elliptic PDEs}
       \field{volume}{82}
       \field{year}{1999}
       \field{pages}{351\bibrangedash 388}
@@ -3331,7 +3371,7 @@
       \field{journaltitle}{IMA Journal of Numerical Analysis}
       \field{month}{07}
       \field{number}{4}
-      \field{title}{Compact Embeddings of Broken {Sobolev} Spaces and Applications}
+      \field{title}{Compact Embeddings of Broken Sobolev Spaces and Applications}
       \field{volume}{29}
       \field{year}{2008}
       \field{pages}{827\bibrangedash 855}
@@ -3379,7 +3419,7 @@
       \field{journaltitle}{Mathematics of Computation}
       \field{month}{07}
       \field{number}{271}
-      \field{title}{Discrete Functional Analysis Tools for Discontinuous {Galerkin} Methods with Application to the Incompressible {Navier}-{Stokes} Equations}
+      \field{title}{Discrete Functional Analysis Tools for Discontinuous Galerkin Methods with Application to the Incompressible Navier-Stokes Equations}
       \field{volume}{79}
       \field{year}{2010}
       \field{pages}{1303\bibrangedash 1330}
@@ -3431,7 +3471,7 @@
       \field{journaltitle}{IMA Journal of Numerical Analysis}
       \field{month}{11}
       \field{number}{4}
-      \field{title}{A Local Discontinuous {Galerkin} Approximation for Systems with \(p\)-Structure}
+      \field{title}{A Local Discontinuous Galerkin Approximation for Systems with \(p\)-Structure}
       \field{volume}{34}
       \field{year}{2013}
       \field{pages}{1447\bibrangedash 1488}
@@ -3479,7 +3519,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{International Journal for Numerical Methods in Fluids}
       \field{number}{11}
-      \field{title}{Numerical Solutions of Systems with \((p, \delta)\)-Structure Using Local Discontinuous {Galerkin} Finite Element Methods}
+      \field{title}{Numerical Solutions of Systems with \((p, \delta)\)-Structure Using Local Discontinuous Galerkin Finite Element Methods}
       \field{volume}{76}
       \field{year}{2014}
       \field{pages}{855\bibrangedash 874}
@@ -3523,7 +3563,7 @@
       \field{issn}{1631-073X}
       \field{journaltitle}{Comptes Rendus Mathematique}
       \field{number}{17}
-      \field{title}{Discontinuous {Galerkin} Approximation with Discrete Variational Principle for the Nonlinear {Laplacian}}
+      \field{title}{Discontinuous Galerkin Approximation with Discrete Variational Principle for the Nonlinear Laplacian}
       \field{volume}{346}
       \field{year}{2008}
       \field{pages}{1013\bibrangedash 1016}
@@ -3570,7 +3610,7 @@
       \field{journaltitle}{International Journal of Numerical Analysis and Modeling}
       \field{month}{02}
       \field{number}{2-3}
-      \field{title}{On an Adaptive {LDG} for the \(p\)-{Laplace} Problem}
+      \field{title}{On an Adaptive LDG for the \(p\)-Laplace Problem}
       \field{volume}{19}
       \field{year}{2022}
       \field{pages}{315\bibrangedash 328}
@@ -3602,7 +3642,7 @@
       \field{labeltitlesource}{title}
       \field{issn}{0168-874X}
       \field{journaltitle}{Finite Elements in Analysis and Design}
-      \field{title}{An Interior Penalty Discontinuous {Galerkin} Finite Element Method for Quasilinear Parabolic Problems}
+      \field{title}{An Interior Penalty Discontinuous Galerkin Finite Element Method for Quasilinear Parabolic Problems}
       \field{volume}{95}
       \field{year}{2015}
       \field{pages}{42\bibrangedash 50}
@@ -3647,7 +3687,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
       \field{number}{5}
-      \field{title}{Interior Penalty Discontinuous {Galerkin} {FEM} for the \(p(x)\)-{Laplacian}}
+      \field{title}{Interior Penalty Discontinuous Galerkin FEM for the \(p(x)\)-Laplacian}
       \field{volume}{50}
       \field{year}{2012}
       \field{pages}{2497\bibrangedash 2521}
@@ -3690,16 +3730,13 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Scientific Computing}
       \field{number}{1}
-      \field{title}{A Hybridizable Discontinuous {Galerkin} Method for the \(p\)-{Laplacian}}
+      \field{title}{A Hybridizable Discontinuous Galerkin Method for the \(p\)-Laplacian}
       \field{volume}{38}
       \field{year}{2016}
       \field{pages}{A545\bibrangedash A566}
       \range{pages}{-1}
       \verb{doi}
       \verb 10.1137/15M1008014
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/15M1008014
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/15M1008014
@@ -3735,7 +3772,7 @@
       \field{journaltitle}{Journal of Scientific Computing}
       \field{month}{08}
       \field{number}{2}
-      \field{title}{Analysis on an {HDG} Method for the \(p\)-{Laplacian} Equations}
+      \field{title}{Analysis on an HDG Method for the \(p\)-Laplacian Equations}
       \field{volume}{80}
       \field{year}{2019}
       \field{pages}{1019\bibrangedash 1032}
@@ -3769,22 +3806,19 @@
       \strng{authorbibnamehash}{4dcf86cec51c7ae0c5c648cfe65a5cd5}
       \strng{authornamehash}{4dcf86cec51c7ae0c5c648cfe65a5cd5}
       \strng{authorfullhash}{4dcf86cec51c7ae0c5c648cfe65a5cd5}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Scientific Computing}
       \field{number}{5}
-      \field{title}{A Multigrid Algorithm for the \(p\)-{Laplacian}}
+      \field{title}{A Multigrid Algorithm for the \(p\)-Laplacian}
       \field{volume}{21}
       \field{year}{2000}
       \field{pages}{1774\bibrangedash 1789}
       \range{pages}{16}
       \verb{doi}
       \verb 10.1137/S1064827598339098
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/S1064827598339098
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/S1064827598339098
@@ -3817,15 +3851,15 @@
       \strng{authorbibnamehash}{61d011799f73c8b2d4be8c0f0eecca75}
       \strng{authornamehash}{61d011799f73c8b2d4be8c0f0eecca75}
       \strng{authorfullhash}{61d011799f73c8b2d4be8c0f0eecca75}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1573-7691}
       \field{journaltitle}{Journal of Scientific Computing}
       \field{month}{08}
       \field{number}{2}
-      \field{title}{Preconditioned Descent Algorithms for \(p\)-{Laplacian}}
+      \field{title}{Preconditioned Descent Algorithms for \(p\)-Laplacian}
       \field{volume}{32}
       \field{year}{2007}
       \field{pages}{343\bibrangedash 371}
@@ -3868,15 +3902,15 @@
       \strng{authorbibnamehash}{8c4bbc3089133a5f825197ad4fdab0fb}
       \strng{authornamehash}{8c4bbc3089133a5f825197ad4fdab0fb}
       \strng{authorfullhash}{8c4bbc3089133a5f825197ad4fdab0fb}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2617-8710}
       \field{journaltitle}{International Journal of Numerical Analysis and Modeling}
       \field{month}{01}
       \field{number}{0}
-      \field{title}{Preconditioned Hybrid Conjugate Gradient Algorithm for \(p\)-{Laplacian}}
+      \field{title}{Preconditioned Hybrid Conjugate Gradient Algorithm for \(p\)-Laplacian}
       \field{volume}{2}
       \field{year}{2005}
       \field{pages}{123\bibrangedash 130}
@@ -3907,14 +3941,14 @@
       \strng{authorbibnamehash}{e5d1eea4290b632bcfaf3c3c9b8ad9d3}
       \strng{authornamehash}{e5d1eea4290b632bcfaf3c3c9b8ad9d3}
       \strng{authorfullhash}{e5d1eea4290b632bcfaf3c3c9b8ad9d3}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0096-3003}
       \field{journaltitle}{Applied Mathematics and Computation}
       \field{month}{11}
-      \field{title}{The Steepest Descent Algorithm without Line Search for \(p\)-{Laplacian}}
+      \field{title}{The Steepest Descent Algorithm without Line Search for \(p\)-Laplacian}
       \field{volume}{224}
       \field{year}{2013}
       \field{pages}{36\bibrangedash 45}
@@ -3961,9 +3995,6 @@
       \range{pages}{-1}
       \verb{doi}
       \verb 10.1137/16M1067792
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/16M1067792
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/16M1067792
@@ -4059,8 +4090,8 @@
       \strng{authornamehash}{385f335a9c7d3aa2b60ab5a02a69bda7}
       \strng{authorfullhash}{385f335a9c7d3aa2b60ab5a02a69bda7}
       \field{extraname}{2}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0945-3245}
@@ -4096,13 +4127,13 @@
       \strng{authorbibnamehash}{875b6d6b626d6f9332b23d46ba15625c}
       \strng{authornamehash}{875b6d6b626d6f9332b23d46ba15625c}
       \strng{authorfullhash}{875b6d6b626d6f9332b23d46ba15625c}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Revue Française D'Automatique, Informatique, Recherche Opérationnelle. Analyse Numérique}
       \field{number}{R2}
-      \field{title}{On the Existence, Uniqueness and Approximation of Saddle-Point Problems Arising from {Lagrangian} Multipliers}
+      \field{title}{On the Existence, Uniqueness and Approximation of Saddle-Point Problems Arising from Lagrangian Multipliers}
       \field{volume}{8}
       \field{year}{1974}
       \field{pages}{129\bibrangedash 151}
@@ -4131,8 +4162,8 @@
       \strng{authorbibnamehash}{ebf2d012a62b1ab7022382a1b4abd94a}
       \strng{authornamehash}{ebf2d012a62b1ab7022382a1b4abd94a}
       \strng{authorfullhash}{ebf2d012a62b1ab7022382a1b4abd94a}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
@@ -4179,8 +4210,8 @@
       \strng{authorbibnamehash}{825936de147cdc8c250ef16bc6796878}
       \strng{authornamehash}{825936de147cdc8c250ef16bc6796878}
       \strng{authorfullhash}{825936de147cdc8c250ef16bc6796878}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Matrix Analysis and Applications}
@@ -4192,9 +4223,6 @@
       \range{pages}{13}
       \verb{doi}
       \verb 10.1137/S0895479802410827
-      \endverb
-      \verb{eprint}
-      \verb https://doi.org/10.1137/S0895479802410827
       \endverb
       \verb{urlraw}
       \verb https://doi.org/10.1137/S0895479802410827
@@ -4235,8 +4263,8 @@
       \strng{authorbibnamehash}{326169201fdf010097c113997e1bf85c}
       \strng{authornamehash}{326169201fdf010097c113997e1bf85c}
       \strng{authorfullhash}{37b3d2fe2261c1af3675ca972b003032}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Mathematics of Computation}
@@ -4273,14 +4301,14 @@
       \strng{authorbibnamehash}{a4e853e2899cea2aff1fda0fc78c51bc}
       \strng{authornamehash}{a4e853e2899cea2aff1fda0fc78c51bc}
       \strng{authorfullhash}{a4e853e2899cea2aff1fda0fc78c51bc}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Zeitschrift für Analysis und ihre Anwendungen}
       \field{month}{01}
       \field{number}{3}
-      \field{title}{Solvability and {Galerkin} Approximations of a Class of Nonlinear Operator Equations}
+      \field{title}{Solvability and Galerkin Approximations of a Class of Nonlinear Operator Equations}
       \field{volume}{21}
       \field{year}{2002}
       \field{pages}{761\bibrangedash 781}
@@ -4327,7 +4355,7 @@
       \field{journaltitle}{IMA Journal of Numerical Analysis}
       \field{month}{06}
       \field{number}{4}
-      \field{title}{Discretization of Heterogeneous and Anisotropic Diffusion Problems on General Nonconforming Meshes {SUSHI}: A Scheme Using Stabilization and Hybrid Interfaces}
+      \field{title}{Discretization of Heterogeneous and Anisotropic Diffusion Problems on General Nonconforming Meshes SUSHI: A Scheme Using Stabilization and Hybrid Interfaces}
       \field{volume}{30}
       \field{year}{2009}
       \field{pages}{1009\bibrangedash 1043}
@@ -4382,7 +4410,7 @@
       \field{journaltitle}{Complex Analysis and Operator Theory}
       \field{month}{03}
       \field{number}{3}
-      \field{title}{{Riesz}-{Kolmogorov} Type Compactness Criteria in Function Spaces with Applications}
+      \field{title}{Riesz-Kolmogorov Type Compactness Criteria in Function Spaces with Applications}
       \field{volume}{17}
       \field{year}{2023}
       \field{pages}{40}

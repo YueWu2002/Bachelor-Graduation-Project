@@ -27,76 +27,132 @@
 
 % Finite element method:  definition of mesh(conforming and nonconforming), broken Sobolev space, Bramble-Hilbert's lemma, (hp-)polynomial approximation error estimate (via quotient spaces), trace interpolation error estimate, inverse estimate
 
-\begin{definition}[Sobolev Spaces]
-    
+\begin{definition}[Sobolev norms and spaces]
+	设 \(\Omega \in \R^{d}\) 是开区域，\(p \in [1, +\infty]\)，\(k \in \N\). 对于 \(u \in L_{\rm loc}^{1}(\Omega)\) 定义如下范数：
+	\begin{equation}
+		\norm{u}_{W^{k,p}(\Omega)} 
+		= \begin{cases}
+			\left(\sum_{\abs{\bm\alpha} \leqslant k} \norm{D^{\bm\alpha} u}_{L^{p}(\Omega)}^{p} \right)^{\frac{1}{p}}, & p \in [1, +\infty) \\
+			\max_{\abs{\bm\alpha} \leqslant k} \norm{D^{\bm\alpha} u}_{L^{\infty}(\Omega)}, & p = +\infty
+		\end{cases}
+	\end{equation}
+	其中，\(\bm\alpha \in \N^{d}\) 是多重指标，\(\abs{\bm\alpha} = \norm{\bm\alpha}_{l^1}\)；\(D^{\bm\alpha}\) 是 \(\bm\alpha\) 阶弱导数。
+	
+	定义 Sobolev 空间 \(W^{k,p}(\Omega)\) 为满足 \(\norm{u}_{W^{k,p}(\Omega)} < +\infty\) 的函数 \(u\) 的全体。易见，\(W^{k,p}(\Omega)\) 是 Banach 空间。同时，定义 \(H^{k}(\Omega) = W^{k,2}(\Omega)\).
 \end{definition}
 
 \begin{definition}[BV norms]
-    对于 \(u \in L^{1}_{{\rm loc}}(\Omega)\) 定义如下的半范数和范数：
-    \begin{subequations}
-        \begin{equation}
-            \abs{u}_{{\rm BV}(\Omega)} 
-            = \sup_{\substack{\bm\phi \in C_{c}^{1}(\Omega) \\ \norm{\bm\phi}_{L^{\infty}(\Omega)} \leqslant 1}} \int_{\Omega} u \nabla \cdot \bm\phi \d x
-        \end{equation}
-        \begin{equation}
-            \norm{u}_{{\rm BV}(\Omega)} 
-            = \norm{u}_{L^{1}(\Omega)} + \abs{u}_{{\rm BV}(\Omega)} 
-        \end{equation}
-    \end{subequations}
+	对于 \(u \in L^{1}_{{\rm loc}}(\Omega)\) 定义如下的半范数和范数：
+	\begin{subequations}
+		\begin{equation}
+			\abs{u}_{{\rm BV}(\Omega)} 
+			= \sup_{\substack{\bm\phi \in C_{c}^{1}(\Omega) \\ \norm{\bm\phi}_{L^{\infty}(\Omega)} \leqslant 1}} \int_{\Omega} u \nabla \cdot \bm\phi \d x
+		\end{equation}
+		\begin{equation}
+			\norm{u}_{{\rm BV}(\Omega)} 
+			= \norm{u}_{L^{1}(\Omega)} + \abs{u}_{{\rm BV}(\Omega)} 
+		\end{equation}
+	\end{subequations}
 \end{definition}
 
 
 \begin{definition}[Dual index]
-    对于 \(p \in [1, +\infty]\)，定义 \(p\) 的共轭指标 \(p'\)，使得 \(\frac{1}{p} + \frac{1}{p'} = 1\).
+	对于 \(p \in [1, +\infty]\)，定义 \(p\) 的共轭指标 \(p'\)，使得 \(\frac{1}{p} + \frac{1}{p'} = 1\).
 \end{definition}
 
 \begin{theorem}[\(L^p\) duality]
-    设 \(\Omega\) 是开区域，当 \(p \in [1, +\infty)\) 时，\(L^{p}(\Omega)\) 的对偶空间为 \(L^{p'}(\Omega)\).
+	设 \(\Omega\) 是开区域. 当 \(p \in [1, +\infty)\) 时，\(L^{p}(\Omega)\) 的对偶空间为 \(L^{p'}(\Omega)\).
 \end{theorem}
 
 \begin{lemma}[Discrete H\"{o}lder's inequality]\label{lemma: Discrete Holder inequality}
-    设 \(\abs{\cdot}\) 是一个半范数，那么：
-    \begin{equation}
-        \forall \alpha \in [0, +\infty), \quad 
-        \abs{f + g}^{\alpha} \leqslant 2^{\max\B{\alpha-1, 0}} \left(\abs{f}^{\alpha} + \abs{g}^{\alpha}\right)
-    \end{equation}
+	设 \(\abs{\cdot}\) 满足三角不等式，那么：
+	\begin{equation}
+		\forall \alpha \in [0, +\infty), \quad 
+		\abs{f + g}^{\alpha} \leqslant 2^{\max\B{\alpha-1, 0}} \left(\abs{f}^{\alpha} + \abs{g}^{\alpha}\right)
+	\end{equation}
 \end{lemma}
 
 \begin{theorem}[H{\"{o}}lder's inequality\cite{folland_ch6}]
-    设 \(\left(X, \mathcal{M}, \mu\right)\) 是一个测度空间，\(p \in [1, +\infty]\). 若 \(f \in L^{p}(X)\)，\(g \in L^{p'}(X)\)，那么 \(f g \in L^{1}(X)\)，且：
-    \begin{equation}
-        \norm{f g}_{L^1(X)} \leqslant \norm{f}_{L^{p}(X)} \norm{g}_{L^{p'}(X)}
-    \end{equation}
+	设 \(\left(X, \mathcal{M}, \mu\right)\) 是一个测度空间，\(p \in [1, +\infty]\). 若 \(f \in L^{p}(X)\)，\(g \in L^{p'}(X)\)，那么 \(f g \in L^{1}(X)\)，且：
+	\begin{equation}
+		\norm{f g}_{L^1(X)} \leqslant \norm{f}_{L^{p}(X)} \norm{g}_{L^{p'}(X)}
+	\end{equation}
 \end{theorem}
 
 \begin{theorem}[Brunn-Minkowski's inequality for integrals\cite{folland_ch6}]
-    设 \(\left(X, \mathcal{M}_{X}, \mu_{X}\right)\) 和 \(\left(Y, \mathcal{M}_{Y}, \mu_{Y}\right)\) 都是 \(\sigma\)-有限的测度空间，\(f(x,y)\) 是 \(X \times Y\) 上的 \(\mathcal{M}_{X} \times \mathcal{Y}_{X}\)-可测函数。设 \(p \in [1, +\infty)\)，那么：
-    \begin{equation}
-        \norm{\norm{f(x,y)}_{L^{1}(Y)}}_{L^{p}(X)} \leqslant \norm{\norm{f(x,y)}_{L^{p}(X)}}_{L^{1}(Y)}
-    \end{equation}
+	设 \(\left(X, \mathcal{M}_{X}, \mu_{X}\right)\) 和 \(\left(Y, \mathcal{M}_{Y}, \mu_{Y}\right)\) 都是 \(\sigma\)-有限的测度空间，\(f(x,y)\) 是 \(X \times Y\) 上的 \(\mathcal{M}_{X} \times \mathcal{Y}_{X}\)-可测函数。设 \(p \in [1, +\infty)\)，那么：
+	\begin{equation}
+		\norm{\norm{f(x,y)}_{L^{1}(Y)}}_{L^{p}(X)} \leqslant \norm{\norm{f(x,y)}_{L^{p}(X)}}_{L^{1}(Y)}
+	\end{equation}
 \end{theorem}
 
 \begin{definition}[Sobolev conjugate index]
-    在 \(\R^d\) 空间中，对于 \(p \in [1, d)\)，定义 \(p\) 的 Sobolev 共轭指标为 \(p^{\ast}\)，其满足 \(\frac{1}{p^{\ast}} = \frac{1}{p} - \frac{1}{d}\).
+	在 \(\R^d\) 空间中，对于 \(p \in [1, d)\)，定义 \(p\) 的 Sobolev 共轭指标为 \(p^{\ast}\)，其满足 \(\frac{1}{p^{\ast}} = \frac{1}{p} - \frac{1}{d}\).
 \end{definition}
 
 \begin{theorem}[Trace \cite{10.1007/978-3-030-56341-7_3}]\label{thm: trace theorem}
-    设 \(\Omega\) 是 Lipschitz 区域，并设 \(p \in [1, +\infty)\). 若 \(s > \frac{1}{p}\) 且 \(p > 1\)，或 \(s \geqslant 1\) 且 \(p = 1\)，那么存在有界线性映射 \(\gamma: W^{s,p}(\Omega) \mapsto L^{p}(\partial \Omega)\) 使得：
-    \begin{enumerate}
-        \item \(\forall v \in C^{0}(\overline{\Omega}), \gamma(v) = v\big|_{\partial \Omega}\)；
-        \item \(\ker\gamma = W^{s,p}_{0}(\Omega)\)；
-        \item 若 \(s = 1\) 且 \(p = 1\)，或 \(s \in (\frac{1}{2}, \frac{3}{2})\) 且 \(p = 2\)，或 \(s \in (\frac{1}{p}, 1]\) 且 \(p \not\in \B{1,2}\)，那么 \(\gamma: W^{s,p}(\Omega) \mapsto W^{s-\frac{1}{p}, p}(\partial \Omega)\) 是有界的线性满射，并且，存在 \(C > 0\) 使得 \(\gamma\) 的右逆 \(E_{\gamma}\) (提升算子) 满足 \(\norm{E_{\gamma}} \leqslant C (\diam \Omega)^{\frac{1}{p}}\).
-    \end{enumerate}
+	设 \(\Omega\) 是 Lipschitz 区域，并设 \(p \in [1, +\infty)\). 若 \(s > \frac{1}{p}\) 且 \(p > 1\)，或 \(s \geqslant 1\) 且 \(p = 1\)，那么存在有界线性映射 \(\gamma: W^{s,p}(\Omega) \mapsto L^{p}(\partial \Omega)\) 使得：
+	\begin{enumerate}
+		\item \(\forall v \in C^{0}(\overline{\Omega}), \gamma(v) = v\big|_{\partial \Omega}\)；
+		\item \(\ker\gamma = W^{s,p}_{0}(\Omega)\)；
+		\item 若 \(s = 1\) 且 \(p = 1\)，或 \(s \in (\frac{1}{2}, \frac{3}{2})\) 且 \(p = 2\)，或 \(s \in (\frac{1}{p}, 1]\) 且 \(p \not\in \B{1,2}\)，那么 \(\gamma: W^{s,p}(\Omega) \mapsto W^{s-\frac{1}{p}, p}(\partial \Omega)\) 是有界的线性满射，并且，存在 \(C > 0\) 使得 \(\gamma\) 的右逆 \(E_{\gamma}\) (提升算子) 满足 \(\norm{E_{\gamma}} \leqslant C (\diam \Omega)^{\frac{1}{p}}\).
+	\end{enumerate}
 \end{theorem}
 
 
 
-\begin{theorem}[Multiplicative trace inequality \cite{10.1007/978-3-030-56341-7_12}]\label{thm: Multiplicative trace inequality}
-    设 \(\B{\mathcal{T}_{h}}\) 是形状规则的网格序列，那么存在常数 \(c > 0\)，使得 \(\forall p \in [1, +\infty]\)，\(\forall v \in W^{1,p}(K)\)，\(\forall K \in \mathcal{T}_{h}\)，\(\forall e \in \mathcal{E}_{h}^{K}\)，\(\forall h \in \mathcal{H}\)：
-    \begin{equation}
-        \norm{v}_{L^{p}(e)} 
-        \leqslant c \norm{v}_{L^{p}(K)}^{1 - \frac{1}{p}} \left(h_{K}^{-\frac{1}{p}} \norm{v}_{L^{p}(K)}^{\frac{1}{p}} + \norm{\nabla v}_{L^{p}(K)}^{\frac{1}{p}}\right)
-    \end{equation}
+\begin{lemma}[Bramble-Hilbert's lemma \cite{10.1137/0707006, 10.1007/BF00252458}]
+	设 \(\Omega \subset \R^{d}\) 是 Lipschitz 区域，\(p \in [1, +\infty]\)，\(k \in \N\)，\(0 \leqslant m \leqslant k+1\). 设算子 \(\Pi \in L(W^{k+1, p}(\Omega), W^{m,p}(\Omega))\) 满足 \(\mathcal{P}^{k}(\Omega) \subset \ker(I - \Pi)\). 那么存在 \(C > 0\) 使得：
+	\begin{equation}
+		\begin{aligned}
+			& \forall v \in W^{k+1, p}(\Omega), \quad \\
+			& \inf_{w \in \mathcal{P}^{k}(\Omega)} \norm{v - w}_{W^{m, p}(\Omega)} \leqslant C \abs{v}_{W^{k+1, p}(\Omega)} \\
+			& \norm{v - \Pi v}_{W^{k+1,p}(\Omega)} 
+			\leqslant C \norm{I - \Pi}_{L(W^{k+1, p}(\Omega), W^{m,p}(\Omega))} \abs{v}_{W^{k+1,p}(\Omega)} 
+		\end{aligned}
+	\end{equation}
+
+	\begin{proof}
+		See \cite[Theorem 1]{10.1137/0707006} (for \(p = 2\)) and \cite[Lemma 7]{10.1007/BF00252458} (for general \(p\)).
+	\end{proof}
+\end{lemma}
+
+\begin{theorem}[Polynomial approximation on affine meshes]
+	对于单纯形单元 \(K\)，设 \(p,q \in [1, +\infty]\)，\(k,m \in \N\). 设 \(\widehat{K}\) 是参考单元。设算子 \(\widehat{\Pi} \in L(W^{k+1, p}(\widehat{K}), W^{m, q}(\widehat{K}))\) 满足 \(\mathcal{P}^{k}(\widehat{K}) \subset \ker (I - \widehat{\Pi})\). 取 \(\Pi = \Phi_{\ast} \circ \widehat{\Pi} \circ \Phi^{\ast}\)，其中 \(\Phi\) 是从 \(\widehat{K}\) 到 \(K\) 的仿射变换，\(\Phi^{\ast}\) 满足 \((\Phi^{\ast} u)(\bm\lambda) = u(\phi(\bm\lambda))\)，\(\Phi_{\ast} = (\Phi^{\ast})^{-1}\). 那么存在常数 \(C > 0\) 使得：
+	\begin{equation}
+		\forall v \in W^{k+1, p}(K), \quad 
+		\abs{v - \Pi v}_{W^{m, q}(K)} 
+		\leqslant C \abs{K}^{\frac{1}{q} - \frac{1}{p}} \frac{h_{K}^{k+1}}{\rho_{K}^{m}} \abs{v}_{W^{k+1, p}(K)}
+	\end{equation}
+	其中，\(h_{K}\) 是 \(K\) 的外接圆半径，\(\rho_{K}\) 是 \(K\) 的内切圆半径。
+\end{theorem}
+
+
+\begin{definition}[Shape-regular triangulation]
+	对于一族单纯形网格 \(\B{\mathcal{T}_{h}}_{h \in \mathcal{H}}\)，称其是形状规则(shape-regular)的，若存在常数 \(C > 0\) 使得：
+	\begin{equation}
+		\forall K \in \mathcal{T}_{h}, \quad 
+		\norm{\bm J[\Phi_{K}]}_{2} \norm{\bm J[\Phi_{K}]^{-1}}_{2} \leqslant C
+	\end{equation}
+	其中，\(\Phi_{K}\) 是从标准参考单纯形 \(\widehat{K}\) 到 \(K\) 的仿射变换，\(\bm J[\cdot]\) 是映射的 Jacobi 矩阵。
+\end{definition}
+
+\begin{theorem}[Multiplicative trace inequality on simplicial meshes \cite{10.1007/978-3-030-56341-7_12}]\label{thm: Multiplicative trace inequality}
+	设 \(\B{\mathcal{T}_{h}}_{h \in \mathcal{H}}\) 是 \(\R^{d}\) 的一族形状规则的单纯形网格。那么存在只依赖于 \(d\) 的常数 \(c > 0\) 使得：\(\forall K \in \mathcal{T}_{h}\)，\(\forall p \in [1, +\infty]\)，\(\forall v \in W^{1,p}(K)\)，\(\forall e \in \mathcal{E}_{h}^{K}\)：
+	\begin{equation}
+		\norm{v}_{L^{p}(e)} 
+		\leqslant c \norm{v}_{L^{p}(K)}^{1 - \frac{1}{p}} \left(h_{K}^{-\frac{1}{p}} \norm{v}_{L^{p}(K)}^{\frac{1}{p}} + \norm{\nabla v}_{L^{p}(K)}^{\frac{1}{p}}\right)
+	\end{equation}
+
+	\begin{proof}
+		参考 \cite[Lemma 12.15]{10.1007/978-3-030-56341-7_12}。对于 \(p \in [1, +\infty)\) 有：
+		\begin{align*}
+			\norm{v}_{L^{p}(e)}^{p} 
+			& = \frac{\abs{e}}{\abs{K}} \norm{v}_{L^{p}(K)}^{p} + \frac{p}{d} \frac{\abs{e}}{\abs{K}} \int_{K} \abs{v}^{p-2} v \left(\bm x - \bm z_{e}\right) \cdot \nabla v \d x \\
+			& \leqslant \frac{\abs{e}}{\abs{K}} \norm{v}_{L^{p}(K)}^{p} + \frac{p}{d} \frac{\abs{e} l_{e}^{\perp}}{\abs{K}} \norm{v}_{L^{p}(K)}^{p-1} \norm{\nabla v}_{L^{p}(K)}
+		\end{align*}
+		其中 \(\bm z_{e}\) 是 \(K\) 唯一的不在 \(e\) 上的顶点。而当 \(p = \infty\) 时，取极限 \(p \to +\infty\) 即可。
+	\end{proof}
 \end{theorem}
 
 
@@ -1430,8 +1486,8 @@ print(gcf, '-depsc2', '-vector', 'error_q', '-r300');
 
 在此算例中，我们使用与上一个算例一样的准确解、区域、网格，而边界条件全部使用 Neumann 边界，使用 MD-LDG 方法配合 Lagrange 乘子法 \cite{10.1007/BF01436561} 进行求解。目标积分值参数取为：
 \begin{equation} % computed by Mathematica
-    c_0 = \int_{\Omega} u(x,y) \d x \d y
-    \approx -0.454719441676668752704457919840
+	c_0 = \int_{\Omega} u(x,y) \d x \d y
+	\approx -0.454719441676668752704457919840
 \end{equation}
 我们的测试结果如图 \ref{pic: 2D Poisson Neumann MD-LDG}、表 \ref{table: 2D Poisson Neumann MD-LDG} 所示。
 

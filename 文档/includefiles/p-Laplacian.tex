@@ -888,9 +888,9 @@
 在下面的证明中，我们对所考虑的一系列网格 \(\B{\mathcal{T}_{h}}_{h \in \mathcal{H}}\) 提出以下要求：
 \begin{enumerate}
 	\item \(\mathcal{H}\) 是 \((0, h_{\rm max}]\) 的可数子集；
-	\item 每个单元的长宽比 (或外接圆--内切圆半径比) 一致有界，每个单元的面数 \(N_{\partial}^{K}\) 一致有界，每个面相邻的单元数 \(N_{\partial}^{e}\) 一致有界；
+	\item 每个单元的长宽比 (或外接圆--内切圆半径比) 一致有界，每个单元的面数 \(N_{\partial}^{K}\) 一致有界 (特别地，我们这里仅考虑单纯形单元，所以是平凡的)，每个面相邻的单元数 \(N_{\partial}^{e}\) 一致有界；
 	\item 存在常数 \(c_1, c_2 > 0\)，对于单元 \(K\) 的每个面 \(e\)，都有 \(h_{e}\abs{e} \in [c_1 \abs{K}, c_2 \abs{K}]\)；
-	\item 单元 \(K\) 都是仿射单元，且参考单元种类有限。
+	\item 单元 \(K\) 都是仿射单纯形单元。
 \end{enumerate}
 
 
@@ -1292,24 +1292,22 @@
 	\end{enumerate}
 
 	\begin{proof}
-		由定理 \ref{p-Laplace LDG2 Pre-compactness} 知 \(\B{v_{h}}_{h \in \mathcal{H}} \subset V_{h}\) 在 \(L^{p}(\Omega)\) 中是预紧的，不妨设 \(v_{h} \to v\) in \(L^{p}(\R^{d})\) (否则任取一个 Cauchy 列)。记 \(w_{h} = D_{DG}(v_{h}; 0)\). 由 \(\norm{\cdot}_{J, p}\) 的定义知，\(\B{w_{h}}_{h \in \mathcal{H}}\) 是 \(L^{p}(\R^{d})\) 中的有界列。由于 \(p \in (1, +\infty)\)， \(L^{p}\) 是自反的 Banach 空间，因此存在 \(w \in L^{p}(\R^{d})\) 使得 (不妨设) \(w_{h} \rightharpoonup w\) weakly in \(L^{p}(\R^{d})\) (否则，总可以取一个子列使其成立). 我们下面说明 \(w = \nabla v\) 以及 \(v\big|_{\Gamma^{D}} = 0\).
+		由定理 \ref{p-Laplace LDG2 Pre-compactness} 知 \(\B{v_{h}}_{h \in \mathcal{H}} \subset V_{h}\) 在 \(L^{p}(\Omega)\) 中是预紧的，不妨设 \(v_{h} \to v\) in \(L^{p}(\Omega)\) (否则，总可以取一个子列使其成立)。记 \(w_{h} = D_{DG}(v_{h}; 0)\). 由 \(\norm{\cdot}_{J, p}\) 的定义知，\(\B{w_{h}}_{h \in \mathcal{H}}\) 是 \(L^{p}(\Omega)\) 中的有界列。由于 \(p \in (1, +\infty)\)， \(L^{p}\) 是自反的 Banach 空间，因此存在 \(w \in L^{p}(\Omega)\) 使得 (不妨设) \(w_{h} \rightharpoonup w\) weakly in \(L^{p}(\Omega)\) (否则，总可以取一个子列使其成立). 我们下面说明 \(w = \nabla v\) 以及 \(v\big|_{\Gamma^{D}} = 0\).
 
 		注意到：当 \(\bm\varphi \in L^{p'}({\rm div}, \mathcal{T}_{h})\) 时，对于任何满足 \(Q_{h} \subset \ker (I - \Pi_{h})\) 的线性算子 \(\Pi_{h}\) 有：
 		\begin{align*}
 			& \left(D_{DG}(v_{h}; 0), \bm\varphi \right)_{\Omega} + \left(v_{h}, \nabla_{h} \cdot \bm\varphi\right)_{\Omega} \\
 			& = \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\& + \left\langle v_{h}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} 
 		\end{align*}
-		任取 \(\bm\varphi \in W^{1, p'}_{0}(\Omega)\)，取 \(\Pi_{h} = \Pi_{Q_{h}}\) 为积分插值算子，利用多项式估计和迹不等式 \ref{thm: Multiplicative trace inequality}，当 \(h \to 0^{+}\) 时：
+		任取 \(\bm\varphi \in W^{1, p'}_{0}(\Omega)\)，取 \(\Pi_{h} = \Pi_{Q_{h}}\) 为积分插值算子，利用多项式估计和迹不等式 \ref{thm: Multiplicative trace inequality}，当 \(h \to 0^{+}\) 时：% to be continued: 把条件放宽到L(div)，但是我们要先把trace inequality拓展到法向分量
 		\begin{align*}
 			& \abs{\left(w_{h}, \bm\varphi\right)_{\Omega} + \left(v, \nabla_{h} \cdot \bm\varphi\right)_{\Omega}} \\
-			& \leqslant \abs{\left(v - v_{h}, \nabla_{h} \cdot \bm\varphi \right)_{\Omega}} + \abs{\left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{Q_{h}}\bm\varphi} + \bm C_{12} \jump{\Pi_{Q_{h}}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}}} \\& + \abs{\left\langle v_{h}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}}} + \abs{\left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}}} \\
-			& \lesssim \norm{v - v_{h}}_{L^{p}(\Omega)} \norm{\nabla_{h} \cdot \bm\varphi}_{L^{p'}(\Omega)} + \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, h_{e}^{1-p})} \norm{\bm\varphi - \Pi_{Q_{h}}\bm\varphi}_{L^{p'}(\Gamma^{o} \cup \Gamma^{D}, h_{e})} \\& + 0 + 0 \\
+			& \leqslant \abs{\left(v - v_{h}, \nabla_{h} \cdot \bm\varphi \right)_{\Omega}} + \abs{\left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}}} \\& + \abs{\left\langle v_{h}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}}} + \abs{\left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}}} \\
+			& \lesssim \norm{v - v_{h}}_{L^{p}(\Omega)} \norm{\nabla_{h} \cdot \bm\varphi}_{L^{p'}(\Omega)} + \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, h_{e}^{1-p})} \norm{(\bm\varphi - \Pi_{h}\bm\varphi) \cdot \bm n}_{L^{p'}(\Gamma^{o} \cup \Gamma^{D}, h_{e})} \\& + 0 + 0 \\
 			& \lesssim \norm{v - v_{h}}_{L^{p}(\Omega)} \norm{\nabla_{h} \cdot \bm\varphi}_{L^{p'}(\Omega)} + \norm{v_{h}}_{J, p} h \abs{\bm\varphi}_{W^{1,p'}(\Omega)} \\
 			& \to 0
 		\end{align*}
-		因此，由弱导数的定义知 \(w_{h} \rightharpoonup \nabla v\)，根据弱极限的唯一性知 \(w = \nabla v\)，从而 \(v \in W^{1,p}(\Omega)\). 
-		
-		与此同时，任取 \(\bm\varphi \in W^{1,p'}(\Omega)\) 且 \(\bm\varphi \cdot \bm n \big|_{\Gamma^{N}} = 0\)，利用上面的结果，当 \(h \to 0^{+}\) 时：
+		因此，由弱导数的定义知 \(w_{h} \rightharpoonup \nabla v\)，根据弱极限的唯一性知 \(w = \nabla v\)，从而 \(v \in W^{1,p}(\Omega)\). 此同时，任取 \(\bm\varphi \in W^{1,p'}(\Omega)\) 且 \(\bm\varphi \cdot \bm n \big|_{\Gamma^{N}} = 0\)，利用上面的结果，当 \(h \to 0^{+}\) 时：
 		\begin{align*}
 			& \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{Q_{h}}\bm\varphi} + \bm C_{12} \jump{\Pi_{Q_{h}}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} + \left\langle v_{h} - v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} \\
 			& = \left(D_{DG}(v_{h}; 0), \bm\varphi\right)_{\Omega} + \left(v_{h}, \nabla \cdot \bm\varphi\right)_{\Omega} - \left\langle v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} \\
