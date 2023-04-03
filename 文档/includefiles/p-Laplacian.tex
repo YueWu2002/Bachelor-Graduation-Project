@@ -7,16 +7,12 @@
 	\item 可逆性：当且仅当 \(p \in (1, +\infty)\) 时，\(\mathcal{A}\) 在 \(\bm\tau = \bm 0\) 处良定义，且 \(\mathcal{A}\) 是连续的双射，\(\mathcal{A}^{-1}(\bm\tau) = \abs{\bm\tau}^{p' - 2} \bm\tau\).
 \end{enumerate}
 
-\begin{lemma}\label{estimate for the A-operator}
+\begin{lemma}[{\cite[Lemma 2.1]{10.1090/S0025-5718-1993-1192966-4}}]\label{estimate for the A-operator}
 	当 \(p > 1\) 且 \(\delta \geqslant 0\) 时，存在 \(C_1, C_2 > 0\) 使得 \(\forall \bm\tau_1 \neq \bm\tau_2\)：
 	\begin{enumerate}
 		\item \(\abs{\mathcal{A}(\bm\tau_1) - \mathcal{A}(\bm\tau_2)} \leqslant C_1 \abs{\bm\tau_1 - \bm\tau_2}^{1-\delta} \left(\abs{\bm\tau_1} + \abs{\bm\tau_2}\right)^{p-2+\delta}\)；
 		\item \(\left(\mathcal{A}(\bm\tau_1) - \mathcal{A}(\bm\tau_2)\right) \cdot \left(\bm\tau_1 - \bm\tau_2\right) \geqslant C_2 \abs{\bm\tau_1 - \bm\tau_2}^{2 + \delta} \left(\abs{\bm\tau_1} + \abs{\bm\tau_2}\right)^{p-2-\delta}\)
 	\end{enumerate}
-
-	\begin{proof}
-		See \cite[Lemma 2.1]{10.1090/S0025-5718-1993-1192966-4}
-	\end{proof}
 \end{lemma}
 
 考虑 \(p\)-Laplace 方程：
@@ -51,7 +47,7 @@
 		&& \widetilde{V} = \B{v \in W^{1,p}(\Omega) \bigg| v\big|_{\Gamma^{D}} = 0}
 	\end{eqnarray}
 \end{subequations}
-\(p\)-Laplace 方程\eqref{p-Laplace primal form}的弱形式为：
+\(p\)-Laplace 方程 \eqref{p-Laplace primal form} 的弱形式为：
 \begin{equation}\label{p-Laplace primal weak form}
 	\begin{aligned}
 		& \text{find \(u \in V\) such that \(\forall v \in \widetilde{V}\):} \\
@@ -74,10 +70,10 @@
 这里，\(p\in\left(1, +\infty\right)\)，\(f \in W^{-1, p'}(\Omega)\)，\(g_{D} \in W^{\frac{1}{p'}, p}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in W^{-\frac{1}{p'}, p'}(\Gamma^{N})\). 
 
 \begin{theorem}[Existence, uniqueness, and equivalence]
-	当 \(p \in (1, +\infty)\) 时，\(p\)-Laplace 方程的弱形式\eqref{p-Laplace primal weak form}和最优化形式\eqref{p-Laplace primal minimization form}的解存在、唯一、相同。
+	当 \(p \in (1, +\infty)\) 时，\(p\)-Laplace 方程的弱形式 \eqref{p-Laplace primal weak form} 和最优化形式 \eqref{p-Laplace primal minimization form} 的解存在、唯一、相同。
 
 	\begin{proof}
-		\cite[Section 6.2]{10.1007/978-3-319-78390-1_6}给出了当 \(\abs{\Gamma^{N}} > 0\) 且 \(g_{D} = 0\) 时的证明，当没有上述两个假设时，证明也是类似的。
+		\cite[Section 6.2]{10.1007/978-3-319-78390-1_6} 给出了当 \(\abs{\Gamma^{N}} > 0\) 且 \(g_{D} = 0\) 时的证明，当没有上述两个假设时，证明也是类似的。
 	\end{proof}
 \end{theorem}
 
@@ -97,7 +93,7 @@
 \end{theorem}
 
 
-\(p\)-Laplace 方程\eqref{p-Laplace primal form}有如下性质\cite{lindqvist2017notes}：
+\(p\)-Laplace 方程 \eqref{p-Laplace primal form} 有如下性质 \cite{lindqvist2017notes}：
 \begin{enumerate}
 	\item 当 \(p = 1\) 时，易见 \(\nabla\cdot\left(\frac{\nabla u}{\abs{\nabla u}}\right) = \nabla\cdot\left(\frac{\nabla\varphi(u)}{\abs{\nabla\varphi(u)}}\right) = -H\) (mean curvature operator)，解只被等值集(level set)决定，显然不唯一；
 	\item 当 \(p \in (1, +\infty)\) 时：\begin{enumerate}
@@ -105,7 +101,7 @@
 		\item 当 \(p = 2\) 时，\(p\)-Laplace 方程等价于 Poisson 方程，该方程在固体力学中描述完全弹性行为；
 		\item 当 \(p \in (2, +\infty)\) 时，在临界点 \(\nabla u = 0\) 处，\(p\)-Laplace 方程作为椭圆方程是退化的；
 	\end{enumerate}
-	\item 当 \(p = +\infty\) 时，需要引入粘性解(viscosity solution)的概念来定义解\cite{10.1007/978-3-319-31532-4_4}，该方程在固体力学中描述完全塑性行为，在图像处理中有应用。
+	\item 当 \(p = +\infty\) 时，需要引入粘性解(viscosity solution)的概念来定义解 \cite{10.1007/978-3-319-31532-4_4}，该方程在固体力学中描述完全塑性行为，在图像处理中有应用。
 \end{enumerate}
 
 
@@ -119,7 +115,7 @@
 		&& W = L^p(\Omega)
 	\end{eqnarray}
 \end{subequations}
-\(p\)-Laplace 方程组\eqref{p-Laplace mixed form}的弱形式为\cite{10.1093/imanum/18.1.121}：
+\(p\)-Laplace 方程组 \eqref{p-Laplace mixed form} 的弱形式为 \cite{10.1093/imanum/18.1.121}：
 \begin{equation}\label{p-Laplace mixed weak form}
 	\begin{aligned}
 		& \text{find \(\left(\bm\sigma, u\right) \in \Sigma\times W\) such that \(\forall \left(\bm\tau, v\right)\in\widetilde{\Sigma}\times W\):} \\
@@ -152,10 +148,10 @@
 这里，\(f \in L^{p'}(\Omega)\)，\(g_{D} \in W^{\frac{1}{p}, p'}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in W^{-\frac{1}{p}, p}(\Gamma^{N})\).
 
 \begin{theorem}[Well-posedness of the weak form]
-	\(p\)-Laplace 方程的弱形式\eqref{p-Laplace mixed weak form}存在唯一解。
+	\(p\)-Laplace 方程的弱形式 \eqref{p-Laplace mixed weak form} 存在唯一解。
 
 	\begin{proof}
-		\cite[Theorem 2.1]{10.1216/camq/1008957338}给出了当 \(g_{D} = 0\) 且 \(\bm g_{N} = \bm 0\) 时的证明，当没有上述两个假设时，证明也是类似的。
+		\cite[Theorem 2.1]{10.1216/camq/1008957338} 给出了当 \(g_{D} = 0\) 且 \(\bm g_{N} = \bm 0\) 时的证明，当没有上述两个假设时，证明也是类似的。
 	\end{proof}
 \end{theorem}
 
@@ -172,9 +168,9 @@
 
 针对空间维数 \(d > 1\) 的情形，文章 \cite{10.1093/imanum/drn038} 对指标为 \((k, p) \in \B{1} \times [1, d)\) 的 broken Sobolev 空间提出了一系列估计，这些估计后续被用于证明 \(p\)-Laplace 方程的 DG 格式的收敛性，但是一般情形下的收敛阶没有得到估计；文章 \cite[Theorem 6.1]{10.1090/S0025-5718-10-02333-1} 提出并证明了指标为 \((k, p) \in \B{1} \times [1, +\infty)\) 的 broken Sobolev 空间嵌入定理。
 
-同时，\(p\)-Laplace 方程的不同的 DG 格式被广泛研究，例如 LDG 格式\cite{10.1093/imanum/drt040, 10.1002/fld.3955, 10.1016/j.crma.2008.07.005, IJNAM-19-315}，IPDG 格式\cite{10.1016/j.finel.2014.11.001, 10.1137/110820324}，LDG-H 格式\cite{10.1137/15M1008014, 10.1007/s10915-019-00967-6}。
+同时，\(p\)-Laplace 方程的不同的 DG 格式被广泛研究，例如 LDG 格式 \cite{10.1093/imanum/drt040, 10.1002/fld.3955, 10.1016/j.crma.2008.07.005, IJNAM-19-315}，IPDG 格式 \cite{10.1016/j.finel.2014.11.001, 10.1137/110820324}，LDG-H 格式 \cite{10.1137/15M1008014, 10.1007/s10915-019-00967-6}。
 
-求解 \(p\)-Laplace 方程时，如果采用原始形式方程\eqref{p-Laplace primal form}，可以利用弱形式或者最优化形式求解，在设计具体的数值格式时就会有不同的选项。相较而言，最优化形式的数值稳定性更好，可以保证收敛，采用的大多是梯度下降算法 \cite{10.1090/S0025-5718-1993-1192966-4, 10.1137/S1064827598339098, 10.1007/s10915-007-9134-z, IJNAM-2-123, 10.1016/j.amc.2013.07.096,10.1137/15M1008014}；而弱形式由于不是一致椭圆的，很容易在数值解出现驻点时不稳定，如果直接使用牛顿迭代法求解，则可能不收敛 \cite{10.1051/m2an/197509R200411}。如果采用对偶形式方程 \eqref{p-Laplace mixed form}，可以利用弱形式或者鞍点形式求解。文章\cite{10.1016/j.cma.2006.11.023}使用 Picard 迭代来求解弱形式，文章 \cite{10.1002/fld.3955}则直接使用 Newton-Raphson 迭代求解弱形式；而文章 \cite{10.1137/16M1067792}使用 (m)ALG 方法求解鞍点系统。
+求解 \(p\)-Laplace 方程时，如果采用原始形式方程 \eqref{p-Laplace primal form}，可以利用弱形式或者最优化形式求解，在设计具体的数值格式时就会有不同的选项。相较而言，最优化形式的数值稳定性更好，可以保证收敛，采用的大多是梯度下降算法 \cite{10.1090/S0025-5718-1993-1192966-4, 10.1137/S1064827598339098, 10.1007/s10915-007-9134-z, IJNAM-2-123, 10.1016/j.amc.2013.07.096,10.1137/15M1008014}；而弱形式由于不是一致椭圆的，很容易在数值解出现驻点时不稳定，如果直接使用牛顿迭代法求解，则可能不收敛 \cite{10.1051/m2an/197509R200411}。如果采用对偶形式方程 \eqref{p-Laplace mixed form}，可以利用弱形式或者鞍点形式求解。文章 \cite{10.1016/j.cma.2006.11.023} 使用 Picard 迭代来求解弱形式，文章 \cite{10.1002/fld.3955} 则直接使用 Newton-Raphson 迭代求解弱形式；而文章 \cite{10.1137/16M1067792} 使用 (m)ALG 方法求解鞍点系统。
 
 
 \subsection{Local DG Method 1}
@@ -184,14 +180,14 @@
 % 问题：是否加入变量 q 用以计算？会导致性能的不同、分析的困难
 % 我们的这种formulation与以往的文章的都不一样(它们的本质都是 primal formulation)，我们的反而和那几篇混合有限元的一样(本质是 dual formulation)
 
-我们的第一种方法直接离散对偶形式方程组\eqref{p-Laplace mixed form}。取空间为：
+我们的第一种方法直接离散对偶形式方程组 \eqref{p-Laplace mixed form}。取空间为：
 \begin{subequations}
 	\begin{eqnarray}
 		&& \Sigma_{h} = \bigoplus_{K \in \mathcal{T}_{h}} \Sigma(K) = \bigoplus_{K \in \mathcal{T}_{h}} \left(\mathscr{P}^{k}(K)\right)^{d} \\
 		&& V_{h} = \bigoplus_{K \in \mathcal{T}_{h}} V(K) = \bigoplus_{K \in \mathcal{T}_{h}} \mathscr{P}^{k}(K)
 	\end{eqnarray}
 \end{subequations}
-数值通量仍然取 LDG 格式的数值通量\eqref{LDG numerical flux}，\(p\)-Laplace 方程\eqref{p-Laplace mixed form}的 LDG 格式为：
+数值通量仍然取 LDG 格式的数值通量 \eqref{LDG numerical flux}，\(p\)-Laplace 方程 \eqref{p-Laplace mixed form} 的 LDG 格式为：
 \begin{subequations}\label{p-Laplace LDG weak form 1}
 	\begin{equation}
 		\begin{aligned}
@@ -245,7 +241,7 @@
 		\item \(C_{11} > 0\) 恒成立。
 		\item 单元都是单纯形，\(C_{11} > 0\) 在 Dirichlet 边界上成立，同时每个单元有至少一条边 \(e\) 满足两条件之一：(1) \(\bm C_{12}\cdot\bm n = \frac{1}{2}\)，(2) \(e\in\mathcal{E}_{h}\backslash\mathcal{E}_{h}^{o}\).
 	\end{enumerate}
-	那么 LDG 问题\eqref{p-Laplace LDG weak form 1}的解唯一。
+	那么 LDG 问题 \eqref{p-Laplace LDG weak form 1} 的解唯一。
 
 	\begin{proof}
 		假设 \(\left(\bm\sigma_{h}^{(1)}, u_{h}^{(1)}\right)\) 和 \(\left(\bm\sigma_{h}^{(2)}, u_{h}^{(1)}\right)\) 都是解，那么，分别取测试函数 \(\left(\bm\tau_{h}, v_{h}\right) = \left(\bm\sigma_{h,i}, u_{h, j}\right)\)，\(1 \leqslant i,j \leqslant 2\) 得：
@@ -272,7 +268,7 @@
 
 \subsubsection{Numerical Discretization}
 
-方程\eqref{p-Laplace LDG weak form 1}对应的线性代数方程组为：
+方程 \eqref{p-Laplace LDG weak form 1} 对应的线性代数方程组为：
 \begin{equation}\label{p-Laplace LDG matrix equations 1}
 	\begin{pmatrix}
 		\bm A([\bm\sigma_{h}]) & \bm B^{T} \\
@@ -287,7 +283,7 @@
 		-\bm G
 	\end{pmatrix}
 \end{equation}
-这里，\(\bm A([\bm\sigma_{h}])\) 是使得 \(\bm A([\bm\sigma_{h}]) [\bm\sigma_{h}] = \bm M \left[\mathcal{A}^{-1}(\sigma_{h})\right]\) 的矩阵\footnote{这里，\(\bm M\) 是 \(\Sigma_{h}\) 的基于非负数值积分的质量矩阵。}，分块对角，但有的元素可能接近 \(0\) 或者 \(+\infty\)，只有当 \(\bm\sigma_{h} \neq \bm 0\) 时才有限，因此实际计算时可能会崩溃。我们在计算时，使用 Picard 不动点迭代法\cite{10.1016/j.cma.2006.11.023}求解：
+这里，\(\bm A([\bm\sigma_{h}])\) 是使得 \(\bm A([\bm\sigma_{h}]) [\bm\sigma_{h}] = \bm M \left[\mathcal{A}^{-1}(\sigma_{h})\right]\) 的矩阵\footnote{这里，\(\bm M\) 是 \(\Sigma_{h}\) 的基于非负数值积分的质量矩阵。}，分块对角，但有的元素可能接近 \(0\) 或者 \(+\infty\)，只有当 \(\bm\sigma_{h} \neq \bm 0\) 时才有限，因此实际计算时可能会崩溃。我们在计算时，使用 Picard 不动点迭代法 \cite{10.1016/j.cma.2006.11.023} 求解：
 \begin{equation}
 	\begin{pmatrix}
 		\bm A([\bm\sigma_{h}^{(k)}]) & \bm B^{T} \\
@@ -302,7 +298,7 @@
 		-\bm G
 	\end{pmatrix}
 \end{equation}
-或者使用 Newton-Raphson 迭代法\cite{10.1002/fld.3955}求解：
+或者使用 Newton-Raphson 迭代法 \cite{10.1002/fld.3955} 求解：
 \begin{equation}
 	\begin{pmatrix}
 		\frac{\partial\left(\bm A([\bm\sigma_{h}^{(k)}]) [\bm\sigma_{h}^{(k)}]\right)}{\partial [\bm\sigma_{h}^{(k)}]} & \bm B^{T} \\
@@ -326,7 +322,7 @@
 	\end{pmatrix}
 \end{equation}
 
-除了直接离散弱形式方程组之外，还可以对鞍点问题\eqref{p-Laplace LDG saddle-point problem 1}使用优化算法，例如 Uzawa 方法、 PDHG 方法\cite{zhu2008efficient, 10.1007/s10851-010-0251-1}、(m)ALG方法\cite{10.1137/16M1067792}。这些优化算法可以保证收敛，但是在测试中有两个问题：需要选取合适的步长、收敛速度慢(次线性收敛)。
+除了直接离散弱形式方程组之外，还可以对鞍点问题 \eqref{p-Laplace LDG saddle-point problem 1} 使用优化算法，例如 Uzawa 方法、 PDHG 方法 \cite{zhu2008efficient, 10.1007/s10851-010-0251-1}、(m)ALG方法 \cite{10.1137/16M1067792}。这些优化算法可以保证收敛，但是在测试中有两个问题：需要选取合适的步长、收敛速度慢(次线性收敛)。
 
 
 \subsubsection{Numerical Example 1 (1D Dirichlet)}
@@ -748,7 +744,7 @@
 
 \subsubsection{Conclusion}
 
-我们的第一个 \(p\)-Laplace 方程 LDG 算法相当于用 LDG 方法直接离散方程组\eqref{p-Laplace mixed weak form}，而不引入中间变量，这与 p-Laplace 方程的混合有限元的工作\cite{10.1093/imanum/18.1.121, 10.1216/camq/1008957338, 10.1016/j.cma.2006.11.023}是类似的。此方法的优势在于：
+我们的第一个 \(p\)-Laplace 方程 LDG 算法相当于用 LDG 方法直接离散方程组 \eqref{p-Laplace mixed weak form}，而不引入中间变量，这与 p-Laplace 方程的混合有限元的工作 \cite{10.1093/imanum/18.1.121, 10.1216/camq/1008957338, 10.1016/j.cma.2006.11.023} 是类似的。此方法的优势在于：
 \begin{enumerate}
 	\item 数值格式在形式上和方程的弱形式相同，同时也与 Poisson 方程的格式形式一致。
 	\item 未知函数数量较少。
@@ -757,7 +753,7 @@
 \end{enumerate}
 此方法的劣势在于：
 \begin{enumerate}
-	\item 目前，鞍点问题\cite{10.1007/BF02165003, 10.1051/m2an/197408R201291, 10.1137/0719021}、带扰动项的鞍点问题\cite{10.1137/S0895479802410827, 10.1090/mcom/3795}都有成熟的适定性理论，同时非线性的无扰动鞍点系统也可以利用 Ladyzhenskaya–Babu{\v{s}}ka–Brezzi(LBB) 理论给出解的适定性\cite{10.4171/zaa/1107}，但是与混合有限元不同，LDG 的代数方程组是既非线性又带扰动项的鞍点问题，理论分析较难，目前我们只证明了解的唯一性。
+	\item 目前，鞍点问题 \cite{10.1007/BF02165003, 10.1051/m2an/197408R201291, 10.1137/0719021}、带扰动项的鞍点问题 \cite{10.1137/S0895479802410827, 10.1090/mcom/3795} 都有成熟的适定性理论，同时非线性的无扰动鞍点系统也可以利用 Ladyzhenskaya–Babu\v{s}ka–Brezzi(LBB) 理论给出解的适定性 \cite{10.4171/zaa/1107}，但是与混合有限元不同，LDG 的代数方程组是既非线性又带扰动项的鞍点问题，理论分析较难，目前我们只证明了解的唯一性。
 	\item 求解定态方程时，不能在直接转化为求解 primal 变分形式或者是最优化形式，其根本原因在于算子 \(\left(\Pi_{\Sigma_{h}}\circ \mathcal{A}^{-1}\right)\) 的性质不便于直接刻画。
 	\item 当使用 Picard 不动点迭代和 Newton-Raphson 迭代时，初值对数值稳定性影响较大。
 \end{enumerate}
@@ -772,7 +768,7 @@
 
 \subsubsection{The LDG Formulation}
 
-我们的第二种方法向对偶形式方程组\eqref{p-Laplace mixed form}添加了中间变量 \(q_{h}\) 以便于分析。取空间为：
+我们的第二种方法向对偶形式方程组 \eqref{p-Laplace mixed form} 添加了中间变量 \(q_{h}\) 以便于分析。取空间为：
 \begin{subequations}
 	\begin{eqnarray}
 		&& Q_{h} = \bigoplus_{K \in \mathcal{T}_{h}} Q(K) =  \bigoplus_{K \in \mathcal{T}_{h}} \left(\mathscr{P}^{k}(K)\right)^{d} \\
@@ -780,7 +776,7 @@
 		&& V_{h} = \bigoplus_{K \in \mathcal{T}_{h}} V(K) =  \bigoplus_{K \in \mathcal{T}_{h}} \mathscr{P}^{k}(K)
 	\end{eqnarray}
 \end{subequations}
-数值通量取为\cite{10.1093/imanum/drt040, IJNAM-19-315}：
+数值通量取为 \cite{10.1093/imanum/drt040, IJNAM-19-315}：
 \begin{subequations}\label{p-Laplace LDG numerical flux 2}
 	\begin{eqnarray}
 		&& \widehat{\bm\sigma}_{h}\big|_{e} = \begin{cases}
@@ -797,7 +793,7 @@
 \end{subequations}
 这里，惩罚参数 \(\eta > 0\) 满足 \(\eta = \mathcal{\Theta}(1)\)；\(\abs{\bm C_{12}} = \mathcal{O}(1)\)；\(h_{e}\) 是单元边界 \(e\) 上的法向特征尺度。
 
-将数值通量\eqref{p-Laplace LDG numerical flux 2}代入 DG 格式\eqref{Global DG Scheme}，\(p\)-Laplace 方程\eqref{p-Laplace mixed form}的 LDG 格式可以写作：
+将数值通量 \eqref{p-Laplace LDG numerical flux 2} 代入 DG 格式 \eqref{Global DG Scheme}，\(p\)-Laplace 方程 \eqref{p-Laplace mixed form} 的 LDG 格式可以写作：
 \begin{equation}\label{p-Laplace LDG weak form 2}
 	\begin{aligned}
 		& \text{find \(\left(\bm q_{h}, \bm\sigma_{h}, u_{h}\right) \in Q_{h} \times \Sigma_{h} \times V_{h}\) such that \(\forall \left(\bm\zeta_{h}, \bm\tau_{h}, v_{h}\right) \in Q_{h} \times \Sigma_{h} \times V_{h}\):} \\
@@ -842,11 +838,14 @@
 \begin{equation}
 	\begin{aligned}
 		& \text{find \(u_{h} \in V_{h}\) such that \(\forall v_{h} \in V_{h}\):} \\
-		& \begin{aligned}
-			& \left(\bm\sigma_{h}, D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h_{e}^{-1} \jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} \\& + \left\langle \eta\mathcal{A}\left(h_{e}^{-1} \left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}} \\
-			= & \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N} \cdot \bm n, v_{h}\right\rangle_{\Gamma^{N}}
-		\end{aligned} \\
-		& \text{and: \(\bm q_{h} = D_{DG}\left(u_{h}; g_{D}\right)\), \(\bm\sigma_{h} = \Pi_{\Sigma_{h}} \mathcal{A}\left(\bm q_{h}\right)\)}
+		& \begin{cases}
+			\bm q_{h} = D_{DG}\left(u_{h}; g_{D}\right) \\
+			\bm\sigma_{h} = \Pi_{\Sigma_{h}} \mathcal{A}\left(\bm q_{h}\right) \\
+			\begin{aligned}
+				& \left(\bm\sigma_{h}, D_{DG}\left(v_{h}; 0\right)\right)_{\Omega} + \left\langle \eta\mathcal{A}\left(h_{e}^{-1} \jump{u_{h}}\right), \jump{v_{h}}\right\rangle_{\Gamma^{o}} \\& + \left\langle \eta\mathcal{A}\left(h_{e}^{-1} \left(u_{h} - g_{D}\right) \bm n\right), v_{h} \bm n \right\rangle_{\Gamma^{D}} \\
+				& = \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N} \cdot \bm n, v_{h}\right\rangle_{\Gamma^{N}}
+			\end{aligned}
+		\end{cases}
 	\end{aligned}
 \end{equation}
 其中，\(\Pi_{\Sigma_{h}}: L^1(\Omega) \mapsto \Sigma_{h}\) 是积分插值算子。于是，LDG 方程组 \eqref{p-Laplace LDG weak form 2} 由 mixed form 转化为关于 \(u_{h}\) 的 primal form：
@@ -881,7 +880,7 @@
 
 \subsubsection{Unisolvence, Convergence, and \emph{A Priori} Error Estimate}
 
-在下文，我们对最优化问题 \eqref{p-Laplace LDG minimization form 2} 进行分析，并\textbf{独立}地给出解的能量估计和误差估计。
+在下文，我们对变分问题 \eqref{p-Laplace LDG primal weak form 2} 和最优化问题 \eqref{p-Laplace LDG minimization form 2} 进行分析，并给出解的能量估计和误差估计。
 
 为了便于分析上述最优化问题 \eqref{p-Laplace LDG minimization form 2}，我们根据其形式定义了一种能量范数。为了利用文章 \cite{10.1093/imanum/drn038, 10.1090/S0025-5718-10-02333-1} 中对指标为 \((1, p)\) 的 broken Sobolev 范数的估计，我们证明了我们所定义的能量范数与其中一种 broken Sobolev 范数相等价 (不依赖于网格尺寸 \(h\))，然后把一部分针对指标 \((k, p) \in \B{1} \times [1, d)\) 的估计结果推广到 \((k, p) \in \B{1} \times [1, +\infty)\).
 
@@ -1081,7 +1080,7 @@
 	\end{equation}
 	
 	\begin{proof}
-		当 \(d = 1\) 时，利用引理 \ref{p-Laplace LDG2 broken Poincare-Friedrichs inequality} 中则立即证毕。我们下面只考虑 \(d > 1\) 的情形。
+		当 \(d = 1\) 时，利用引理 \ref{p-Laplace LDG2 broken Poincare-Friedrichs inequality} 则立即证毕。我们下面只考虑 \(d > 1\) 的情形。
 
 		当 \(p \in (1, d]\) 且 \(q \in [1, \frac{p(d-1)}{d-p}]\) 时，令 \(\widetilde{p} = \frac{p(d-1)}{d-p}\)，利用 \cite[Theorem 4.4]{10.1093/imanum/drn038} 和引理 \ref{p-Laplace LDG2 Holder-type energy norm inequality}、\ref{p-Laplace LDG2 broken Poincare-Friedrichs inequality}：
 		\begin{align*}
@@ -1248,80 +1247,13 @@
 \end{corollary}
 
 
-至此，我们已经说明了离散问题 \eqref{p-Laplace LDG weak form 2}、\eqref{p-Laplace LDG primal weak form 2}、\eqref{p-Laplace LDG minimization form 2} 的解之间的关系。
+至此，我们已经说明了离散问题 \eqref{p-Laplace LDG weak form 2}、\eqref{p-Laplace LDG primal weak form 2}、\eqref{p-Laplace LDG minimization form 2} 的解之间的关系。在以上这一阶段，我们对真解 \(u\) 只要求了最低的正则性 \(u \in W^{1,p}(\Omega)\). 
 
-接下来，我们对变分问题的收敛性进行分析。
-
-
-\begin{theorem}[Pre-compactness (generalization of Theorem 6.2 in \cite{10.1093/imanum/drn084})]\label{p-Laplace LDG2 Pre-compactness}
-	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in [1, +\infty)\) 且 \(q \in [1, +\infty)\). 设 \(\B{v_{h}}_{h \in \mathcal{H}} \subset V_{h}\) 是范数 \(\norm{\cdot}_{J, p}\) 下的有界列。那么 \(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{q}(\Omega)\) 的预紧子集。
-
-	\begin{proof}
-		将所有的 \(v_{h}\) 进行零延拓。根据引理 \ref{p-Laplace LDG2 Bounded variation embedding} 和 \cite[Lemma 5.5]{10.1093/imanum/drn084}，我们有：
-		\begin{equation*}
-			\forall \bm\xi \in \R^{d}, \quad 
-			\norm{v_{h}(\cdot + \bm\xi) - v_{h}(\cdot)}_{L^{1}(\R^{d})} 
-			\lesssim \abs{\bm\xi} \norm{v_{h}}_{{\rm BV}(\Omega)} 
-			\lesssim \abs{\bm\xi} \sup_{h \in \mathcal{H}} \norm{v_{h}}_{J, p}
-		\end{equation*}
-		利用 Riesz-Kolmogorov 紧性定理\footnote{类似 Arzela-Ascoli 定理。} \cite[Theorem A]{10.1007/s11785-023-01346-8} 可知，\(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{1}(\R^{d})\) 的预紧子集。再利用引理 \ref{p-Laplace LDG2 broken Poincare-Friedrichs inequality} 可知，存在 \(r > q\) 使得 \(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{r}(\R^{d})\) 的有界子集。任取 \(\B{v_{h}}_{h \in \mathcal{H}}\) 在 \(L^{1}(\R^d)\) 中的聚点 \(v\)，则存在子列 \(\B{v_{h_{j}}}_{j \in \N_+}\) 使得 \(\lim_{j \to \infty} \norm{v - v_{h_{j}}}_{L^{1}(\R^{d})} = 0\) 且 \(v_{h_{j}} \to v\) a.e. 利用 Fatou 引理知：
-		\begin{equation*}
-			\norm{v}_{L^{r}(\R^d)}^{r} 
-			= \int_{\R^{d}} \liminf_{j \to \infty} \abs{v_{h_{j}}}^{r} \d x 
-			\leqslant \liminf_{j \to \infty} \int_{\R^{d}} \abs{v_{h_{j}}}^{r} \d x 
-			\leqslant \sup_{j \in \N_+} \norm{v_{h_{j}}}_{L^{r}(\R^{d})}^{r} 
-			< +\infty
-		\end{equation*}
-		因此，\(v \in L^{r}(\R^{d})\). 再利用 H\"{o}lder 不等式 (也即 \(L^{p}\) 插值) 知：
-		\begin{equation*}
-			\norm{v - v_{h_{j}}}_{L^{q}(\R^{d})} 
-			\leqslant \norm{v - v_{h_{j}}}_{L^{1}(\R^{d})}^{1-\lambda} \norm{v - v_{h_{j}}}_{L^{r}(\R^{d})}^{\lambda} 
-			\to 0
-		\end{equation*}
-		其中 \(\lambda = \frac{(q-1)r}{(r-1)q}\). 综上所述，\(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{q}(\R^{d})\) 的预紧子集，则 \(\B{v_{h}}_{h \in \mathcal{H}}\) 也是 \(L^{q}(\Omega)\) 的预紧子集。
-	\end{proof}
-\end{theorem}
-
-
-\begin{theorem}[Regularity of the limit \cite{10.1090/S0025-5718-10-02333-1}]
-	设 \(p \in (1, +\infty)\)，设 \(\B{v_{h}}_{h \in \mathcal{H}} \subset V_{h}\) 是范数 \(\norm{\cdot}_{J, p}\) 下的有界列。那么，存在子列 \(\B{v_{h_{j}}}_{j \in \N_+}\) 以及 \(v \in W^{1,p}(\Omega)\) 使得：
-	\begin{enumerate}
-		\item \(v\big|_{\Gamma^{D}} = 0\)；
-		\item \(v_{h_{j}} \to v\) in \(L^{p}(\Omega)\)；
-		\item \(D_{DG}(v_{h_{j}}; 0) \rightharpoonup \nabla v\) weakly in \(L^{p}(\Omega)\).
-	\end{enumerate}
-
-	\begin{proof}
-		由定理 \ref{p-Laplace LDG2 Pre-compactness} 知 \(\B{v_{h}}_{h \in \mathcal{H}} \subset V_{h}\) 在 \(L^{p}(\Omega)\) 中是预紧的，不妨设 \(v_{h} \to v\) in \(L^{p}(\Omega)\) (否则，总可以取一个子列使其成立)。记 \(w_{h} = D_{DG}(v_{h}; 0)\). 由 \(\norm{\cdot}_{J, p}\) 的定义知，\(\B{w_{h}}_{h \in \mathcal{H}}\) 是 \(L^{p}(\Omega)\) 中的有界列。由于 \(p \in (1, +\infty)\)， \(L^{p}\) 是自反的 Banach 空间，因此存在 \(w \in L^{p}(\Omega)\) 使得 (不妨设) \(w_{h} \rightharpoonup w\) weakly in \(L^{p}(\Omega)\) (否则，总可以取一个子列使其成立). 我们下面说明 \(w = \nabla v\) 以及 \(v\big|_{\Gamma^{D}} = 0\).
-
-		注意到：当 \(\bm\varphi \in L^{p'}(\mathrm{div}, \mathcal{T}_{h})\) 时，对于任何满足 \(Q_{h} \subset \ker (I - \Pi_{h})\) 的线性算子 \(\Pi_{h}\) 有：
-		\begin{align*}
-			& \left(D_{DG}(v_{h}; 0), \bm\varphi \right)_{\Omega} + \left(v_{h}, \nabla_{h} \cdot \bm\varphi\right)_{\Omega} \\
-			& = \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\& + \left\langle v_{h}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} 
-		\end{align*}
-		任取 \(\bm\varphi \in W^{1, p'}_{0}(\Omega)\)，取 \(\Pi_{h} = \Pi_{Q_{h}}\) 为积分插值算子，利用多项式插值估计 \ref{thm: polynomial approximation} 和迹不等式 \ref{thm: Multiplicative trace inequality}，当 \(h \to 0^{+}\) 时：% to be continued: 把条件放宽到L(div)，但是我们要先把trace inequality拓展到法向分量
-		\begin{align*}
-			& \abs{\left(w_{h}, \bm\varphi\right)_{\Omega} + \left(v, \nabla_{h} \cdot \bm\varphi\right)_{\Omega}} \\
-			& \leqslant \abs{\left(v - v_{h}, \nabla_{h} \cdot \bm\varphi \right)_{\Omega}} + \abs{\left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}}} \\& + \abs{\left\langle v_{h}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}}} + \abs{\left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}}} \\
-			& \lesssim \norm{v - v_{h}}_{L^{p}(\Omega)} \norm{\nabla_{h} \cdot \bm\varphi}_{L^{p'}(\Omega)} + \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, \eta h_{e}^{1-p})} \norm{(\bm\varphi - \Pi_{h}\bm\varphi) \cdot \bm n}_{L^{p'}(\Gamma^{o} \cup \Gamma^{D}, h_{e})} \\& + 0 + 0 \\
-			& \lesssim \norm{v - v_{h}}_{L^{p}(\Omega)} \norm{\nabla_{h} \cdot \bm\varphi}_{L^{p'}(\Omega)} + \norm{v_{h}}_{J, p} h \abs{\bm\varphi}_{W^{1,p'}(\Omega)} \\
-			& \to 0
-		\end{align*}
-		因此，由弱导数的定义知 \(w_{h} \rightharpoonup \nabla v\)，再根据弱极限的唯一性可知 \(w = \nabla v\)，从而 \(v \in W^{1,p}(\Omega)\). 与此同时，任取 \(\bm\varphi \in W^{1,p'}(\Omega)\) 且 \(\bm\varphi \cdot \bm n \big|_{\Gamma^{N}} = 0\). 一方面，当 \(h \to 0^{+}\) 时：
-		\begin{align*}
-			& \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h} \bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} + \left\langle v_{h} - v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} \\
-			& = \left(D_{DG}(v_{h}; 0), \bm\varphi\right)_{\Omega} + \left(v_{h}, \nabla \cdot \bm\varphi\right)_{\Omega} - \left\langle v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} \\
-			& = \left(w_{h}, \bm\varphi\right)_{\Omega} + \left(v_{h}, \nabla \cdot \bm\varphi\right)_{\Omega} - \left\langle v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} \\
-			& \to \left\langle v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{D}}
-		\end{align*}
-		另一方面，利用多项式插值估计 \ref{thm: polynomial approximation} 和迹不等式 \ref{thm: Multiplicative trace inequality}，当 \(h \to 0^{+}\) 时，上式左侧也收敛到 \(0\). 因此 \(v\big|_{\Gamma^{D}} = 0\).
-	\end{proof}
-\end{theorem}
-
+接下来，我们对变分问题的收敛性进行分析。我们在这一阶段仍然只要求最低的正则性 \(u \in W^{1,p}(\Omega)\).
 
 
 % STAR: 我们自己做出来的
-\begin{theorem}[Energy-norm estimate / Stability \cite{10.1093/imanum/drt040}]\label{p-Laplace LDG2 energy-norm estimate} % 这个证明在 A local discontinuous Galerkin approximation for systems with p-structure 里面有
+\begin{theorem}[Energy-norm estimate / Stability (generalization of {\cite[Theorem 3.2]{10.1093/imanum/drt040}})]\label{p-Laplace LDG2 energy-norm estimate} % 这个证明在 A local discontinuous Galerkin approximation for systems with p-structure 里面有
 	设 \(u_{h}\) 是 LDG primal 弱形式 \eqref{p-Laplace LDG primal weak form 2} 或 LDG 最优化形式 \eqref{p-Laplace LDG minimization form 2} 的解。记 \(u_{h,D} = \Pi_{V_{h}} u_{D}\)，其中 \(u_{D} =  E_{\gamma} E_{\Gamma^{D}}^{\partial\Omega} g_{D}\). 存在不依赖于 \(h\) 的常数 \(C > 0\) 使得：
 	\begin{subequations}
 		\begin{equation}
@@ -1378,15 +1310,122 @@
 \end{theorem}
 
 
-\begin{theorem}[Variational Convergence]
-	设 \(u_{h}\) 是 LDG primal 弱形式 \eqref{p-Laplace LDG primal weak form 2} 或 LDG 最优化形式 \eqref{p-Laplace LDG minimization form 2} 的解，设 \(u \in W^{1,p}(\Omega)\) 是 \(p\)-Laplace 方程 \eqref{p-Laplace primal form} 的解。那么：
+\begin{theorem}[Pre-compactness (generalization of {\cite[Theorem 6.2]{10.1093/imanum/drn084}})]\label{p-Laplace LDG2 Pre-compactness}
+	当 \(d > 1\) 时，设 \(p \in [1, d)\) 且 \(q \in [1, p^{\ast})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in [1, +\infty)\) 且 \(q \in [1, +\infty)\). 设函数列 \(\B{v_{h}}_{h \in \mathcal{H}} \subset V_{h}\) 使得 \(\B{E_{h}(v_{h}; g_{D})}_{h \in \mathcal{H}}\) 有界。那么 \(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{q}(\Omega)\) 的预紧子集。
 
 	\begin{proof}
-		% to be continued: 证明数值解的弱收敛性
+		当 \(g_{D} = 0\) 时，将所有的 \(v_{h}\) 进行零延拓。根据引理 \ref{p-Laplace LDG2 Bounded variation embedding} 和 \cite[Lemma 5.5]{10.1093/imanum/drn084}，我们有：
+		\begin{equation*}
+			\forall \bm\xi \in \R^{d}, \quad 
+			\norm{v_{h}(\cdot + \bm\xi) - v_{h}(\cdot)}_{L^{1}(\R^{d})} 
+			\lesssim \abs{\bm\xi} \norm{v_{h}}_{{\rm BV}(\Omega)} 
+			\lesssim \abs{\bm\xi} \sup_{h \in \mathcal{H}} \norm{v_{h}}_{J, p}
+		\end{equation*}
+		利用 Riesz-Kolmogorov 紧性定理\footnote{类似 Arzela-Ascoli 定理。} \cite[Theorem A]{10.1007/s11785-023-01346-8} 可知，\(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{1}(\R^{d})\) 的预紧子集。再利用引理 \ref{p-Laplace LDG2 broken Poincare-Friedrichs inequality} 可知，存在 \(r > q\) 使得 \(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{r}(\R^{d})\) 的有界子集。任取 \(\B{v_{h}}_{h \in \mathcal{H}}\) 在 \(L^{1}(\R^d)\) 中的聚点 \(v\)，则存在子列 \(\B{v_{h_{j}}}_{j \in \N_+}\) 使得 \(\lim_{j \to \infty} \norm{v - v_{h_{j}}}_{L^{1}(\R^{d})} = 0\) 且 \(v_{h_{j}} \to v\) a.e. 利用 Fatou 引理知：
+		\begin{equation*}
+			\norm{v}_{L^{r}(\R^d)}^{r} 
+			= \int_{\R^{d}} \liminf_{j \to \infty} \abs{v_{h_{j}}}^{r} \d x 
+			\leqslant \liminf_{j \to \infty} \int_{\R^{d}} \abs{v_{h_{j}}}^{r} \d x 
+			\leqslant \sup_{j \in \N_+} \norm{v_{h_{j}}}_{L^{r}(\R^{d})}^{r} 
+			< +\infty
+		\end{equation*}
+		因此，\(v \in L^{r}(\R^{d})\). 再利用 H\"{o}lder 不等式 (也即 \(L^{p}\) 插值) 知：
+		\begin{equation*}
+			\norm{v - v_{h_{j}}}_{L^{q}(\R^{d})} 
+			\leqslant \norm{v - v_{h_{j}}}_{L^{1}(\R^{d})}^{1-\lambda} \norm{v - v_{h_{j}}}_{L^{r}(\R^{d})}^{\lambda} 
+			\to 0
+		\end{equation*}
+		其中 \(\lambda = \frac{(q-1)r}{(r-1)q}\). 综上所述，\(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{q}(\R^{d})\) 的预紧子集，则 \(\B{v_{h}}_{h \in \mathcal{H}}\) 也是 \(L^{q}(\Omega)\) 的预紧子集。
+
+		当 \(g_{D} \neq 0\) 时，取 \(u_{h, D} = \Pi_{V_{h}} u_{D}\)，其中 \(u_{D} = E_{\gamma} E_{\Gamma^{D}}^{\partial\Omega} g_{D} \in W^{1,p}(\Omega)\). 由能量估计 \ref{p-Laplace energy estimate} 得 \(\B{E_{h}(u_{h, D}; g_{D})}_{h \in \mathcal{H}}\) 是有界列。利用离散 H\"{o}lder 不等式 \ref{lemma: Discrete Holder inequality} 得：
+		\begin{equation*}
+			2^{1-p} \norm{v_{h} - u_{h, D}}_{J, p}^{p} 
+			\leqslant E_{h}(u_{h, D}; g_{D})^{p} + E_{h}(u_{h}; g_{D})^{p}
+		\end{equation*}
+		因此 \(\B{v_{h} - u_{h, D}}_{h \in \mathcal{H}}\) 是范数 \(\norm{\cdot}_{J, p}\) 下的有界列。由上文知其在 \(L^{q}(\Omega)\) 中预紧。由多项式插值估计 \ref{thm: polynomial approximation} (取次数为 \(0\)) 可知 \(\B{u_{h, D} - u_{D}}_{h \in \mathcal{H}}\) 在范数 \(\norm{\cdot}_{L^{1}(\Omega)} + \abs{\cdot}_{W^{1,p}_{D}(\Omega)}\) 下有界。利用与上文相似的过程，可知 \(\B{u_{h, D} - u_{D}}_{h \in \mathcal{H}}\) 也在 \(L^{q}(\Omega)\) 中预紧。因此，\(\B{v_{h}}_{h \in \mathcal{H}}\) 在 \(L^{q}(\Omega)\) 中预紧。
 	\end{proof}
 \end{theorem}
 
 
+\begin{theorem}[Regularity of the limit (generalization of {\cite[Theorem 6.3]{10.1090/S0025-5718-10-02333-1}})]\label{p-Laplace LDG2 compactness and regularity}
+	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in (1, +\infty)\) 且 \(q \in [1, +\infty)\). 设函数列 \(\B{v_{h}}_{h \in \mathcal{H}} \subset V_{h}\) 使得 \(\B{E_{h}(v_{h}; g_{D})}_{h \in \mathcal{H}}\) 有界。那么，存在子列 \(\B{v_{h_{j}}}_{j \in \N_+}\) 以及 \(v \in W^{1,p}(\Omega)\) 使得：
+	\begin{enumerate}
+		\item \(v\big|_{\Gamma^{D}} = g_{D}\)；
+		\item \(v_{h_{j}} \to v\) in \(L^{q}(\Omega)\)；
+		\item \(D_{DG}(v_{h_{j}}; g_{D}) \rightharpoonup \nabla v\) weakly in \(L^{p}(\Omega)\)；
+		\item \(v_{h_{j}}\big|_{\Gamma^{N}} \rightharpoonup v\big|_{\Gamma^{N}}\) weakly in \(L^{p}(\Gamma^{N})\).
+	\end{enumerate}
+
+	\begin{proof}
+		首先，我们假设 \(g_{D} = 0\). 由定理 \ref{p-Laplace LDG2 Pre-compactness} 知 \(\B{v_{h}}_{h \in \mathcal{H}} \subset V_{h}\) 在 \(L^{q}(\Omega)\) 中是预紧的，不妨设 \(v_{h} \to v\) in \(L^{q}(\Omega)\) (否则，总可以取一个子列使其成立)。记 \(w_{h} = D_{DG}(v_{h}; 0)\). 由 \(\norm{\cdot}_{J, p}\) 的定义知，\(\B{w_{h}}_{h \in \mathcal{H}}\) 是 \(L^{p}(\Omega)\) 中的有界列。由于 \(p \in (1, +\infty)\) 时 \(L^{p}\) 是自反的 Banach 空间，因此存在 \(w \in L^{p}(\Omega)\) 使得 (不妨设) \(w_{h} \rightharpoonup w\) weakly in \(L^{p}(\Omega)\) (否则，总可以取一个子列使其成立). 我们下面说明 \(w = \nabla v\) 以及 \(v\big|_{\Gamma^{D}} = 0\).
+
+		注意到：当 \(\bm\varphi \in L^{p'}(\mathrm{div}, \mathcal{T}_{h})\) 时，对于任何满足 \(Q_{h} \subset \ker (I - \Pi_{h})\) 的线性算子 \(\Pi_{h}\) 有：
+		\begin{align*}
+			& \left(D_{DG}(v_{h}; 0), \bm\varphi \right)_{\Omega} + \left(v_{h}, \nabla_{h} \cdot \bm\varphi\right)_{\Omega} \\
+			& = \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\& + \left\langle v_{h}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} 
+		\end{align*}
+
+		任取 \(\bm\varphi \in W^{1, p'}_{0}(\Omega)\)，取 \(\Pi_{h} = \Pi_{Q_{h}}\) 为积分插值算子，利用多项式插值估计 \ref{thm: polynomial approximation} 和迹不等式 \ref{thm: Multiplicative trace inequality}，当 \(h \to 0^{+}\) 时：
+		\begin{align*}
+			& \abs{\left(w_{h}, \bm\varphi\right)_{\Omega} + \left(v, \nabla \cdot \bm\varphi\right)_{\Omega}} \\
+			& \leqslant \abs{\left(v - v_{h}, \nabla \cdot \bm\varphi \right)_{\Omega}} + \abs{\left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}}} \\& + \abs{\left\langle v_{h}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}}} + \abs{\left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}}} \\
+			& \lesssim \norm{v - v_{h}}_{L^{p}(\Omega)} \norm{\nabla \cdot \bm\varphi}_{L^{p'}(\Omega)} + \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, \eta h_{e}^{1-p})} \norm{(\bm\varphi - \Pi_{h}\bm\varphi) \cdot \bm n}_{L^{p'}(\Gamma^{o} \cup \Gamma^{D}, h_{e})} \\& + 0 + 0 \\
+			& \lesssim \norm{v - v_{h}}_{L^{p}(\Omega)} \norm{\nabla \cdot \bm\varphi}_{L^{p'}(\Omega)} + \norm{v_{h}}_{J, p} h \abs{\bm\varphi}_{W^{1,p'}(\Omega)} \\
+			& \to 0
+		\end{align*}
+		因此，由弱导数的定义知 \(w_{h} \rightharpoonup \nabla v\)，再根据弱极限的唯一性可知 \(w = \nabla v\)，从而 \(v \in W^{1,p}(\Omega)\). 
+		
+		与此同时，任取 \(\bm\varphi \in W^{1,p'}(\Omega)\) 且 \(\bm\varphi \cdot \bm n \big|_{\Gamma^{N}} = 0\). 一方面，当 \(h \to 0^{+}\) 时：
+		\begin{align*}
+			& \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h} \bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} + \left\langle v_{h} - v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} \\
+			& = \left(D_{DG}(v_{h}; 0), \bm\varphi\right)_{\Omega} + \left(v_{h}, \nabla \cdot \bm\varphi\right)_{\Omega} - \left\langle v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} \\
+			& = \left(w_{h}, \bm\varphi\right)_{\Omega} + \left(v_{h}, \nabla \cdot \bm\varphi\right)_{\Omega} - \left\langle v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} \\
+			& \to \left\langle v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{D}}
+		\end{align*}
+		另一方面，利用多项式插值估计 \ref{thm: polynomial approximation} 和迹不等式 \ref{thm: Multiplicative trace inequality}，当 \(h \to 0^{+}\) 时，上式左侧也收敛到 \(0\). 因此 \(v\big|_{\Gamma^{D}} = 0\). 
+		
+		同样地，任取 \(\bm\varphi \in W^{1,p'}(\Omega)\) 且 \(\bm\varphi \cdot \bm n \big|_{\Gamma^{D}} = 0\). 当 \(h \to 0^{+}\) 时：
+		\begin{align*}
+			& \left\langle v_{h}, \bm\varphi\cdot\bm n \right\rangle_{\Gamma^{N}} \\
+			& = \left(D_{DG}(v_{h}; 0), \bm\varphi \right)_{\Omega} + \left(v_{h}, \nabla \cdot \bm\varphi\right)_{\Omega} \\& - \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} - \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} \\
+			& = \left(w_{h}, \bm\varphi \right)_{\Omega} + \left(v_{h}, \nabla \cdot \bm\varphi\right)_{\Omega} \\& - \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} - \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} \\
+			& \to \left(\nabla v, \bm\varphi \right)_{\Omega} + \left(v, \nabla \cdot \bm\varphi\right)_{\Omega} + 0 \\
+			& = \left(v, \bm\varphi\cdot\bm n\right)_{\Gamma^{N}}
+		\end{align*}
+		因此，\(v_{h} \rightharpoonup v\).
+
+		最后，当 \(g_{D} \neq 0\) 时，\(\B{v_{h} - u_{h, D}}_{h \in \mathcal{H}}\) 符合上一种情形的假设。同时，参考上文的过程以及定理 \ref{p-Laplace LDG2 Pre-compactness} 的证明过程，我们可以证明 \(\B{u_{h, D}}_{h \in \mathcal{H}}\) 存在子列满足命题中的结论。因此，\(\B{v_{h}}_{h \in \mathcal{H}}\) 满足命题中的结论。
+	\end{proof}
+\end{theorem}
+
+
+\begin{theorem}[Variational Convergence {\cite[Theorem 6.1]{10.1093/imanum/drn038}}]
+	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in (1, +\infty)\) 且 \(q \in [1, +\infty)\). 设 \(u_{h} \in V_{h}\) 是 LDG primal 弱形式 \eqref{p-Laplace LDG primal weak form 2} 或最优化形式 \eqref{p-Laplace LDG minimization form 2} 的解。设 \(u \in W^{1,p}(\Omega)\) 是 \(p\)-Laplace 方程 \eqref{p-Laplace primal form} 的解。那么当 \(h \to 0^{+}\) 时：
+	\begin{enumerate}
+		\item \(u_{h} \to u\) in \(L^{q}(\Omega)\)；
+		\item \(D_{DG}(u_{h}; g_{D}) \to \nabla u\) in \(L^{p}(\Omega)\)；
+		\item \(\norm{\jump{u_{h} - u}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, h_{e}^{1-p})} \to 0\)；
+		\item \(J_{h}(u_{h}) \to J(u)\).
+	\end{enumerate}
+
+	\begin{proof}
+		由能量估计 \ref{p-Laplace LDG2 energy-norm estimate} 可知 \(\B{E_{h}(u_{h}; g_{D})}_{h \in \mathcal{H}}\) 有界，从而利用定理 \ref{p-Laplace LDG2 compactness and regularity} 可知，存在子列 \(\B{u_{h_{j}}}_{j \in \N_+}\) 以及 \(u^{\ast} \in W^{1,p}(\Omega)\) 使得：
+		\begin{enumerate}
+			\item \(u^{\ast} \big|_{\Gamma^{D}} = g_{D}\)；
+			\item \(u_{h_{j}} \to u^{\ast}\) in \(L^{q}(\Omega)\)；
+			\item \(D_{DG}(u_{h_{j}}; g_{D}) \rightharpoonup \nabla u\) weakly in \(L^{p}(\Omega)\).
+		\end{enumerate}
+		由于 \(\B{E_{h}(u_{h}; g_{D})}_{h \in \mathcal{H}}\) 有界，由迹估计 \ref{p-Laplace LDG2 broken trace inequality} 可知 \(\B{\norm{u_{h}}_{L^{p}(\Gamma^{N})}}_{h \in \mathcal{H}}\) 有界。从而可以不妨设 \(\B{u_{h}\big|_{\Gamma^{N}}}\) 弱收敛。
+
+		利用 \(D_{DG}(u_{h_{j}}; g_{D})\) 的弱收敛性、\(u_{h_{j}}\) 的强收敛性、\(\)
+		
+		以及 \(J(\cdot)\) 的结构：% to be continued
+		\begin{equation*}
+			J(u^{\ast}) 
+			\leqslant \liminf_{j \to \infty} \frac{1}{p}\norm{D_{DG}(u_{h_{j}}; g_{D})}_{L^{p}(\Omega)}^{p} - \left(f, u_{h_{j}}\right)_{\Omega} - \left\langle  \right\rangle_{\Gamma^{N}}
+		\end{equation*}
+	\end{proof}
+\end{theorem}
 
 
 最后，利用以上结果，我们模仿文章 \cite{10.1007/s10915-019-00967-6} 中对一般网格上 LDG-H 格式的误差估计，给出 LDG 格式的误差估计。
@@ -1403,7 +1442,7 @@
 \end{definition}
 
 
-\begin{lemma}[\cite{10.1090/S0025-5718-1993-1192966-4}]\label{lemma: paper func inequality}
+\begin{lemma}[{\cite[Lemma 2.2]{10.1090/S0025-5718-1993-1192966-4}}]\label{lemma: paper func inequality}
 	对 \(f, g \in L^{p}(D)\)，\(\sigma > 1\) 有：
 	\begin{subequations}
 		\begin{eqnarray}
@@ -1415,15 +1454,11 @@
 			\leqslant C \left(\norm{f}_{L^{p}(D)} + \norm{g}_{L^{p}(D)}\right)^{p - \sigma} \norm{f}_{L^{p}(D)}^{\sigma}, & p \in [\sigma, +\infty)
 		\end{eqnarray}
 	\end{subequations}
-
-	\begin{proof}
-		See \cite[Lemma 2.2]{10.1090/S0025-5718-1993-1192966-4}、\cite[Lemma 2.2]{10.1007/s10915-019-00967-6}.
-	\end{proof}
 \end{lemma}
 
 
 \begin{lemma}[\cite{10.1093/imanum/drt040}]
-	设 \(\left(\bm\sigma, u\right)\) 是 \(p\)-Laplace 方程弱形式 \eqref{p-Laplace mixed weak form} 的解，记 \(\bm q = \nabla u\)，那么以下方程成立：
+	设 \(\left(\bm\sigma, u\right) \in L^{p'}(\mathrm{div}, \Omega) \times W^{1,p}(\Omega)\) 是 \(p\)-Laplace 方程弱形式 \eqref{p-Laplace mixed weak form} 的解，记 \(\bm q = \nabla u\)，那么以下方程成立：
 	\begin{equation}\label{p-Laplace discrete equation satisfied by the exact solution}
 		\begin{aligned}
 			& \forall \left(\bm\zeta_{h}, \bm\tau_{h}, v_{h}\right) \in Q_{h} \times \Sigma_{h} \times V_{h}: \\
@@ -1458,7 +1493,7 @@
 
 % STAR: 我们自己做出来的
 \begin{theorem}[\emph{A priori} error estimate on general meshes]
-	设 \(k \geqslant 0\) 是 LDG 格式中使用的多项式次数；\(u_{h}\) 是弱形式 \eqref{p-Laplace LDG primal weak form 2} 或最优化形式 \eqref{p-Laplace LDG minimization form 2} 的解；\(\left(\bm q, \bm\sigma, u\right) \in W^{s, p} \times W^{r+1, p'}(\Omega) \times W^{s+1, p}(\Omega)\) 是 \(p\)-Laplace 方程 \eqref{p-Laplace mixed form} 的解。不妨设 \(r, s \leqslant k\). 记 \(u_{h}^{\ast} = \Pi_{V_{h}} u\). 那么有估计：
+	设 \(k \geqslant 0\) 是 LDG 格式中使用的多项式次数；\(u_{h} \in V_{h}\) 是弱形式 \eqref{p-Laplace LDG primal weak form 2} 或最优化形式 \eqref{p-Laplace LDG minimization form 2} 的解；\(\left(\bm q, \bm\sigma, u\right) \in W^{s, p} \times W^{r+1, p'}(\Omega) \times W^{s+1, p}(\Omega)\) 是 \(p\)-Laplace 方程 \eqref{p-Laplace mixed form} 的解。不妨设 \(r, s \leqslant k\) 是自然数。记 \(u_{h}^{\ast} = \Pi_{V_{h}} u\). 那么有估计：
 	\begin{subequations}
 		\begin{eqnarray}
 			&& \begin{aligned}

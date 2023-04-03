@@ -77,44 +77,45 @@
 	\end{equation}
 \end{lemma}
 
-\begin{theorem}[H{\"{o}}lder's inequality \cite{folland_ch6}]
+\begin{theorem}[H{\"{o}}lder's inequality {\cite[Theorem 6.2]{folland_ch6}}]
 	设 \(\left(X, \mathcal{M}, \mu\right)\) 是一个测度空间，\(p \in [1, +\infty]\). 若 \(f \in L^{p}(X)\)，\(g \in L^{p'}(X)\)，那么 \(f g \in L^{1}(X)\)，且：
 	\begin{equation}
 		\norm{f g}_{L^1(X)} \leqslant \norm{f}_{L^{p}(X)} \norm{g}_{L^{p'}(X)}
 	\end{equation}
+    等号成立当且仅当 \(\abs{f}^{p}\) 与 \(\abs{g}^{p'}\) 线性相关。
 \end{theorem}
 
-\begin{theorem}[Brunn-Minkowski's inequality for integrals \cite{folland_ch6}]
-	设 \(\left(X, \mathcal{M}_{X}, \mu_{X}\right)\) 和 \(\left(Y, \mathcal{M}_{Y}, \mu_{Y}\right)\) 都是 \(\sigma\)-有限的测度空间，\(f(x,y)\) 是 \(X \times Y\) 上的 \(\mathcal{M}_{X} \times \mathcal{Y}_{X}\)-可测函数。设 \(p \in [1, +\infty)\)，那么：
+\begin{theorem}[Brunn-Minkowski's inequality for integrals {\cite[Theorem 6.19]{folland_ch6}}]
+	设 \(X\) 和 \(Y\) 都是 \(\sigma\)-有限的测度空间，\(f(x,y)\) 是 \(X \times Y\) 上的可测函数。设 \(p \in [1, +\infty)\)，那么：
 	\begin{equation}
 		\norm{\norm{f(x,y)}_{L^{1}(Y)}}_{L^{p}(X)} \leqslant \norm{\norm{f(x,y)}_{L^{p}(X)}}_{L^{1}(Y)}
 	\end{equation}
 \end{theorem}
 
 \begin{definition}[Sobolev conjugate index]
-	在 \(\R^d\) 空间中，对于 \(p \in [1, d)\)，定义 \(p\) 的 Sobolev 共轭指标为 \(p^{\ast}\)，其满足 \(\frac{1}{p^{\ast}} = \frac{1}{p} - \frac{1}{d}\).
+	在 \(\R^d\) 空间中，对于 \(p \in [1, d)\)，定义 \(p\) 的 Sobolev 共轭指标为 \(p^{\ast}\)，满足 \(\frac{1}{p^{\ast}} = \frac{1}{p} - \frac{1}{d}\).
 \end{definition}
 
 \begin{theorem}[Trace {\cite[Theorem 3.10]{10.1007/978-3-030-56341-7_3}}]\label{thm: trace theorem}
-	设 \(\Omega\) 是 Lipschitz 区域，并设 \(p \in [1, +\infty)\). 若 \(s > \frac{1}{p}\) 且 \(p > 1\)，或 \(s \geqslant 1\) 且 \(p = 1\)，那么存在有界线性映射 \(\gamma: W^{s,p}(\Omega) \mapsto L^{p}(\partial \Omega)\) 使得：
+	设 \(\Omega\) 是有界的 Lipschitz 区域，并设 \(p \in [1, +\infty)\). 若 \(s > \frac{1}{p}\) 且 \(p > 1\)，或 \(s \geqslant 1\) 且 \(p = 1\)，那么存在有界线性映射 \(\gamma: W^{s,p}(\Omega) \mapsto L^{p}(\partial \Omega)\) 使得：
 	\begin{enumerate}
-		\item \(\forall v \in C^{0}(\overline{\Omega}), \gamma(v) = v\big|_{\partial \Omega}\)；
+		\item \(\forall v \in C(\overline{\Omega}), \gamma(v) = v\big|_{\partial \Omega}\)；
 		\item \(\ker\gamma = W^{s,p}_{0}(\Omega)\)；
 		\item 若 \(s = 1\) 且 \(p = 1\)，或 \(s \in (\frac{1}{2}, \frac{3}{2})\) 且 \(p = 2\)，或 \(s \in (\frac{1}{p}, 1]\) 且 \(p \not\in \B{1,2}\)，那么 \(\gamma: W^{s,p}(\Omega) \mapsto W^{s-\frac{1}{p}, p}(\partial \Omega)\) 是有界的线性满射，并且，存在 \(C > 0\) 使得 \(\gamma\) 的右逆 \(E_{\gamma}\) (提升算子) 满足 \(\norm{E_{\gamma}} \leqslant C (\diam \Omega)^{\frac{1}{p}}\).
 	\end{enumerate}
 \end{theorem}
 
 \begin{theorem}[Normal trace {\cite[Theorem 4.15]{10.1007/978-3-030-56341-7_4}}]\label{thm: nomal trace theorem}
-	设 \(\Omega\) 是 Lipschitz 区域，并设 \(p \in (1, +\infty)\). 定义算子 \(\gamma^{d}: L^{p}(\mathrm{div}, \Omega) \mapsto W^{-\frac{1}{p}, p}(\partial\Omega)\) 如下：
+	设 \(\Omega\) 是有界的 Lipschitz 区域，并设 \(p \in (1, +\infty)\). 定义算子 \(\gamma^{d}: L^{p}(\mathrm{div}, \Omega) \mapsto W^{-\frac{1}{p}, p}(\partial\Omega)\) 如下：
 	\begin{equation}
 		\begin{aligned}
 			& \forall \bm v \in L^{p}(\mathrm{div}, \Omega), l \in W^{\frac{1}{p}, p'}(\partial\Omega), \quad \\
 			& \left\langle \gamma^{d}(\bm v), l \right\rangle_{\partial\Omega} = \left(\bm v, \nabla E(l)\right)_{\Omega} + \left(\nabla\cdot\bm v, E(l)\right)_{\Omega}
 		\end{aligned}
 	\end{equation}
-	这里，\(E: W^{-\frac{1}{p}, p}(\partial\Omega) \mapsto W^{1,p'}(\Omega)\) 是迹定理 \ref{thm: trace theorem} 中的有界线性的延拓算子。那么：
+	这里，\(E: W^{\frac{1}{p}, p'}(\partial\Omega) \mapsto W^{1,p'}(\Omega)\) 是迹定理 \ref{thm: trace theorem} 中的有界线性的延拓算子。那么 \(\gamma^{d}\) 是有界线性算子，满足：
 	\begin{enumerate}
-		\item \(\gamma^{d}(\bm v) = \bm v \cdot \bm n \big|_{\partial\Omega}\) 对 \(v \in C^{1}(\Omega) \cap C(\overline{\Omega})\) 成立；
+		\item \(\forall v \in C^{1}(\Omega) \cap C(\overline{\Omega})\)，\(\gamma^{d}(\bm v) = \bm v \cdot \bm n \big|_{\partial\Omega}\)；
 		\item \(\gamma^{d}\) 是满射；
 		\item 若定义 \(L^{p}_{0}(\mathrm{div}, \Omega) = \overline{C_{0}^{1}(\Omega)}^{L^{p}(\mathrm{div}, \Omega)}\)，那么 \(L^{p}_{0}(\mathrm{div}, \Omega) = \ker \gamma^{d}\).
 	\end{enumerate}
@@ -122,8 +123,8 @@
 
 
 
-\begin{lemma}[Bramble-Hilbert's lemma \cite{10.1137/0707006, 10.1007/BF00252458}]\label{lemma: Bramble-Hilbert}
-	设 \(\Omega \subset \R^{d}\) 是 Lipschitz 区域，\(p \in [1, +\infty]\)，\(k, m \in \N\). 那么存在 \(C > 0\) 使得：对于任何满足 \(\mathcal{P}^{k}(\Omega) \subset \ker(I - \Pi)\) 的算子 \(\Pi \in L(W^{k+1, p}(\Omega), W^{m,p}(\Omega))\)：
+\begin{lemma}[Bramble-Hilbert's lemma {\cite[Lemma 7]{10.1007/BF00252458}}]\label{lemma: Bramble-Hilbert}
+	设 \(\Omega \subset \R^{d}\) 是有界的 Lipschitz 区域，\(p \in [1, +\infty]\)，\(k, m \in \N\). 那么存在 \(C > 0\) 使得：对于任何满足 \(\mathcal{P}^{k}(\Omega) \subset \ker(I - \Pi)\) 的算子 \(\Pi \in L(W^{k+1, p}(\Omega), W^{m,p}(\Omega))\)：
 	\begin{subequations}
 		\begin{equation}
 			\begin{aligned}
@@ -145,7 +146,7 @@
 \end{lemma}
 
 
-\begin{theorem}[Polynomial approximation on simplicial elements \cite{10.1007/BF00252458}]\label{thm: polynomial approximation}
+\begin{theorem}[Polynomial approximation on simplicial elements {\cite[Theorem 5]{10.1007/BF00252458}}]\label{thm: polynomial approximation}
 	设 \(K\) 是单纯形，设 \(p,q \in [1, +\infty]\)，\(k,m \in \N\). 设 \(\widehat{K}\) 是标准单纯形。设算子 \(\widehat{\Pi} \in L(W^{k+1, p}(\widehat{K}), W^{m, q}(\widehat{K}))\) 满足 \(\mathcal{P}^{k}(\widehat{K}) \subset \ker (I - \widehat{\Pi})\). 取 \(\Pi = \Phi_{\ast} \circ \widehat{\Pi} \circ \Phi^{\ast}\)，其中 \(\Phi^{\ast}\) 使得 \((\Phi^{\ast} u)(\bm\lambda) = u(\Phi(\bm\lambda))\)，\(\Phi_{\ast} = (\Phi^{\ast})^{-1}\)，而 \(\Phi\) 是从 \(\widehat{K}\) 到 \(K\) 的仿射变换。那么存在常数 \(C > 0\) 使得：
 	\begin{equation}
 		\forall v \in W^{k+1, p}(K) \cap W^{m, q}(K), \quad 
@@ -153,10 +154,6 @@
 		\leqslant C \abs{K}^{\frac{1}{q} - \frac{1}{p}} \frac{h_{K}^{k+1}}{\rho_{K}^{m}} \abs{v}_{W^{k+1, p}(K)}
 	\end{equation}
 	这里，\(h_{K}\) 是 \(K\) 的外接球半径，\(\rho_{K}\) 是 \(K\) 的内切球半径。
-
-	\begin{proof}
-		See \cite[Theorem 5]{10.1007/BF00252458}.
-	\end{proof}
 \end{theorem}
 
 
@@ -169,7 +166,7 @@
 	其中，\(\Phi_{K}\) 是从标准参考单纯形 \(\widehat{K}\) 到 \(K\) 的仿射变换，\(\bm J[\cdot]\) 是映射的 Jacobi 矩阵。
 \end{definition}
 
-\begin{theorem}[Multiplicative trace inequality on simplicial meshes \cite{10.1007/978-3-030-56341-7_12}]\label{thm: Multiplicative trace inequality}
+\begin{theorem}[Multiplicative trace inequality on simplicial meshes {\cite[Lemma 12.15]{10.1007/978-3-030-56341-7_12}}]\label{thm: Multiplicative trace inequality}
 	设 \(\B{\mathcal{T}_{h}}_{h \in \mathcal{H}}\) 是 \(\R^{d}\) 的一族形状规则的单纯形网格。那么存在只依赖于 \(d\) 的常数 \(c > 0\) 使得：\(\forall K \in \mathcal{T}_{h}\)，\(\forall p \in [1, +\infty]\)，\(\forall v \in W^{1,p}(K)\)，\(\forall e \in \mathcal{E}_{h}^{K}\)：
 	\begin{equation}
 		\norm{v}_{L^{p}(e)} 
@@ -177,7 +174,7 @@
 	\end{equation}
 
 	\begin{proof}
-		参考 \cite[Lemma 12.15]{10.1007/978-3-030-56341-7_12}。对于 \(p \in [1, +\infty)\) 有：
+		对于 \(p \in [1, +\infty)\) 有：
 		\begin{align*}
 			\norm{v}_{L^{p}(e)}^{p} 
 			& = \frac{\abs{e}}{\abs{K}} \norm{v}_{L^{p}(K)}^{p} + \frac{p}{d} \frac{\abs{e}}{\abs{K}} \int_{K} \abs{v}^{p-2} v \left(\bm x - \bm z_{e}\right) \cdot \nabla v \d x \\
@@ -199,7 +196,7 @@
 		&& \widetilde{V} = \B{v \in H^1(\Omega) \bigg| v\big|_{\Gamma^D} = 0}
 	\end{eqnarray}
 \end{subequations}
-Poisson 方程\eqref{Poisson primal form}的弱形式为：
+Poisson 方程 \eqref{Poisson primal form} 的弱形式为：
 \begin{equation}\label{Poisson primal weak form}
 	\begin{aligned}
 		& \text{find \(u \in V\) such that \(\forall v \in \widetilde{V}\):} \\
@@ -222,7 +219,8 @@ Poisson 方程\eqref{Poisson primal form}的弱形式为：
 这里，\(f\in H^{-1}(\Omega)\)，\(g_{D} \in H^{\frac{1}{2}}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in H^{-\frac{1}{2}}(\Gamma^{N})\).
 
 \begin{theorem}[Existence, uniqueness, and equivalence]
-	Poisson 方程的弱形式\eqref{Poisson primal weak form}和最优化形式\eqref{Poisson primal minimization form}的解存在、唯一、相同。
+	Poisson 方程的弱形式 \eqref{Poisson primal weak form} 和最优化形式 \eqref{Poisson primal minimization form} 的解存在、唯一、相同。
+
 	\begin{proof}
 		See \cite{PDE_Evans_ch6, PDE_Evans_ch8}.
 	\end{proof}
@@ -241,7 +239,7 @@ Poisson 方程\eqref{Poisson primal form}的弱形式为：
 		&& W = L^2(\Omega)
 	\end{eqnarray}
 \end{subequations}
-Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-36519-5_7}：
+Poisson 方程 \eqref{Poisson mixed form} 的弱形式为 \cite{10.1007/978-3-642-36519-5_7}：
 \begin{equation}\label{Poisson mixed weak form}
 	\begin{aligned}
 		& \text{find \(\left(\bm\sigma, u\right) \in \Sigma\times W\) such that \(\forall \left(\bm\tau, v\right)\in\widetilde{\Sigma}\times W\):} \\
@@ -280,7 +278,7 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 
 \subsection{General DG schemes for the Poisson Equation}
 
-按照文章中\cite{10.1137/S0036142901384162}的DG框架，假设 \(\Omega\) 被划分为网格 \(\mathcal{T}_h\) (表示所有单元的全体)，以 \(\Gamma\) 表示所有单元的边的并集，以 \(\Gamma^{o}\) 代表所有内部边的并集，以 \(\Gamma^{D}\) 表示 Dirichlet 边界，以 \(\Gamma^{N}\) 表示 Neumann 边界，以 \(\Gamma^{\partial}\) 表示位于区域边界上的单元边的并集；以 \(\mathcal{E}_{h}\) 代表所有单元边的全体(含定向)，以 \(\mathcal{E}_{h}^{o}\) 代表所有单元的在内部的边的全体，以 \(\mathcal{E}_{h}^{\partial}\) 代表所有单元在边界上的边的全体。
+按照文章中 \cite{10.1137/S0036142901384162} 的 DG 框架，假设 \(\Omega\) 被划分为网格 \(\mathcal{T}_h\)，以 \(\Gamma\) 表示所有单元的边的并集，以 \(\Gamma^{o}\) 代表所有内部边的并集，以 \(\Gamma^{D}\) 表示 Dirichlet 边界，以 \(\Gamma^{N}\) 表示 Neumann 边界，以 \(\Gamma^{\partial}\) 表示位于区域边界上的单元边的并集；以 \(\mathcal{E}_{h}\) 代表所有单元边的全体(含定向)，以 \(\mathcal{E}_{h}^{o}\) 代表所有单元的在内部的边的全体，以 \(\mathcal{E}_{h}^{\partial}\) 代表所有单元在边界上的边的全体。
 
 函数空间：
 \begin{enumerate}
@@ -321,7 +319,7 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 
 \subsubsection{The Local Scheme}
 
-局部的 DG 格式\cite{10.1007/978-3-642-59721-3_5, 10.1137/S0036142901384162}：
+局部的 DG 格式 \cite{10.1007/978-3-642-59721-3_5, 10.1137/S0036142901384162}：
 \begin{equation}\label{Local DG Scheme}
 	\begin{aligned}
 		& \text{find \(\left(\bm\sigma_{h}, u_{h}\right) \in \Sigma_{h} \times V_{h}\) such that \(\forall \left(\bm\tau_{h}, v_{h}\right) \in \Sigma_{h} \times V_{h}\), \(\forall K \in \mathcal{T}_{h}\):} \\
@@ -350,7 +348,7 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 	\end{equation}
 \end{subequations}
 
-将 \(\bm\sigma_h\) 的表达式代入局部的 DG 格式\eqref{Local DG Scheme}，得到局部原始 DG 格式：
+将 \(\bm\sigma_h\) 的表达式代入局部的 DG 格式 \eqref{Local DG Scheme}，得到局部原始 DG 格式：
 \begin{subequations}
 	\begin{equation}\label{Local Primal DG Scheme}
 		\begin{aligned}
@@ -368,7 +366,7 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 
 \subsubsection{The Global Scheme}
 
-对局部的 DG 格式\eqref{Local DG Scheme}求和，得到全局的 DG 格式：
+对局部的 DG 格式 \eqref{Local DG Scheme} 求和，得到全局的 DG 格式：
 \begin{equation}\label{Global DG Scheme}
 	\begin{aligned}
 		& \text{find \(\left(\bm\sigma_{h}, u_{h}\right) \in \Sigma_{h} \times V_{h}\) such that \(\forall \left(\bm\tau_{h}, v_{h}\right) \in \Sigma_{h} \times V_{h}\):} \\
@@ -495,24 +493,24 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 
 在高维情形下(维数大于等于2)，经典的间断有限元方法在理论上支持任何形状的单元。然而，由于DG格式中经常涉及对非线性项或者多项式乘积的积分，在常见的DG方法中，高阶数值积分和特殊的配点选取仍然是必不可少的。
 
-在高维的谱元法中，如果在单纯形单元上使用 \(\mathscr{P}^k\) 多项式空间，需要减小矩阵的条件数和多项式插值的 Lebesgue number，同时使质量矩阵对角化(为了速度)、非负化(为了稳定性)\footnote{显然，以点值为自由度的质量矩阵 \(\bm M\) 显然是正定的；在同样的点上的数值积分系数向量则是 \(\bm 1^T\bm M\)，该数值积分保界当且仅当 \(\bm 1^T\bm M \geqslant \bm 0\) 逐元素成立}。较为流行的一种方式是取特定的配点集\cite{10.1007/s11075-010-9390-0}，例如 Fekete 点\cite{10.1137/S0036142998337247, WingatezAbstract1998FeketeCP}(其是 Lobatto 点在高维的自然推广\cite{10.1090/S0025-5718-00-01262-X}，但是三角形上不存在 Gauss-Lobatto 数值积分公式\cite{10.1137/070685439}，因此还需要另取积分点)、Chen-Babu{\v{s}}ka 点\cite{CHEN1995405}、Hesthaven 点\cite{10.1137/S003614299630587X}、Lobatto 点\cite{10.1093/imamat/hxh077}(不需要在高维迭代求解)，并取单纯形上的 Gauss 点\cite{10.2307/43693493, 10.1016/j.camwa.2009.10.027, 10.1002/nme.1620210612}作为积分点。其优点是仿射单元的 Jacobian 是常矩阵；缺点则是配点和数值积分需要使用两套不同的点集\cite{10.1007/s10915-005-9048-6}，单纯形单元上低条件数的配点集以及对称且具有正系数的高阶数值积分公式难以构造。另一种方式则是取正交多项式基\cite{10.1007/BF01060030, 10.1007/978-3-030-39647-3_5}，以模态系数为变量，使用 Duffy 变换将正方形上的张量积积分点变换到三角形上进行数值积分，例如 Nektar++ 项目\cite{10.1016/j.cpc.2015.02.008}。
+在高维的谱元法中，如果在单纯形单元上使用 \(\mathscr{P}^k\) 多项式空间，需要减小矩阵的条件数和多项式插值的 Lebesgue number，同时使质量矩阵对角化(为了速度)、非负化(为了稳定性)\footnote{显然，以点值为自由度的质量矩阵 \(\bm M\) 显然是正定的；在同样的点上的数值积分系数向量则是 \(\bm 1^T\bm M\)，该数值积分保界当且仅当 \(\bm 1^T\bm M \geqslant \bm 0\) 逐元素成立}。较为流行的一种方式是取特定的配点集 \cite{10.1007/s11075-010-9390-0}，例如 Fekete 点 \cite{10.1137/S0036142998337247, WingatezAbstract1998FeketeCP} (其是 Lobatto 点在高维的自然推广 \cite{10.1090/S0025-5718-00-01262-X}，但是三角形上不存在 Gauss-Lobatto 数值积分公式 \cite{10.1137/070685439}，因此还需要另取积分点)、Chen-Babu{\v{s}}ka 点 \cite{CHEN1995405}、Hesthaven 点 \cite{10.1137/S003614299630587X}、Lobatto 点 \cite{10.1093/imamat/hxh077} (不需要在高维迭代求解)，并取单纯形上的 Gauss 点 \cite{10.2307/43693493, 10.1016/j.camwa.2009.10.027, 10.1002/nme.1620210612} 作为积分点。其优点是仿射单元的 Jacobian 是常矩阵；缺点则是配点和数值积分需要使用两套不同的点集 \cite{10.1007/s10915-005-9048-6}，单纯形单元上低条件数的配点集以及对称且具有正系数的高阶数值积分公式难以构造。另一种方式则是取正交多项式基 \cite{10.1007/BF01060030, 10.1007/978-3-030-39647-3_5}，以模态系数为变量，使用 Duffy 变换将正方形上的张量积积分点变换到三角形上进行数值积分，例如 Nektar++ 项目 \cite{10.1016/j.cpc.2015.02.008}。
 
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.9\linewidth]{includefiles/triangle nodes compare.png}
 		\caption{
-			三角形上 \(\mathscr{P}^{m}\) 多项式配点集合对比\cite{10.1007/s10665-006-9063-0}：
+			三角形上 \(\mathscr{P}^{m}\) 多项式配点集合对比 \cite{10.1007/s10665-006-9063-0}：
 			(a) \(m = 6\) 时的 5 种不同配点集：Lobatto 点(圆)、Chebyshev 点(正三角)、第二类 Chebyshev 点(倒三角)、Legendre 点(方)、Fekete 点(叉)；
 			(b) 当 \(1 \leqslant m \leqslant 12\) 时的插值 Lebesgue 常数
 		}
 	\end{center}
 \end{figure}
 
-如果在张量积参考单元上使用 \(\mathscr{Q}^k\) 多项式空间，并使用多线性映射映射到物理单元\cite{10.1090/s0025-5718-02-01439-4}，则可以直接使用 Gauss-Lobatto 点(使得迹算子稀疏化、支持 static condensation\cite{10.2514/3.2874})或者 Gauss-Legendre 点，这些积分点有很多成熟、高效的计算方式\cite{10.1137/140954969, 10.1137/S1064827500379690, 10.1017/S0962492920000045}，质量矩阵也有近似的对角取法\cite{10.1002/fld.2376}。其优点是可以利用张量积的结构加速计算，缺点是单元的 Jacobian 不是常数、总自由度较高。
+如果在张量积参考单元上使用 \(\mathscr{Q}^k\) 多项式空间，并使用多线性映射映射到物理单元 \cite{10.1090/s0025-5718-02-01439-4}，则可以直接使用 Gauss-Lobatto 点(使得迹算子稀疏化、支持 static condensation \cite{10.2514/3.2874})或者 Gauss-Legendre 点，这些积分点有很多成熟、高效的计算方式 \cite{10.1137/140954969, 10.1137/S1064827500379690, 10.1017/S0962492920000045}，质量矩阵也有近似的对角取法 \cite{10.1002/fld.2376}。其优点是可以利用张量积的结构加速计算，缺点是单元的 Jacobian 不是常数、总自由度较高。
 
 % Aside from the use of tensor products of one-dimensional Gaussian formulas, there is no general procedure for obtaining multidimensional quadrature formulas. Optimal quadrature formulas, those that minimize the number of quadrature points and possess desirable properties such as symmetry and low condition number, are not readily available, and the development of such formulas is an active area of research.
 
-由于其便于理解(所有的待解的变量都是点值)的特性，Nodal DG\cite{10.1007/978-0-387-72067-8}是 DG 的一种流行的具体实现方法。我们这里采用Nodal DG方法，并采用单纯形仿射单元。在二维，这样的方法属于三角谱配点法(TSEM, triangular spectral collocation method)或者三角伪谱法(triangular pseudo-spectral method)。
+由于其便于理解(所有的待解的变量都是点值)的特性，Nodal DG \cite{10.1007/978-0-387-72067-8} 是 DG 的一种流行的具体实现方法。我们这里采用Nodal DG方法，并采用单纯形仿射单元。在二维，这样的方法属于三角谱配点法(TSEM, triangular spectral collocation method)或者三角伪谱法(triangular pseudo-spectral method)。
 
 
 \subsubsection{2D Case Matrix}
@@ -624,9 +622,9 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 
 \subsubsection{The LDG Formulation}
 
-在求解对称的椭圆问题时，在收敛阶相同时，CG 方法和对称的 DG 方法的矩阵条件数渐进同阶，而不对称的 DG 方法例如 NIPG 需要更大的惩罚参数，导致条件数很高。对称的 DG 方法中，LDG 方法和 IPDG 方法都易于实现，且稳定、相容、守恒、最优收敛。LDG 方法的矩阵存储量是 IPDG 的至多 2.5 倍(在 2D 三角网格下)\cite{10.1137/S1064827501388339}，但是 LDG 的优势在于惩罚参数的选取可以与网格无关，且辅助变量 \(\sigma_{h}\) 可以局部地用原始变量 \(u_{h}\) 表示出来(在定态求解时，可以使用 Schur 补技巧以减小计算量；在显式时间推进时，可以只需要多次求解局部小型方程组)。另外，DG 方法的特性使得其容易获得局部守恒性质，这在计算流体力学中对于长时间模拟的稳定性和准确性有重要作用，而 CG 方法需要复杂的处理\cite{10.1137/060666305}才能局部守恒。
+在求解对称的椭圆问题时，在收敛阶相同时，CG 方法和对称的 DG 方法的矩阵条件数渐进同阶，而不对称的 DG 方法例如 NIPG 需要更大的惩罚参数，导致条件数很高。对称的 DG 方法中，LDG 方法和 IPDG 方法都易于实现，且稳定、相容、守恒、最优收敛。LDG 方法的矩阵存储量是 IPDG 的至多 2.5 倍 (在 2D 三角网格下) \cite{10.1137/S1064827501388339}，但是 LDG 的优势在于惩罚参数的选取可以与网格无关，且辅助变量 \(\sigma_{h}\) 可以局部地用原始变量 \(u_{h}\) 表示出来。在定态求解时，这允许使用 Schur 补技巧以减小计算量；在显式时间推进时，这使得只需要多次求解局部小型方程组。另外，DG 方法的特性使得其容易获得局部守恒性质，这在计算流体力学中对于长时间模拟的稳定性和准确性有重要作用，而 CG 方法需要复杂的处理 \cite{10.1137/060666305} 才能局部守恒。
 
-LDG 格式的数值通量\cite{10.1137/S0036142997316712}为：
+LDG 格式的数值通量 \cite{10.1137/S0036142997316712} 为：
 \begin{subequations}\label{LDG numerical flux}
 	\begin{eqnarray}
 		&& \widehat{\bm\sigma}_{h}\big|_{e} = \begin{cases}
@@ -643,9 +641,9 @@ LDG 格式的数值通量\cite{10.1137/S0036142997316712}为：
 \end{subequations}
 这里，\(C_{11}, \bm C_{12}, C_{22}\) 在每条边 \(e \in \mathcal{E}_{h}\) 上是常值\footnote{在边界面 \(e\in\mathcal{E}_{h}^{\partial}\) 上，\(\bm C_{12}\) 未定义。}。特别地，当且仅当 \(C_{22} \equiv 0\) 时，可以局部地通过 \(u_{h}\) 求出 \(\sigma_{h}\)，整套方法才是狭义的 LDG 方法。
 
-LDG 有误差估计\cite{10.1137/S0036142900371003}：对于一般的任意网格情形而言，当 \(\bm C_{12} = \mathcal{O}(1)\)时，\(\bm C_{12}\) 对代数方程组的可解性和误差估计无影响；当 \(C_{11} > 0\) 时，代数方程组可解；当 \(C_{11} = \mathcal{\Theta}(h^{-1})\) 时，对光滑解 \(\left(\bm\sigma, u\right)\) 的 \(L^2\) 误差阶为 \(\left(k, k+1\right)\)；当 \(C_{11} = \mathcal{\Theta}(1)\) 时，对光滑解 \(\left(\bm\sigma, u\right)\) 的 \(L^2\) 误差阶为 \(\left(k, k+\frac{1}{2}\right)\)；当 \(k\geqslant 1\) 时数值解收敛。同时，恰当地选取 \(\bm C_{12}\) 可以减小模板，从而减少矩阵非零元个数，例如取 \(\bm C_{12}\) 使得 \(\bm C_{12}\cdot\bm n \equiv \pm\frac{1}{2}\) \cite{10.1137/070685518}.
+LDG 有误差估计 \cite{10.1137/S0036142900371003}：对于一般的任意网格情形而言，当 \(\bm C_{12} = \mathcal{O}(1)\)时，\(\bm C_{12}\) 对代数方程组的可解性和误差估计无影响；当 \(C_{11} > 0\) 时，代数方程组可解；当 \(C_{11} = \mathcal{\Theta}(h^{-1})\) 时，对光滑解 \(\left(\bm\sigma, u\right)\) 的 \(L^2\) 误差阶为 \(\left(k, k+1\right)\)；当 \(C_{11} = \mathcal{\Theta}(1)\) 时，对光滑解 \(\left(\bm\sigma, u\right)\) 的 \(L^2\) 误差阶为 \(\left(k, k+\frac{1}{2}\right)\)；当 \(k\geqslant 1\) 时数值解收敛。同时，恰当地选取 \(\bm C_{12}\) 可以减小模板，从而减少矩阵非零元个数，例如取 \(\bm C_{12}\) 使得 \(\bm C_{12}\cdot\bm n \equiv \pm\frac{1}{2}\) \cite{10.1137/070685518}.
 
-为了减小数值耗散，当使用单纯形单元时，实际上只需要 \(C_{11}\big|_{\Gamma^{D}} = \mathcal{\Theta}(h^{-1})\) 且 \(C_{11}\big|_{\Gamma} \geqslant 0\)，同时每一个单元的至少一条边 \(e\) 满足 \(\bm C_{12}\cdot\bm n = \frac{1}{2}\) 或者 \(e\in\mathcal{E}_{h} \backslash \mathcal{E}_{h}^{o}\)，即可达到对光滑 \(\left(\bm\sigma, u\right)\) 的 \(\left(k, k+1\right)\) 阶收敛(\(k>0\))，此格式被称作 MD-LDG 格式\cite{10.1007/s10915-007-9130-3}。
+为了减小数值耗散，当使用单纯形单元时，实际上只需要 \(C_{11}\big|_{\Gamma^{D}} = \mathcal{\Theta}(h^{-1})\) 且 \(C_{11}\big|_{\Gamma} \geqslant 0\)，同时每一个单元的至少一条边 \(e\) 满足 \(\bm C_{12}\cdot\bm n = \frac{1}{2}\) 或者 \(e\in\mathcal{E}_{h} \backslash \mathcal{E}_{h}^{o}\)，即可达到对光滑 \(\left(\bm\sigma, u\right)\) 的 \(\left(k, k+1\right)\) 阶收敛(\(k>0\))，此格式被称作 MD-LDG 格式 \cite{10.1007/s10915-007-9130-3}。
 
 取空间为：
 \begin{subequations}
@@ -654,7 +652,7 @@ LDG 有误差估计\cite{10.1137/S0036142900371003}：对于一般的任意网�
 		&& V_{h} = \bigoplus_{K\in\mathcal{E}_{h}} V(K) = \bigoplus_{K\in\mathcal{E}_{h}} \mathscr{P}^{k}(K)
 	\end{eqnarray}
 \end{subequations}
-将数值通量\eqref{LDG numerical flux}代入 DG 格式\eqref{Global DG Scheme}，LDG 格式可以写作\cite{10.1137/S0036142900371003}：
+将数值通量 \eqref{LDG numerical flux} 代入 DG 格式 \eqref{Global DG Scheme}，LDG 格式可以写作 \cite{10.1137/S0036142900371003}：
 
 \begin{subequations}\label{LDG weak form}
 	\begin{equation}
@@ -681,10 +679,10 @@ LDG 有误差估计\cite{10.1137/S0036142900371003}：对于一般的任意网�
 \end{subequations}
 
 \begin{remark}
-	LDG 格式中，Dirichlet 边界条件并不是强制施加的，而是采用了一个惩罚项来施加，惩罚系数为 \(C_{11}\). 这种惩罚方法与 Nitsche 方法类似\cite{10.1007/BF02995904}。
+	LDG 格式中，Dirichlet 边界条件并不是强制施加的，而是采用了一个惩罚项来施加，惩罚系数为 \(C_{11}\). 这种惩罚方法与 Nitsche 方法类似 \cite{10.1007/BF02995904}。
 \end{remark}
 
-LDG 方程组\eqref{LDG weak form}等价的(带稳定项的)鞍点问题为\footnote{该鞍点问题属于 purturbed saddle-point problem，不能等价于关于 \(\tau_{h}\) 的限制优化问题。}：
+LDG 方程组 \eqref{LDG weak form} 等价的 (带稳定项的) 鞍点问题为\footnote{该鞍点问题属于 purturbed saddle-point problem，不能等价于关于 \(\tau_{h}\) 的限制优化问题。}：
 \begin{subequations}\label{LDG saddle-point problem}
 	\begin{equation}
 		\begin{aligned}
@@ -702,7 +700,7 @@ LDG 方程组\eqref{LDG weak form}等价的(带稳定项的)鞍点问题为\foot
 \end{subequations}
 
 
-\begin{theorem}[Well-posedness\cite{10.1137/S0036142900371003, 10.1007/s10915-007-9130-3}]
+\begin{theorem}[Well-posedness \cite{10.1137/S0036142900371003, 10.1007/s10915-007-9130-3}]
 	当 \(C_{11}, C_{22} \geqslant 0\) 时，若至少有一条边上是 Dirichlet 边界条件，且以下两条至少成立一条：
 	\begin{enumerate}
 		\item \(C_{11} > 0\) 恒成立；
@@ -711,7 +709,7 @@ LDG 方程组\eqref{LDG weak form}等价的(带稳定项的)鞍点问题为\foot
 			\item \(e \in \mathcal{E}_{h}^{\partial}\)；
 		\end{enumerate}
 	\end{enumerate}
-	那么 LDG 问题\eqref{LDG weak form}存在唯一解。
+	那么 LDG 问题 \eqref{LDG weak form} 存在唯一解。
 
 	\begin{proof}
 		对于此线性问题，我们只需要证明当右端项全部为 \(0\) 时，方程仅有平凡解。事实上，当右端项全部为 \(0\) 时，取测试函数 \(\left(\bm\tau_{h}, v_{h}\right) = \left(\bm\sigma_{h}, u_{h}\right)\)，我们有：
@@ -738,7 +736,7 @@ LDG 方程组\eqref{LDG weak form}等价的(带稳定项的)鞍点问题为\foot
 				0, & e\in\mathcal{E}_{h}^{N}
 			\end{cases}
 		\end{equation*}
-		因此，当单元 \(K\) 都是单纯形时，取测试函数 \(\bm\bm\tau_{h} \in \Sigma_{h}\) 满足\cite[Lemma 3.2]{10.1007/s10915-007-9130-3}：
+		因此，当单元 \(K\) 都是单纯形时，取测试函数 \(\bm\bm\tau_{h} \in \Sigma_{h}\) 满足 \cite[Lemma 3.2]{10.1007/s10915-007-9130-3}：
 		\begin{equation*}
 			\forall K \in \mathcal{T}_{h},
 			\begin{cases}
@@ -758,7 +756,7 @@ LDG 方程组\eqref{LDG weak form}等价的(带稳定项的)鞍点问题为\foot
 
 \subsubsection{Numerical Discretization}
 
-LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
+LDG 方程组 \eqref{LDG weak form} 对应的线性代数方程组为：
 \begin{equation}\label{LDG linear equations}
 	\begin{pmatrix}
 		\bm A & \bm B^T \\
@@ -776,7 +774,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 这里，\(\bm A\) 是 \(\Sigma_{h}\) 的质量矩阵，对称正定、分块对角，可以显式求逆。利用 Schur 补，可以将 \([\bm\sigma]\) 用 \([\bm u]\) 局部地\footnote{这里，“局部”指的是模板只涉及自己与邻居单元。}显式表示，这是 LDG 的特性：
 
 \begin{lemma}[Schur complement]
-	LDG 线性代数方程组\eqref{LDG linear equations}的系数矩阵是对称不定的，其 Schur 补公式和求逆公式如下给出，并且 Schur 补矩阵 \(\bm S = \bm C + \bm B \bm A^{-1} \bm B^{T}\) 是对称正定的。
+	LDG 线性代数方程组 \eqref{LDG linear equations} 的系数矩阵是对称不定的，其 Schur 补公式和求逆公式如下给出，并且 Schur 补矩阵 \(\bm S = \bm C + \bm B \bm A^{-1} \bm B^{T}\) 是对称正定的。
 	\begin{equation}\label{LDG Schur complement}
 		\begin{pmatrix}
 			\bm A & \bm B^T \\
@@ -816,7 +814,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 \end{lemma}
 
 \begin{corollary}
-	LDG 线性代数方程组\eqref{LDG linear equations}的求解算法为：
+	LDG 线性代数方程组 \eqref{LDG linear equations} 的求解算法为：
 	\begin{subequations}
 		\begin{eqnarray}
 			&& [u_{h}] = \bm S^{-1} \left(\bm G + \bm B \bm A^{-1} \bm F\right) \\
@@ -828,7 +826,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 
 \subsubsection{Numerical Example (1D Dirichlet)}
 
-区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = \exp\left(\sin(x)\right)\)，采用 Dirichlet 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-\alpha}\)，其中 \(\eta = 1\). 我们使用 Lobatto 配点法，并使用相同点数的 Gauss-Legendre 公式进行源项 \(f\) 的数值积分和误差测量。测试结果如表\ref{table: 1D Poisson Dirichlet LDG alpha=1}、\ref{table: 1D Poisson Dirichlet LDG alpha=0}所示。
+区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = \exp\left(\sin(x)\right)\)，采用 Dirichlet 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-\alpha}\)，其中 \(\eta = 1\). 我们使用 Lobatto 配点法，并使用相同点数的 Gauss-Legendre 公式进行源项 \(f\) 的数值积分和误差测量。测试结果如表 \ref{table: 1D Poisson Dirichlet LDG alpha=1}、\ref{table: 1D Poisson Dirichlet LDG alpha=0} 所示。
 
 \begin{table}[htbp]
 	\begin{center}
@@ -960,7 +958,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 	\end{center}
 \end{table}
 
-当 \(\alpha = 1\) 时，数值结果显示出对 \((\bm\sigma, u)\) 的 \((k, k+1)\) 阶收敛(\(k \geqslant 1\))，符合文章\cite{10.1137/S0036142900371003}中的估计。除此之外，我们还观察到 \(C_{12}\) 的取值对数值结果的影响：
+当 \(\alpha = 1\) 时，数值结果显示出对 \((\bm\sigma, u)\) 的 \((k, k+1)\) 阶收敛(\(k \geqslant 1\))，符合文章 \cite{10.1137/S0036142900371003} 中的估计。除此之外，我们还观察到 \(C_{12}\) 的取值对数值结果的影响：
 \begin{enumerate}
 	\item 当 \(k\) 是偶数时，\(C_{12}\) 不同取值下，误差基本相同；
 	\item 当 \(k\) 是奇数时，\(C_{12} = \frac{1}{2}\) 的误差明显小于 \(C_{12} = 0\) 的误差。
@@ -968,7 +966,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 
 当 \(\alpha = 0\) 时，数值结果的收敛阶(\(k \geqslant 1\))比文章\cite{10.1137/S0036142900371003}中的估计更优，具体如下：
 \begin{enumerate}
-	\item 当 \(k\geqslant 0\)，\(C_{12} = \frac{1}{2}\) 时，观察到对 \((\bm\sigma, u)\) 的 \((k+1, k+1)\) 阶收敛，这符合笛卡尔网格上的超收敛结果\cite{10.1090/S0025-5718-01-01317-5, 10.1137/S0036142900371544}；
+	\item 当 \(k\geqslant 0\)，\(C_{12} = \frac{1}{2}\) 时，观察到对 \((\bm\sigma, u)\) 的 \((k+1, k+1)\) 阶收敛，这符合笛卡尔网格上的超收敛结果 \cite{10.1090/S0025-5718-01-01317-5, 10.1137/S0036142900371544}；
 	\item 当 \(k \geqslant 0\)，\(C_{12} = 0\) 时：\begin{enumerate}
 		\item 若 \(k = 0\)，观察到对 \((\bm\sigma, u)\) 的 \((1, 1)\) 阶收敛；
 		\item 若 \(k > 1\) 是偶数，观察到对 \((\bm\sigma, u)\) 的 \((k+1, k+2)\) 阶收敛；
@@ -976,7 +974,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 	\end{enumerate}
 \end{enumerate}
 
-我们测试不同配点集下，原始矩阵和 Schur 补矩阵 \(\bm S\) 的稀疏模式。如图\ref{1D LDG Legendre node spy}、\ref{1D LDG Lobatto node spy}所示，我们发现：
+我们测试不同配点集下，原始矩阵和 Schur 补矩阵 \(\bm S\) 的稀疏模式。如图 \ref{1D LDG Legendre node spy}、\ref{1D LDG Lobatto node spy} 所示，我们发现：
 \begin{enumerate}
 	\item 使用 Legendre 配点时，单元质量矩阵是对角阵，因此 \(\bm A\) 也是对角阵；
 	\item 当 \(C_{12} = \pm\frac{1}{2}\) 时，若使用 Legendre 配点，可以有效减少 \(\bm B\) 的非零元个数，而若使用 Lobatto 配点，则差别不大；
@@ -1051,7 +1049,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 
 \subsubsection{Numerical Example (1D Neumann)}
 
-区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = \exp\left(\sin(x)\right)\)，采用 Neumann 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-\alpha}\)，其中 \(\eta = 1\). 我们使用 Lobatto 配点法，并使用相同点数的 Gauss-Legendre 公式进行源项 \(f\) 的数值积分和误差测量。通过添加 Lagrange 乘子\cite{10.1007/BF01436561}，该问题的方程组为：
+区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = \exp\left(\sin(x)\right)\)，采用 Neumann 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-\alpha}\)，其中 \(\eta = 1\). 我们使用 Lobatto 配点法，并使用相同点数的 Gauss-Legendre 公式进行源项 \(f\) 的数值积分和误差测量。通过添加 Lagrange 乘子 \cite{10.1007/BF01436561}，该问题的方程组为：
 \begin{equation}
 	\begin{aligned}
 		& \text{find \(\left(\bm\sigma_{h}, u_{h}, \lambda\right) \in \Sigma_{h} \times V_{h} \times \R\) such that \(\forall \left(\bm\tau_{h}, v_{h}, \xi\right) \in \Sigma_{h} \times V_{h} \times \R\):} \\
@@ -1067,7 +1065,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 	c_0 = \int_{\Omega} u(x)\d x
 	\approx 14.163684556723955471
 \end{equation}
-测试结果如表\ref{table: 1D Poisson Neumann LDG alpha=1}、\ref{table: 1D Poisson Neumann LDG alpha=0}所示。
+测试结果如表 \ref{table: 1D Poisson Neumann LDG alpha=1}、\ref{table: 1D Poisson Neumann LDG alpha=0} 所示。
 
 \begin{table}[htbp]
 	\begin{center}
@@ -1203,7 +1201,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 
 当 \(\alpha = 0\) 时，数值结果的收敛阶较为复杂，具体如下：
 \begin{enumerate}
-	\item 当 \(k\geqslant 0\)，\(C_{12} = \frac{1}{2}\) 时，观察到对 \((\bm\sigma, u)\) 的 \((k+\frac{1}{2}, k+1)\) 阶收敛，比文章\cite{10.1137/S0036142900371003}中的估计高了 \(\frac{1}{2}\) 阶；
+	\item 当 \(k\geqslant 0\)，\(C_{12} = \frac{1}{2}\) 时，观察到对 \((\bm\sigma, u)\) 的 \((k+\frac{1}{2}, k+1)\) 阶收敛，比文章 \cite{10.1137/S0036142900371003} 中的估计高了 \(\frac{1}{2}\) 阶；
 	\item 当 \(k \geqslant 0\)，\(C_{12} = 0\) 时：\begin{enumerate}
 		\item 若 \(k = 0\)，观察到对 \((\bm\sigma, u)\) 的 \((1, 1)\) 阶收敛；
 		\item 若 \(k > 1\) 是偶数，观察到对 \((\bm\sigma, u)\) 的 \((k+1, k+2)\) 阶收敛；
@@ -1216,7 +1214,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 
 取多边形区域为 \(\Omega = \B{(x,y) \big| -1\leqslant x, y \leqslant 1, y-x+1\geqslant 0}\)，取准确解为 \(u(x, y) = \exp\left(\sin(\pi x)\right)\cos(\pi(x + y))\)，采用 Dirichlet 边界条件。
 
-我们采用 MD-LDG 方法\cite{10.1007/s10915-007-9130-3}，惩罚系数如式\eqref{MD-LDG penalty coefficient}给出，其中 \(\bm v_0 \in H(\mathrm{div}, \Omega)^{d}\) 是任意的辅助函数，不妨取成非零常向量。
+我们采用 MD-LDG 方法 \cite{10.1007/s10915-007-9130-3}，惩罚系数如式 \eqref{MD-LDG penalty coefficient} 给出，其中 \(\bm v_0 \in H(\mathrm{div}, \Omega)^{d}\) 是任意的辅助函数，不妨取成非零常向量。
 \begin{subequations}\label{MD-LDG penalty coefficient}
 	\begin{eqnarray}
 		&& C_{11} = \begin{cases}
@@ -1231,7 +1229,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 	\end{eqnarray}
 \end{subequations}
 
-我们使用 Nodal DG 方法实现，在三角形单元上使用 \(\mathscr{P}^{k}\) Lobatto 配点集 \cite{10.1093/imamat/hxh077} (如图 \ref{pic: P6 Lobatto nodes} 所示)，并使用开源程序 PHG \cite{parallel_hierarchical_grid} 中提供的三角形上具有 \(2k\) 阶代数精度的 Gauss 数值积分点进行源项 \(f\) 的积分以及误差测量 (如图 \ref{pic: triangular P12 Gauss nodes} 所示)。我们编写了支持协调三角网格上任意高阶多项式的 Matlab 程序，具体的矩阵组装过程、技巧以及数据结构参考文章\cite{10.1016/j.camwa.2015.04.013}。我们使用开源软件 Gmsh 画网格，在本算例中采用了如图 \ref{Mesh: 2D Dirichlet} 所示的二等分逐层加密的协调三角网格。组装的矩阵的稀疏模式如图 \ref{pic: 2D MD-LDG Lobatto node spy} 所示，这里 \(k\) 表示多项式总次数。由于原始方程组规模较大，我们使用 Schur 补 \eqref{LDG Schur complement} 以减小规模。值得一提的是，由于我们使用的是 Lobatto 配点，可以区分单元内部自由度和边界自由度，因此可以使用逐单元的 static condensation 进一步减小方程组规模，但由于其编程的复杂性，这里并未采用此方法。我们的测试结果如图 \ref{pic: 2D Poisson Dirichlet MD-LDG}、表 \ref{table: 2D Poisson Dirichlet MD-LDG} 所示，其中，\(N_{\rm dof}^{\rm Schur}\) 是 Schur 补矩阵方程的自由度个数，原本的总自由度个数应当是 \(N_{\rm dof}^{\rm total} = 3 N_{\rm dof}^{\rm Schur}\).
+我们使用 Nodal DG 方法实现，在三角形单元上使用 \(\mathscr{P}^{k}\) Lobatto 配点集 \cite{10.1093/imamat/hxh077} (如图 \ref{pic: P6 Lobatto nodes} 所示)，并使用开源程序 PHG \cite{parallel_hierarchical_grid} 中提供的三角形上具有 \(2k\) 阶代数精度的 Gauss 数值积分点进行源项 \(f\) 的积分以及误差测量 (如图 \ref{pic: triangular P12 Gauss nodes} 所示)。我们编写了支持协调三角网格上任意高阶多项式的 Matlab 程序，具体的矩阵组装过程、技巧以及数据结构参考文章 \cite{10.1016/j.camwa.2015.04.013}。我们使用开源软件 Gmsh 画网格，在本算例中采用了如图 \ref{Mesh: 2D Dirichlet} 所示的二等分逐层加密的协调三角网格。组装的矩阵的稀疏模式如图 \ref{pic: 2D MD-LDG Lobatto node spy} 所示，这里 \(k\) 表示多项式总次数。由于原始方程组规模较大，我们使用 Schur 补 \eqref{LDG Schur complement} 以减小规模。值得一提的是，由于我们使用的是 Lobatto 配点，可以区分单元内部自由度和边界自由度，因此可以使用逐单元的 static condensation 进一步减小方程组规模，但由于其编程的复杂性，这里并未采用此方法。我们的测试结果如图 \ref{pic: 2D Poisson Dirichlet MD-LDG}、表 \ref{table: 2D Poisson Dirichlet MD-LDG} 所示，其中，\(N_{\rm dof}^{\rm Schur}\) 是 Schur 补矩阵方程的自由度个数，原本的总自由度个数应当是 \(N_{\rm dof}^{\rm total} = 3 N_{\rm dof}^{\rm Schur}\).
 
 
 % to be done: 具体写一下如何组装的(包括 A，B，C三个矩阵和右端项，如何构造 nodal 基函数等等)，接着 2D Case 那一节写。
@@ -1664,19 +1662,19 @@ print(gcf, '-depsc2', '-vector', 'error_q', '-r300');
 
 \subsubsection{The HDG Formulation}
 
-如图\ref{pic: DOFs compare of HDG, DG and CG-H}所示，HDG 格式利用类似 static condensation\cite{10.2514/3.2874}的思想，将单元边界上的数值通量作为未知量，可以大大缩减求解方程组的规模，并由于其对 \((\bm\sigma, u)\) 的一致最优误差阶和超收敛性质，同精度的求解开销可以被进一步降低。实际应用中，在采用直接法求解方程组时，HDG 比 CG-H(使用 static condensation 的CG)有明显优势；在采用迭代法求解时，HDG 对比 CG-H 没有明显优势，这说明 HDG 仍需要更有效的预条件子\cite{10.1007/s10915-015-0076-6}。
+如图 \ref{pic: DOFs compare of HDG, DG and CG-H} 所示，HDG 格式利用类似 static condensation \cite{10.2514/3.2874} 的思想，将单元边界上的数值通量作为未知量，可以大大缩减求解方程组的规模，并由于其对 \((\bm\sigma, u)\) 的一致最优误差阶和超收敛性质，同精度的求解开销可以被进一步降低。实际应用中，在采用直接法求解方程组时，HDG 比 CG-H(使用 static condensation 的CG)有明显优势；在采用迭代法求解时，HDG 对比 CG-H 没有明显优势，这说明 HDG 仍需要更有效的预条件子 \cite{10.1007/s10915-015-0076-6}。
 
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.8\linewidth]{includefiles/DOF compare.png}
-		\caption{DOFs of \(\mathscr{Q}^{2}\) HDG, DG, and CG-H elements\cite{10.1137/17M1128903}}
+		\caption{DOFs of \(\mathscr{Q}^{2}\) HDG, DG, and CG-H elements \cite{10.1137/17M1128903}}
 		\label{pic: DOFs compare of HDG, DG and CG-H}
 	\end{center}
 \end{figure}
 
-我们这里只考虑 LDG-H 格式\cite{10.1137/070706616, 10.1137/080728810}，其他 HDG 格式例如 IP-H 也是类似的。
+我们这里只考虑 LDG-H 格式 \cite{10.1137/070706616, 10.1137/080728810}，其他 HDG 格式例如 IP-H 也是类似的。
 
-LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作为变量，并限制其满足 Dirichlet 边界条件(强制施加)：
+LDG-H 是守恒的格式 (数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作为变量，并限制其满足 Dirichlet 边界条件(强制施加)：
 \begin{equation}
 	\widehat{u}_{h}\big|_{\Gamma^{D}} = g_{D}
 \end{equation}
@@ -1692,7 +1690,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 		\jump{\widehat{\bm\sigma}_{h}}\big|_{e} = 0, & e \in \mathcal{E}_{h}^{o}
 	\end{cases}
 \end{equation}
-这样，可以将数值通量写成如下形式(仅用于分析，不在计算中直接使用)：
+这样，可以将数值通量写成如下形式 (仅用于分析，不在计算中直接使用)：
 \begin{subequations}\label{LDG-H numerical flux}
 	\begin{eqnarray}
 		&& \widehat{\bm\sigma} = \begin{cases}
@@ -1707,24 +1705,24 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 		\end{cases}
 	\end{eqnarray}
 \end{subequations}
-其中 \(C_{11} = \frac{\tau^{-} \tau^{+}}{\tau^{-} + \tau^{+}}\)，\(\bm C_{12} = \frac{\jump{\tau}}{2\left(\tau^{-} + \tau^{+}\right)}\)，\(C_{22} = \frac{1}{\tau^{-} + \tau^{+}}\). 这样，就将 LDG-H 格式等价地写成了一般的 DG 格式。同时，LDG-H 格式和其他有限元格式有以下关系\cite{10.1137/070706616}：
+其中 \(C_{11} = \frac{\tau^{-} \tau^{+}}{\tau^{-} + \tau^{+}}\)，\(\bm C_{12} = \frac{\jump{\tau}}{2\left(\tau^{-} + \tau^{+}\right)}\)，\(C_{22} = \frac{1}{\tau^{-} + \tau^{+}}\). 这样，就将 LDG-H 格式等价地写成了一般的 DG 格式。同时，LDG-H 格式和其他有限元格式有以下关系 \cite{10.1137/070706616}：
 \begin{enumerate}
 	\item 当 \(\tau \equiv 0\) 时，若适当地取函数空间，可以使 LDG-H 格式等价于 RT-H 或者 BDM-H 格式。
 	\item 当所有边上的惩罚系数 \(\tau\) 都取 \(+\infty\) 时，LDG-H 格式变成 CG-H 格式，也即使用 static condensation 的连续有限元格式。
 	\item 当 \(\tau\) 非全零且有限时，LDG 格式和 LDG-H 格式是不同的，因为 LDG-H 格式的 \(\widehat{u}_{h}\) 依赖于 \(\jump{\bm\sigma_{h}}\)，而 LDG 格式的 \(\widehat{u}_{h}\) 不依赖于 \(\jump{\bm\sigma_{h}}\) (因此，在 LDG-H 格式中，不可以将 \(\bm\sigma_{h}\) 用 \(\left(u_{h}, \widehat{u}_{h}\right)\) 表示)。
 \end{enumerate}
 
-根据 LDG 格式的分析\cite{10.1137/S0036142900371003}，当 \(\tau > 0\) 时，LDG-H 方程组作为一种拓展的 LDG 方法存在唯一解。而更一般地，根据 LDG-H 的误差估计\cite[Corollary 2.7]{10.1090/S0025-5718-08-02123-6, 10.1090/S0025-5718-10-02334-3}，取 \(\tau\) 为与网格无关的一致有界的非负常数，且在每个单元的至少一个面上取一致正的值，就可以达到最优收敛，也即对 \((\bm\sigma, u)\) 的 \((k+1, k+1)\) 阶收敛。
+根据 LDG 格式的分析 \cite{10.1137/S0036142900371003}，当 \(\tau > 0\) 时，LDG-H 方程组作为一种拓展的 LDG 方法存在唯一解。而更一般地，根据 LDG-H 的误差估计 \cite{10.1090/S0025-5718-08-02123-6, 10.1090/S0025-5718-10-02334-3}，取 \(\tau\) 为与网格无关的一致有界的非负常数，且在每个单元的至少一个面上取一致正的值，就可以达到最优收敛，也即对 \((\bm\sigma, u)\) 的 \((k+1, k+1)\) 阶收敛。
 
-根据分析\cite[Theorem 2.8]{10.1090/S0025-5718-08-02123-6}(或者\cite[Theorem 2.3, Proposition 3.2]{10.1090/S0025-5718-08-02146-7})，当 \(k \geqslant 1\) 时，边界数值通量 \(\widehat{u}_{h}\) 有超收敛结果：
+根据分析 \cite[Theorem 2.8]{10.1090/S0025-5718-08-02123-6} (或者 \cite[Theorem 2.3, Proposition 3.2]{10.1090/S0025-5718-08-02146-7})，当 \(k \geqslant 1\) 时，边界数值通量 \(\widehat{u}_{h}\) 有超收敛结果：
 \begin{equation}
 	\norm{u\big|_{\Gamma} - \widehat{u}_{h}}_{L^2(\Gamma, h)}
 	= \sqrt{\sum_{K\in \mathcal{T}_{h}} h_{K} \norm{u - \widehat{u}_{h}}_{L^2(\partial K)}^2}
 	\leqslant C(\nabla u) h^{k+2}
 \end{equation}
-而在 Dirichlet 边值问题中，当空间维数 \(d = 1\) 且 \(k \geqslant 1\) 时，根据\cite[Lemma 1]{CASTILLO20034675}，由于 LDG-H 格式作为一种推广的 LDG 格式，其数值通量是守恒且相容的，那么 \(\widehat{u}_{h}\) 是\textbf{精确}的，也即 \(\widehat{u}_{h} = u\big|_{\Gamma}\).
+而在 Dirichlet 边值问题中，当空间维数 \(d = 1\) 且 \(k \geqslant 1\) 时，根据 \cite[Lemma 1]{CASTILLO20034675}，由于 LDG-H 格式作为一种推广的 LDG 格式，其数值通量是守恒且相容的，那么 \(\widehat{u}_{h}\) 是\textbf{精确}的，也即 \(\widehat{u}_{h} = u\big|_{\Gamma}\).
 
-除此之外，由于 LDG-H 对 \(u\) 的单元平均是 \(k + 2\) 阶收敛的，所以可以逐单元后处理，使得到的 \(u^{\ast}_{h} \in \bigoplus_{K \in \mathcal{T}_{h}}\mathscr{P}^{k+1}(K)\) 对 \(u\) 的 \(L^2\) 误差有 \(k + 2\) 阶收敛\cite[Theorem 2.9]{10.1090/S0025-5718-08-02123-6}(或者\cite[Theorem 2.4, Proposition 3.2]{10.1090/S0025-5718-08-02146-7})。同时，利用与 RT/BDM 混合有限元类似的方法，可以对 \(\bm\sigma_{h}\) 进行逐单元后处理，使得到的 \(\bm\sigma_{h}^{\ast} \in H(\mathrm{div}, \Omega) \cap \bigoplus_{K \in \mathcal{T}_{h}}{\rm RT}_{k}(K)\) 对 \(\sigma\) 的 \(H(\mathrm{div})\) 误差有 \(k + 1\) 阶收敛\cite[Theorem 2.2]{10.1090/S0025-5718-08-02146-7}。
+除此之外，由于 LDG-H 对 \(u\) 的单元平均是 \(k + 2\) 阶收敛的，所以可以逐单元后处理，使得到的 \(u^{\ast}_{h} \in \bigoplus_{K \in \mathcal{T}_{h}}\mathscr{P}^{k+1}(K)\) 对 \(u\) 的 \(L^2\) 误差有 \(k + 2\) 阶收敛 \cite[Theorem 2.9]{10.1090/S0025-5718-08-02123-6} (或者 \cite[Theorem 2.4, Proposition 3.2]{10.1090/S0025-5718-08-02146-7})。同时，利用与 RT/BDM 混合有限元类似的方法，可以对 \(\bm\sigma_{h}\) 进行逐单元后处理，使得到的 \(\bm\sigma_{h}^{\ast} \in H(\mathrm{div}, \Omega) \cap \bigoplus_{K \in \mathcal{T}_{h}}{\rm RT}_{k}(K)\) 对 \(\sigma\) 的 \(H(\mathrm{div})\) 误差有 \(k + 1\) 阶收敛 \cite[Theorem 2.2]{10.1090/S0025-5718-08-02146-7}。
 
 取空间为：
 \begin{subequations}
@@ -1736,7 +1734,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 \end{subequations}
 这里，\(M_{h}^{D}\) 代表了 \(M_{h}\) 中的全体支撑在 Dirichlet 边界上的元素，\(\widetilde{M}_{h} = M_{h}^{o}\oplus M_{h}^{N}\) 是其正交补空间。
 
-使用局部格式\eqref{Local DG Scheme}加上通量的守恒性条件与边界条件，LDG-H 格式\cite{10.1007/978-3-030-27230-2_3}为：
+使用局部格式 \eqref{Local DG Scheme} 加上通量的守恒性条件与边界条件，LDG-H 格式 \cite{10.1007/978-3-030-27230-2_3} 为：
 \begin{equation}
 	\begin{aligned}
 		& \text{find \(\left(\bm\sigma_{h}, u_{h}, \widehat{u}_{h}\right) \in \Sigma_{h}\times V_{h}\times M_{h}\) such that \(\forall \left(\bm\tau_{h}, v_{h}, \widetilde{\mu}_{h}, \mu_{h}^{D}\right)\in\Sigma_{h}\times V_{h} \times \widetilde{M}_{h} \times M_{h}^{D}\):} \\
@@ -1800,7 +1798,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 \end{theorem}
 
 \begin{remark}
-	事实上，local solver 的存在是合理的，这是因为在方程\eqref{LDG-H weak form}中，单元 \(K\) 上的 \(\left(\bm\sigma_{h}, u_{h}\right)\) 只与 \(\partial K\) 上的 \(\widehat{u}_{h}\) 直接耦合。同时，我们不难发现耦合的方式正好就是 \(K\) 上的以 \(\widehat{u}_{h}\big|_{\partial K}\) 为 Dirichlet 边界条件的 LDG-H 格式。
+	事实上，local solver 的存在是合理的，这是因为在方程 \eqref{LDG-H weak form} 中，单元 \(K\) 上的 \(\left(\bm\sigma_{h}, u_{h}\right)\) 只与 \(\partial K\) 上的 \(\widehat{u}_{h}\) 直接耦合。同时，我们不难发现耦合的方式正好就是 \(K\) 上的以 \(\widehat{u}_{h}\big|_{\partial K}\) 为 Dirichlet 边界条件的 LDG-H 格式。
 \end{remark}
 
 \begin{theorem}[Well-posedness]
@@ -1809,14 +1807,14 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 		\item 惩罚系数 \(\tau > 0\) 在 \(\partial K\) 上成立；
 		\item \(K\) 是单纯形，惩罚系数 \(\tau \geqslant 0\) 在至少一条边上取正值；
 	\end{enumerate}
-	LDG-H 问题\eqref{LDG-H weak form}存在唯一解。
+	LDG-H 问题 \eqref{LDG-H weak form} 存在唯一解。
 
 	\begin{proof}
 		我们只需要证明：当 \(f = 0\)，\(\bm g_{N} \cdot \bm n = 0\)，\(g_{D} = 0\) 时，问题只有平凡解。事实上，取测试函数 \(\left(\bm\tau_{h}, v_{h}, \mu_{h}\right) = \left(\bm\sigma_{h}, u_{h}, \widehat{u}_{h}, \widehat{u}_{h}\right)\) 可得：
 		\begin{equation*}
 			\sum_{K \in \mathcal{T}_{h}} \left(\norm{\bm\sigma_{h}}_{L^2(K)}^{2} + \norm{u_{h} - \widehat{u}_{h}}_{L^2(\partial K, \tau)}^{2}\right) = 0
 		\end{equation*}
-		这说明 \(\bm\sigma_{h} = \bm 0\) 以及 \(\tau(u_{h} - \widehat{u}_{h})\big|_{\Gamma} = 0\). 此时，将 \(\bm\sigma_{h} = \bm 0\) 代入方程\eqref{LDG-H weak form}得到：
+		这说明 \(\bm\sigma_{h} = \bm 0\) 以及 \(\tau(u_{h} - \widehat{u}_{h})\big|_{\Gamma} = 0\). 此时，将 \(\bm\sigma_{h} = \bm 0\) 代入方程 \eqref{LDG-H weak form} 得到：
 		\begin{equation*}
 			\begin{aligned}
 				& \forall \bm\tau_{h} \in \Sigma_{h}, \forall K\in\mathcal{T}_{h}: \\
@@ -1834,7 +1832,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 				& \oint_{\partial K} \left(u_{h} - \widehat{u}_{h}\right) \bm\tau_{h} \cdot \bm n \d s = 0
 			\end{aligned}
 		\end{equation*}
-		由于在单纯形单元 \(K\) 上有正交分解\cite[Lemma 2.2]{10.1007/978-3-030-27230-2_2}：
+		由于在单纯形单元 \(K\) 上有正交分解 \cite[Lemma 2.2]{10.1007/978-3-030-27230-2_2}：
 		\begin{equation*}
 			\begin{aligned}
 				\bigoplus_{e\in\mathcal{E}_{h}^{K}} \mathscr{P}^{k}(e)
@@ -1846,14 +1844,14 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 		\begin{equation*}
 			\left(u_{h} - \widehat{u}_{h}\right)\big|_{\partial K} \in \B{u\big|_{\partial K} \bigg| u \in \left(\mathscr{P}^{k-1}(K)\right)^{\perp} \cap \mathscr{P}^{k}(K)}
 		\end{equation*}
-		由于存在一条边 \(e \in \mathcal{E}_{h}^{K}\) 使得 \(\left(u_{h} - \widehat{u}_{h}\right)\big|_{e} = 0\)，利用\cite[Lemma 2.1(a)]{10.1007/978-3-030-27230-2_2}可知 \(u_{h}\big|_{\partial K} = \widehat{u}_{h}\big|_{\partial K}\) 且 \(u\big|_{K} = C_{K}\). 利用 Dirichlet 边界 \(\widehat{u}_{h}\big|_{\Gamma^{D}} = g_{D} = 0\) 则知 \(u_{h} = 0\) 且 \(\widehat{u}_{h} = 0\).
+		由于存在一条边 \(e \in \mathcal{E}_{h}^{K}\) 使得 \(\left(u_{h} - \widehat{u}_{h}\right)\big|_{e} = 0\)，利用 \cite[Lemma 2.1(a)]{10.1007/978-3-030-27230-2_2} 可知 \(u_{h}\big|_{\partial K} = \widehat{u}_{h}\big|_{\partial K}\) 且 \(u\big|_{K} = C_{K}\). 利用 Dirichlet 边界 \(\widehat{u}_{h}\big|_{\Gamma^{D}} = g_{D} = 0\) 则知 \(u_{h} = 0\) 且 \(\widehat{u}_{h} = 0\).
 	\end{proof}
 \end{theorem}
 
 
 \subsubsection{Numerical Discretization}
 
-不考虑 Dirichlet 边界时\footnote{Dirichlet 边界可以单独通过分裂方程组中的变量和右端项来施加。}，对应于 LDG-H 方程组\eqref{LDG-H weak form}的线性代数方程组为：
+不考虑 Dirichlet 边界时\footnote{Dirichlet 边界可以单独通过分裂方程组中的变量和右端项来施加。}，对应于 LDG-H 方程组 \eqref{LDG-H weak form} 的线性代数方程组为：
 % checked by numerical examples
 \begin{equation}\label{LDG-H linear equations}
 	\begin{pmatrix}
@@ -1875,7 +1873,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 这里，\(\bm A\) 是 \(\Sigma_{h}\) 的质量矩阵，分块对角、对称正定，可以显式求逆；\(\bm C\) 和 \(\bm Z\) 分块对角、对称半正定。
 
 \begin{lemma}[2-level Schur complement] % 我们自己进行分析的
-	当 local solver 存在时，LDG-H 线性代数方程组\eqref{LDG-H linear equations}系数矩阵左上角 \(2 \times 2\) 的块是对称、不定、可逆的；当 LDG-H 方程组\eqref{LDG-H weak form}适定性成立时，系数矩阵是对称、不定、可逆的。当两者都满足时，系数矩阵的两层 Schur 补公式如下给出：
+	当 local solver 存在时，LDG-H 线性代数方程组 \eqref{LDG-H linear equations} 系数矩阵左上角 \(2 \times 2\) 的块是对称、不定、可逆的；当 LDG-H 方程组 \eqref{LDG-H weak form} 适定性成立时，系数矩阵是对称、不定、可逆的。当两者都满足时，系数矩阵的两层 Schur 补公式如下给出：
 	\begin{subequations}
 		\begin{equation}
 			\begin{pmatrix}
@@ -1946,7 +1944,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 \end{lemma}
 
 \begin{corollary}
-	LDG-H 方程组\eqref{LDG-H linear equations}的求解算法为：
+	LDG-H 方程组 \eqref{LDG-H linear equations} 的求解算法为：
 	\begin{subequations}
 		\begin{eqnarray}
 			&& [\widehat{u}_{h}] = \bm S_{2}^{-1} \left(\bm G + \bm W \bm S_{1}^{-1} \bm F\right) \\
@@ -1957,7 +1955,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 \end{corollary}
 
 \begin{remark}
-	当 LDG-H 方程组\eqref{LDG-H weak form}适定性成立时，其可以转化为关于 \(\widehat{u}_{h}\) 的椭圆型问题。同时，local solver 可以进一步分解成两个局部映射的复合：
+	当 LDG-H 方程组 \eqref{LDG-H weak form} 适定性成立时，其可以转化为关于 \(\widehat{u}_{h}\) 的椭圆型问题。同时，local solver 可以进一步分解成两个局部映射的复合：
 	\begin{subequations}
 		\begin{eqnarray}
 			&& \left(f, \widehat{u}_{h}\right) \mapsto u_{h} \\
@@ -1969,7 +1967,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 
 \subsubsection{Numerical Example 1 (Dirichlet)}
 
-区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = \exp\left(\sin(x)\right)\)，采用 Dirichlet 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(\tau = 10.0\). 我们使用 Lobatto 配点法，并使用相同点数的 Gauss-Legendre 公式进行源项 \(f\) 的数值积分和误差测量。测试结果如表\ref{table: 1D Poisson Dirichlet LDG-H}所示。
+区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = \exp\left(\sin(x)\right)\)，采用 Dirichlet 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(\tau = 10.0\). 我们使用 Lobatto 配点法，并使用相同点数的 Gauss-Legendre 公式进行源项 \(f\) 的数值积分和误差测量。测试结果如表 \ref{table: 1D Poisson Dirichlet LDG-H} 所示。
 
 \begin{table}[htbp]
 	\begin{center}
@@ -2032,7 +2030,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 	\end{center}
 \end{table}
 
-数值结果显示出 \((\bm\sigma_{h}, u_{h}, u_{h}^{\ast})\) 在 \(k \geqslant 1\) 时的 \((k+1, k+1, k+2)\) 阶收敛，以及 \(k = 0\) 时的 \((1,1,1)\) 阶收敛，符合理论估计\cite{10.1090/S0025-5718-08-02123-6}。同时，我们观察到 \(\widehat{u}_{h}\) 在 \(k \geqslant 1\) 时出现了超收敛。实际上，根据\cite[Lemma 2.1]{CASTILLO20034675}，当在一维两点 Dirichlet 边值问题中使用 \(k \geqslant 1\) 的多项式时，\(\widehat{u}_{h}\) 没有离散误差，也即若数值积分和浮点运算是准确的，则 \(\widehat{u}_{h} = u\big|_{\Gamma}\). 我们下面对源项 \(f\) 的积分使用不同阶的 Gauss-Lobatto 数值积分以验证。由于逐单元 \(n\) 点的 Gauss-Lobatto 复化积分的收敛阶是 \(2n-2\)，我们希望看到 \(\widehat{u}_{h}\) 对 \(u\big|_{\Gamma}\) 的 \(2n-2\) 阶收敛。数值结果如表\ref{table: 1D Poisson Dirichlet LDG-H trace superconvergence}所示，我们发现：
+数值结果显示出 \((\bm\sigma_{h}, u_{h}, u_{h}^{\ast})\) 在 \(k \geqslant 1\) 时的 \((k+1, k+1, k+2)\) 阶收敛，以及 \(k = 0\) 时的 \((1,1,1)\) 阶收敛，符合理论估计 \cite{10.1090/S0025-5718-08-02123-6}。同时，我们观察到 \(\widehat{u}_{h}\) 在 \(k \geqslant 1\) 时出现了超收敛。实际上，根据 \cite[Lemma 2.1]{CASTILLO20034675}，当在一维两点 Dirichlet 边值问题中使用 \(k \geqslant 1\) 的多项式时，\(\widehat{u}_{h}\) 没有离散误差，也即若数值积分和浮点运算是准确的，则 \(\widehat{u}_{h} = u\big|_{\Gamma}\). 我们下面对源项 \(f\) 的积分使用不同阶的 Gauss-Lobatto 数值积分以验证。由于逐单元 \(n\) 点的 Gauss-Lobatto 复化积分的收敛阶是 \(2n-2\)，我们希望看到 \(\widehat{u}_{h}\) 对 \(u\big|_{\Gamma}\) 的 \(2n-2\) 阶收敛。数值结果如表 \ref{table: 1D Poisson Dirichlet LDG-H trace superconvergence} 所示，我们发现：
 \begin{enumerate}
 	\item 当 \(k = 0\) 时，\(\widehat{u}_{h}\) 的收敛阶只有 \(1\) 阶；
 	\item 当 \(k \geqslant 1\) 时，实验中 \(\widehat{u}_{h}\) 的收敛阶依赖于 \(n\)，且达到了 \(n\) 点 Gauss-Lobatto 积分收敛阶 \(2n-2\)，这验证了理论结果。
@@ -2099,7 +2097,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 	\end{center}
 \end{table}
 
-最后，我们测试不同配点集下，原始矩阵和 Schur 补矩阵 \(\bm S_{2}\) 的稀疏模式。如图\ref{1D LDG-H Legendre node spy}、\ref{1D LDG-H Lobatto node spy}所示，我们发现：
+最后，我们测试不同配点集下，原始矩阵和 Schur 补矩阵 \(\bm S_{2}\) 的稀疏模式。如图 \ref{1D LDG-H Legendre node spy}、\ref{1D LDG-H Lobatto node spy} 所示，我们发现：
 \begin{enumerate}
 	\item 使用 Legendre 配点时，单元质量矩阵是对角阵，因此 \(\bm A\) 也是对角阵；
 	\item 在一维情形下，\(k\) 的取值不会影响 \(\bm S_{2}\) 的稀疏模式，非零元个数依赖于单元数 \(N\)；
@@ -2147,7 +2145,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 
 \subsubsection{Numerical Example 2 (Neumann)}
 
-区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = \exp\left(\sin(x)\right)\)，采用纯 Neumann 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(\tau = 10\). 我们使用 Lobatto 配点法，并使用相同点数的 Gauss-Legendre 公式进行源项 \(f\) 的数值积分和误差测量。通过添加 Lagrange 乘子\cite{10.1007/BF01436561}，该问题的方程组为：
+区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = \exp\left(\sin(x)\right)\)，采用纯 Neumann 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(\tau = 10\). 我们使用 Lobatto 配点法，并使用相同点数的 Gauss-Legendre 公式进行源项 \(f\) 的数值积分和误差测量。通过添加 Lagrange 乘子 \cite{10.1007/BF01436561}，该问题的方程组为：
 \begin{equation}
 	\begin{aligned}
 		& \text{find \(\left(\bm\sigma_{h}, u_{h}, \widehat{u}_{h}\right) \in \Sigma_{h}\times V_{h}\times M_{h}\) such that \(\forall \left(\bm\tau_{h}, v_{h}, \widetilde{\mu}_{h}, \mu_{h}^{D}\right)\in\Sigma_{h}\times V_{h} \times \widetilde{M}_{h} \times M_{h}^{D}\):} \\
@@ -2164,7 +2162,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 \begin{equation}
 	c_0 = \int_{\Omega} u(x) \d x \approx 14.16368455672395547087675939170498
 \end{equation}
-测试结果如表\ref{table: 1D Poisson Neumann LDG-H}所示。
+测试结果如表 \ref{table: 1D Poisson Neumann LDG-H} 所示。
 
 \begin{table}[htbp]
 	\begin{center}
@@ -2227,7 +2225,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 	\end{center}
 \end{table}
 
-数值结果显示出 \((\bm\sigma_{h}, u_{h}, u_{h}^{\ast})\) 在 \(k \geqslant 1\) 时的 \((k+1, k+1, k+2)\) 阶收敛，以及 \(k = 0\) 时的 \((1,1,1)\) 阶收敛，与 Dirichlet 边界问题的理论估计\cite{10.1090/S0025-5718-08-02123-6}一致。同时，我们观察到 \(\widehat{u}_{h}\) 在 \(k \geqslant 1\) 时出现了超收敛。由于 Dirichlet 边界问题的 \(\widehat{u}_{h}\) 当 \(k \geqslant 1\) 时是精确的，我们下面对源项 \(f\) 的积分使用不同阶的 Gauss-Lobatto 数值积分以测试 \(\widehat{u}_{h}\) 的收敛规律。数值结果如表\ref{table: 1D Poisson Neumann LDG-H trace superconvergence}所示：
+数值结果显示出 \((\bm\sigma_{h}, u_{h}, u_{h}^{\ast})\) 在 \(k \geqslant 1\) 时的 \((k+1, k+1, k+2)\) 阶收敛，以及 \(k = 0\) 时的 \((1,1,1)\) 阶收敛，与 Dirichlet 边界问题的理论估计 \cite{10.1090/S0025-5718-08-02123-6} 一致。同时，我们观察到 \(\widehat{u}_{h}\) 在 \(k \geqslant 1\) 时出现了超收敛。由于 Dirichlet 边界问题的 \(\widehat{u}_{h}\) 当 \(k \geqslant 1\) 时是精确的，我们下面对源项 \(f\) 的积分使用不同阶的 Gauss-Lobatto 数值积分以测试 \(\widehat{u}_{h}\) 的收敛规律。数值结果如表 \ref{table: 1D Poisson Neumann LDG-H trace superconvergence} 所示：
 \begin{enumerate}
 	\item 当 \(k = 0\) 时，\(\widehat{u}_{h}\) 的收敛阶只有 \(1\) 阶；
 	\item 当 \(k = 1\) 时，\(\widehat{u}_{h}\) 的收敛阶有 \(3\) 阶；

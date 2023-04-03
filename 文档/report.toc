@@ -37,6 +37,6 @@
 \contentsline {subsection}{\numberline {2.4}Local DG Method 2}{66}{subsection.2.4}%
 \contentsline {subsubsection}{\numberline {2.4.1}The LDG Formulation}{66}{subsubsection.2.4.1}%
 \contentsline {subsubsection}{\numberline {2.4.2}Unisolvence, Convergence, and \emph {A Priori} Error Estimate}{68}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Numerical Discretization}{87}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}Numerical Example 1 (1D Dirichlet)}{89}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Conclusion}{98}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.3}Numerical Discretization}{89}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Numerical Example 1 (1D Dirichlet)}{90}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Conclusion}{99}{subsubsection.2.4.5}%
