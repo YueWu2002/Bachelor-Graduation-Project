@@ -103,6 +103,54 @@
       \verb https://doi.org/10.1007/978-3-030-56341-7_3
       \endverb
     \endentry
+    \entry{10.1007/978-3-030-56341-7_4}{inbook}{}
+      \name{author}{2}{}{%
+        {{hash=e85a4a72db4d523e27330f9eacdfc4a7}{%
+           family={Ern},
+           familyi={E\bibinitperiod},
+           given={Alexandre},
+           giveni={A\bibinitperiod}}}%
+        {{hash=48c9c127feed47f563af418f0ac404bf}{%
+           family={Guermond},
+           familyi={G\bibinitperiod},
+           given={Jean-Luc},
+           giveni={J\bibinithyphendelim L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{eedb8ad8b78016d85df98a4344f910db}
+      \strng{fullhash}{eedb8ad8b78016d85df98a4344f910db}
+      \strng{bibnamehash}{eedb8ad8b78016d85df98a4344f910db}
+      \strng{authorbibnamehash}{eedb8ad8b78016d85df98a4344f910db}
+      \strng{authornamehash}{eedb8ad8b78016d85df98a4344f910db}
+      \strng{authorfullhash}{eedb8ad8b78016d85df98a4344f910db}
+      \field{extraname}{2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Finite Elements I: Approximation and Interpolation}
+      \field{isbn}{978-3-030-56341-7}
+      \field{series}{Texts in Applied Mathematics}
+      \field{title}{Distributions and Duality in Sobolev Spaces}
+      \field{volume}{72}
+      \field{year}{2021}
+      \field{pages}{39\bibrangedash 45}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1007/978-3-030-56341-7_4
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-030-56341-7_4
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-030-56341-7_4
+      \endverb
+    \endentry
     \entry{10.1137/0707006}{article}{}
       \name{author}{2}{}{%
         {{hash=d0e2e17a6fdb92d812bb0a5341a26870}{%
@@ -122,8 +170,8 @@
       \strng{authorbibnamehash}{51c49925333155bfd434cc6820bd220e}
       \strng{authornamehash}{51c49925333155bfd434cc6820bd220e}
       \strng{authorfullhash}{51c49925333155bfd434cc6820bd220e}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
@@ -165,8 +213,8 @@
       \strng{authorbibnamehash}{518d0f51cc845812bd4f397f8146c656}
       \strng{authornamehash}{518d0f51cc845812bd4f397f8146c656}
       \strng{authorfullhash}{518d0f51cc845812bd4f397f8146c656}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1432-0673}
@@ -213,9 +261,9 @@
       \strng{authorbibnamehash}{eedb8ad8b78016d85df98a4344f910db}
       \strng{authornamehash}{eedb8ad8b78016d85df98a4344f910db}
       \strng{authorfullhash}{eedb8ad8b78016d85df98a4344f910db}
-      \field{extraname}{2}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Finite Elements I: Approximation and Interpolation}
@@ -257,8 +305,8 @@
       \strng{authornamehash}{0d72932a7775f85a51622d3af75ae26e}
       \strng{authorfullhash}{0d72932a7775f85a51622d3af75ae26e}
       \field{extraname}{1}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Partial Differential Equations}
@@ -293,8 +341,8 @@
       \strng{authornamehash}{0d72932a7775f85a51622d3af75ae26e}
       \strng{authorfullhash}{0d72932a7775f85a51622d3af75ae26e}
       \field{extraname}{2}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Partial Differential Equations}
@@ -359,54 +407,6 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1007/978-3-642-36519-5_7
-      \endverb
-    \endentry
-    \entry{10.1007/978-3-030-56341-7_4}{inbook}{}
-      \name{author}{2}{}{%
-        {{hash=e85a4a72db4d523e27330f9eacdfc4a7}{%
-           family={Ern},
-           familyi={E\bibinitperiod},
-           given={Alexandre},
-           giveni={A\bibinitperiod}}}%
-        {{hash=48c9c127feed47f563af418f0ac404bf}{%
-           family={Guermond},
-           familyi={G\bibinitperiod},
-           given={Jean-Luc},
-           giveni={J\bibinithyphendelim L\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Cham}%
-      }
-      \list{publisher}{1}{%
-        {Springer International Publishing}%
-      }
-      \strng{namehash}{eedb8ad8b78016d85df98a4344f910db}
-      \strng{fullhash}{eedb8ad8b78016d85df98a4344f910db}
-      \strng{bibnamehash}{eedb8ad8b78016d85df98a4344f910db}
-      \strng{authorbibnamehash}{eedb8ad8b78016d85df98a4344f910db}
-      \strng{authornamehash}{eedb8ad8b78016d85df98a4344f910db}
-      \strng{authorfullhash}{eedb8ad8b78016d85df98a4344f910db}
-      \field{extraname}{3}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Finite Elements I: Approximation and Interpolation}
-      \field{isbn}{978-3-030-56341-7}
-      \field{series}{Texts in Applied Mathematics}
-      \field{title}{Distributions and Duality in Sobolev Spaces}
-      \field{volume}{72}
-      \field{year}{2021}
-      \field{pages}{39\bibrangedash 45}
-      \range{pages}{7}
-      \verb{doi}
-      \verb 10.1007/978-3-030-56341-7_4
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/978-3-030-56341-7_4
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/978-3-030-56341-7_4
       \endverb
     \endentry
     \entry{10.1137/S0036142901384162}{article}{}
@@ -764,8 +764,8 @@
       \strng{authorbibnamehash}{951eef08225e8fac65b7c9abd8dec1c8}
       \strng{authornamehash}{951eef08225e8fac65b7c9abd8dec1c8}
       \strng{authorfullhash}{951eef08225e8fac65b7c9abd8dec1c8}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0045-7825}
@@ -800,8 +800,8 @@
       \strng{authorbibnamehash}{39aad61f5da02ed4a0982d36111bd4dc}
       \strng{authornamehash}{39aad61f5da02ed4a0982d36111bd4dc}
       \strng{authorfullhash}{39aad61f5da02ed4a0982d36111bd4dc}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
@@ -1397,8 +1397,8 @@
       \strng{authorbibnamehash}{090e84230ca97096de8bea2c9169f734}
       \strng{authornamehash}{090e84230ca97096de8bea2c9169f734}
       \strng{authorfullhash}{090e84230ca97096de8bea2c9169f734}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{American Institute of Aeronautics and Astronautics Journal}
@@ -1435,8 +1435,8 @@
       \strng{authorbibnamehash}{28af466cdc25e8aa098826b80e65a14b}
       \strng{authornamehash}{28af466cdc25e8aa098826b80e65a14b}
       \strng{authorfullhash}{28af466cdc25e8aa098826b80e65a14b}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Scientific Computing}
@@ -1470,8 +1470,8 @@
       \strng{authorbibnamehash}{0defc780e47b6130840989112d976b5a}
       \strng{authornamehash}{0defc780e47b6130840989112d976b5a}
       \strng{authorfullhash}{0defc780e47b6130840989112d976b5a}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Scientific Computing}
@@ -1518,8 +1518,8 @@
       \strng{authorbibnamehash}{bda53acf66398cfe90c2d0bcdf34982a}
       \strng{authornamehash}{bda53acf66398cfe90c2d0bcdf34982a}
       \strng{authorfullhash}{bda53acf66398cfe90c2d0bcdf34982a}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Acta Numerica}
@@ -1911,8 +1911,8 @@
       \strng{authorbibnamehash}{84ceba39231f5e0213e9b1d46571c74e}
       \strng{authornamehash}{84ceba39231f5e0213e9b1d46571c74e}
       \strng{authorfullhash}{84ceba39231f5e0213e9b1d46571c74e}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1573-7691}
@@ -2814,8 +2814,8 @@
       \strng{authorbibnamehash}{4b16d047eb89f44cf450306cedd48bf4}
       \strng{authornamehash}{4b16d047eb89f44cf450306cedd48bf4}
       \strng{authorfullhash}{4b16d047eb89f44cf450306cedd48bf4}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0272-4979}
@@ -2859,8 +2859,8 @@
       \strng{authorbibnamehash}{2ebd26129185d0bb39b1709685185d72}
       \strng{authornamehash}{2ebd26129185d0bb39b1709685185d72}
       \strng{authorfullhash}{2ebd26129185d0bb39b1709685185d72}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{The Canadian Applied Mathematics Quarterly}
@@ -3636,8 +3636,8 @@
       \strng{authorbibnamehash}{922f85113ef33a539ac99a990a04fedb}
       \strng{authornamehash}{922f85113ef33a539ac99a990a04fedb}
       \strng{authorfullhash}{922f85113ef33a539ac99a990a04fedb}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0168-874X}
@@ -3681,8 +3681,8 @@
       \strng{authorbibnamehash}{9609e6aaa28f8e7a88f6c9d77a0b94d6}
       \strng{authornamehash}{9609e6aaa28f8e7a88f6c9d77a0b94d6}
       \strng{authorfullhash}{9609e6aaa28f8e7a88f6c9d77a0b94d6}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}
@@ -3724,8 +3724,8 @@
       \strng{authorbibnamehash}{8a3b6ed1eef58875d2bb5d6745cd2717}
       \strng{authornamehash}{8a3b6ed1eef58875d2bb5d6745cd2717}
       \strng{authorfullhash}{8a3b6ed1eef58875d2bb5d6745cd2717}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Scientific Computing}
@@ -3764,8 +3764,8 @@
       \strng{authorbibnamehash}{ffa3423f30b0694540f1725a497266e7}
       \strng{authornamehash}{ffa3423f30b0694540f1725a497266e7}
       \strng{authorfullhash}{ffa3423f30b0694540f1725a497266e7}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1573-7691}

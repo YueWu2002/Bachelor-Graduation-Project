@@ -114,8 +114,8 @@
 当 \(m(\Gamma^{D}) > 0\) 时，取空间：
 \begin{subequations}
 	\begin{eqnarray}
-		&& \Sigma = \B{\bm\tau \in W^{1, p'}({\rm div}, \Omega) \bigg| \bm\tau \cdot \bm n\big|_{\Gamma^{N}} = \bm g_{N} \cdot \bm n} \\
-		&& \widetilde{\Sigma} = \B{\bm\tau \in W^{1, p'}({\rm div}, \Omega) \bigg| \bm\tau \cdot \bm n\big|_{\Gamma^{N}} = \bm 0} \\
+		&& \Sigma = \B{\bm\tau \in W^{1, p'}(\mathrm{div}, \Omega) \bigg| \bm\tau \cdot \bm n\big|_{\Gamma^{N}} = \bm g_{N} \cdot \bm n} \\
+		&& \widetilde{\Sigma} = \B{\bm\tau \in W^{1, p'}(\mathrm{div}, \Omega) \bigg| \bm\tau \cdot \bm n\big|_{\Gamma^{N}} = \bm 0} \\
 		&& W = L^p(\Omega)
 	\end{eqnarray}
 \end{subequations}
@@ -743,7 +743,7 @@
 	\item 当 \(p = 30\) 时，单独使用 Newton-Raphson 迭代会发散。此时如果先使用 50 次 Picard 迭代，再使用 10 次 Newton-Raphson 迭代，就可以测出收敛阶。
 \end{enumerate}
 
-在上面的算例中(以及其他收敛的 \(p\) 值测试中)，我们观察到对 \(\left(\bm\sigma, u\right)\) 的 \(L^{p'}\times L^{p}\) 的 \(\left(k, k+1\right)\) 阶收敛，这在 LDG 框架下是最优的。同时，当 \(p > 2\) 时，对 \(u\) 的 \(L^2\) 收敛阶比 \(L^{p}\) 收敛阶高，对 \(\bm\sigma\) 的 \(L^2\) 收敛阶比 \(L^{p'}\) 收敛阶低；当 \(p < 2\) 时反之。这与多项式逼近的反向估计结果一致。需要说明的是，上文测试中数值不稳定的主要原因是，在迭代过程中，矩阵 \(\bm A([\bm\sigma_{h}])\) 在 \(p \neq 2\) 时可能出现过大或过小的元。
+在上面的算例中(以及其他收敛的 \(p\) 值测试中)，我们观察到对 \(\left(\bm\sigma, u\right)\) 的 \(L^{p'}\times L^{p}\) 的 \(\left(k, k+1\right)\) 阶收敛，这在 LDG 框架下是最优的。同时，当 \(p > 2\) 时，对 \(u\) 的 \(L^2\) 收敛阶比 \(L^{p}\) 收敛阶高，对 \(\bm\sigma\) 的 \(L^2\) 收敛阶比 \(L^{p'}\) 收敛阶低；当 \(p < 2\) 时反之。这与多项式逼近的反估计结果一致。需要说明的是，上文测试中数值不稳定的主要原因是，在迭代过程中，矩阵 \(\bm A([\bm\sigma_{h}])\) 在 \(p \neq 2\) 时可能出现过大或过小的元。
 
 
 \subsubsection{Conclusion}
@@ -1136,7 +1136,7 @@
 			& \leqslant \norm{D_{DG}(u_{h,D}; g_{D}) - \nabla_{h} u_{h,D}}_{L^{p}(\Omega)} + \norm{\jump{u_{h,D}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} + \norm{u_{h,D} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} \\
 			& \lesssim \left( \norm{\jump{u_{h,D}}}_{L^{p}(\Gamma^{o}, h_{e}^{1-p})} + \norm{u_{h,D} - g_{D}}_{L^{p}(\Gamma^{D}, h_{e}^{1-p})} \right)
 		\end{align*}
-		注意到 \(u_{D} \in W^{1,p}(\Omega)\)，利用迹不等式 \ref{thm: Multiplicative trace inequality} 以及多项式插值估计可得：
+		注意到 \(u_{D} \in W^{1,p}(\Omega)\)，利用迹不等式 \ref{thm: Multiplicative trace inequality} 以及多项式插值估计 \ref{thm: polynomial approximation} 可得：
 		\begin{align*}
 			\norm{\jump{u_{h,D}}}_{L^{p}(e, h_{e}^{1-p})}^{p} 
 			& = \norm{\jump{u_{h,D} - u_{D}}}_{L^{p}(e, h_{e}^{1-p})}^{p} \\
@@ -1294,27 +1294,27 @@
 	\begin{proof}
 		由定理 \ref{p-Laplace LDG2 Pre-compactness} 知 \(\B{v_{h}}_{h \in \mathcal{H}} \subset V_{h}\) 在 \(L^{p}(\Omega)\) 中是预紧的，不妨设 \(v_{h} \to v\) in \(L^{p}(\Omega)\) (否则，总可以取一个子列使其成立)。记 \(w_{h} = D_{DG}(v_{h}; 0)\). 由 \(\norm{\cdot}_{J, p}\) 的定义知，\(\B{w_{h}}_{h \in \mathcal{H}}\) 是 \(L^{p}(\Omega)\) 中的有界列。由于 \(p \in (1, +\infty)\)， \(L^{p}\) 是自反的 Banach 空间，因此存在 \(w \in L^{p}(\Omega)\) 使得 (不妨设) \(w_{h} \rightharpoonup w\) weakly in \(L^{p}(\Omega)\) (否则，总可以取一个子列使其成立). 我们下面说明 \(w = \nabla v\) 以及 \(v\big|_{\Gamma^{D}} = 0\).
 
-		注意到：当 \(\bm\varphi \in L^{p'}({\rm div}, \mathcal{T}_{h})\) 时，对于任何满足 \(Q_{h} \subset \ker (I - \Pi_{h})\) 的线性算子 \(\Pi_{h}\) 有：
+		注意到：当 \(\bm\varphi \in L^{p'}(\mathrm{div}, \mathcal{T}_{h})\) 时，对于任何满足 \(Q_{h} \subset \ker (I - \Pi_{h})\) 的线性算子 \(\Pi_{h}\) 有：
 		\begin{align*}
 			& \left(D_{DG}(v_{h}; 0), \bm\varphi \right)_{\Omega} + \left(v_{h}, \nabla_{h} \cdot \bm\varphi\right)_{\Omega} \\
 			& = \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\& + \left\langle v_{h}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} 
 		\end{align*}
-		任取 \(\bm\varphi \in W^{1, p'}_{0}(\Omega)\)，取 \(\Pi_{h} = \Pi_{Q_{h}}\) 为积分插值算子，利用多项式估计和迹不等式 \ref{thm: Multiplicative trace inequality}，当 \(h \to 0^{+}\) 时：% to be continued: 把条件放宽到L(div)，但是我们要先把trace inequality拓展到法向分量
+		任取 \(\bm\varphi \in W^{1, p'}_{0}(\Omega)\)，取 \(\Pi_{h} = \Pi_{Q_{h}}\) 为积分插值算子，利用多项式插值估计 \ref{thm: polynomial approximation} 和迹不等式 \ref{thm: Multiplicative trace inequality}，当 \(h \to 0^{+}\) 时：% to be continued: 把条件放宽到L(div)，但是我们要先把trace inequality拓展到法向分量
 		\begin{align*}
 			& \abs{\left(w_{h}, \bm\varphi\right)_{\Omega} + \left(v, \nabla_{h} \cdot \bm\varphi\right)_{\Omega}} \\
 			& \leqslant \abs{\left(v - v_{h}, \nabla_{h} \cdot \bm\varphi \right)_{\Omega}} + \abs{\left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}}} \\& + \abs{\left\langle v_{h}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}}} + \abs{\left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}}} \\
-			& \lesssim \norm{v - v_{h}}_{L^{p}(\Omega)} \norm{\nabla_{h} \cdot \bm\varphi}_{L^{p'}(\Omega)} + \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, h_{e}^{1-p})} \norm{(\bm\varphi - \Pi_{h}\bm\varphi) \cdot \bm n}_{L^{p'}(\Gamma^{o} \cup \Gamma^{D}, h_{e})} \\& + 0 + 0 \\
+			& \lesssim \norm{v - v_{h}}_{L^{p}(\Omega)} \norm{\nabla_{h} \cdot \bm\varphi}_{L^{p'}(\Omega)} + \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, \eta h_{e}^{1-p})} \norm{(\bm\varphi - \Pi_{h}\bm\varphi) \cdot \bm n}_{L^{p'}(\Gamma^{o} \cup \Gamma^{D}, h_{e})} \\& + 0 + 0 \\
 			& \lesssim \norm{v - v_{h}}_{L^{p}(\Omega)} \norm{\nabla_{h} \cdot \bm\varphi}_{L^{p'}(\Omega)} + \norm{v_{h}}_{J, p} h \abs{\bm\varphi}_{W^{1,p'}(\Omega)} \\
 			& \to 0
 		\end{align*}
-		因此，由弱导数的定义知 \(w_{h} \rightharpoonup \nabla v\)，根据弱极限的唯一性知 \(w = \nabla v\)，从而 \(v \in W^{1,p}(\Omega)\). 此同时，任取 \(\bm\varphi \in W^{1,p'}(\Omega)\) 且 \(\bm\varphi \cdot \bm n \big|_{\Gamma^{N}} = 0\)，利用上面的结果，当 \(h \to 0^{+}\) 时：
+		因此，由弱导数的定义知 \(w_{h} \rightharpoonup \nabla v\)，再根据弱极限的唯一性可知 \(w = \nabla v\)，从而 \(v \in W^{1,p}(\Omega)\). 与此同时，任取 \(\bm\varphi \in W^{1,p'}(\Omega)\) 且 \(\bm\varphi \cdot \bm n \big|_{\Gamma^{N}} = 0\). 一方面，当 \(h \to 0^{+}\) 时：
 		\begin{align*}
-			& \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{Q_{h}}\bm\varphi} + \bm C_{12} \jump{\Pi_{Q_{h}}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} + \left\langle v_{h} - v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} \\
+			& \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h} \bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} + \left\langle v_{h} - v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} \\
 			& = \left(D_{DG}(v_{h}; 0), \bm\varphi\right)_{\Omega} + \left(v_{h}, \nabla \cdot \bm\varphi\right)_{\Omega} - \left\langle v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} \\
 			& = \left(w_{h}, \bm\varphi\right)_{\Omega} + \left(v_{h}, \nabla \cdot \bm\varphi\right)_{\Omega} - \left\langle v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} \\
 			& \to \left\langle v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{D}}
 		\end{align*}
-		其中，式子左侧的当 \(h \to 0^{+}\) 时收敛到 \(0\)，因此 \(v\big|_{\Gamma^{D}} = 0\).
+		另一方面，利用多项式插值估计 \ref{thm: polynomial approximation} 和迹不等式 \ref{thm: Multiplicative trace inequality}，当 \(h \to 0^{+}\) 时，上式左侧也收敛到 \(0\). 因此 \(v\big|_{\Gamma^{D}} = 0\).
 	\end{proof}
 \end{theorem}
 
@@ -1518,7 +1518,7 @@
 			& = \left(\bm\sigma - \mathcal{A}(D_{DG}(u_{h}^{\ast}; g_{D})), D_{DG}(e_{h}; 0)\right)_{\Omega} \\& + \left\langle \avg{\bm\sigma_{h}^{\ast}} - \bm C_{12} \jump{\bm\sigma_{h}^{\ast}} - \bm\sigma, \jump{e_{h}} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\& - \left\langle \eta \mathcal{A}(h_{e}^{-1} \jump{u_{h}^{\ast} - u}), \jump{e_{h}} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\
 			& := T_{1} + T_{2} + T_{3}
 		\end{align*}
-		利用多项式插值估计和迹不等式 \ref{thm: Multiplicative trace inequality}，对于 \(T_{2}\) 和 \(T_{3}\) 我们得到如下估计：
+		利用多项式插值估计 \ref{thm: polynomial approximation} 和迹不等式 \ref{thm: Multiplicative trace inequality}，对于 \(T_{2}\) 和 \(T_{3}\) 我们得到如下估计：
 		\begin{align*}
 			T_{2} 
 			& = \left\langle \avg{\bm\sigma_{h}^{\ast}} - \bm C_{12} \jump{\bm\sigma_{h}^{\ast}} - \bm\sigma, \jump{e_{h}} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\
@@ -1534,7 +1534,7 @@
 			& = \norm{ h_{e}^{\frac{1}{p} - 1} (u_{h}^{\ast} - u) \bm n}_{L^{p}(\Gamma^{o} \cup \Gamma^{D})}^{p-1} \norm{\jump{e_{h}}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, \eta h_{e}^{1-p})} \\
 			& \lesssim h^{s(p-1)} \abs{u}_{W^{s+1,p}(\Omega)}^{p-1} \norm{\jump{e_{h}}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, \eta h_{e}^{1-p})} 
 		\end{align*}
-		利用引理 \ref{lemma: Consistency of the DG-gradient operator}、多项式插值估计、定理 \ref{thm: Multiplicative trace inequality}，任取 \(0 \leqslant l \leqslant s\)，有：
+		利用引理 \ref{lemma: Consistency of the DG-gradient operator}、多项式插值估计 \ref{thm: polynomial approximation}、迹不等式 \ref{thm: Multiplicative trace inequality}，任取 \(0 \leqslant l \leqslant s\)，有：
 		\begin{subequations}\label{Eh(uhs;gd) estimate}
 			\begin{eqnarray}
 				&& \norm{D_{DG}(u_{h}^{\ast}; g_{D}) - \nabla_{h} u_{h}^{\ast}}_{L^{p}(\Omega)} 

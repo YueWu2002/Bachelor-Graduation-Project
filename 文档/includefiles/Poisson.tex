@@ -32,14 +32,19 @@
 	\begin{equation}
 		\norm{u}_{W^{k,p}(\Omega)} 
 		= \begin{cases}
-			\left(\sum_{\abs{\bm\alpha} \leqslant k} \norm{D^{\bm\alpha} u}_{L^{p}(\Omega)}^{p} \right)^{\frac{1}{p}}, & p \in [1, +\infty) \\
-			\max_{\abs{\bm\alpha} \leqslant k} \norm{D^{\bm\alpha} u}_{L^{\infty}(\Omega)}, & p = +\infty
+			\left(\sum_{\abs{\bm\alpha} \leqslant k} \norm{\D^{\bm\alpha} u}_{L^{p}(\Omega)}^{p} \right)^{\frac{1}{p}}, & p \in [1, +\infty) \\
+			\max_{\abs{\bm\alpha} \leqslant k} \norm{\D^{\bm\alpha} u}_{L^{\infty}(\Omega)}, & p = +\infty
 		\end{cases}
 	\end{equation}
-	其中，\(\bm\alpha \in \N^{d}\) 是多重指标，\(\abs{\bm\alpha} = \norm{\bm\alpha}_{l^1}\)；\(D^{\bm\alpha}\) 是 \(\bm\alpha\) 阶弱导数。
+	其中，\(\bm\alpha \in \N^{d}\) 是多重指标，\(\abs{\bm\alpha} = \norm{\bm\alpha}_{l^1}\)；\(\D^{\bm\alpha}\) 是 \(\bm\alpha\) 阶弱导数算子。
 	
 	定义 Sobolev 空间 \(W^{k,p}(\Omega)\) 为满足 \(\norm{u}_{W^{k,p}(\Omega)} < +\infty\) 的函数 \(u\) 的全体。易见，\(W^{k,p}(\Omega)\) 是 Banach 空间。同时，定义 \(H^{k}(\Omega) = W^{k,2}(\Omega)\).
 \end{definition}
+
+\begin{remark}
+	在后文的论述中，我们对强梯度算子 \(\nabla\) 和弱梯度算子 \(\D\) 不加以区分。
+\end{remark}
+
 
 \begin{definition}[BV norms]
 	对于 \(u \in L^{1}_{{\rm loc}}(\Omega)\) 定义如下的半范数和范数：
@@ -72,14 +77,14 @@
 	\end{equation}
 \end{lemma}
 
-\begin{theorem}[H{\"{o}}lder's inequality\cite{folland_ch6}]
+\begin{theorem}[H{\"{o}}lder's inequality \cite{folland_ch6}]
 	设 \(\left(X, \mathcal{M}, \mu\right)\) 是一个测度空间，\(p \in [1, +\infty]\). 若 \(f \in L^{p}(X)\)，\(g \in L^{p'}(X)\)，那么 \(f g \in L^{1}(X)\)，且：
 	\begin{equation}
 		\norm{f g}_{L^1(X)} \leqslant \norm{f}_{L^{p}(X)} \norm{g}_{L^{p'}(X)}
 	\end{equation}
 \end{theorem}
 
-\begin{theorem}[Brunn-Minkowski's inequality for integrals\cite{folland_ch6}]
+\begin{theorem}[Brunn-Minkowski's inequality for integrals \cite{folland_ch6}]
 	设 \(\left(X, \mathcal{M}_{X}, \mu_{X}\right)\) 和 \(\left(Y, \mathcal{M}_{Y}, \mu_{Y}\right)\) 都是 \(\sigma\)-有限的测度空间，\(f(x,y)\) 是 \(X \times Y\) 上的 \(\mathcal{M}_{X} \times \mathcal{Y}_{X}\)-可测函数。设 \(p \in [1, +\infty)\)，那么：
 	\begin{equation}
 		\norm{\norm{f(x,y)}_{L^{1}(Y)}}_{L^{p}(X)} \leqslant \norm{\norm{f(x,y)}_{L^{p}(X)}}_{L^{1}(Y)}
@@ -90,7 +95,7 @@
 	在 \(\R^d\) 空间中，对于 \(p \in [1, d)\)，定义 \(p\) 的 Sobolev 共轭指标为 \(p^{\ast}\)，其满足 \(\frac{1}{p^{\ast}} = \frac{1}{p} - \frac{1}{d}\).
 \end{definition}
 
-\begin{theorem}[Trace \cite{10.1007/978-3-030-56341-7_3}]\label{thm: trace theorem}
+\begin{theorem}[Trace {\cite[Theorem 3.10]{10.1007/978-3-030-56341-7_3}}]\label{thm: trace theorem}
 	设 \(\Omega\) 是 Lipschitz 区域，并设 \(p \in [1, +\infty)\). 若 \(s > \frac{1}{p}\) 且 \(p > 1\)，或 \(s \geqslant 1\) 且 \(p = 1\)，那么存在有界线性映射 \(\gamma: W^{s,p}(\Omega) \mapsto L^{p}(\partial \Omega)\) 使得：
 	\begin{enumerate}
 		\item \(\forall v \in C^{0}(\overline{\Omega}), \gamma(v) = v\big|_{\partial \Omega}\)；
@@ -99,32 +104,59 @@
 	\end{enumerate}
 \end{theorem}
 
-
-
-\begin{lemma}[Bramble-Hilbert's lemma \cite{10.1137/0707006, 10.1007/BF00252458}]
-	设 \(\Omega \subset \R^{d}\) 是 Lipschitz 区域，\(p \in [1, +\infty]\)，\(k \in \N\)，\(0 \leqslant m \leqslant k+1\). 设算子 \(\Pi \in L(W^{k+1, p}(\Omega), W^{m,p}(\Omega))\) 满足 \(\mathcal{P}^{k}(\Omega) \subset \ker(I - \Pi)\). 那么存在 \(C > 0\) 使得：
+\begin{theorem}[Normal trace {\cite[Theorem 4.15]{10.1007/978-3-030-56341-7_4}}]\label{thm: nomal trace theorem}
+	设 \(\Omega\) 是 Lipschitz 区域，并设 \(p \in (1, +\infty)\). 定义算子 \(\gamma^{d}: L^{p}(\mathrm{div}, \Omega) \mapsto W^{-\frac{1}{p}, p}(\partial\Omega)\) 如下：
 	\begin{equation}
 		\begin{aligned}
-			& \forall v \in W^{k+1, p}(\Omega), \quad \\
-			& \inf_{w \in \mathcal{P}^{k}(\Omega)} \norm{v - w}_{W^{m, p}(\Omega)} \leqslant C \abs{v}_{W^{k+1, p}(\Omega)} \\
-			& \norm{v - \Pi v}_{W^{k+1,p}(\Omega)} 
-			\leqslant C \norm{I - \Pi}_{L(W^{k+1, p}(\Omega), W^{m,p}(\Omega))} \abs{v}_{W^{k+1,p}(\Omega)} 
+			& \forall \bm v \in L^{p}(\mathrm{div}, \Omega), l \in W^{\frac{1}{p}, p'}(\partial\Omega), \quad \\
+			& \left\langle \gamma^{d}(\bm v), l \right\rangle_{\partial\Omega} = \left(\bm v, \nabla E(l)\right)_{\Omega} + \left(\nabla\cdot\bm v, E(l)\right)_{\Omega}
 		\end{aligned}
 	\end{equation}
+	这里，\(E: W^{-\frac{1}{p}, p}(\partial\Omega) \mapsto W^{1,p'}(\Omega)\) 是迹定理 \ref{thm: trace theorem} 中的有界线性的延拓算子。那么：
+	\begin{enumerate}
+		\item \(\gamma^{d}(\bm v) = \bm v \cdot \bm n \big|_{\partial\Omega}\) 对 \(v \in C^{1}(\Omega) \cap C(\overline{\Omega})\) 成立；
+		\item \(\gamma^{d}\) 是满射；
+		\item 若定义 \(L^{p}_{0}(\mathrm{div}, \Omega) = \overline{C_{0}^{1}(\Omega)}^{L^{p}(\mathrm{div}, \Omega)}\)，那么 \(L^{p}_{0}(\mathrm{div}, \Omega) = \ker \gamma^{d}\).
+	\end{enumerate}
+\end{theorem}
+
+
+
+\begin{lemma}[Bramble-Hilbert's lemma \cite{10.1137/0707006, 10.1007/BF00252458}]\label{lemma: Bramble-Hilbert}
+	设 \(\Omega \subset \R^{d}\) 是 Lipschitz 区域，\(p \in [1, +\infty]\)，\(k, m \in \N\). 那么存在 \(C > 0\) 使得：对于任何满足 \(\mathcal{P}^{k}(\Omega) \subset \ker(I - \Pi)\) 的算子 \(\Pi \in L(W^{k+1, p}(\Omega), W^{m,p}(\Omega))\)：
+	\begin{subequations}
+		\begin{equation}
+			\begin{aligned}
+				& \forall v \in W^{k+1, p}(\Omega) \cap W^{m, p}(\Omega), \quad \\
+				& \abs{v - \Pi v}_{W^{k+1,p}(\Omega)} 
+				\leqslant C \norm{I - \Pi}_{L(W^{k+1, p}(\Omega), W^{m,p}(\Omega))} \abs{v}_{W^{k+1,p}(\Omega)} 
+			\end{aligned}
+		\end{equation}
+		从而：
+		\begin{equation}
+			\forall v \in W^{k+1, p}(\Omega) \cap W^{m, p}(\Omega), \quad 
+			\inf_{w \in \mathcal{P}^{k}(\Omega)} \abs{v - w}_{W^{m, p}(\Omega)} \leqslant C \abs{v}_{W^{k+1, p}(\Omega)}
+		\end{equation}
+	\end{subequations}
 
 	\begin{proof}
-		See \cite[Theorem 1]{10.1137/0707006} (for \(p = 2\)) and \cite[Lemma 7]{10.1007/BF00252458} (for general \(p\)).
+		第一个式子的证明见 \cite[Lemma 7]{10.1007/BF00252458}。在第一式中，取 \(\Pi\) 为积分插值算子即可得到第二式。特别地，当 \(p = 2\) 时，第二式可以直接证明，参考 \cite[Theorem 1]{10.1137/0707006}.
 	\end{proof}
 \end{lemma}
 
-\begin{theorem}[Polynomial approximation on affine meshes]
-	对于单纯形单元 \(K\)，设 \(p,q \in [1, +\infty]\)，\(k,m \in \N\). 设 \(\widehat{K}\) 是参考单元。设算子 \(\widehat{\Pi} \in L(W^{k+1, p}(\widehat{K}), W^{m, q}(\widehat{K}))\) 满足 \(\mathcal{P}^{k}(\widehat{K}) \subset \ker (I - \widehat{\Pi})\). 取 \(\Pi = \Phi_{\ast} \circ \widehat{\Pi} \circ \Phi^{\ast}\)，其中 \(\Phi\) 是从 \(\widehat{K}\) 到 \(K\) 的仿射变换，\(\Phi^{\ast}\) 满足 \((\Phi^{\ast} u)(\bm\lambda) = u(\phi(\bm\lambda))\)，\(\Phi_{\ast} = (\Phi^{\ast})^{-1}\). 那么存在常数 \(C > 0\) 使得：
+
+\begin{theorem}[Polynomial approximation on simplicial elements \cite{10.1007/BF00252458}]\label{thm: polynomial approximation}
+	设 \(K\) 是单纯形，设 \(p,q \in [1, +\infty]\)，\(k,m \in \N\). 设 \(\widehat{K}\) 是标准单纯形。设算子 \(\widehat{\Pi} \in L(W^{k+1, p}(\widehat{K}), W^{m, q}(\widehat{K}))\) 满足 \(\mathcal{P}^{k}(\widehat{K}) \subset \ker (I - \widehat{\Pi})\). 取 \(\Pi = \Phi_{\ast} \circ \widehat{\Pi} \circ \Phi^{\ast}\)，其中 \(\Phi^{\ast}\) 使得 \((\Phi^{\ast} u)(\bm\lambda) = u(\Phi(\bm\lambda))\)，\(\Phi_{\ast} = (\Phi^{\ast})^{-1}\)，而 \(\Phi\) 是从 \(\widehat{K}\) 到 \(K\) 的仿射变换。那么存在常数 \(C > 0\) 使得：
 	\begin{equation}
-		\forall v \in W^{k+1, p}(K), \quad 
+		\forall v \in W^{k+1, p}(K) \cap W^{m, q}(K), \quad 
 		\abs{v - \Pi v}_{W^{m, q}(K)} 
 		\leqslant C \abs{K}^{\frac{1}{q} - \frac{1}{p}} \frac{h_{K}^{k+1}}{\rho_{K}^{m}} \abs{v}_{W^{k+1, p}(K)}
 	\end{equation}
-	其中，\(h_{K}\) 是 \(K\) 的外接圆半径，\(\rho_{K}\) 是 \(K\) 的内切圆半径。
+	这里，\(h_{K}\) 是 \(K\) 的外接球半径，\(\rho_{K}\) 是 \(K\) 的内切球半径。
+
+	\begin{proof}
+		See \cite[Theorem 5]{10.1007/BF00252458}.
+	\end{proof}
 \end{theorem}
 
 
@@ -204,8 +236,8 @@ Poisson 方程\eqref{Poisson primal form}的弱形式为：
 当 \(m(\Gamma^D) > 0\) 时，取空间：
 \begin{subequations}
 	\begin{eqnarray}
-		&& \Sigma = \B{\bm\sigma \in H({\rm div}, \Omega) \bigg| \bm\sigma \cdot \bm n\big|_{\Gamma^{N}} = \bm g_{N} \cdot \bm n} \\
-		&& \widetilde{\Sigma} = \B{\sigma \in H({\rm div}, \Omega) \bigg| \sigma \cdot \bm n\big|_{\Gamma^{N}} = \bm 0} \\
+		&& \Sigma = \B{\bm\sigma \in H(\mathrm{div}, \Omega) \bigg| \bm\sigma \cdot \bm n\big|_{\Gamma^{N}} = \bm g_{N} \cdot \bm n} \\
+		&& \widetilde{\Sigma} = \B{\sigma \in H(\mathrm{div}, \Omega) \bigg| \sigma \cdot \bm n\big|_{\Gamma^{N}} = \bm 0} \\
 		&& W = L^2(\Omega)
 	\end{eqnarray}
 \end{subequations}
@@ -239,7 +271,7 @@ Poisson 方程\eqref{Poisson mixed form}的弱形式为\cite{10.1007/978-3-642-3
 		L(\tau, v) = \frac{1}{2} \norm{\bm\tau}_{L^2(\Omega)}^2 - \left\langle g_{D}, \bm\tau \cdot \bm n \right\rangle_{\Gamma^{D}} + \left(\nabla \cdot \bm\tau, v\right)_{\Omega} + \left(f, v\right)_{\Omega}
 	\end{equation}
 \end{subequations}
-这里，\(f \in L^2(\Omega)\)，\(g_{D} \in H^{\frac{1}{2}}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in H^{-\frac{1}{2}}(\Gamma^{N})\)\footnote{存在从 \(W^{1,p}({\rm div},\Omega)\) 到 \(W^{-\frac{1}{p'}, p}(\partial\Omega)\) 的有界线性满射\cite{10.1007/978-3-030-56341-7_4}。}.
+这里，\(f \in L^2(\Omega)\)，\(g_{D} \in H^{\frac{1}{2}}(\Gamma^{D})\)，\(\bm g_{N} \cdot \bm n \in H^{-\frac{1}{2}}(\Gamma^{N})\).
 
 % to be done: 加入上面三个形式相互等价的定理、解的存在性定理(见混合有限元)
 
@@ -1184,7 +1216,7 @@ LDG 方程组\eqref{LDG weak form}对应的线性代数方程组为：
 
 取多边形区域为 \(\Omega = \B{(x,y) \big| -1\leqslant x, y \leqslant 1, y-x+1\geqslant 0}\)，取准确解为 \(u(x, y) = \exp\left(\sin(\pi x)\right)\cos(\pi(x + y))\)，采用 Dirichlet 边界条件。
 
-我们采用 MD-LDG 方法\cite{10.1007/s10915-007-9130-3}，惩罚系数如式\eqref{MD-LDG penalty coefficient}给出，其中 \(\bm v_0 \in H({\rm div}, \Omega)^{d}\) 是任意的辅助函数，不妨取成非零常向量。
+我们采用 MD-LDG 方法\cite{10.1007/s10915-007-9130-3}，惩罚系数如式\eqref{MD-LDG penalty coefficient}给出，其中 \(\bm v_0 \in H(\mathrm{div}, \Omega)^{d}\) 是任意的辅助函数，不妨取成非零常向量。
 \begin{subequations}\label{MD-LDG penalty coefficient}
 	\begin{eqnarray}
 		&& C_{11} = \begin{cases}
@@ -1692,7 +1724,7 @@ LDG-H 是守恒的格式(数值通量无跳跃)，把 \(\widehat{u}_{h}\) 也作
 \end{equation}
 而在 Dirichlet 边值问题中，当空间维数 \(d = 1\) 且 \(k \geqslant 1\) 时，根据\cite[Lemma 1]{CASTILLO20034675}，由于 LDG-H 格式作为一种推广的 LDG 格式，其数值通量是守恒且相容的，那么 \(\widehat{u}_{h}\) 是\textbf{精确}的，也即 \(\widehat{u}_{h} = u\big|_{\Gamma}\).
 
-除此之外，由于 LDG-H 对 \(u\) 的单元平均是 \(k + 2\) 阶收敛的，所以可以逐单元后处理，使得到的 \(u^{\ast}_{h} \in \bigoplus_{K \in \mathcal{T}_{h}}\mathscr{P}^{k+1}(K)\) 对 \(u\) 的 \(L^2\) 误差有 \(k + 2\) 阶收敛\cite[Theorem 2.9]{10.1090/S0025-5718-08-02123-6}(或者\cite[Theorem 2.4, Proposition 3.2]{10.1090/S0025-5718-08-02146-7})。同时，利用与 RT/BDM 混合有限元类似的方法，可以对 \(\bm\sigma_{h}\) 进行逐单元后处理，使得到的 \(\bm\sigma_{h}^{\ast} \in H({\rm div}, \Omega) \cap \bigoplus_{K \in \mathcal{T}_{h}}{\rm RT}_{k}(K)\) 对 \(\sigma\) 的 \(H({\rm div})\) 误差有 \(k + 1\) 阶收敛\cite[Theorem 2.2]{10.1090/S0025-5718-08-02146-7}。
+除此之外，由于 LDG-H 对 \(u\) 的单元平均是 \(k + 2\) 阶收敛的，所以可以逐单元后处理，使得到的 \(u^{\ast}_{h} \in \bigoplus_{K \in \mathcal{T}_{h}}\mathscr{P}^{k+1}(K)\) 对 \(u\) 的 \(L^2\) 误差有 \(k + 2\) 阶收敛\cite[Theorem 2.9]{10.1090/S0025-5718-08-02123-6}(或者\cite[Theorem 2.4, Proposition 3.2]{10.1090/S0025-5718-08-02146-7})。同时，利用与 RT/BDM 混合有限元类似的方法，可以对 \(\bm\sigma_{h}\) 进行逐单元后处理，使得到的 \(\bm\sigma_{h}^{\ast} \in H(\mathrm{div}, \Omega) \cap \bigoplus_{K \in \mathcal{T}_{h}}{\rm RT}_{k}(K)\) 对 \(\sigma\) 的 \(H(\mathrm{div})\) 误差有 \(k + 1\) 阶收敛\cite[Theorem 2.2]{10.1090/S0025-5718-08-02146-7}。
 
 取空间为：
 \begin{subequations}
