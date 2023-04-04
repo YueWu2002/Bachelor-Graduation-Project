@@ -886,7 +886,7 @@
 
 在下面的证明中，我们对所考虑的一系列网格 \(\B{\mathcal{T}_{h}}_{h \in \mathcal{H}}\) 提出以下要求：
 \begin{enumerate}
-	\item \(\mathcal{H}\) 是 \((0, h_{\rm max}]\) 的可数子集，且其聚点集为 \(\B{0}\)；
+	\item \(\mathcal{H}\) 是 \((0, h_{\rm max}]\) 的无限子集 (可数或者不可数)，且 \(0\) 是其聚点；
 	\item 每个单元的长宽比 (或外接圆--内切圆半径比) 一致有界，每个单元的面数 \(N_{\partial}^{K}\) 一致有界 (特别地，我们这里仅考虑单纯形单元，所以是平凡的)，每个面相邻的单元数 \(N_{\partial}^{e}\) 一致有界；
 	\item 存在常数 \(c_1, c_2 > 0\)，对于单元 \(K\) 的每个面 \(e\)，都有 \(h_{e}\abs{e} \in [c_1 \abs{K}, c_2 \abs{K}]\)；
 	\item 单元 \(K\) 都是仿射单纯形单元。
@@ -1034,7 +1034,7 @@
 \end{lemma}
 
 
-\begin{lemma}[Broken Poincar{\'{e}}-Friedrichs' inequality]\label{p-Laplace LDG2 broken Poincare-Friedrichs inequality}
+\begin{lemma}[Broken Poincar\'{e}-Friedrichs' inequality]\label{p-Laplace LDG2 broken Poincare-Friedrichs inequality}
 	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast}]\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in [1, +\infty)\) 且 \(q \in [1, +\infty]\). 存在与 \(h\) 无关的常数 \(C > 0\) 使得：
 	\begin{equation}
 		\forall v_{h} \in V_{h}, \quad
@@ -1196,7 +1196,7 @@
 	最优化问题 \eqref{p-Laplace LDG minimization form 2} 的解存在。
 
 	\begin{proof}
-		因为 \(J_{h}\) 是下有界的和coercive 的，所以存在有界的最优化列。由于在自反的 Banach 空间中，有界列存在弱收敛子列，于是可以不妨设该最优化列弱收敛。又因为 \(J_{h}\) 是弱下半连续的，所以弱极限就是最小化子。
+		因为 \(J_{h}\) 是下有界的和 coercive 的，所以存在有界的最优化列。由于在自反的 Banach 空间中，有界列存在弱收敛子列，于是可以不妨设该最优化列弱收敛。又因为 \(J_{h}\) 是弱下半连续的，所以弱极限就是最小化子。
 	\end{proof}
 \end{proposition}
 
@@ -1330,7 +1330,7 @@
 			\lesssim \abs{\bm\xi} \norm{v_{h}}_{{\rm BV}(\Omega)} 
 			\lesssim \abs{\bm\xi} \sup_{h \in \mathcal{H}} \norm{v_{h}}_{J, p}
 		\end{equation*}
-		利用 Riesz-Kolmogorov 紧性定理\footnote{类似 Arzela-Ascoli 定理。} \cite[Theorem A]{10.1007/s11785-023-01346-8} 可知，\(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{1}(\R^{d})\) 的预紧子集。再利用引理 \ref{p-Laplace LDG2 broken Poincare-Friedrichs inequality} 可知，存在 \(r > q\) 使得 \(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{r}(\R^{d})\) 的有界子集。任取 \(\B{v_{h}}_{h \in \mathcal{H}}\) 在 \(L^{1}(\R^d)\) 中的聚点 \(v\)，则存在子列 \(\B{v_{h_{j}}}_{j \in \N_+}\) 使得 \(\lim_{j \to \infty} \norm{v - v_{h_{j}}}_{L^{1}(\R^{d})} = 0\) 且 \(v_{h_{j}} \to v\) a.e. 利用 Fatou 引理知：
+		利用 Riesz-Kolmogorov 紧性定理\footnote{类似 Arzela-Ascoli 定理。} \cite[Theorem A]{10.1007/s11785-023-01346-8} 可知，\(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{1}(\R^{d})\) 的预紧子集。再利用引理 \ref{p-Laplace LDG2 broken Poincare-Friedrichs inequality} 可知，存在 \(r > q\) 使得 \(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{r}(\R^{d})\) 的有界子集。任取 \(\B{v_{h}}_{h \in \mathcal{H}}\) 在 \(L^{1}(\R^d)\) 中的聚点 \(v\)，则存在子列 \(\B{v_{h_{j}}}_{j \in \N_+}\) (\(h_{j} \to 0^{+}\)) 使得 \(\lim_{j \to \infty} \norm{v - v_{h_{j}}}_{L^{1}(\R^{d})} = 0\) 且 \(v_{h_{j}} \to v\) a.e. 利用 Fatou 引理知：
 		\begin{equation*}
 			\norm{v}_{L^{r}(\R^d)}^{r} 
 			= \int_{\R^{d}} \liminf_{j \to \infty} \abs{v_{h_{j}}}^{r} \d x 
@@ -1360,7 +1360,7 @@
 
 
 \begin{theorem}[Regularity of the limit (generalization of {\cite[Theorem 6.3]{10.1090/S0025-5718-10-02333-1}})]\label{p-Laplace LDG2 compactness and regularity}
-	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast})\) 且 \(r \in [1, \frac{(d-1)p}{d-p})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in (1, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty]\). 设函数列 \(\B{v_{h} \in V_{h}}_{h \in \mathcal{H}}\) 使得 \(\B{E_{h}(v_{h}; g_{D})}_{h \in \mathcal{H}}\) 有界。那么，存在子列 \(\B{v_{h_{j}}}_{j \in \N_+}\) 以及 \(v \in W^{1,p}(\Omega)\) 使得：
+	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast})\) 且 \(r \in [1, \frac{(d-1)p}{d-p})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in (1, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty]\). 设函数列 \(\B{v_{h} \in V_{h}}_{h \in \mathcal{H}}\) 使得 \(\B{E_{h}(v_{h}; g_{D})}_{h \in \mathcal{H}}\) 有界。那么，存在子列 \(\B{v_{h_{j}}}_{j \in \N_+}\) (\(h_{j} \to 0^{+}\)) 以及 \(v \in W^{1,p}(\Omega)\) 使得：
 	\begin{enumerate}
 		\item \(v\big|_{\Gamma^{D}} = g_{D}\)；
 		\item \(v_{h_{j}} \to v\) in \(L^{q}(\Omega)\)；
@@ -1369,7 +1369,7 @@
 	\end{enumerate}
 
 	\begin{proof}
-		由定理 \ref{p-Laplace LDG2 Pre-compactness} 知：\(\B{v_{h} \in V_{h}}_{h \in \mathcal{H}}\) 在 \(L^{q}(\Omega)\) 中预紧，\(\B{v_{h}\big|_{\partial\Omega}}_{h \in \mathcal{H}}\) 在 \(L^{r}(\partial\Omega)\) 中预紧。不妨设 \(v_{h} \to v\) in \(L^{q}(\Omega)\) 且 \(v_{h}\big|_{\partial\Omega} \to v\big|_{\partial\Omega}\) in \(L^{r}(\partial\Omega)\) (否则，总可以取一个子列使其成立)。记 \(w_{h} = D_{DG}(v_{h}; g_{D})\)，那么 \(\B{w_{h}}_{h \in \mathcal{H}}\) 是 \(L^{p}(\Omega)\) 中的有界列。由于当 \(p \in (1, +\infty)\) 时，\(L^{p}\) 是自反的 Banach 空间，因此存在 \(w \in L^{p}(\Omega)\) 使得 (不妨设) \(w_{h} \rightharpoonup w\) weakly in \(L^{p}(\Omega)\) (否则，总可以取一个子列使其成立). 我们下面说明 \(w = \nabla v\) 以及 \(v\big|_{\Gamma^{D}} = g_{D}\).
+		由定理 \ref{p-Laplace LDG2 Pre-compactness} 知：\(\B{v_{h} \in V_{h}}_{h \in \mathcal{H}}\) 在 \(L^{q}(\Omega)\) 中预紧，\(\B{v_{h}\big|_{\partial\Omega}}_{h \in \mathcal{H}}\) 在 \(L^{r}(\partial\Omega)\) 中预紧。不妨设 \(v_{h} \to v\) in \(L^{q}(\Omega)\) 且 \(v_{h}\big|_{\partial\Omega} \to v\big|_{\partial\Omega}\) in \(L^{r}(\partial\Omega)\) (否则，总可以取一个指标趋于 \(0\) 的子列使其成立)。记 \(w_{h} = D_{DG}(v_{h}; g_{D})\)，那么 \(\B{w_{h}}_{h \in \mathcal{H}}\) 是 \(L^{p}(\Omega)\) 中的有界列。由于当 \(p \in (1, +\infty)\) 时，\(L^{p}\) 是自反的 Banach 空间，因此存在 \(w \in L^{p}(\Omega)\) 使得 (不妨设) \(w_{h} \rightharpoonup w\) weakly in \(L^{p}(\Omega)\) (否则，总可以取一个指标趋于 \(0\) 的子列使其成立). 我们下面说明 \(w = \nabla v\) 以及 \(v\big|_{\Gamma^{D}} = g_{D}\).
 
 		注意到：当 \(\bm\varphi \in L^{p'}(\mathrm{div}, \mathcal{T}_{h})\) 时，对于任何满足 \(Q_{h} \subset \ker (I - \Pi_{h})\) 的线性算子 \(\Pi_{h}\) 有：
 		\begin{align*}
@@ -1407,7 +1407,7 @@
 
 
 \begin{lemma}\label{p-Laplace LDG2 existence of auxiliary sequence}
-	设 \(k \in \N_+\) 是 LDG 格式中使用的多项式次数。那么，\(\forall v \in W^{1,p}(\Omega)\)，存在序列 \(\B{v_{h_{j}} \in V_{h_{j}}}_{j \in \N}\)，使得 \(\lim_{j \to \infty} J_{h_{j}}(v_{h_{j}}) = J(v)\)，其中，取 \(g_{D} = v \big|_{\Gamma^{D}}\).
+	设 \(k \in \N_+\) 是 LDG 格式中使用的多项式次数。那么，\(\forall v \in W^{1,p}(\Omega)\)，存在序列 \(\B{v_{h} \in V_{h}}_{h \in \mathcal{H}}\)，使得 \(\lim_{h \to 0^{+}} J_{h}(v_{h}) = J(v)\)，其中，取 \(g_{D} = v \big|_{\Gamma^{D}}\).
 
 	\begin{proof}
 		我们先考虑 \(v \in W^{2, p}(\Omega)\) 的情形。取 \(v_{h} = \Pi_{V_{h}} v\)，其中 \(\Pi_{V_{h}}: L^{1}(\Omega) \mapsto V_{h}\) 是积分插值算子。易见：
@@ -1415,7 +1415,7 @@
 			& \abs{J_{h}(v_{h}) - J(v)} \\
 			& \leqslant \frac{1}{p}\abs{\norm{D_{DG}(v_{h}; g_{D})}_{L^{p}(\Omega)}^{p} - \norm{\nabla v}_{L^{p}(\Omega)}^{p}} + \frac{1}{p}\norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p} \\& + \frac{1}{p}\norm{v_{h} - g_{D}}_{L^{p}(\Gamma^{D}, h_{e}^{1-p})}^{p} + \abs{\left(f, v_{h} - v\right)_{\Omega}} + \abs{\left\langle \bm g_{N} \cdot \bm n, v_{h} - v \right\rangle_{\Gamma^{N}}} \\
 			& \leqslant \frac{1}{p}\abs{\norm{D_{DG}(v_{h}; g_{D})}_{L^{p}(\Omega)}^{p} - \norm{\nabla v}_{L^{p}(\Omega)}^{p}} + \frac{1}{p}\norm{\jump{v_{h} - v}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, \eta h_{e}^{1-p})}^{p} \\& + \norm{f}_{L^{p'}(\Omega)} \norm{v_{h} - v}_{L^{p}(\Omega)} + \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})} \norm{v_{h} - v}_{L^{p}(\Gamma^{N})}
-		\end{align*}		
+		\end{align*}
 		由多项式插值估计 \ref{thm: polynomial approximation} (取次数为 \(1\)，要求 \(k \geqslant 1\)) 和迹不等式 \ref{thm: Multiplicative trace inequality} 得到：
 		\begin{equation*}
 			\norm{v_{h} - v}_{L^{p}(\Omega)} 
@@ -1432,13 +1432,13 @@
 		\end{align*}
 		综上所述，当 \(h \to 0^{+}\) 时，\(J_{h}(v_{h}) \to J(v)\). 
 
-		当 \(v \in W^{1,p}(\Omega)\) 时，我们使用对角线构造法说明这样的序列存在。由于 \(W^{2,p}(\Omega)\) 在 \(W^{1, p}(\Omega)\) 中稠密，所以可以取出一列 \(\B{v_{j}}_{j \in \N} \subset W^{2, p}(\Omega)\) 使得 \(\lim_{j \to \infty} \norm{v_{j} - v}_{W^{1, p}(\Omega)} = 0\). 因为 \(J(\cdot)\) 在 \(\B{w \in W^{1, p}(\Omega), w\big|_{\Gamma^{D}} = v\big|_{\Gamma^{D}}}\) 上连续，所以 \(\lim_{j \to \infty} J(v_{j}) = J(v)\). 对于每一个 \(v_{j}\)，由上文知存在序列 \(\B{v_{h_{l}, j} \in V_{h_{l}}}_{l \in \N}\) 使 \(\lim_{l \in \N} J_{h_{l}}(v_{h_{l}, j}) = J(v_{j})\). 此时，序列 \(\B{v_{h_{j}, j}}_{j \in \N}\) 即为符合要求的序列。
+		当 \(v \in W^{1,p}(\Omega)\) 时，我们使用对角线构造法说明这样的序列存在。由于 \(W^{2,p}(\Omega)\) 在 \(W^{1, p}(\Omega)\) 中稠密，所以可以取出 \(\B{v^{(h)}}_{h \in \mathcal{H}} \subset W^{2, p}(\Omega)\) 使得 \(\lim_{h \to 0^{+}} \norm{v_{j} - v}_{W^{1, p}(\Omega)} = 0\). 因为 \(J(\cdot)\) 在 \(\B{w \in W^{1, p}(\Omega), w\big|_{\Gamma^{D}} = v\big|_{\Gamma^{D}}}\) 上连续，所以 \(\lim_{h \to 0^{+}} J(v^{(h)}) = J(v)\). 对于每一个 \(v^{(h)}\)，由上文知，存在 \(v_{h}^{(j)} \in V_{h}\) 使得 \(\abs{J_{h}(v_{h}^{(h)}) - J(v^{(h)})} < h\). 此时，序列 \(\B{v_{h}^{(h)} \in V_{h}}_{h \in \mathcal{H}}\) 即为符合要求的序列。
 	\end{proof}
 \end{lemma}
 
 
-\begin{theorem}[Variational Convergence {\cite[Theorem 6.1]{10.1093/imanum/drn038}}]
-	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast})\) 且 \(r \in [1, \frac{(d-1)p}{d-p})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in (1, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty]\). 设 \(k \in \N_+\) 是 LDG 格式中使用的多项式次数。设 \(u_{h} \in V_{h}\) 是 LDG primal 弱形式 \eqref{p-Laplace LDG primal weak form 2} 或最优化形式 \eqref{p-Laplace LDG minimization form 2} 的解。设 \(u \in W^{1,p}(\Omega)\) 是 \(p\)-Laplace 方程 \eqref{p-Laplace primal form} 的解。那么，当 \(h \to 0^{+}\) 时：
+\begin{theorem}[Variational Convergence (generalization of {\cite[Theorem 6.1]{10.1093/imanum/drn038}})]
+	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast})\) 且 \(r \in [1, \frac{(d-1)p}{d-p})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in (1, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty]\). 设 \(k \in \N_+\) 是 LDG 格式中使用的多项式次数。设 \(u_{h} \in V_{h}\) 是 LDG primal 弱形式 \eqref{p-Laplace LDG primal weak form 2} 或最优化形式 \eqref{p-Laplace LDG minimization form 2} 的解。设 \(u \in W^{1,p}(\Omega)\) 是 \(p\)-Laplace 方程 \eqref{p-Laplace primal form} 的唯一解。那么，当 \(h \to 0^{+}\) 时：
 	\begin{enumerate}
 		\item \(u_{h} \to u\) in \(L^{q}(\Omega)\)；
 		\item \(u_{h}\big|_{\partial\Omega} \to u\big|_{\partial\Omega}\) in \(L^{r}(\partial\Omega)\)；
@@ -1448,7 +1448,7 @@
 	\end{enumerate}
 
 	\begin{proof}
-		由能量估计 \ref{p-Laplace LDG2 energy-norm estimate} 可知 \(\B{E_{h}(u_{h}; g_{D})}_{h \in \mathcal{H}}\) 有界，从而利用定理 \ref{p-Laplace LDG2 compactness and regularity} 可知，存在子列 \(\B{u_{h_{j}}}_{j \in \N_+}\) 以及 \(u^{\ast} \in W^{1,p}(\Omega)\) 使得：
+		由能量估计 \ref{p-Laplace LDG2 energy-norm estimate} 得 \(\B{E_{h}(u_{h}; g_{D})}_{h \in \mathcal{H}}\) 有界。从而，利用定理 \ref{p-Laplace LDG2 compactness and regularity} 可知，存在子列 \(\B{u_{h_{j}}}_{j \in \N_+}\) (\(h_{j} \to 0^{+}\)) 以及 \(u^{\ast} \in W^{1,p}(\Omega)\) 满足：
 		\begin{enumerate}
 			\item \(u^{\ast} \big|_{\Gamma^{D}} = g_{D}\)；
 			\item \(u_{h_{j}} \to u^{\ast}\) in \(L^{q}(\Omega)\)；
@@ -1456,7 +1456,7 @@
 			\item \(D_{DG}(u_{h_{j}}; g_{D}) \rightharpoonup \nabla u^{\ast}\) weakly in \(L^{p}(\Omega)\).
 		\end{enumerate}
 
-		接下来，我们说明 \(u^{\ast} = u\)，以及存在一个子列满足命题中的 5 个收敛结果。取 \(\B{v_{h_{j}}}_{j \in \N}\) 为引理 \ref{p-Laplace LDG2 existence of auxiliary sequence} 中令 \(v = u\) 所得到的序列 (这里，不妨设对应的网格序列是相同的，否则，在网格指标集 \(\B{h_{j}}\) 上使用该引理，然后再取子列即可)。利用 \(D_{DG}(u_{h_{j}}; g_{D})\) 的弱收敛性、\(u_{h_{j}}\) 的强收敛性、\(u_{h_{j}}\big|_{\Gamma^{N}}\) 的强收敛性、\(u_{h_{j}}\) 的最小化性质，以及 \(J(\cdot)\) 的结构 (范数的下半连续性) 得：
+		接下来，我们说明 \(u^{\ast} = u\)，以及命题中的 5 个收敛结果被上述子列满足。取 \(\B{v_{h} \in V_{h}}_{h \in \mathcal{H}}\) 为引理 \ref{p-Laplace LDG2 existence of auxiliary sequence} 中令 \(v = u\) 所得到的序列。利用 \(D_{DG}(u_{h_{j}}; g_{D})\) 的弱收敛性、\(u_{h_{j}}\) 的强收敛性、\(u_{h_{j}}\big|_{\Gamma^{N}}\) 的强收敛性、\(u_{h_{j}}\) 的最小化性质，以及 \(J(\cdot)\) 的结构得：
 		\begin{align*}
 			J(u^{\ast}) 
 			& \leqslant \liminf_{j \to \infty} \left( \frac{1}{p}\norm{D_{DG}(u_{h_{j}}; g_{D})}_{L^{p}(\Omega)}^{p} - \left(f, u_{h_{j}}\right)_{\Omega} - \left\langle \bm g_{N} \cdot \bm n, u_{h_{j}} \right\rangle_{\Gamma^{N}} \right) \\
@@ -1465,20 +1465,26 @@
 			& \leqslant \limsup_{j \to \infty} J_{h_{j}}(v_{h_{j}}) \\
 			& = J(u)
 		\end{align*}
-		又因为 \(u\) 是 \(J\) 的最小化子，所以 \(u = u^{\ast}\)，且上述不等式中的所有等号都成立了，这说明 \(J_{h_{j}}(u_{h_{j}})\) 收敛到 \(J(u)\)、边界惩罚项收敛到 \(0\)、以及 \(\norm{D_{DG}(u_{h_{j}}; g_{D})}_{L^{p}(\Omega)}\) 收敛到 \(\norm{\nabla u}_{L^{p}(\Omega)}\). 利用 
-		% to be continued: 说明广义导数的强收敛性
-		
-		至此，我们总结如下：
+		因为 \(u\) 是 \(J\) 的最小化子，所以 \(u = u^{\ast}\). 此时，上述不等式中的所有不等号都取等，这说明了 \(J_{h_{j}}(u_{h_{j}})\) 收敛到 \(J(u)\)，边界惩罚项收敛到 \(0\)，以及 \(\norm{D_{DG}(u_{h_{j}}; g_{D})}_{L^{p}(\Omega)}\) 收敛到 \(\norm{\nabla u}_{L^{p}(\Omega)}\). 结合 \(D_{DG}(u_{h_{j}}; g_{D})\) 弱收敛到 \(\nabla u\) 的事实，利用 Rad\'{o}n-Riesz 定理 \ref{thm: Radon-Riesz} 可知 \(D_{DG}(u_{h_{j}}; g_{D})\) 强收敛到 \(\nabla u\). 至此，我们总结如下：
 		\begin{enumerate}
 			\item \(u_{h_{j}} \to u\) in \(L^{q}(\Omega)\)；
 			\item \(u_{h_{j}}\big|_{\partial\Omega} \to u\big|_{\partial\Omega}\) in \(L^{r}(\Omega)\)；
-			\item \(D_{DG}(u_{h_{j}}; g_{D}) \rightharpoonup \nabla u\) weakly in \(L^{p}(\Omega)\)；
+			\item \(D_{DG}(u_{h_{j}}; g_{D}) \to \nabla u\) in \(L^{p}(\Omega)\)；
 			\item \(\norm{u_{h_{j}} - u}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, h_{e}^{1-p})} \to 0\)；
 			\item \(J_{h_{j}}(u_{h_{j}}) \to J(u)\).
 		\end{enumerate}
 
-		最后，我们还需要说明整个 \(\B{u_{h}}_{h \in \mathcal{H}}\) 都满足命题中的 5 个收敛结果，而不是仅存在一个子列满足。
-		
+		最后，我们还需要说明整个 \(\B{u_{h}}_{h \in \mathcal{H}}\) 当 \(h \to 0^{+}\) 时都满足命题中的 5 个收敛结果，而不是仅存在一个指标趋于 \(0\) 的子列满足。事实上，上文告诉我们以下 5 个集合 (这里，它们被允许是不可数的)
+		\begin{enumerate}
+			\item \(\B{u_{h} - u}_{h \in \mathcal{H}} \subset L^{q}(\Omega)\)，
+			\item \(\B{u_{h}\big|_{\partial\Omega} - u\big|_{\partial\Omega}}_{h \in \mathcal{H}} \subset L^{r}(\Omega)\)，
+			\item \(\B{D_{DG}(u_{h}; g_{D}) - \nabla u}_{h \in \mathcal{H}} \subset L^{p}(\Omega)\)；
+			\item \(\B{\norm{u_{h} - u}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, h_{e}^{1-p})}}_{h \in \mathcal{H}} \subset \R\)，
+			\item \(\B{J_{h}(u_{h}) - J(u)}_{h \in \mathcal{H}} \subset \R\)
+		\end{enumerate}
+		各自的任意一个 “指标集的聚点包含 \(0\)” 的子集都有一个指标趋于 \(0\)，且收敛到零元素的子列。我们将上述结果抽象地记为：“给定一个集合 \(\B{a_{h}}_{h \in \mathcal{H}} \subset X\). 对于任何一个满足 \(0 \in \overline{\mathcal{H}_{1}}\) 的指标集 \(\mathcal{H}_{1} \subset \mathcal{H}\)，都存在满足 \(h_{j} \to 0\) 的指标列 \(\B{h_{j}}_{j \in \N} \subset \mathcal{H}_{1}\)，使得 \(\norm{a_{h_{j}}} \to 0\).”
+
+		下面，我们利用反证法证明 \(\lim_{h \to 0^{+}} \norm{a_{h}} = 0\). 假设命题不成立，也即：存在 \(\epsilon > 0\)，对任何 \(\delta > 0\)，都存在 \(h \in (0, \delta)\) 使得 \(\norm{a_{h}} > \epsilon\). 由此，存在指标列 \(\B{h_{j}}_{j \in \N} \subset \mathcal{H}\) 使得 \(h_{j+1} < \frac{1}{2} h_{j}\)，且 \(\norm{a_{h_{j}}} > \epsilon\). 我们取 \(\mathcal{H}_{1} = \mathcal{H}\)，易见满足 \(0 \in \overline{\mathcal{H}_{1}}\). 由前文结果知 \(\inf_{h \in \mathcal{H}_{1}} \norm{a_{h}} = 0\)，这造成了矛盾！从而，原命题证毕。
 	\end{proof}
 \end{theorem}
 

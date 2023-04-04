@@ -21,7 +21,7 @@
 
 \subsection{Mathematical Preliminaries}
 
-% Sobolev space:  weak derivative, dual space, Sobolev embedding, compact embedding, trace operator(见TAM72详细), (inverse) trace estimate, weak derivative=0 lemma, (inverse) Poincar{\'{e}}-Friedrichs' inequality
+% Sobolev space:  weak derivative, dual space, Sobolev embedding, compact embedding, trace operator(见TAM72详细), (inverse) trace estimate, weak derivative=0 lemma, (inverse) Poincar\'{e}-Friedrichs' inequality
 
 % Function analysis:  inequalities, Lp-Lq, weak topology, Riesz' representation theorem, Lax-Milgram's theorem, Gat{\^{a}}eux derivative, Ladyzhenskaya–Babu{\v{s}}ka–Brezzi (LBB, or inf-sup) condition (Brezzi and Fortin 1991), Cea's lemma
 
@@ -67,6 +67,43 @@
 
 \begin{theorem}[\(L^p\) duality]
 	设 \(\Omega\) 是开区域. 当 \(p \in [1, +\infty)\) 时，\(L^{p}(\Omega)\) 的对偶空间为 \(L^{p'}(\Omega)\).
+\end{theorem}
+
+\begin{theorem}[Rad\'{o}n-Riesz]\label{thm: Radon-Riesz}
+	设 \(p \in (1, +\infty)\). 假设 \(\B{f_{n}}_{n \in \N} \subset L^{p}(\R^{d})\) 和 \(f \in L^{p}(\R^{d})\) 满足 \(f_{n} \rightharpoonup f\) weakly in \(L^{p}(\R^{d})\). 那么：
+	\begin{equation}
+		\lim_{n\to\infty} \norm{f_{n} - f}_{L^{p}(\R^{d})} = 0 
+		\iff 
+		\lim_{n\to\infty} \norm{f_{n}}_{L^{p}(\R^{d})} = \norm{f}_{L^{p}(\R^{d})} 
+	\end{equation}
+	% 注记：当 p=1 和 p=\infty 时不成立，因为范数不是一致严格凸的
+
+	\begin{proof}
+		当 \(f_{n}\) 依范数收敛到 \(f\) 时，范数的收敛性是显然的。我们下面只证明相反的命题。若 \(\norm{f} = 0\)，则显然成立。我们下面只考虑 \(\norm{f} > 0\) 的情形。不妨设 \(\norm{f_{n}} > 0\)，否则总可以舍去有限项再进行分析。
+
+		记 \(\phi_{n} = \frac{f_{n}}{\norm{f_{n}}}\)，\(\phi = \frac{f}{\norm{f}}\). 那么 \(\phi_{n} \rightharpoonup \phi\) weakly 且 \(\norm{\phi_{n}} = \norm{\phi} = 1\). 由 Hahn-Banach 定理，存在 \(G \in \left(L^{p}(\R^{d})\right)^{\ast}\) 使得 \(G(\phi) = 1\) 且 \(\norm{G} = 1\). 又因为：
+		\begin{eqnarray*}
+			&& G(\phi_m + \phi_n) 
+			\leqslant \norm{\phi_m + \phi_n} 
+			\leqslant \norm{\phi_m} + \norm{\phi_n} 
+			= 2 \\
+			&& \lim_{m,n \to \infty} G(\phi_m + \phi_n) 
+			= \lim_{m \to \infty} G(\phi_m) + \lim_{n \to \infty} G(\phi_n) 
+			= 2
+		\end{eqnarray*}
+		所以由夹逼定理知：
+		\begin{equation*}
+			\lim_{m, n \to \infty} \norm{\phi_m + \phi_n} 
+			= 2 
+			= \lim_{m, n \to \infty} \left(\norm{\phi_m} + \norm{\phi_n}\right)
+		\end{equation*}
+		因为当 \(p \in (1, +\infty)\) 时，范数 \(\norm{\cdot}\) 是一致严格凸的，也即：
+		\begin{equation*}
+			\forall \epsilon \in (0, 2), \quad 
+			\sup_{\substack{ \norm{f} = \norm{g} = 1 \\ \norm{f - g} \geqslant \epsilon}} \norm{f + g} < 2
+		\end{equation*}
+		所以 \(\B{\phi_{n}}_{n \in \N}\) 是 Cauchy 列，存在 \(\widetilde{\phi} \in L^{p}(\R^{d})\) 使得 \(\phi_{n} \to \phi\). 由于强、弱极限的相同，知 \(\widetilde{\phi} = \phi\)，这也就说明了 \(f_{n} \to f\).
+	\end{proof}
 \end{theorem}
 
 \begin{lemma}[Discrete H\"{o}lder's inequality]\label{lemma: Discrete Holder inequality}
