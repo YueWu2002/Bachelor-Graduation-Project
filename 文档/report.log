@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.3.25)  3 APR 2023 23:22
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.3.25)  4 APR 2023 15:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1242,56 +1242,58 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
  (./includefiles/Poisson.tex
 LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <12> not available
 (Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 10.
- [2] [3] [4] [5] [6] [7] [8] [9] [10]
-Overfull \hbox (18.22755pt too wide) detected at line 443
+ [2] [3] [4] [5] [6] [7] [8] [9] [10] [11]
+Overfull \hbox (18.22755pt too wide) detected at line 465
 [][][][]
  []
 
-[11] [12] [13]
+[12] [13]
 File: includefiles/triangle nodes compare.png Graphic file (type bmp)
 <includefiles/triangle nodes compare.png>
  [14] [15]
-Overfull \hbox (21.82658pt too wide) in paragraph at lines 584--586
+Overfull \hbox (21.82658pt too wide) in paragraph at lines 606--608
 []\TU/SimSun(0)/m/n/12 取 参 考 函 数 空 间 $\U/rsfs/m/n/12 P[][][][]$ \TU/SimSun(0)/m/n/12 的 基 函 数 $[]$[][][]，|  这 里 $[][] [] [] \U/rsfs/m/n/12 P[][][][]$\TU/lmr/m/n/12 .
  []
 
 [16] [17]
-Overfull \hbox (44.3234pt too wide) in alignment at lines 668--678
+Overfull \hbox (44.3234pt too wide) in alignment at lines 690--700
  [][][] []
  []
 
 [18]
-Overfull \hbox (12.94612pt too wide) detected at line 718
+Overfull \hbox (12.94612pt too wide) detected at line 740
 [][] [] [][] [] [][] [] [][] [] [][] [] []
  []
 
-Missing character: There is no ⫋ (U+2ACB) in font [latinmodern-math.otf]/OT:script=math;language=dflt;!
 [19]
-Overfull \hbox (21.01848pt too wide) in paragraph at lines 835--893
- [] 
- []
-
-
-LaTeX Warning: Float too large for page by 96.17715pt on input line 894.
-
+Missing character: There is no ⫋ (U+2ACB) in font [latinmodern-math.otf]/OT:script=math;language=dflt;!
 [20]
-Overfull \hbox (15.78648pt too wide) in paragraph at lines 900--958
+Overfull \hbox (21.01848pt too wide) in paragraph at lines 857--915
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 96.17715pt on input line 959.
+LaTeX Warning: Float too large for page by 96.17715pt on input line 916.
 
+
+Overfull \hbox (15.78648pt too wide) in paragraph at lines 922--980
+ [] 
+ []
+
+
+LaTeX Warning: Float too large for page by 96.17715pt on input line 981.
+
+[21] [22] [23]
 File: includefiles/1D poisson LDG spy/legendre c=00 direct.eps Graphic file (type eps)
 <includefiles/1D poisson LDG spy/legendre c=00 direct.eps>
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.95116pt on input line 990.
+(Font)              scaled to size 10.95116pt on input line 1012.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00085pt on input line 990.
+(Font)              scaled to size 8.00085pt on input line 1012.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.94882pt on input line 990.
+(Font)              scaled to size 10.94882pt on input line 1012.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 990.
+(Font)              scaled to size 7.99915pt on input line 1012.
 File: includefiles/1D poisson LDG spy/legendre c=05 reduce.eps Graphic file (type eps)
 <includefiles/1D poisson LDG spy/legendre c=05 reduce.eps>
 File: includefiles/1D poisson LDG spy/legendre c=05 direct.eps Graphic file (type eps)
@@ -1306,23 +1308,23 @@ File: includefiles/1D poisson LDG spy/lobatto c=05 direct.eps Graphic file (type
 <includefiles/1D poisson LDG spy/lobatto c=05 direct.eps>
 File: includefiles/1D poisson LDG spy/lobatto c=05 reduce.eps Graphic file (type eps)
 <includefiles/1D poisson LDG spy/lobatto c=05 reduce.eps>
-[21] [22] [23] [24] [25]
-Overfull \hbox (21.01848pt too wide) in paragraph at lines 1074--1132
+
+Overfull \hbox (21.01848pt too wide) in paragraph at lines 1096--1154
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 96.17715pt on input line 1133.
+LaTeX Warning: Float too large for page by 96.17715pt on input line 1155.
 
 
-Overfull \hbox (5.9705pt too wide) in paragraph at lines 1139--1197
+Overfull \hbox (5.9705pt too wide) in paragraph at lines 1161--1219
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 96.17715pt on input line 1198.
+LaTeX Warning: Float too large for page by 96.17715pt on input line 1220.
 
-[26] [27] [28]
+[24] [25] [26] [27] [28] [29]
 File: includefiles/2D poisson LDG Dirichlet/Lobatto2D_equi p6.eps Graphic file (type eps)
 <includefiles/2D poisson LDG Dirichlet/Lobatto2D_equi p6.eps>
 File: includefiles/2D poisson LDG Dirichlet/Lobatto2D_ref p6.eps Graphic file (type eps)
@@ -1343,7 +1345,7 @@ File: includefiles/2D poisson LDG Dirichlet/mesh6.eps Graphic file (type eps)
 <includefiles/2D poisson LDG Dirichlet/mesh6.eps>
 
 
-LaTeX Warning: Float too large for page by 26.89604pt on input line 1309.
+LaTeX Warning: Float too large for page by 26.89604pt on input line 1331.
 
 File: includefiles/2D poisson LDG Dirichlet/spyZZ p1.eps Graphic file (type eps)
 <includefiles/2D poisson LDG Dirichlet/spyZZ p1.eps>
@@ -1358,50 +1360,50 @@ File: includefiles/2D poisson LDG Dirichlet/spyZZ p3.eps Graphic file (type eps)
 File: includefiles/2D poisson LDG Dirichlet/spySS p3.eps Graphic file (type eps)
 <includefiles/2D poisson LDG Dirichlet/spySS p3.eps>
 
-LaTeX Warning: Float too large for page by 45.13158pt on input line 1354.
+LaTeX Warning: Float too large for page by 45.13158pt on input line 1376.
 
 File: includefiles/2D poisson LDG Dirichlet/error_u.eps Graphic file (type eps)
 <includefiles/2D poisson LDG Dirichlet/error_u.eps>
 File: includefiles/2D poisson LDG Dirichlet/error_q.eps Graphic file (type eps)
 <includefiles/2D poisson LDG Dirichlet/error_q.eps>
-[29] [30]
+[30] [31]
 File: includefiles/2D poisson LDG Neumann/error_u.eps Graphic file (type eps)
 <includefiles/2D poisson LDG Neumann/error_u.eps>
 File: includefiles/2D poisson LDG Neumann/error_q.eps Graphic file (type eps)
 <includefiles/2D poisson LDG Neumann/error_q.eps>
- [31] [32] [33] [34] [35] [36] [37]
+ [32] [33]
 File: includefiles/DOF compare.png Graphic file (type bmp)
 <includefiles/DOF compare.png>
- [38] [39]
-Overfull \hbox (29.30186pt too wide) detected at line 1748
+ [34] [35] [36] [37] [38] [39]
+Overfull \hbox (29.30186pt too wide) detected at line 1770
 [][][][][]
  []
 
 
-Overfull \hbox (29.30186pt too wide) detected at line 1761
+Overfull \hbox (29.30186pt too wide) detected at line 1783
 [][][][][]
  []
 
 [40] [41] [42]
-Overfull \hbox (37.85878pt too wide) detected at line 1899
+Overfull \hbox (37.85878pt too wide) detected at line 1921
 [][][][] [] [] [] []
  []
 
-[43]
-Overfull \hbox (5.9825pt too wide) in paragraph at lines 1976--2030
+[43] [44]
+Overfull \hbox (5.9825pt too wide) in paragraph at lines 1998--2052
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 77.75595pt on input line 2031.
+LaTeX Warning: Float too large for page by 77.75595pt on input line 2053.
 
-[44] [45]
-Overfull \hbox (21.67848pt too wide) in paragraph at lines 2043--2097
+
+Overfull \hbox (21.67848pt too wide) in paragraph at lines 2065--2119
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 76.1705pt on input line 2098.
+LaTeX Warning: Float too large for page by 76.1705pt on input line 2120.
 
 File: includefiles/1D poisson HDG spy/legendre direct.eps Graphic file (type eps)
 <includefiles/1D poisson HDG spy/legendre direct.eps>
@@ -1411,33 +1413,33 @@ File: includefiles/1D poisson HDG spy/lobatto direct.eps Graphic file (type eps)
 <includefiles/1D poisson HDG spy/lobatto direct.eps>
 File: includefiles/1D poisson HDG spy/lobatto reduce.eps Graphic file (type eps)
 <includefiles/1D poisson HDG spy/lobatto reduce.eps>
-[46] [47]
-Overfull \hbox (63.5285pt too wide) detected at line 2160
+[45] [46] [47] [48]
+Overfull \hbox (63.5285pt too wide) detected at line 2182
 [][][][][]
  []
 
 
-Overfull \hbox (5.9825pt too wide) in paragraph at lines 2171--2225
+Overfull \hbox (5.9825pt too wide) in paragraph at lines 2193--2247
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 77.75595pt on input line 2226.
+LaTeX Warning: Float too large for page by 77.75595pt on input line 2248.
 
-[48]
-Overfull \hbox (21.03047pt too wide) in paragraph at lines 2239--2293
+
+Overfull \hbox (21.03047pt too wide) in paragraph at lines 2261--2315
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 76.1705pt on input line 2294.
+LaTeX Warning: Float too large for page by 76.1705pt on input line 2316.
 
-) (./includefiles/p-Laplacian.tex
+) (./includefiles/p-Laplacian.tex [49] [50] [51]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 17.28183pt on input line 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 17.27815pt on input line 1.
- [49] [50] [51] [52] [53] [54] [55]
+ [52] [53] [54] [55]
 Overfull \hbox (60.39813pt too wide) in alignment at lines 202--212
  [][][] []
  []
@@ -1467,72 +1469,68 @@ Overfull \hbox (15.6291pt too wide) detected at line 1307
 []
  []
 
-[78] [79]
-Overfull \hbox (3.70572pt too wide) detected at line 1375
-[]
- []
-
-[80] [81] [82]
-Overfull \hbox (9.34636pt too wide) in alignment at lines 1498--1515
+[78] [79] [80] [81] [82] [83]
+Overfull \hbox (9.34636pt too wide) in alignment at lines 1553--1570
  [][][] []
- []
-
-[83]
-Overfull \hbox (6.82773pt too wide) detected at line 1548
-[]
  []
 
 [84]
-Overfull \hbox (5.07222pt too wide) in alignment at lines 1590--1603
- [][][] []
- []
-
-[85] [86]
-Overfull \hbox (27.93114pt too wide) detected at line 1674
+Overfull \hbox (6.82773pt too wide) detected at line 1603
 []
  []
 
-[87]
-Overfull \hbox (33.37036pt too wide) in alignment at lines 1704--1737
+[85]
+Overfull \hbox (5.07222pt too wide) in alignment at lines 1645--1658
  [][][] []
  []
 
-[88] [89] [90] [91] [92] [93] [94] [95]
+[86] [87]
+Overfull \hbox (27.93114pt too wide) detected at line 1729
+[]
+ []
+
+[88]
+Overfull \hbox (33.37036pt too wide) in alignment at lines 1759--1792
+ [][][] []
+ []
+
+[89] [90] [91] [92] [93] [94] [95] [96]
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, J.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, J.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps>
+ [97]
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, J.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, J.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, grad.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, grad.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, rho.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, rho.eps>
- [96]
+ [98]
 File: includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, J.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, J.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, grad.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, grad.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps>
- [97] [98])
+ [99] [100]) [101]
 Overfull \hbox (9.63795pt too wide) in paragraph at lines 81--81
 []\TU/lmr/m/n/12 Alexandre Ern and Jean-Luc Guermond. “Distributions and Duality in Sobolev
  []
 
-[99]
+
 Overfull \hbox (4.69646pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/it/12 Equations\TU/lmr/m/n/12 . 2nd. Vol. 19. Graduate Studies in Mathematics. Providence, Rhode
  []
 
-[100] [101]
+[102] [103] [104]
 Overfull \hbox (4.56006pt too wide) in paragraph at lines 81--81
 [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][][][][] [] [][][] [] [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . 
  []
 
-[102]
+
 Overfull \hbox (5.56123pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/n/12 Framework”. In: \TU/lmr/m/it/12 Computer Physics Communications \TU/lmr/m/n/12 192 (Feb. 2015), pp. 205–
  []
@@ -1542,22 +1540,22 @@ Overfull \hbox (17.75537pt too wide) in paragraph at lines 81--81
 [] [] [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][][][][] [] [][][] [] [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 .
  []
 
-[103]
+[105]
 Overfull \hbox (7.1121pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/n/12 Legendre Quadrature”. In: \TU/lmr/m/it/12 SIAM Journal on Scientific Computing \TU/lmr/m/n/12 24.3 (2003),
  []
 
-
+[106]
 Overfull \hbox (33.41148pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/n/12 Mathematics. Springer Publishing Company, Incorporated, 2007. \TU/lmr/m/sc/12 isbn\TU/lmr/m/n/12 : 0387720650.
  []
 
-[104]
+
 Overfull \hbox (30.45671pt too wide) in paragraph at lines 81--81
 [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][][][][][][][][]$[]. 
  []
 
-[105]
+[107]
 Overfull \hbox (7.14717pt too wide) in paragraph at lines 81--81
 []\TU/lmr/m/n/12 J. A. Nitsche. “Über ein Variationsprinzip zur Lösung von Dirichlet-Problemen
  []
@@ -1572,12 +1570,12 @@ Overfull \hbox (15.49329pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][][][][][][]$[]. \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][]$[]. 
  []
 
-[106]
+[108]
 Overfull \hbox (6.86217pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/n/12 fied Hybridization of Discontinuous Galerkin, Mixed, and Continuous Galerkin
  []
 
-[107]
+[109] [110]
 Overfull \hbox (27.68668pt too wide) in paragraph at lines 81--81
 [][][] [] [][] [] [][][][][][][][][] [] [][][][][][] [] [][][][][][][][][] [] [][][][][] [] [][][][][][][][][][][][][][][][][][][][][][] []
  []
@@ -1587,7 +1585,7 @@ Overfull \hbox (0.27206pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/it/12 Equation\TU/lmr/m/n/12 . SpringerBriefs in Mathematics. Cham: Springer International Pub-
  []
 
-[108]
+
 Overfull \hbox (5.60997pt too wide) in paragraph at lines 81--81
 []\TU/lmr/m/n/12 Mohamed Farhloul and Hassan Manouzi. “On a Mixed Finite Element Method
  []
@@ -1602,27 +1600,27 @@ Overfull \hbox (30.45671pt too wide) in paragraph at lines 81--81
 [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][][][][][][][][]$[]. 
  []
 
-[109]
+[111]
 Overfull \hbox (33.02225pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][] [][] [][][][][][][] [] [][][][][] [][] []$[]. \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][] []
  []
 
-[110]
+[112]
 Overfull \hbox (4.77019pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/n/12 Version Finite Element Method and Application to Non-linear Elliptic PDEs”.
  []
 
-[111]
+[113]
 Overfull \hbox (12.90994pt too wide) in paragraph at lines 81--81
 []\TU/lmr/m/n/12 Bernardo Cockburn and Jiguang Shen. “A Hybridizable Discontinuous Galerkin
  []
 
-[112] [113]
+[114] [115]
 Overfull \hbox (0.36694pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/it/12 D’Automatique, Informatique, Recherche Opérationnelle. Analyse Numérique
  []
 
-[114] [115] (./report.aux)
+[116] [117] (./report.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.8pt have occurred.
@@ -1634,12 +1632,12 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31397 strings out of 478630
- 655972 string characters out of 5847730
- 1957012 words of memory out of 5000000
- 51020 multiletter control sequences out of 15000+600000
+ 31396 strings out of 478630
+ 655887 string characters out of 5847730
+ 1961012 words of memory out of 5000000
+ 51019 multiletter control sequences out of 15000+600000
  527726 words of font info for 185 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  89i,22n,115p,1152b,5024s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on report.xdv (115 pages, 2044320 bytes).
+Output written on report.xdv (117 pages, 2067164 bytes).

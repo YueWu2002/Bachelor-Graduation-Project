@@ -815,7 +815,7 @@
 	定义双线性算子 \(D_{DG}(\cdot, \cdot)\) 如下：
 	\begin{equation}
 		\begin{aligned}
-			& D_{DG}(\cdot; \cdot): W^{1,1}(\mathcal{T}_{h}) \times L^{1}(\Gamma^{D}) \mapsto \Sigma_{h}: \\
+			& D_{DG}(\cdot; \cdot): W^{1,1}(\mathcal{T}_{h}) \times L^{1}(\Gamma^{D}) \mapsto Q_{h}: \\
 			& \begin{aligned}
 				\forall \bm\zeta_{h} \in Q_{h}, \quad 
 				& \left(D_{DG}\left(v; g\right), \bm\zeta_{h}\right)_{\Omega} \\
@@ -886,7 +886,7 @@
 
 在下面的证明中，我们对所考虑的一系列网格 \(\B{\mathcal{T}_{h}}_{h \in \mathcal{H}}\) 提出以下要求：
 \begin{enumerate}
-	\item \(\mathcal{H}\) 是 \((0, h_{\rm max}]\) 的可数子集；
+	\item \(\mathcal{H}\) 是 \((0, h_{\rm max}]\) 的可数子集，且其聚点集为 \(\B{0}\)；
 	\item 每个单元的长宽比 (或外接圆--内切圆半径比) 一致有界，每个单元的面数 \(N_{\partial}^{K}\) 一致有界 (特别地，我们这里仅考虑单纯形单元，所以是平凡的)，每个面相邻的单元数 \(N_{\partial}^{e}\) 一致有界；
 	\item 存在常数 \(c_1, c_2 > 0\)，对于单元 \(K\) 的每个面 \(e\)，都有 \(h_{e}\abs{e} \in [c_1 \abs{K}, c_2 \abs{K}]\)；
 	\item 单元 \(K\) 都是仿射单纯形单元。
@@ -938,8 +938,8 @@
 	\begin{equation}
 		\begin{aligned}
 			& \forall v \in W^{1,p}(\mathcal{T}_{h}), \forall g \in L^{p}(\Gamma^{D}), \quad \\
-			& \norm{D_{DG}(v; g) - \nabla_{h} v}_{L^{p}(\Omega)}
-		\leqslant C \left(\norm{\jump{v}}_{L^{p}(\Gamma^{o}, h_{e}^{1-p})} + \norm{v - g}_{L^{p}(\Gamma^{D}, h_{e}^{1-p})}\right)
+			& \norm{D_{DG}(v; g) - \Pi_{Q_{h}} \nabla_{h} v}_{L^{p}(\Omega)} 
+			\leqslant C \left(\norm{\jump{v}}_{L^{p}(\Gamma^{o}, h_{e}^{1-p})} + \norm{v - g}_{L^{p}(\Gamma^{D}, h_{e}^{1-p})}\right) 
 		\end{aligned}
 	\end{equation}
 
@@ -1310,10 +1310,19 @@
 \end{theorem}
 
 
-\begin{theorem}[Pre-compactness (generalization of {\cite[Theorem 6.2]{10.1093/imanum/drn084}})]\label{p-Laplace LDG2 Pre-compactness}
-	当 \(d > 1\) 时，设 \(p \in [1, d)\) 且 \(q \in [1, p^{\ast})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in [1, +\infty)\) 且 \(q \in [1, +\infty)\). 设函数列 \(\B{v_{h}}_{h \in \mathcal{H}} \subset V_{h}\) 使得 \(\B{E_{h}(v_{h}; g_{D})}_{h \in \mathcal{H}}\) 有界。那么 \(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{q}(\Omega)\) 的预紧子集。
+\begin{theorem}[Pre-compactness]\label{p-Laplace LDG2 Pre-compactness}
+	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast})\) 且 \(r \in [1, \frac{(d-1)p}{d-p})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in (1, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty]\). 设函数列 \(\B{v_{h} \in V_{h}}_{h \in \mathcal{H}}\) 使得 \(\B{E_{h}(v_{h}; g_{D})}_{h \in \mathcal{H}}\) 有界。那么 \(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{q}(\Omega)\) 的预紧子集，且 \(\B{v_{h}\big|_{\partial\Omega}}_{h \in \mathcal{H}}\) 是 \(L^{r}(\partial\Omega)\) 的预紧子集。
 
 	\begin{proof}
+		取 \(u_{h, D} = \Pi_{V_{h}} u_{D}\)，其中 \(u_{D} = E_{\gamma} E_{\Gamma^{D}}^{\partial\Omega} g_{D} \in W^{1,p}(\Omega)\). 利用嵌入估计 \ref{p-Laplace LDG2 broken Poincare-Friedrichs inequality}、半范等价 \ref{p-Laplace LDG2 broken semi-norm equivalence}、利用离散 H\"{o}lder 不等式 \ref{lemma: Discrete Holder inequality}、多项式插值估计 \ref{thm: polynomial approximation}、迹定理 \ref{thm: trace theorem}、能量估计 \ref{p-Laplace LDG2 energy-norm estimate} 得：
+		\begin{align*}
+			& \norm{v_{h}}_{L^{1}(\Omega)} + \abs{v_{h}}_{W^{1, p}_{D}(\mathcal{T}_{h})} \\
+			& \lesssim \norm{v_{h} - u_{h, D}}_{J, p} + \norm{u_{h, D}}_{L^{1}(\Omega)} + \abs{u_{h, D}}_{W^{1, p}_{D}(\mathcal{T}_{h})} \\
+			& \lesssim 2^{p-1} E_{h}(v_{h}; g_{D})^{p} + 2^{p-1} E_{h}(u_{h, D}; g_{D})^{p} + \norm{u_{D}}_{W^{1,p}(\Omega)} \\
+			& \lesssim \sup_{h\in\mathcal{H}} E_{h}(v_{h}; g_{D})^{p} + \norm{g_{D}}_{W^{\frac{1}{p'}, p}(\Gamma^{D})}
+		\end{align*}
+		利用 \cite[Lemma 8]{10.1093/imanum/drn038} 即证毕。
+		\iffalse
 		当 \(g_{D} = 0\) 时，将所有的 \(v_{h}\) 进行零延拓。根据引理 \ref{p-Laplace LDG2 Bounded variation embedding} 和 \cite[Lemma 5.5]{10.1093/imanum/drn084}，我们有：
 		\begin{equation*}
 			\forall \bm\xi \in \R^{d}, \quad 
@@ -1337,74 +1346,104 @@
 		\end{equation*}
 		其中 \(\lambda = \frac{(q-1)r}{(r-1)q}\). 综上所述，\(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{q}(\R^{d})\) 的预紧子集，则 \(\B{v_{h}}_{h \in \mathcal{H}}\) 也是 \(L^{q}(\Omega)\) 的预紧子集。
 
+		由于 \(\B{\norm{v_{h}}_{J, p}}_{h \in \mathcal{H}}\) 有界，利用范数等价定理 \ref{p-Laplace LDG2 broken norm equivalence} 可知 \(\B{\norm{v_{h}}_{W^{1,p}_{D}(\mathcal{T}_{h})}}_{h \in \mathcal{H}}\) 也有界。注意到存在如下映射：\(W^{1, p}(\Omega) \to W^{1-\frac{1}{p}}(\partial\Omega) \hookrightarrow L^{r}(\partial\Omega)\)，利用文章 \cite{10.1093/imanum/drn038} 中的重构算子以及定理 \ref{thm: compact embeddings} 可知，\(\B{v_{h}\big|_{\partial\Omega}}_{h \in \mathcal{H}}\) 是预紧的。
+
 		当 \(g_{D} \neq 0\) 时，取 \(u_{h, D} = \Pi_{V_{h}} u_{D}\)，其中 \(u_{D} = E_{\gamma} E_{\Gamma^{D}}^{\partial\Omega} g_{D} \in W^{1,p}(\Omega)\). 由能量估计 \ref{p-Laplace energy estimate} 得 \(\B{E_{h}(u_{h, D}; g_{D})}_{h \in \mathcal{H}}\) 是有界列。利用离散 H\"{o}lder 不等式 \ref{lemma: Discrete Holder inequality} 得：
 		\begin{equation*}
 			2^{1-p} \norm{v_{h} - u_{h, D}}_{J, p}^{p} 
-			\leqslant E_{h}(u_{h, D}; g_{D})^{p} + E_{h}(u_{h}; g_{D})^{p}
+			\leqslant E_{h}(u_{h, D}; g_{D})^{p} + E_{h}(v_{h}; g_{D})^{p}
 		\end{equation*}
-		因此 \(\B{v_{h} - u_{h, D}}_{h \in \mathcal{H}}\) 是范数 \(\norm{\cdot}_{J, p}\) 下的有界列。由上文知其在 \(L^{q}(\Omega)\) 中预紧。由多项式插值估计 \ref{thm: polynomial approximation} (取次数为 \(0\)) 可知 \(\B{u_{h, D} - u_{D}}_{h \in \mathcal{H}}\) 在范数 \(\norm{\cdot}_{L^{1}(\Omega)} + \abs{\cdot}_{W^{1,p}_{D}(\Omega)}\) 下有界。利用与上文相似的过程，可知 \(\B{u_{h, D} - u_{D}}_{h \in \mathcal{H}}\) 也在 \(L^{q}(\Omega)\) 中预紧。因此，\(\B{v_{h}}_{h \in \mathcal{H}}\) 在 \(L^{q}(\Omega)\) 中预紧。
+		因此 \(\B{v_{h} - u_{h, D}}_{h \in \mathcal{H}}\) 是范数 \(\norm{\cdot}_{J, p}\) 下的有界列。由上文知其在 \(L^{q}(\Omega)\) 中预紧，其迹在 \(L^{r}(\partial\Omega)\) 中预紧。由多项式插值估计 \ref{thm: polynomial approximation} 可知 \(\B{u_{h, D} - u_{D}}_{h \in \mathcal{H}}\) 在范数 \(\norm{\cdot}_{L^{1}(\Omega)} + \abs{\cdot}_{W^{1,p}_{D}(\Omega)}\) 下有界。利用与上文相似的过程，可知 \(\B{u_{h, D} - u_{D}}_{h \in \mathcal{H}}\) 也在 \(L^{q}(\Omega)\) 中预紧，\(\B{(u_{h, D} - u_{D})\big|_{\partial\Omega}}_{h \in \mathcal{H}}\) 也在 \(L^{r}(\partial\Omega)\) 中预紧。因此，\(\B{v_{h}}_{h \in \mathcal{H}}\) 在 \(L^{q}(\Omega)\) 中预紧，\(\B{v_{h}\big|_{\partial\Omega}}_{h \in \mathcal{H}}\) 在 \(L^{r}(\partial\Omega)\) 中预紧。
+		\fi
 	\end{proof}
 \end{theorem}
 
 
 \begin{theorem}[Regularity of the limit (generalization of {\cite[Theorem 6.3]{10.1090/S0025-5718-10-02333-1}})]\label{p-Laplace LDG2 compactness and regularity}
-	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in (1, +\infty)\) 且 \(q \in [1, +\infty)\). 设函数列 \(\B{v_{h}}_{h \in \mathcal{H}} \subset V_{h}\) 使得 \(\B{E_{h}(v_{h}; g_{D})}_{h \in \mathcal{H}}\) 有界。那么，存在子列 \(\B{v_{h_{j}}}_{j \in \N_+}\) 以及 \(v \in W^{1,p}(\Omega)\) 使得：
+	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast})\) 且 \(r \in [1, \frac{(d-1)p}{d-p})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in (1, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty]\). 设函数列 \(\B{v_{h} \in V_{h}}_{h \in \mathcal{H}}\) 使得 \(\B{E_{h}(v_{h}; g_{D})}_{h \in \mathcal{H}}\) 有界。那么，存在子列 \(\B{v_{h_{j}}}_{j \in \N_+}\) 以及 \(v \in W^{1,p}(\Omega)\) 使得：
 	\begin{enumerate}
 		\item \(v\big|_{\Gamma^{D}} = g_{D}\)；
 		\item \(v_{h_{j}} \to v\) in \(L^{q}(\Omega)\)；
-		\item \(D_{DG}(v_{h_{j}}; g_{D}) \rightharpoonup \nabla v\) weakly in \(L^{p}(\Omega)\)；
-		\item \(v_{h_{j}}\big|_{\Gamma^{N}} \rightharpoonup v\big|_{\Gamma^{N}}\) weakly in \(L^{p}(\Gamma^{N})\).
+		\item \(v_{h_{j}}\big|_{\partial\Omega} \to v\big|_{\partial\Omega}\) in \(L^{r}(\partial\Omega)\)；
+		\item \(D_{DG}(v_{h_{j}}; g_{D}) \rightharpoonup \nabla v\) weakly in \(L^{p}(\Omega)\).
 	\end{enumerate}
 
 	\begin{proof}
-		首先，我们假设 \(g_{D} = 0\). 由定理 \ref{p-Laplace LDG2 Pre-compactness} 知 \(\B{v_{h}}_{h \in \mathcal{H}} \subset V_{h}\) 在 \(L^{q}(\Omega)\) 中是预紧的，不妨设 \(v_{h} \to v\) in \(L^{q}(\Omega)\) (否则，总可以取一个子列使其成立)。记 \(w_{h} = D_{DG}(v_{h}; 0)\). 由 \(\norm{\cdot}_{J, p}\) 的定义知，\(\B{w_{h}}_{h \in \mathcal{H}}\) 是 \(L^{p}(\Omega)\) 中的有界列。由于 \(p \in (1, +\infty)\) 时 \(L^{p}\) 是自反的 Banach 空间，因此存在 \(w \in L^{p}(\Omega)\) 使得 (不妨设) \(w_{h} \rightharpoonup w\) weakly in \(L^{p}(\Omega)\) (否则，总可以取一个子列使其成立). 我们下面说明 \(w = \nabla v\) 以及 \(v\big|_{\Gamma^{D}} = 0\).
+		由定理 \ref{p-Laplace LDG2 Pre-compactness} 知：\(\B{v_{h} \in V_{h}}_{h \in \mathcal{H}}\) 在 \(L^{q}(\Omega)\) 中预紧，\(\B{v_{h}\big|_{\partial\Omega}}_{h \in \mathcal{H}}\) 在 \(L^{r}(\partial\Omega)\) 中预紧。不妨设 \(v_{h} \to v\) in \(L^{q}(\Omega)\) 且 \(v_{h}\big|_{\partial\Omega} \to v\big|_{\partial\Omega}\) in \(L^{r}(\partial\Omega)\) (否则，总可以取一个子列使其成立)。记 \(w_{h} = D_{DG}(v_{h}; g_{D})\)，那么 \(\B{w_{h}}_{h \in \mathcal{H}}\) 是 \(L^{p}(\Omega)\) 中的有界列。由于当 \(p \in (1, +\infty)\) 时，\(L^{p}\) 是自反的 Banach 空间，因此存在 \(w \in L^{p}(\Omega)\) 使得 (不妨设) \(w_{h} \rightharpoonup w\) weakly in \(L^{p}(\Omega)\) (否则，总可以取一个子列使其成立). 我们下面说明 \(w = \nabla v\) 以及 \(v\big|_{\Gamma^{D}} = g_{D}\).
 
 		注意到：当 \(\bm\varphi \in L^{p'}(\mathrm{div}, \mathcal{T}_{h})\) 时，对于任何满足 \(Q_{h} \subset \ker (I - \Pi_{h})\) 的线性算子 \(\Pi_{h}\) 有：
 		\begin{align*}
-			& \left(D_{DG}(v_{h}; 0), \bm\varphi \right)_{\Omega} + \left(v_{h}, \nabla_{h} \cdot \bm\varphi\right)_{\Omega} \\
-			& = \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\& + \left\langle v_{h}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} 
+			& \left(D_{DG}(v_{h}; g_{D}), \bm\varphi \right)_{\Omega} + \left(v_{h}, \nabla_{h} \cdot \bm\varphi\right)_{\Omega} \\
+			& = \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o}} + \left\langle v_{h} - g_{D}, (\bm\varphi - \Pi_{h}\bm\varphi) \cdot \bm n \right\rangle_{\Gamma^{D}} \\& + \left\langle g_{D}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{D}} + \left\langle v_{h}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}}
 		\end{align*}
+		在下文中，我们取 \(\Pi_{h} = \Pi_{Q_{h}}\) 为积分插值算子。
 
-		任取 \(\bm\varphi \in W^{1, p'}_{0}(\Omega)\)，取 \(\Pi_{h} = \Pi_{Q_{h}}\) 为积分插值算子，利用多项式插值估计 \ref{thm: polynomial approximation} 和迹不等式 \ref{thm: Multiplicative trace inequality}，当 \(h \to 0^{+}\) 时：
+		任取 \(\bm\varphi \in W^{1, p'}(\Omega)\) 且 \(\bm\varphi \cdot \bm n\big|_{\partial\Omega} = 0\). 利用多项式插值估计 \ref{thm: polynomial approximation} 和迹不等式 \ref{thm: Multiplicative trace inequality}，当 \(h \to 0^{+}\) 时：
 		\begin{align*}
 			& \abs{\left(w_{h}, \bm\varphi\right)_{\Omega} + \left(v, \nabla \cdot \bm\varphi\right)_{\Omega}} \\
-			& \leqslant \abs{\left(v - v_{h}, \nabla \cdot \bm\varphi \right)_{\Omega}} + \abs{\left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}}} \\& + \abs{\left\langle v_{h}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}}} + \abs{\left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}}} \\
-			& \lesssim \norm{v - v_{h}}_{L^{p}(\Omega)} \norm{\nabla \cdot \bm\varphi}_{L^{p'}(\Omega)} + \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, \eta h_{e}^{1-p})} \norm{(\bm\varphi - \Pi_{h}\bm\varphi) \cdot \bm n}_{L^{p'}(\Gamma^{o} \cup \Gamma^{D}, h_{e})} \\& + 0 + 0 \\
-			& \lesssim \norm{v - v_{h}}_{L^{p}(\Omega)} \norm{\nabla \cdot \bm\varphi}_{L^{p'}(\Omega)} + \norm{v_{h}}_{J, p} h \abs{\bm\varphi}_{W^{1,p'}(\Omega)} \\
-			& \to 0
+			& \leqslant \abs{\left(v - v_{h}, \nabla \cdot \bm\varphi \right)_{\Omega}} + \abs{\left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o}}} \\& + \abs{\left\langle v_{h} - g_{D}, (\bm\varphi - \Pi_{h}\bm\varphi) \cdot \bm n\right\rangle_{\Gamma^{D}}} + \abs{\left\langle g_{D}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{D}}} \\& + \abs{\left\langle v_{h}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}}} + \abs{\left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}}} \\
+			& \lesssim \norm{v - v_{h}}_{L^{p}(\Omega)} \norm{\nabla \cdot \bm\varphi}_{L^{p'}(\Omega)} + \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} \norm{(\bm\varphi - \Pi_{h}\bm\varphi) \cdot \bm n}_{L^{p'}(\Gamma^{o}, h_{e})} \\& + \norm{v_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} \norm{(\bm\varphi - \Pi_{h}\bm\varphi) \cdot \bm n}_{L^{p'}(\Gamma^{D}, h_{e})} + 0 + 0 + 0 \\
+			& \lesssim \norm{v - v_{h}}_{L^{p}(\Omega)} \norm{\nabla \cdot \bm\varphi}_{L^{p'}(\Omega)} + E_{h}(v_{h}; g_{D}) h \abs{\bm\varphi}_{W^{1,p'}(\Omega)} \\
+			& \to 0 
 		\end{align*}
 		因此，由弱导数的定义知 \(w_{h} \rightharpoonup \nabla v\)，再根据弱极限的唯一性可知 \(w = \nabla v\)，从而 \(v \in W^{1,p}(\Omega)\). 
 		
-		与此同时，任取 \(\bm\varphi \in W^{1,p'}(\Omega)\) 且 \(\bm\varphi \cdot \bm n \big|_{\Gamma^{N}} = 0\). 一方面，当 \(h \to 0^{+}\) 时：
+		任取 \(\bm\varphi \in W^{1,p'}(\Omega)\) 且 \(\bm\varphi \cdot \bm n \big|_{\Gamma^{N}} = 0\). 一方面，利用强、弱收敛性，当 \(h \to 0^{+}\) 时：
 		\begin{align*}
-			& \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h} \bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} + \left\langle v_{h} - v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} \\
-			& = \left(D_{DG}(v_{h}; 0), \bm\varphi\right)_{\Omega} + \left(v_{h}, \nabla \cdot \bm\varphi\right)_{\Omega} - \left\langle v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} \\
-			& = \left(w_{h}, \bm\varphi\right)_{\Omega} + \left(v_{h}, \nabla \cdot \bm\varphi\right)_{\Omega} - \left\langle v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} \\
-			& \to \left\langle v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{D}}
+			& \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h} \bm\varphi} \right\rangle_{\Gamma^{o}} + \left\langle v_{h} - g_{D}, (\bm\varphi - \Pi_{h}\bm\varphi) \cdot \bm n \right\rangle_{\Gamma^{D}} \\& + \left\langle v_{h} - v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} \\
+			& = \left(w_{h}, \bm\varphi\right)_{\Omega} + \left(v_{h}, \nabla \cdot \bm\varphi\right)_{\Omega} - \left\langle v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}} - \left\langle g_{D}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{D}} \\
+			& \to \left\langle v - g_{D}, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{D}}
 		\end{align*}
-		另一方面，利用多项式插值估计 \ref{thm: polynomial approximation} 和迹不等式 \ref{thm: Multiplicative trace inequality}，当 \(h \to 0^{+}\) 时，上式左侧也收敛到 \(0\). 因此 \(v\big|_{\Gamma^{D}} = 0\). 
-		
-		同样地，任取 \(\bm\varphi \in W^{1,p'}(\Omega)\) 且 \(\bm\varphi \cdot \bm n \big|_{\Gamma^{D}} = 0\). 当 \(h \to 0^{+}\) 时：
+		另一方面，利用多项式插值估计 \ref{thm: polynomial approximation} 和迹不等式 \ref{thm: Multiplicative trace inequality}，当 \(h \to 0^{+}\) 时：
 		\begin{align*}
-			& \left\langle v_{h}, \bm\varphi\cdot\bm n \right\rangle_{\Gamma^{N}} \\
-			& = \left(D_{DG}(v_{h}; 0), \bm\varphi \right)_{\Omega} + \left(v_{h}, \nabla \cdot \bm\varphi\right)_{\Omega} \\& - \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} - \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} \\
-			& = \left(w_{h}, \bm\varphi \right)_{\Omega} + \left(v_{h}, \nabla \cdot \bm\varphi\right)_{\Omega} \\& - \left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h}\bm\varphi} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} - \left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}} \\
-			& \to \left(\nabla v, \bm\varphi \right)_{\Omega} + \left(v, \nabla \cdot \bm\varphi\right)_{\Omega} + 0 \\
-			& = \left(v, \bm\varphi\cdot\bm n\right)_{\Gamma^{N}}
+			& \abs{\left\langle \jump{v_{h}}, \avg{\bm\varphi - \Pi_{h}\bm\varphi} + \bm C_{12} \jump{\Pi_{h} \bm\varphi} \right\rangle_{\Gamma^{o}}} + \abs{\left\langle v_{h} - g_{D}, (\bm\varphi - \Pi_{h}\bm\varphi) \cdot \bm n \right\rangle_{\Gamma^{D}}} \\& + \abs{\left\langle v_{h} - v, \bm\varphi \cdot \bm n \right\rangle_{\Gamma^{N}}} + \abs{\left\langle \avg{v_{h}}, \jump{\bm\varphi} \right\rangle_{\Gamma^{o}}} \\
+			& \leqslant \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} \norm{(\bm\varphi - \Pi_{h} \bm\varphi) \cdot \bm n}_{L^{p'}(\Gamma^{o}, h_{e})} \\& + \norm{v_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} \norm{(\bm\varphi - \Pi_{h} \bm\varphi) \cdot \bm n}_{L^{p'}(\Gamma^{D}, h_{e})} + 0 + 0 \\
+			& \lesssim E_{h}(v_{h}; g_{D}) h \abs{\bm\varphi}_{W^{1, p'}(\Omega)} \\
+			& \to 0 
 		\end{align*}
-		因此，\(v_{h} \rightharpoonup v\).
-
-		最后，当 \(g_{D} \neq 0\) 时，\(\B{v_{h} - u_{h, D}}_{h \in \mathcal{H}}\) 符合上一种情形的假设。同时，参考上文的过程以及定理 \ref{p-Laplace LDG2 Pre-compactness} 的证明过程，我们可以证明 \(\B{u_{h, D}}_{h \in \mathcal{H}}\) 存在子列满足命题中的结论。因此，\(\B{v_{h}}_{h \in \mathcal{H}}\) 满足命题中的结论。
+		因此 \(v\big|_{\Gamma^{D}} = g_{D}\). 
 	\end{proof}
 \end{theorem}
 
 
+\begin{lemma}\label{p-Laplace LDG2 existence of auxiliary sequence}
+	设 \(k \in \N_+\) 是 LDG 格式中使用的多项式次数。那么，\(\forall v \in W^{1,p}(\Omega)\)，存在序列 \(\B{v_{h_{j}} \in V_{h_{j}}}_{j \in \N}\)，使得 \(\lim_{j \to \infty} J_{h_{j}}(v_{h_{j}}) = J(v)\)，其中，取 \(g_{D} = v \big|_{\Gamma^{D}}\).
+
+	\begin{proof}
+		我们先考虑 \(v \in W^{2, p}(\Omega)\) 的情形。取 \(v_{h} = \Pi_{V_{h}} v\)，其中 \(\Pi_{V_{h}}: L^{1}(\Omega) \mapsto V_{h}\) 是积分插值算子。易见：
+		\begin{align*}
+			& \abs{J_{h}(v_{h}) - J(v)} \\
+			& \leqslant \frac{1}{p}\abs{\norm{D_{DG}(v_{h}; g_{D})}_{L^{p}(\Omega)}^{p} - \norm{\nabla v}_{L^{p}(\Omega)}^{p}} + \frac{1}{p}\norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p} \\& + \frac{1}{p}\norm{v_{h} - g_{D}}_{L^{p}(\Gamma^{D}, h_{e}^{1-p})}^{p} + \abs{\left(f, v_{h} - v\right)_{\Omega}} + \abs{\left\langle \bm g_{N} \cdot \bm n, v_{h} - v \right\rangle_{\Gamma^{N}}} \\
+			& \leqslant \frac{1}{p}\abs{\norm{D_{DG}(v_{h}; g_{D})}_{L^{p}(\Omega)}^{p} - \norm{\nabla v}_{L^{p}(\Omega)}^{p}} + \frac{1}{p}\norm{\jump{v_{h} - v}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, \eta h_{e}^{1-p})}^{p} \\& + \norm{f}_{L^{p'}(\Omega)} \norm{v_{h} - v}_{L^{p}(\Omega)} + \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})} \norm{v_{h} - v}_{L^{p}(\Gamma^{N})}
+		\end{align*}		
+		由多项式插值估计 \ref{thm: polynomial approximation} (取次数为 \(1\)，要求 \(k \geqslant 1\)) 和迹不等式 \ref{thm: Multiplicative trace inequality} 得到：
+		\begin{equation*}
+			\norm{v_{h} - v}_{L^{p}(\Omega)} 
+			+ h \norm{v_{h} - v}_{W^{1, p}_{D}(\mathcal{T}_{h})} 
+			+ h^{\frac{1}{p}} \norm{v_{h} - v}_{L^{p}(\partial\Omega)} 
+			\lesssim h^2 \abs{v}_{W^{2, p}(\Omega)}
+		\end{equation*}
+		又由引理 \ref{lemma: Consistency of the DG-gradient operator} 得：
+		\begin{align*}
+			& \norm{D_{DG}(v_{h}; g_{D}) - \nabla v}_{L^{p}(\Omega)} \\
+			& \leqslant \norm{D_{DG}(v_{h}; g_{D}) - \nabla_{h} v_{h}}_{L^{p}(\Omega)} + \norm{\nabla_{h} v_{h} - \nabla v}_{L^{p}(\Omega)} \\
+			& \lesssim \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} + \norm{v_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} + \norm{\nabla_{h}(v_{h} - v)}_{L^{p}(\Omega)} \\
+			& \lesssim \norm{v_{h} - v}_{W^{1,p}_{D}(\mathcal{T}_{h})}
+		\end{align*}
+		综上所述，当 \(h \to 0^{+}\) 时，\(J_{h}(v_{h}) \to J(v)\). 
+
+		当 \(v \in W^{1,p}(\Omega)\) 时，我们使用对角线构造法说明这样的序列存在。由于 \(W^{2,p}(\Omega)\) 在 \(W^{1, p}(\Omega)\) 中稠密，所以可以取出一列 \(\B{v_{j}}_{j \in \N} \subset W^{2, p}(\Omega)\) 使得 \(\lim_{j \to \infty} \norm{v_{j} - v}_{W^{1, p}(\Omega)} = 0\). 因为 \(J(\cdot)\) 在 \(\B{w \in W^{1, p}(\Omega), w\big|_{\Gamma^{D}} = v\big|_{\Gamma^{D}}}\) 上连续，所以 \(\lim_{j \to \infty} J(v_{j}) = J(v)\). 对于每一个 \(v_{j}\)，由上文知存在序列 \(\B{v_{h_{l}, j} \in V_{h_{l}}}_{l \in \N}\) 使 \(\lim_{l \in \N} J_{h_{l}}(v_{h_{l}, j}) = J(v_{j})\). 此时，序列 \(\B{v_{h_{j}, j}}_{j \in \N}\) 即为符合要求的序列。
+	\end{proof}
+\end{lemma}
+
+
 \begin{theorem}[Variational Convergence {\cite[Theorem 6.1]{10.1093/imanum/drn038}}]
-	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in (1, +\infty)\) 且 \(q \in [1, +\infty)\). 设 \(u_{h} \in V_{h}\) 是 LDG primal 弱形式 \eqref{p-Laplace LDG primal weak form 2} 或最优化形式 \eqref{p-Laplace LDG minimization form 2} 的解。设 \(u \in W^{1,p}(\Omega)\) 是 \(p\)-Laplace 方程 \eqref{p-Laplace primal form} 的解。那么当 \(h \to 0^{+}\) 时：
+	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast})\) 且 \(r \in [1, \frac{(d-1)p}{d-p})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in (1, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty]\). 设 \(k \in \N_+\) 是 LDG 格式中使用的多项式次数。设 \(u_{h} \in V_{h}\) 是 LDG primal 弱形式 \eqref{p-Laplace LDG primal weak form 2} 或最优化形式 \eqref{p-Laplace LDG minimization form 2} 的解。设 \(u \in W^{1,p}(\Omega)\) 是 \(p\)-Laplace 方程 \eqref{p-Laplace primal form} 的解。那么，当 \(h \to 0^{+}\) 时：
 	\begin{enumerate}
 		\item \(u_{h} \to u\) in \(L^{q}(\Omega)\)；
+		\item \(u_{h}\big|_{\partial\Omega} \to u\big|_{\partial\Omega}\) in \(L^{r}(\partial\Omega)\)；
 		\item \(D_{DG}(u_{h}; g_{D}) \to \nabla u\) in \(L^{p}(\Omega)\)；
-		\item \(\norm{\jump{u_{h} - u}}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, h_{e}^{1-p})} \to 0\)；
+		\item \(\norm{u_{h} - u}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, h_{e}^{1-p})} \to 0\)；
 		\item \(J_{h}(u_{h}) \to J(u)\).
 	\end{enumerate}
 
@@ -1413,17 +1452,33 @@
 		\begin{enumerate}
 			\item \(u^{\ast} \big|_{\Gamma^{D}} = g_{D}\)；
 			\item \(u_{h_{j}} \to u^{\ast}\) in \(L^{q}(\Omega)\)；
-			\item \(D_{DG}(u_{h_{j}}; g_{D}) \rightharpoonup \nabla u\) weakly in \(L^{p}(\Omega)\).
+			\item \(u_{h_{j}}\big|_{\partial\Omega} \to u^{\ast}\big|_{\partial\Omega}\) in \(L^{r}(\Omega)\)
+			\item \(D_{DG}(u_{h_{j}}; g_{D}) \rightharpoonup \nabla u^{\ast}\) weakly in \(L^{p}(\Omega)\).
 		\end{enumerate}
-		由于 \(\B{E_{h}(u_{h}; g_{D})}_{h \in \mathcal{H}}\) 有界，由迹估计 \ref{p-Laplace LDG2 broken trace inequality} 可知 \(\B{\norm{u_{h}}_{L^{p}(\Gamma^{N})}}_{h \in \mathcal{H}}\) 有界。从而可以不妨设 \(\B{u_{h}\big|_{\Gamma^{N}}}\) 弱收敛。
 
-		利用 \(D_{DG}(u_{h_{j}}; g_{D})\) 的弱收敛性、\(u_{h_{j}}\) 的强收敛性、\(\)
-		
-		以及 \(J(\cdot)\) 的结构：% to be continued
-		\begin{equation*}
+		接下来，我们说明 \(u^{\ast} = u\)，以及存在一个子列满足命题中的 5 个收敛结果。取 \(\B{v_{h_{j}}}_{j \in \N}\) 为引理 \ref{p-Laplace LDG2 existence of auxiliary sequence} 中令 \(v = u\) 所得到的序列 (这里，不妨设对应的网格序列是相同的，否则，在网格指标集 \(\B{h_{j}}\) 上使用该引理，然后再取子列即可)。利用 \(D_{DG}(u_{h_{j}}; g_{D})\) 的弱收敛性、\(u_{h_{j}}\) 的强收敛性、\(u_{h_{j}}\big|_{\Gamma^{N}}\) 的强收敛性、\(u_{h_{j}}\) 的最小化性质，以及 \(J(\cdot)\) 的结构 (范数的下半连续性) 得：
+		\begin{align*}
 			J(u^{\ast}) 
-			\leqslant \liminf_{j \to \infty} \frac{1}{p}\norm{D_{DG}(u_{h_{j}}; g_{D})}_{L^{p}(\Omega)}^{p} - \left(f, u_{h_{j}}\right)_{\Omega} - \left\langle  \right\rangle_{\Gamma^{N}}
-		\end{equation*}
+			& \leqslant \liminf_{j \to \infty} \left( \frac{1}{p}\norm{D_{DG}(u_{h_{j}}; g_{D})}_{L^{p}(\Omega)}^{p} - \left(f, u_{h_{j}}\right)_{\Omega} - \left\langle \bm g_{N} \cdot \bm n, u_{h_{j}} \right\rangle_{\Gamma^{N}} \right) \\
+			& \leqslant \liminf_{j \to \infty} J_{h_{j}}(u_{h_{j}}) \\
+			& \leqslant \limsup_{j \to \infty} J_{h_{j}}(u_{h_{j}}) \\
+			& \leqslant \limsup_{j \to \infty} J_{h_{j}}(v_{h_{j}}) \\
+			& = J(u)
+		\end{align*}
+		又因为 \(u\) 是 \(J\) 的最小化子，所以 \(u = u^{\ast}\)，且上述不等式中的所有等号都成立了，这说明 \(J_{h_{j}}(u_{h_{j}})\) 收敛到 \(J(u)\)、边界惩罚项收敛到 \(0\)、以及 \(\norm{D_{DG}(u_{h_{j}}; g_{D})}_{L^{p}(\Omega)}\) 收敛到 \(\norm{\nabla u}_{L^{p}(\Omega)}\). 利用 
+		% to be continued: 说明广义导数的强收敛性
+		
+		至此，我们总结如下：
+		\begin{enumerate}
+			\item \(u_{h_{j}} \to u\) in \(L^{q}(\Omega)\)；
+			\item \(u_{h_{j}}\big|_{\partial\Omega} \to u\big|_{\partial\Omega}\) in \(L^{r}(\Omega)\)；
+			\item \(D_{DG}(u_{h_{j}}; g_{D}) \rightharpoonup \nabla u\) weakly in \(L^{p}(\Omega)\)；
+			\item \(\norm{u_{h_{j}} - u}_{L^{p}(\Gamma^{o} \cup \Gamma^{D}, h_{e}^{1-p})} \to 0\)；
+			\item \(J_{h_{j}}(u_{h_{j}}) \to J(u)\).
+		\end{enumerate}
+
+		最后，我们还需要说明整个 \(\B{u_{h}}_{h \in \mathcal{H}}\) 都满足命题中的 5 个收敛结果，而不是仅存在一个子列满足。
+		
 	\end{proof}
 \end{theorem}
 

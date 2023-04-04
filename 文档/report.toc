@@ -1,42 +1,42 @@
 \contentsline {section}{\numberline {1}DG for the Poisson Equation}{3}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Mathematical Preliminaries}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}General Theory for the Poisson Equation}{6}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}Primal Form}{6}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Mixed Form}{7}{subsubsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2}General Theory for the Poisson Equation}{7}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Primal Form}{7}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Mixed Form}{8}{subsubsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.3}General DG schemes for the Poisson Equation}{8}{subsection.1.3}%
-\contentsline {subsubsection}{\numberline {1.3.1}The Local Scheme}{9}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}The Global Scheme}{10}{subsubsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.4}Numerical Schemes in Matrix Form}{11}{subsection.1.4}%
-\contentsline {subsubsection}{\numberline {1.4.1}1D Case Matrix}{12}{subsubsection.1.4.1}%
-\contentsline {subsubsection}{\numberline {1.4.2}2D Case Review}{13}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.3.1}The Local Scheme}{10}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}The Global Scheme}{11}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}Numerical Schemes in Matrix Form}{12}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}1D Case Matrix}{13}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}2D Case Review}{14}{subsubsection.1.4.2}%
 \contentsline {subsubsection}{\numberline {1.4.3}2D Case Matrix}{15}{subsubsection.1.4.3}%
-\contentsline {subsection}{\numberline {1.5}The Local DG Method}{16}{subsection.1.5}%
-\contentsline {subsubsection}{\numberline {1.5.1}The LDG Formulation}{16}{subsubsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5}The Local DG Method}{17}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}The LDG Formulation}{17}{subsubsection.1.5.1}%
 \contentsline {subsubsection}{\numberline {1.5.2}Numerical Discretization}{20}{subsubsection.1.5.2}%
 \contentsline {subsubsection}{\numberline {1.5.3}Numerical Example (1D Dirichlet)}{21}{subsubsection.1.5.3}%
-\contentsline {subsubsection}{\numberline {1.5.4}Numerical Example (1D Neumann)}{26}{subsubsection.1.5.4}%
-\contentsline {subsubsection}{\numberline {1.5.5}Numerical Example (2D Dirichlet)}{26}{subsubsection.1.5.5}%
-\contentsline {subsubsection}{\numberline {1.5.6}Numerical Example (2D Neumann)}{31}{subsubsection.1.5.6}%
-\contentsline {subsubsection}{\numberline {1.5.7}Conclusion}{33}{subsubsection.1.5.7}%
-\contentsline {subsection}{\numberline {1.6}The Hybridizable DG Method}{33}{subsection.1.6}%
-\contentsline {subsubsection}{\numberline {1.6.1}The HDG Formulation}{33}{subsubsection.1.6.1}%
+\contentsline {subsubsection}{\numberline {1.5.4}Numerical Example (1D Neumann)}{24}{subsubsection.1.5.4}%
+\contentsline {subsubsection}{\numberline {1.5.5}Numerical Example (2D Dirichlet)}{29}{subsubsection.1.5.5}%
+\contentsline {subsubsection}{\numberline {1.5.6}Numerical Example (2D Neumann)}{32}{subsubsection.1.5.6}%
+\contentsline {subsubsection}{\numberline {1.5.7}Conclusion}{34}{subsubsection.1.5.7}%
+\contentsline {subsection}{\numberline {1.6}The Hybridizable DG Method}{34}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}The HDG Formulation}{34}{subsubsection.1.6.1}%
 \contentsline {subsubsection}{\numberline {1.6.2}Numerical Discretization}{43}{subsubsection.1.6.2}%
-\contentsline {subsubsection}{\numberline {1.6.3}Numerical Example 1 (Dirichlet)}{44}{subsubsection.1.6.3}%
-\contentsline {subsubsection}{\numberline {1.6.4}Numerical Example 2 (Neumann)}{48}{subsubsection.1.6.4}%
+\contentsline {subsubsection}{\numberline {1.6.3}Numerical Example 1 (Dirichlet)}{45}{subsubsection.1.6.3}%
+\contentsline {subsubsection}{\numberline {1.6.4}Numerical Example 2 (Neumann)}{45}{subsubsection.1.6.4}%
 \contentsline {subsubsection}{\numberline {1.6.5}Conclusion}{49}{subsubsection.1.6.5}%
-\contentsline {section}{\numberline {2}DG for the \(p\)-Laplacian Equation}{49}{section.2}%
-\contentsline {subsection}{\numberline {2.1}General Theory for the \(p\)-Laplacian Equation}{52}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Primal Form}{52}{subsubsection.2.1.1}%
+\contentsline {section}{\numberline {2}DG for the \(p\)-Laplacian Equation}{52}{section.2}%
+\contentsline {subsection}{\numberline {2.1}General Theory for the \(p\)-Laplacian Equation}{53}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Primal Form}{53}{subsubsection.2.1.1}%
 \contentsline {subsubsection}{\numberline {2.1.2}Mixed Form}{54}{subsubsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.2}Review of FEM Methods for the \(p\)-Laplacian Equation}{55}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Local DG Method 1}{55}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}The LDG Formulation}{55}{subsubsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3}Local DG Method 1}{56}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}The LDG Formulation}{56}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}Numerical Discretization}{58}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Numerical Example 1 (1D Dirichlet)}{58}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.3}Numerical Example 1 (1D Dirichlet)}{59}{subsubsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.4}Conclusion}{65}{subsubsection.2.3.4}%
 \contentsline {subsection}{\numberline {2.4}Local DG Method 2}{66}{subsection.2.4}%
 \contentsline {subsubsection}{\numberline {2.4.1}The LDG Formulation}{66}{subsubsection.2.4.1}%
 \contentsline {subsubsection}{\numberline {2.4.2}Unisolvence, Convergence, and \emph {A Priori} Error Estimate}{68}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Numerical Discretization}{89}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}Numerical Example 1 (1D Dirichlet)}{90}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Conclusion}{99}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.3}Numerical Discretization}{90}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Numerical Example 1 (1D Dirichlet)}{92}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Conclusion}{101}{subsubsection.2.4.5}%

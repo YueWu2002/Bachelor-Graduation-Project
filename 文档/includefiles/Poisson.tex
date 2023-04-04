@@ -82,7 +82,7 @@
 	\begin{equation}
 		\norm{f g}_{L^1(X)} \leqslant \norm{f}_{L^{p}(X)} \norm{g}_{L^{p'}(X)}
 	\end{equation}
-    等号成立当且仅当 \(\abs{f}^{p}\) 与 \(\abs{g}^{p'}\) 线性相关。
+	等号成立当且仅当 \(\abs{f}^{p}\) 与 \(\abs{g}^{p'}\) 线性相关。
 \end{theorem}
 
 \begin{theorem}[Brunn-Minkowski's inequality for integrals {\cite[Theorem 6.19]{folland_ch6}}]
@@ -95,6 +95,28 @@
 \begin{definition}[Sobolev conjugate index]
 	在 \(\R^d\) 空间中，对于 \(p \in [1, d)\)，定义 \(p\) 的 Sobolev 共轭指标为 \(p^{\ast}\)，满足 \(\frac{1}{p^{\ast}} = \frac{1}{p} - \frac{1}{d}\).
 \end{definition}
+
+\begin{theorem}[Sobolev embedding (fractional order) {\cite[Theorem 2.31]{10.1007/978-3-030-56341-7_2}}]
+	设 \(\Omega \subset \R^{d}\) 是有界的 Lipschitz 区域，并设 \(s > 0\)，\(p \in [1, +\infty]\). 有以下嵌入：
+	\begin{equation}
+		W^{s, p}(\Omega) 
+		\hookrightarrow \begin{cases}
+			L^{q}(\Omega), & q \in [1, \frac{p d}{d - s p}], \text{if \(s p < d\)} \\
+			L^{q}(\Omega), & q \in [1, +\infty), \text{if \(s p = d\)} \\
+			L^{\infty}(\Omega) \cap C^{0,\alpha}(\overline{\Omega}), & \alpha = 1-\frac{d}{sp}, \text{if \(s p > d\)}
+		\end{cases}
+	\end{equation}
+	并且，当 \(s = d\) 且 \(p = 1\) 时：\(W^{d, 1}(\Omega) \hookrightarrow L^{\infty}(\Omega) \cap C^{0}(\overline{\Omega})\).
+\end{theorem}
+
+\begin{theorem}[Rellich-Kondrachov (fractional order) {\cite[Theorem 2.35]{10.1007/978-3-030-56341-7_2}}]\label{thm: compact embeddings}
+	设 \(\Omega \subset \R^{d}\) 是有界的 Lipschitz 区域，并设 \(s > 0\)，\(p \in [1, +\infty]\). 那么以下嵌入是紧的：
+	\begin{enumerate}
+		\item \(s p \leqslant d\) 时，\(W^{s, p}(\Omega) \hookrightarrow L^{q}(\Omega)\)，\(q \in [1, \frac{p d}{d - sp})\)；
+		\item \(s p > d\) 时，\(W^{s, p}(\Omega) \hookrightarrow C^{0}(\overline{\Omega})\)；
+		\item \(W^{s, p}(\Omega) \hookrightarrow W^{t, p}(\Omega)\)，\(t < s\).
+	\end{enumerate}
+\end{theorem}
 
 \begin{theorem}[Trace {\cite[Theorem 3.10]{10.1007/978-3-030-56341-7_3}}]\label{thm: trace theorem}
 	设 \(\Omega\) 是有界的 Lipschitz 区域，并设 \(p \in [1, +\infty)\). 若 \(s > \frac{1}{p}\) 且 \(p > 1\)，或 \(s \geqslant 1\) 且 \(p = 1\)，那么存在有界线性映射 \(\gamma: W^{s,p}(\Omega) \mapsto L^{p}(\partial \Omega)\) 使得：
