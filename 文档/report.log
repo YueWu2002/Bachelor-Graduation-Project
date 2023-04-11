@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.3.25)  4 APR 2023 22:20
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.3.25)  10 APR 2023 18:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1464,17 +1464,12 @@ Overfull \hbox (47.32556pt too wide) detected at line 1137
 []
  []
 
-[75] [76] [77] [78]
-Overfull \hbox (15.6291pt too wide) detected at line 1307
-[]
- []
-
-[79] [80] [81]
-Overfull \hbox (78.92543pt too wide) in paragraph at lines 1435--1436
+[75] [76] [77] [78] [79]
+Overfull \hbox (78.92543pt too wide) in paragraph at lines 1377--1378
 [][][][][]$ \TU/SimSun(0)/m/n/12 在 $[][][][][]$ 中 稠 密，|  所 以 可 以 取 出 $[][] [] [][][][][]$ 使 得 $[][] [][] []
  []
 
-[82] [83] [84] [85]
+[80] [81] [82] [83] [84] [85]
 Overfull \hbox (9.34636pt too wide) in alignment at lines 1559--1576
  [][][] []
  []
@@ -1506,20 +1501,21 @@ File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps Graphic file
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps>
+ [99]
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, J.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, J.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, grad.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, grad.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, rho.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, rho.eps>
- [99]
+ [100]
 File: includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, J.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, J.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, grad.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, grad.eps>
 File: includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps Graphic file (type eps)
 <includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps>
- [100] [101]) [102]
+ [101] [102]) [103]
 Overfull \hbox (9.63795pt too wide) in paragraph at lines 81--81
 []\TU/lmr/m/n/12 Alexandre Ern and Jean-Luc Guermond. “Distributions and Duality in Sobolev
  []
@@ -1529,12 +1525,12 @@ Overfull \hbox (4.69646pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/it/12 Equations\TU/lmr/m/n/12 . 2nd. Vol. 19. Graduate Studies in Mathematics. Providence, Rhode
  []
 
-[103] [104] [105]
+[104] [105] [106]
 Overfull \hbox (4.56006pt too wide) in paragraph at lines 81--81
 [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][][][][] [] [][][] [] [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . 
  []
 
-[106]
+[107]
 Overfull \hbox (5.56123pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/n/12 Framework”. In: \TU/lmr/m/it/12 Computer Physics Communications \TU/lmr/m/n/12 192 (Feb. 2015), pp. 205–
  []
@@ -1549,7 +1545,7 @@ Overfull \hbox (7.1121pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/n/12 Legendre Quadrature”. In: \TU/lmr/m/it/12 SIAM Journal on Scientific Computing \TU/lmr/m/n/12 24.3 (2003),
  []
 
-[107]
+[108]
 Overfull \hbox (7.21611pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/n/12 pp. 1336–1362. \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][] [] [][][][]$[]. eprint: []$[][][][][] [] [] [] [][][][][][][][][][][][][] []
  []
@@ -1564,12 +1560,12 @@ Overfull \hbox (30.45671pt too wide) in paragraph at lines 81--81
 [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][][][][][][][][]$[]. 
  []
 
-[108]
+[109]
 Overfull \hbox (67.22784pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/it/12 nal on Numerical Analysis \TU/lmr/m/n/12 39.1 (2001), pp. 264–285. \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][][][][][][][][][][][][][]$[].
  []
 
-[109]
+[110]
 Overfull \hbox (15.49329pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][][][][][][]$[]. \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][]$[]. 
  []
@@ -1579,7 +1575,7 @@ Overfull \hbox (6.86217pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/n/12 fied Hybridization of Discontinuous Galerkin, Mixed, and Continuous Galerkin
  []
 
-[110] [111]
+[111] [112]
 Overfull \hbox (27.68668pt too wide) in paragraph at lines 81--81
 [][][] [] [][] [] [][][][][][][][][] [] [][][][][][] [] [][][][][][][][][] [] [][][][][] [] [][][][][][][][][][][][][][][][][][][][][][] []
  []
@@ -1594,7 +1590,7 @@ Overfull \hbox (5.60997pt too wide) in paragraph at lines 81--81
 []\TU/lmr/m/n/12 Mohamed Farhloul and Hassan Manouzi. “On a Mixed Finite Element Method
  []
 
-[112]
+[113]
 Overfull \hbox (38.97647pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/n/12 Classe de Problèmes de Dirichlet Non Linéaires”. In: \TU/lmr/m/it/12 Revue Française D’automatique,
  []
@@ -1604,7 +1600,7 @@ Overfull \hbox (30.45671pt too wide) in paragraph at lines 81--81
 [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][][][][][][][][]$[]. 
  []
 
-[113]
+[114]
 Overfull \hbox (33.02225pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][] [][] [][][][][][][] [] [][][][][] [][] []$[]. \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][] []
  []
@@ -1614,12 +1610,12 @@ Overfull \hbox (4.77019pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/n/12 Version Finite Element Method and Application to Non-linear Elliptic PDEs”.
  []
 
-[114] [115]
+[115] [116]
 Overfull \hbox (12.90994pt too wide) in paragraph at lines 81--81
 []\TU/lmr/m/n/12 Bernardo Cockburn and Jiguang Shen. “A Hybridizable Discontinuous Galerkin
  []
 
-[116]
+[117]
 Overfull \hbox (0.36694pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/it/12 D’Automatique, Informatique, Recherche Opérationnelle. Analyse Numérique
  []
@@ -1629,7 +1625,7 @@ Overfull \hbox (19.59183pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/it/12 and Applications \TU/lmr/m/n/12 25.1 (2003), pp. 224–236. \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][][][][][][][][][][][][][]$[].
  []
 
-[117] [118] (./report.aux)
+[118] [119] (./report.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.8pt have occurred.
@@ -1641,12 +1637,12 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31418 strings out of 478630
- 657196 string characters out of 5847730
+ 31419 strings out of 478630
+ 657238 string characters out of 5847730
  1962012 words of memory out of 5000000
- 51041 multiletter control sequences out of 15000+600000
+ 51042 multiletter control sequences out of 15000+600000
  527726 words of font info for 185 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  89i,22n,115p,1152b,5024s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on report.xdv (118 pages, 2090092 bytes).
+Output written on report.xdv (119 pages, 2093100 bytes).

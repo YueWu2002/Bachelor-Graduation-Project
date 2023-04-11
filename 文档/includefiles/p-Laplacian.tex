@@ -1252,64 +1252,6 @@
 接下来，我们对变分问题的收敛性进行分析。我们在这一阶段仍然只要求最低的正则性 \(u \in W^{1,p}(\Omega)\).
 
 
-% STAR: 我们自己做出来的
-\begin{theorem}[Energy-norm estimate / Stability (generalization of {\cite[Theorem 3.2]{10.1093/imanum/drt040}})]\label{p-Laplace LDG2 energy-norm estimate} % 这个证明在 A local discontinuous Galerkin approximation for systems with p-structure 里面有
-	设 \(u_{h}\) 是 LDG primal 弱形式 \eqref{p-Laplace LDG primal weak form 2} 或 LDG 最优化形式 \eqref{p-Laplace LDG minimization form 2} 的解。记 \(u_{h,D} = \Pi_{V_{h}} u_{D}\)，其中 \(u_{D} =  E_{\gamma} E_{\Gamma^{D}}^{\partial\Omega} g_{D}\). 存在不依赖于 \(h\) 的常数 \(C > 0\) 使得：
-	\begin{subequations}
-		\begin{equation}
-			E_{h}(u_{h}; g_{D}) + \norm{u_{h} - u_{h,D}}_{J, p} 
-			\leqslant C \left( \norm{g_{D}}_{W^{\frac{1}{p'},p}(\Gamma^{D})} + \norm{f}_{L^{p'}(\Omega)}^{\frac{1}{p-1}} + \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})}^{\frac{1}{p-1}} \right)
-		\end{equation}
-		与此同时，我们还有如下结论：
-		\begin{equation}
-			E_{h}(u_{h, D}; g_{D}) 
-			\leqslant C \norm{g_{D}}_{W^{\frac{1}{p'},p}(\Gamma^{D})}
-		\end{equation}
-	\end{subequations}
-
-	\begin{proof}
-		取测试函数 \(v_{h} = u_{h} - u_{h,D}\) 代入 \eqref{p-Laplace LDG primal weak form 2} 得：
-		\begin{align*}
-			& \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N} \cdot \bm n, v_{h} \right\rangle_{\Gamma^{N}} \\
-			& = \left(\mathcal{A}\left(D_{DG}\left(u_{h}; g_{D}\right)\right), D_{DG}\left(u_{h}; g_{D}\right) - D_{DG}\left(u_{h, D}; g_{D}\right)\right)_{\Omega} \\& + \left\langle \eta\mathcal{A}\left(h_{e}^{-1} \jump{u_{h}}\right), \jump{u_{h} - u_{h, D}}\right\rangle_{\Gamma^{o}} \\& + \left\langle \eta\mathcal{A}\left(h_{e}^{-1} \left(u_{h} - g_{D}\right) \bm n\right), \left( (u_{h} - g_{D}) -  (u_{h, D} - g_{D}) \right) \bm n \right\rangle_{\Gamma^{D}} \\
-			& = E_{h}(u_{h}; g_{D})^{p} - \left(\mathcal{A}\left(D_{DG}\left(u_{h}; g_{D}\right)\right), D_{DG}\left(u_{h, D}; g_{D}\right)\right)_{\Omega} \\& - \left\langle \eta\mathcal{A}\left(h_{e}^{-1} \jump{u_{h}}\right), \jump{u_{h, D}}\right\rangle_{\Gamma^{o}} - \left\langle \eta\mathcal{A}\left(h_{e}^{-1} \left(u_{h} - g_{D}\right) \bm n\right), (u_{h, D} - g_{D}) \bm n \right\rangle_{\Gamma^{D}}
-		\end{align*}
-		再利用引理 \ref{lemma: Discrete Holder inequality}、\ref{p-Laplace LDG2 broken Poincare-Friedrichs inequality}、\ref{p-Laplace LDG2 broken trace inequality} 得：
-		\begin{align*}
-			& 2^{1-p} \norm{v_{h}}_{J, p}^{p} - E_{h}(u_{h, D}; g_{D})^{p} \\
-			& \leqslant E_{h}(u_{h}; g_{D})^{p} \\
-			& = \left( f, v_{h} \right)_{\Omega} + \left\langle \bm g_{N} \cdot \bm n, v_{h} \right\rangle_{\Gamma^{N}} + \left(\mathcal{A}\left(D_{DG}(u_{h}; g_{D})\right), D_{DG}(u_{h, D}; g_{D})\right)_{\Omega} \\& + \left\langle \eta \mathcal{A}\left(h_{e}^{-1} \jump{u_{h}}\right), \jump{u_{h, D}} \right\rangle_{\Gamma^{o}} + \left\langle \eta \mathcal{A}\left( h_{e}^{-1} \left(u_{h} - g_{D}\right) \bm n \right), \left(u_{h, D} - g_{D}\right) \bm n \right\rangle_{\Gamma^{D}} \\
-			& \leqslant \norm{f}_{L^{p'}(\Omega)} \norm{v_{h}}_{L^{p}(\Omega)} + \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})} \norm{v_{h}}_{L^{p}(\Gamma^{N})} \\& + \norm{D_{DG}(u_{h}; g_{D})}_{L^{p}(\Omega)}^{p-1} \norm{D_{DG}(u_{h, D}; g_{D})}_{L^{p}(\Omega)} \\& + \norm{\jump{u_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p-1} \norm{\jump{u_{h, D}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} \\& + \norm{u_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})}^{p-1} \norm{u_{h, D} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} \\
-			& \leqslant \left( C_1 \norm{f}_{L^{p'}(\Omega)} + C_2 \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})} \right) \norm{v_{h}}_{J, p} \\& + 2^{\max\B{p-2, 0}} \norm{D_{DG}(u_{h, D}; g_{D})}_{L^{p}(\Omega)} \norm{D_{DG}(v_{h}; 0)}_{L^{p}(\Omega)}^{p-1} \\& + 2^{\max\B{p-2, 0}} \norm{D_{DG}(u_{h, D}; g_{D})}_{L^{p}(\Omega)}^{p} \\& + 2^{\max\B{p-2, 0}} \norm{\jump{u_{h, D}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p-1} \\& + 2^{\max\B{p-2, 0}} \norm{\jump{u_{h, D}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p} \\& + 2^{\max\B{p-2, 0}} \norm{u_{h, D} - g_{D}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} \norm{v_{h}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p-1} \\& + 2^{\max\B{p-2, 0}} \norm{u_{h, D} - g_{D}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p} \\
-			& \leqslant \left( C_1 \norm{f}_{L^{p'}(\Omega)} + C_2 \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})} \right) \norm{v_{h}}_{J, p} \\& + 2^{\max\B{p-2, 0}} \left( E_{h}(u_{h, D}; g_{D}) \norm{v_{h}}_{J, p}^{p-1} + E_{h}(u_{h, D}; g_{D})^{p} \right) 
-		\end{align*}
-		由上式可得：
-		\begin{align*}
-			2^{1-p} \norm{v_{h}}_{J, p}^{p} 
-			& \leqslant 2^{\max\B{p-2, 0}} E_{h}(u_{h, D}; g_{D}) \norm{v_{h}}_{J, p}^{p-1} \\& + \left( C_1 \norm{f}_{L^{p'}(\Omega)} + C_2 \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})} \right) \norm{v_{h}}_{J, p} \\& + \left(2^{\max\B{p-2, 0}} + 1\right) E_{h}(u_{h, D}; g_{D})^{p}
-		\end{align*}
-		利用反证法可以证明：
-		\begin{equation*}
-			\norm{v_{h}}_{J, p} 
-			\lesssim E_{h}(u_{h, D}; g_{D}) + \norm{f}_{L^{p'}(\Omega)}^{\frac{1}{p-1}} + \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})}^{\frac{1}{p-1}}
-		\end{equation*}
-		再由命题 \ref{prop: uniform lower bound} 的证明过程可知：
-		\begin{equation*}
-			E_{h}(u_{h, D}; g_{D}) \lesssim \norm{g_{D}}_{W^{\frac{1}{p'},p}(\Gamma^{D})} 
-		\end{equation*}
-		最后，由不等式 \ref{lemma: Discrete Holder inequality} 得：
-		\begin{align*}
-			E_{h}(u_{h}; g_{D}) 
-			& \lesssim \norm{D_{DG}(u_{h}; g_{D})}_{L^{p}(\Omega)} + \norm{\jump{u_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} + \norm{u_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} \\
-			& \lesssim \norm{D_{DG}(u_{h, D}; g_{D})}_{L^{p}(\Omega)} + \norm{\jump{u_{h, D}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} + \norm{u_{h, D} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} \\& + \norm{D_{DG}(v_{h}; 0)}_{L^{p}(\Omega)} + \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} + \norm{v_{h}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} \\
-			& \lesssim E_{h}(u_{h, D}; g_{D}) + \norm{v_{h}}_{J, p} \\
-			& \lesssim \norm{g_{D}}_{W^{\frac{1}{p'},p}(\Gamma^{D})} + \norm{f}_{L^{p'}(\Omega)}^{\frac{1}{p-1}} + \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})}^{\frac{1}{p-1}}
-		\end{align*}
-		综上所述，命题得证。
-	\end{proof}
-\end{theorem}
-
-
 \begin{theorem}[Pre-compactness]\label{p-Laplace LDG2 Pre-compactness}
 	当 \(d > 1\) 时，设 \(p \in (1, d)\) 且 \(q \in [1, p^{\ast})\) 且 \(r \in [1, \frac{(d-1)p}{d-p})\)，或 \(p \in [d, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty)\)；当 \(d = 1\) 时，设 \(p \in (1, +\infty)\) 且 \(q \in [1, +\infty)\) 且 \(r \in [1, +\infty]\). 设函数列 \(\B{v_{h} \in V_{h}}_{h \in \mathcal{H}}\) 使得 \(\B{E_{h}(v_{h}; g_{D})}_{h \in \mathcal{H}}\) 有界。那么 \(\B{v_{h}}_{h \in \mathcal{H}}\) 是 \(L^{q}(\Omega)\) 的预紧子集，且 \(\B{v_{h}\big|_{\partial\Omega}}_{h \in \mathcal{H}}\) 是 \(L^{r}(\partial\Omega)\) 的预紧子集。
 
@@ -1435,6 +1377,64 @@
 		当 \(v \in W^{1,p}(\Omega)\) 时，我们使用对角线构造法说明这样的序列存在。由于 \(W^{2,p}(\Omega)\) 在 \(W^{1, p}(\Omega)\) 中稠密，所以可以取出 \(\B{v^{(h)}}_{h \in \mathcal{H}} \subset W^{2, p}(\Omega)\) 使得 \(\lim_{h \to 0^{+}} \norm{v_{j} - v}_{W^{1, p}(\Omega)} = 0\). 因为 \(J(\cdot)\) 在 \(\B{w \in W^{1, p}(\Omega), w\big|_{\Gamma^{D}} = v\big|_{\Gamma^{D}}}\) 上连续，所以 \(\lim_{h \to 0^{+}} J(v^{(h)}) = J(v)\). 对于每一个 \(v^{(h)}\)，由上文知，存在 \(v_{h}^{(j)} \in V_{h}\) 使得 \(\abs{J_{h}(v_{h}^{(h)}) - J(v^{(h)})} < h\). 此时，序列 \(\B{v_{h}^{(h)} \in V_{h}}_{h \in \mathcal{H}}\) 即为符合要求的序列。
 	\end{proof}
 \end{lemma}
+
+
+% STAR: 我们自己做出来的
+\begin{theorem}[Energy-norm estimate / Stability (generalization of {\cite[Theorem 3.2]{10.1093/imanum/drt040}})]\label{p-Laplace LDG2 energy-norm estimate} % 这个证明在 A local discontinuous Galerkin approximation for systems with p-structure 里面有
+	设 \(u_{h}\) 是 LDG primal 弱形式 \eqref{p-Laplace LDG primal weak form 2} 或 LDG 最优化形式 \eqref{p-Laplace LDG minimization form 2} 的解。记 \(u_{h,D} = \Pi_{V_{h}} u_{D}\)，其中 \(u_{D} =  E_{\gamma} E_{\Gamma^{D}}^{\partial\Omega} g_{D}\). 存在不依赖于 \(h\) 的常数 \(C > 0\) 使得：
+	\begin{subequations}
+		\begin{equation}
+			E_{h}(u_{h}; g_{D}) + \norm{u_{h} - u_{h,D}}_{J, p} 
+			\leqslant C \left( \norm{g_{D}}_{W^{\frac{1}{p'},p}(\Gamma^{D})} + \norm{f}_{L^{p'}(\Omega)}^{\frac{1}{p-1}} + \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})}^{\frac{1}{p-1}} \right)
+		\end{equation}
+		与此同时，我们还有如下结论：
+		\begin{equation}
+			E_{h}(u_{h, D}; g_{D}) 
+			\leqslant C \norm{g_{D}}_{W^{\frac{1}{p'},p}(\Gamma^{D})}
+		\end{equation}
+	\end{subequations}
+
+	\begin{proof}
+		取测试函数 \(v_{h} = u_{h} - u_{h,D}\) 代入 \eqref{p-Laplace LDG primal weak form 2} 得：
+		\begin{align*}
+			& \left(f, v_{h}\right)_{\Omega} + \left\langle \bm g_{N} \cdot \bm n, v_{h} \right\rangle_{\Gamma^{N}} \\
+			& = \left(\mathcal{A}\left(D_{DG}\left(u_{h}; g_{D}\right)\right), D_{DG}\left(u_{h}; g_{D}\right) - D_{DG}\left(u_{h, D}; g_{D}\right)\right)_{\Omega} \\& + \left\langle \eta\mathcal{A}\left(h_{e}^{-1} \jump{u_{h}}\right), \jump{u_{h} - u_{h, D}}\right\rangle_{\Gamma^{o}} \\& + \left\langle \eta\mathcal{A}\left(h_{e}^{-1} \left(u_{h} - g_{D}\right) \bm n\right), \left( (u_{h} - g_{D}) -  (u_{h, D} - g_{D}) \right) \bm n \right\rangle_{\Gamma^{D}} \\
+			& = E_{h}(u_{h}; g_{D})^{p} - \left(\mathcal{A}\left(D_{DG}\left(u_{h}; g_{D}\right)\right), D_{DG}\left(u_{h, D}; g_{D}\right)\right)_{\Omega} \\& - \left\langle \eta\mathcal{A}\left(h_{e}^{-1} \jump{u_{h}}\right), \jump{u_{h, D}}\right\rangle_{\Gamma^{o}} - \left\langle \eta\mathcal{A}\left(h_{e}^{-1} \left(u_{h} - g_{D}\right) \bm n\right), (u_{h, D} - g_{D}) \bm n \right\rangle_{\Gamma^{D}}
+		\end{align*}
+		再利用引理 \ref{lemma: Discrete Holder inequality}、\ref{p-Laplace LDG2 broken Poincare-Friedrichs inequality}、\ref{p-Laplace LDG2 broken trace inequality} 得：
+		\begin{align*}
+			& 2^{1-p} \norm{v_{h}}_{J, p}^{p} - E_{h}(u_{h, D}; g_{D})^{p} \\
+			& \leqslant E_{h}(u_{h}; g_{D})^{p} \\
+			& = \left( f, v_{h} \right)_{\Omega} + \left\langle \bm g_{N} \cdot \bm n, v_{h} \right\rangle_{\Gamma^{N}} + \left(\mathcal{A}\left(D_{DG}(u_{h}; g_{D})\right), D_{DG}(u_{h, D}; g_{D})\right)_{\Omega} \\& + \left\langle \eta \mathcal{A}\left(h_{e}^{-1} \jump{u_{h}}\right), \jump{u_{h, D}} \right\rangle_{\Gamma^{o}} + \left\langle \eta \mathcal{A}\left( h_{e}^{-1} \left(u_{h} - g_{D}\right) \bm n \right), \left(u_{h, D} - g_{D}\right) \bm n \right\rangle_{\Gamma^{D}} \\
+			& \leqslant \norm{f}_{L^{p'}(\Omega)} \norm{v_{h}}_{L^{p}(\Omega)} + \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})} \norm{v_{h}}_{L^{p}(\Gamma^{N})} \\& + \norm{D_{DG}(u_{h}; g_{D})}_{L^{p}(\Omega)}^{p-1} \norm{D_{DG}(u_{h, D}; g_{D})}_{L^{p}(\Omega)} \\& + \norm{\jump{u_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p-1} \norm{\jump{u_{h, D}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} \\& + \norm{u_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})}^{p-1} \norm{u_{h, D} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} \\
+			& \leqslant \left( C_1 \norm{f}_{L^{p'}(\Omega)} + C_2 \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})} \right) \norm{v_{h}}_{J, p} \\& + 2^{\max\B{p-2, 0}} \norm{D_{DG}(u_{h, D}; g_{D})}_{L^{p}(\Omega)} \norm{D_{DG}(v_{h}; 0)}_{L^{p}(\Omega)}^{p-1} \\& + 2^{\max\B{p-2, 0}} \norm{D_{DG}(u_{h, D}; g_{D})}_{L^{p}(\Omega)}^{p} \\& + 2^{\max\B{p-2, 0}} \norm{\jump{u_{h, D}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p-1} \\& + 2^{\max\B{p-2, 0}} \norm{\jump{u_{h, D}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p} \\& + 2^{\max\B{p-2, 0}} \norm{u_{h, D} - g_{D}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} \norm{v_{h}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p-1} \\& + 2^{\max\B{p-2, 0}} \norm{u_{h, D} - g_{D}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})}^{p} \\
+			& \leqslant \left( C_1 \norm{f}_{L^{p'}(\Omega)} + C_2 \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})} \right) \norm{v_{h}}_{J, p} \\& + 2^{\max\B{p-2, 0}} \left( E_{h}(u_{h, D}; g_{D}) \norm{v_{h}}_{J, p}^{p-1} + E_{h}(u_{h, D}; g_{D})^{p} \right) 
+		\end{align*}
+		由上式可得：
+		\begin{align*}
+			2^{1-p} \norm{v_{h}}_{J, p}^{p} 
+			& \leqslant 2^{\max\B{p-2, 0}} E_{h}(u_{h, D}; g_{D}) \norm{v_{h}}_{J, p}^{p-1} \\& + \left( C_1 \norm{f}_{L^{p'}(\Omega)} + C_2 \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})} \right) \norm{v_{h}}_{J, p} \\& + \left(2^{\max\B{p-2, 0}} + 1\right) E_{h}(u_{h, D}; g_{D})^{p}
+		\end{align*}
+		利用反证法可以证明：
+		\begin{equation*}
+			\norm{v_{h}}_{J, p} 
+			\lesssim E_{h}(u_{h, D}; g_{D}) + \norm{f}_{L^{p'}(\Omega)}^{\frac{1}{p-1}} + \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})}^{\frac{1}{p-1}}
+		\end{equation*}
+		再由命题 \ref{prop: uniform lower bound} 的证明过程可知：
+		\begin{equation*}
+			E_{h}(u_{h, D}; g_{D}) \lesssim \norm{g_{D}}_{W^{\frac{1}{p'},p}(\Gamma^{D})} 
+		\end{equation*}
+		最后，由不等式 \ref{lemma: Discrete Holder inequality} 得：
+		\begin{align*}
+			& E_{h}(u_{h}; g_{D}) \\
+			& \lesssim \norm{D_{DG}(u_{h}; g_{D})}_{L^{p}(\Omega)} + \norm{\jump{u_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} + \norm{u_{h} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} \\
+			& \lesssim \norm{D_{DG}(u_{h, D}; g_{D})}_{L^{p}(\Omega)} + \norm{\jump{u_{h, D}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} + \norm{u_{h, D} - g_{D}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} \\& + \norm{D_{DG}(v_{h}; 0)}_{L^{p}(\Omega)} + \norm{\jump{v_{h}}}_{L^{p}(\Gamma^{o}, \eta h_{e}^{1-p})} + \norm{v_{h}}_{L^{p}(\Gamma^{D}, \eta h_{e}^{1-p})} \\
+			& \lesssim E_{h}(u_{h, D}; g_{D}) + \norm{v_{h}}_{J, p} \\
+			& \lesssim \norm{g_{D}}_{W^{\frac{1}{p'},p}(\Gamma^{D})} + \norm{f}_{L^{p'}(\Omega)}^{\frac{1}{p-1}} + \norm{\bm g_{N} \cdot \bm n}_{L^{p'}(\Gamma^{N})}^{\frac{1}{p-1}}
+		\end{align*}
+		综上所述，命题得证。
+	\end{proof}
+\end{theorem}
 
 
 \begin{theorem}[Variational Convergence (generalization of {\cite[Theorem 6.1]{10.1093/imanum/drn038}})]
@@ -1815,7 +1815,7 @@
 
 我们既可以基于弱形式 \eqref{p-Laplace LDG primal weak form 2}，利用 Picard 不动点迭代法或 Newton-Raphson 方法求解，也可以基于最优化形式 \eqref{p-Laplace LDG minimization form 2}，利用梯度下降法求解。Picard 不动点迭代法和 Newton-Raphson 方法对初值敏感，如果收敛，则收敛速度较快；梯度下降法对初值不敏感，保证收敛，但是收敛速度较慢。
 
-这里，我们只考虑使用梯度下降法求解最优化形式。现有的 \(p\)-Laplace 方程的梯度下降法有：PRNCG 方法 \cite{10.1090/S0025-5718-1993-1192966-4}，多重网格 PRNCG 方法 \cite{10.1137/S1064827598339098}；预条件梯度下降法 \cite{10.1007/s10915-007-9134-z}、混合预条件共轭梯度法 \cite{IJNAM-2-123}、加速的最速下降法 \cite{10.1016/j.amc.2013.07.096}。特别地，在文章 \cite{10.1007/s10915-007-9134-z} 中，作者提出了一种基于线性化范数的预条件子，以使得收敛性能与网格无关。
+这里，我们只考虑使用梯度下降法求解最优化形式。现有的 \(p\)-Laplace 方程的梯度下降法有：PRNCG 方法 \cite{10.1090/S0025-5718-1993-1192966-4}，多重网格 PRNCG 方法 \cite{10.1137/S1064827598339098}；预条件梯度下降法 \cite{10.1007/s10915-007-9134-z}、混合预条件共轭梯度法 \cite{IJNAM-2-123}、加速的最速下降法 \cite{10.1016/j.amc.2013.07.096}、拟牛顿法 \cite{10.1016/j.cam.2016.06.026}。特别地，在文章 \cite{10.1007/s10915-007-9134-z} 中，作者提出了一种基于线性化范数的预条件子，以使得收敛性能与网格无关。
 
 我们这里采用预条件梯度下降法，将文章 \cite{10.1007/s10915-007-9134-z} 的工作推广到 LDG 格式中。利用引理 \ref{p-Laplace LGD2 Gateaux derivative of Jh}，\(J_{h}(\cdot)\) 在 \(u_{h} \in V_{h}\) 处的最速下降方向(未归一) \(w_{h} \in V_{h}\) 满足：
 \begin{equation}
@@ -1873,7 +1873,8 @@
 	当 \(p \in (1,2)\) 时，根据文章\cite{10.1007/s10915-007-9134-z}，上述加权项 \(\epsilon + \abs{\xi}^{p-2}\) 应替换为 \(\left(\epsilon + \abs{\xi}\right)^{p-2}\) 以加强稳定性。
 \end{remark}
 
-我们的算法如\ref{algo: Preconditioned Steepest Descent Algorithm}给出。需要说明的是，在理论上，当使用不同的范数，也即不同的预条件方法时，只有收敛速度会受到影响，而是否收敛以及收敛极限都不会受到影响。为了提高收敛速度，可以使用 \(p = 2\) 的 Poisson 方程的解作为迭代的初值。
+我们的算法如 \ref{algo: Preconditioned Steepest Descent Algorithm} 给出。需要说明的是，在理论上，当使用不同的范数，也即不同的预条件方法时，只有收敛速度会受到影响，而是否收敛以及收敛极限都不会受到影响。为了提高收敛速度，可以使用 \(p = 2\) 的 Poisson 方程的解作为迭代的初值。为了减轻计算量，可以使用近似的单侧黄金分割搜索算法 \ref{algo: Approximated Golden-Section Search} 替代线搜索。
+
 \begin{algorithm}[htbp]
 	\SetAlgoLined
 
@@ -1881,14 +1882,74 @@
 	\KwIn{\(u_{h}^{(0)}\), \(\epsilon\), \(\delta_{\rho}\), \(\delta_{w_{h}}\), \(N_{\rm it}\)}
 
 	% Output
-	\KwOut{\(u_{h}\)}
+	\KwOut{\(u_{h}^{(k)}\)}
 
 	\tcc{main loop for gradient descent}
 
-	\(k \leftarrow 0\) \tcp{number of iteration finished}
-	\(\rho^{\rm old} \leftarrow 1\) \tcp{initial guess for step size}
-	\While{\(k < N_{\rm it}\)}
+	\(k \leftarrow 0\) \tcp{number of iterations finished}
+	\(\rho^{(0)} \leftarrow 1\) \tcp{initial guess for step size (optimal for the Poisson equation)}
+
+	\While{ \(k < N_{\rm it}\) }
 	{   
+		\(w_{h} \leftarrow\) PrecondGrad(\(u_{h}^{(k)}\), \(\epsilon\)) \;
+
+		\lIf{\(\norm{w_{h}} < \delta_{w_{h}}\)}{ break } % inline if
+
+		\(\rho^{(k+1)} \leftarrow\) LineSearch(fun=\(J_{h}(u_{h}^{(k)} - \cdot w_{h})\), start=\(\rho^{(k)}\)) \;
+
+		\lIf{\(\rho^{(k+1)} < \delta_{\rho}\)}{ break }
+
+		\(u_{h}^{(k+1)} \leftarrow u_{h}^{(k)} - \rho^{(k+1)} w_{h}\) \;
+
+		\(k \leftarrow k + 1\) \;
+	}
+	\caption{Preconditioned Steepest Descent Algorithm}
+	\label{algo: Preconditioned Steepest Descent Algorithm}
+\end{algorithm}
+
+\iffalse
+\begin{algorithm}[htbp]
+	\SetAlgoLined
+
+	% Input 
+	\KwIn{strictly convex function \(f(\cdot)\) (domain = \([0, +\infty)\), \(f'(0) \leqslant 0\)), initial guess \(\rho_{\rm start} > 0\), searches per iteration \(m\) (odd)}
+
+	% Output 
+	\KwOut{\(\rho \geqslant 0\)}
+
+	\(\varphi \leftarrow \frac{1 + \sqrt{5}}{2}\) \tcp{golden section ratio}
+
+	\(\B{a_{j}}_{j=1}^{m} \leftarrow \B{\varphi^{j-\frac{m+1}{2}}}_{j=1}^{m}\) \tcp{"\(1\)" is included}
+
+	\tcc{main loop for the search} 
+
+	\(k \leftarrow 0\) \; 
+	\(\rho_{0} \leftarrow \rho_{\rm start}\) \; 
+	\(g_{0} \leftarrow f(\rho_{\rm start})\) \; 
+
+	\While{ True }
+	{   
+		\lIf{\(\rho_{0} < \epsilon_{machine}\)}{
+			break
+		} 
+		\lIf{\(\rho_{0} > \epsilon_{machine}^{-1}\)}{
+			break
+		} 
+
+		\(\B{y_{j}}_{j=1}^{m} \leftarrow \B{f( a_{j} \rho_{k})}\) \; 
+
+		\(j \leftarrow \arg\min_{1\leqslant j \leqslant m}\B{y_{j}}_{j=1}^{m}\) \; 
+		
+		\(g_{k+1} \leftarrow y_{k}\) \; 
+
+		\eIf{\(y_{\rm min} < y_{\rm old}\)}
+		{
+			then block
+		}
+		{
+			\(\rho\)
+		}
+
 		\(w_{h} \leftarrow\) PrecondGrad(\(u_{h}^{(k)}\), \(\epsilon\)) \;
 
 		\lIf{\(\norm{w_{h}} < \delta_{w_{h}}\)}{ break } % inline if
@@ -1898,17 +1959,21 @@
 		\lIf{\(\rho < \delta_{\rho}\)}{ break }
 
 		\(u_{h}^{(k+1)} \leftarrow u_{h}^{(k)} - \rho w_{h}\) \;
+
 	}
-	\caption{Preconditioned Steepest Descent Algorithm}
-	\label{algo: Preconditioned Steepest Descent Algorithm}
+
+	\caption{Approximated Golden-Section Search}
+	\label{algo: Approximated Golden-Section Search}
 \end{algorithm}
+\fi
 
 
 \subsubsection{Numerical Example 1 (1D Dirichlet)}
 
-区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = (x+1)^{\frac{p-2}{p-1}}\)，采用 Dirichlet 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-1}\)，\(C_{12} = \frac{1}{2}\)，其中 \(\eta = 1\). 我们使用 Lobatto 配点法，并使用相同点数的 Gauss-Lobatto 公式进行数值积分和误差测量。迭代参数取 \(\delta_{w_{h}} = 10^{-16}\)，\(\delta_{\rho} = 10^{-16}\)，稳定项在 \(p < 2\) 时取 \(\epsilon = 10^{-10}\)，在 \(p > 2\) 时取 \(\epsilon = 10^{-4}\)，迭代初值取 Poisson 方程的数值解。部分测试结果如下：
+区域 \(\Omega = [0,3\pi]\)，准确解 \(u(x) = (x+1)^{\frac{p-2}{p-1}}\)，采用 Dirichlet 边界条件。空间剖分使用均匀网格，用 \(N\) 表示单元个数，\(k\) 表示多项式次数。取罚参数 \(C_{11} = \eta h^{-1}\)，\(C_{12} = \frac{1}{2}\)，其中 \(\eta = 1\). 我们使用 Lobatto 配点法，并使用相同点数的 Gauss-Lobatto 公式进行数值积分和误差测量。迭代参数取 \(\delta_{w_{h}} = 10^{-16}\)，\(\delta_{\rho} = 10^{-16}\)，稳定项在 \(p < 2\) 时取 \(\epsilon = 10^{-10}\)，在 \(p > 2\) 时取 \(\epsilon = 10^{-4}\)，迭代初值取 Poisson 方程的数值解。使用长度为 \(7\) 的黄金分割近似先搜索方法。
 
-
+部分测试结果如下：
+% to be continued: 把程序改成：分开配点和积分点
 
 \begin{table}[H]
 	\begin{center}

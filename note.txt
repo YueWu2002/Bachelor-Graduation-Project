@@ -15,3 +15,10 @@ p-laplace的问题能否做二维的程序？这样可以计算一些有趣的�
 
 to do: 编写HDG的后处理，以及2D程序
 (deal.II写HDG: https://dealii.org/developer/doxygen/deal.II/step_51.html#Results)(advanpix包使用：https://cloud.tencent.com/developer/article/2028643)
+
+2023/3/28:
+中期检查。完成了误差估计，约定31日早上现场推导、检查。以后周一下午参加管科楼1218研讨课。
+
+2923/3/
+现场讲解了primal形式误差估计的证明。徐老师说她上一年给了一个本科生较难的题目，被做出来了，所以今年给我了一个更加难的，没想到我不仅理论都能看懂，还把误差估计给做出来了。她送给我了一本Douglas N. Arnold的FEEC，以及一本数学写作书籍；我给她推荐了TAM 72。
+之后要做：仿照Liangyue Ji(Yan Xu的博士，UMN在Cockburn手下的博后)的note，完成变分收敛性的证明；试着看一下Ji的最优估计能不能放到我这边来；看一下LDG的估计能不能不走primal形式，而是利用mixed形式以及巧妙设计的投影。

@@ -121,70 +121,44 @@ GRAD_dbc = Ainv*F;  % gradient vector with only Dirichlet data
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-u1 = (B'*Ainv*B + C) \ (B'*GRAD_dbc + F_dual + D_pnlt_dual + N_dual);   % starts with Poisson solution
-E = [compute_energy(N, QWEI, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u1, p_equ)];
+u = (B'*Ainv*B + C) \ (B'*GRAD_dbc + F_dual + D_pnlt_dual + N_dual);   % starts with Poisson solution
+E1 = compute_energy(N, QWEI, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u, p_equ);
+E = [E1]; % starts from zero
 rho = 1.0;  % step length, should start with 1.0 (because it's best for the Poisson equation)
 rhos = [];
 grad_norms = [];
-list = ((sqrt(5)+1)/2).^linspace(-1,1,7); % coefficient for rho (should include 1.0) (golden section rule)
-trial = cell(length(list));
-Etrial = zeros(length(list),1);
-should_continue = true;
 maxit = 10000;
 it = 0;
-while should_continue
-    u0 = u1;
-    E0 = E(end);
-
-    [grad, grad_norm] = solve_grad(N, p, QWEI, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u0, p_equ, 2);
+should_continue = true;
+while should_continue && it < maxit
+    [grad, grad_norm] = solve_grad(N, p, QWEI, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u, p_equ, 2);
     grad_norms = [grad_norms, grad_norm];
 
     if grad_norm < 1e-16
-        break;
+        should_continue = false;
     end
 
-    % line search
-    flag = true;
-    while flag
-        if rho < 1e-16
-            flag = false;
-            should_continue = false;
-        elseif rho > 1e+8
-            flag = false;
-            should_continue = false;
-            disp('fail to converge!');
-        end
+    fun = @(t) compute_energy(N, QWEI, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u - t.*grad, p_equ);
 
-        % try line search
-        for k = 1: length(list)
-            trial{k} = u0 - (list(k)*rho)*grad;
-            Etrial(k) = compute_energy(N, QWEI, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, trial{k}, p_equ);
-        end
+    % problem: sometimes problems may occur that one needs a negative rho to descent
+    [rho, E1] = golden_search_oneside(fun, E(end), rho, 1e-6 * rho); % 1e-6 relative error should be good
+    E = [E, E1];
+    rhos = [rhos, rho];
+    u = u - rho.*grad;
 
-        [mEtrial, id] = min(Etrial(:));
-        if (mEtrial > E0)
-            rho = 0.25*rho;
-        else
-            flag = false;
-            u1 = trial{id(1)};
-            E1 = Etrial(id(1));
-            rho = list(id(1))*rho;
-            E = [E, E1];
-            rhos = [rhos, rho];
-        end
+    if (abs(rho) < 1e-20) || (abs(rho) > 1e+8)
+        should_continue = false;
+        % in most cases, we stop here due to rho == 0 (this means that f'(0) >= 0. which might occur due to finite accuracy of floating point operations)
     end
 
-    if (~should_continue || it >= maxit)
-        break;
-    end
     it = it + 1;
 end
 
 if plot_con
     figure(1);
-    plot(E);
+    plot(0:length(E)-1, E);
     xlabel('iteration');
-    ylabel('J[u]');
+    ylabel('J_{h}[u_{h}]');
     grid on;
 
     figure(2);
@@ -204,7 +178,6 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-u = u1;
 du = GRAD_dbc + GRAD_in * u;
 q = Amap(du, p_equ);
 end
@@ -228,7 +201,7 @@ end
 function [E] = compute_energy(N, QWEI, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u, p_equ)
 % compute the energy corresponding to the p-Laplace LDG minimization form
 
-du = GRAD_dbc + GRAD_in * u;
+du = GRAD_dbc + GRAD_in * u; % could be improved to enhance floating point stability
 jmp_u = JMP*u + sparse([1,N+1], 1, [gl,-gr], N+1, 1);
 E = (dot(abs(du).^p_equ, QWEI(:)) ...
     + dot(ETA .* H_perp.^alpha, abs(jmp_u./(H_perp.^alpha)).^p_equ))/p_equ ...
@@ -254,7 +227,7 @@ case 2
     % under linearized W1p norm / weighted H01 norm
     MAT = GRAD_in'*((correct_wei(du, p_equ, delta).*QWEI).*GRAD_in) ...
     + JMP' * ( ( (ETA./(H_perp.^alpha)) .* correct_wei(jmp_u./(H_perp.^alpha), p_equ, delta) ) .* JMP);
-case 3
+case 3 % extremely slow
     % under standard L2 norm
     MAT = sparse(1:N*(p+1), 1:N*(p+1), QWEI, N*(p+1), N*(p+1));
 end
@@ -275,7 +248,7 @@ case 1
 case 2
     grad_norm = sqrt(dot(correct_wei(du, p_equ, delta).*grad_grad, QWEI.*grad_grad) ...
     + dot(correct_wei(jmp_u./(H_perp.^alpha), p_equ, delta).*jmp_grad, (ETA./(H_perp.^alpha)).*jmp_grad));
-case 3
+case 3 % extremely slow
     grad_norm = sqrt(dot(grad, QWEI.*grad));
 end
 end
