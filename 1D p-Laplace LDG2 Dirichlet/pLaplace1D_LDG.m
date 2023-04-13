@@ -5,7 +5,7 @@ function [u, du] = pLaplace1D_LDG(f, xx, gl, gr, p, p_equ, alpha, C12, type, plo
 % alpha: C_{11} penalty order, 1 or 0
 
 
-[qx, qw] = quadrature_nodal1D(p+1, 'legendre');     % quadrature for detect error
+[qx, qw] = quadrature_nodal1D(p+1, 'legendre');     % quadrature
 [nx, ~] = quadrature_nodal1D(p+1, type);            % collocation
 [M, Minv, D, ~, ~, Tl, Tr] = matrix_nodal1D(nx);    % collocation
 Pnq = interpolatemat(nx, qx);                       % maps nodal values at collocation nodes to those at quadrature nodes
@@ -170,7 +170,7 @@ while should_continue && it < maxit
     rhos = [rhos, rho];
     u = u - rho.*grad;
 
-    if (abs(rho) < 1e-20) || (abs(rho) > 1e+8)
+    if (abs(rho) < 1e-16) || (abs(rho) > 1e+8)
         should_continue = false;
         % in most cases, we stop here due to rho == 0 (this means that f'(0) >= 0. which might occur due to finite accuracy of floating point operations)
     end
@@ -226,7 +226,7 @@ function [grad, grad_norm] = solve_grad(N, QWEI, Pnq_big, JMP, ETA, H_perp, GRAD
 % GRAD_dbc = Ainv*F;  % gradient vector with only Dirichlet data
 du = GRAD_dbc + GRAD_in * u;
 jmp_u = JMP*u + sparse([1,N+1], 1, [gl,-gr], N+1, 1);
-delta = 1e-4;
+delta = 1e-10;
 
 GRAD_in_nq = Pnq_big * GRAD_in;
 du_q = Pnq_big * du;

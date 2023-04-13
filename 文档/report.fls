@@ -1262,42 +1262,54 @@ INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/esint/esint10.tfm
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, J.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, J.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, J.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, J.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, J.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, J.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, J.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, J.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, grad.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, grad.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, grad.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, grad.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, rho.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, rho.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, rho.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, rho.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, J.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, J.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, J.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, J.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, grad.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, grad.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, grad.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, grad.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/J.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/J.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/J.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/J.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/gradnorm.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/gradnorm.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/gradnorm.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/gradnorm.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/rho.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/rho.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/rho.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/rho.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/J.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/J.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/J.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/J.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/gradnorm.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/gradnorm.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/gradnorm.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/gradnorm.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/rho.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/rho.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/rho.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/rho.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/J.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/J.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/J.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/J.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/gradnorm.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/gradnorm.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/gradnorm.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/gradnorm.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/rho.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/rho.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/rho.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/rho.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/J.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/J.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/J.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/J.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/gradnorm.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/gradnorm.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/gradnorm.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/gradnorm.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/rho.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/rho.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/rho.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/rho.eps
 INPUT report.aux
 INPUT ./report.out
 INPUT ./report.out

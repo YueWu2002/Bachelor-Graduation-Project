@@ -37,7 +37,7 @@ if y0 <= y_at_guess
             % should further shrink the interval
             xx = [0.0, (1.0-gold)*xx(2), xx(2)];
             yy = [y0, fun(xx(2)), yy(2)];
-        else % yy(2) < y0 <= yy(3)
+        else % yy(2) < y0 <= yy(3) 
             break;
         end
     end

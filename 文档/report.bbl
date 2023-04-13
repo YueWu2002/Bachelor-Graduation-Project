@@ -4368,6 +4368,46 @@
       \verb https://doi.org/10.4171/zaa/1107
       \endverb
     \endentry
+    \entry{10.1016/j.cam.2016.06.026}{article}{}
+      \name{author}{2}{}{%
+        {{hash=597e9ad839c831abaae62f13fc269906}{%
+           family={Caliari},
+           familyi={C\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod}}}%
+        {{hash=6278872aa9bc21066393c415348f33a2}{%
+           family={Zuccher},
+           familyi={Z\bibinitperiod},
+           given={Simone},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{aea1ad37bb379c6f26ea5a786dcb7130}
+      \strng{fullhash}{aea1ad37bb379c6f26ea5a786dcb7130}
+      \strng{bibnamehash}{aea1ad37bb379c6f26ea5a786dcb7130}
+      \strng{authorbibnamehash}{aea1ad37bb379c6f26ea5a786dcb7130}
+      \strng{authornamehash}{aea1ad37bb379c6f26ea5a786dcb7130}
+      \strng{authorfullhash}{aea1ad37bb379c6f26ea5a786dcb7130}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0377-0427}
+      \field{journaltitle}{Journal of Computational and Applied Mathematics}
+      \field{title}{Quasi-Newton Minimization for the \(p(x)\)-Laplacian Problem}
+      \field{volume}{309}
+      \field{year}{2017}
+      \field{pages}{122\bibrangedash 131}
+      \range{pages}{10}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.cam.2016.06.026
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0377042716302989
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0377042716302989
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

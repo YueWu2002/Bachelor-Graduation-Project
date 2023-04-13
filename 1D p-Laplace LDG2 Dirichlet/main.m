@@ -25,13 +25,15 @@ err = [];
 h = [];
 N = [];
 for k = 1: 6
-    N(k) = 2^(k+3);
+     N(k) = 2^(k+3);
+    % N(k) = 8+8*k;
+    % N(k) =  16+4*k;
 
     xx = linspace(a, b, N(k)+1);
     hh = xx(2:end) - xx(1:end-1);
     h(k) = max(hh(:));
 
-    [u, du] = pLaplace1D_LDG(ff, xx, gl, gr, p, p_equ, 1, 0.5, type, true);
+    [u, du] = pLaplace1D_LDG(ff, xx, gl, gr, p, p_equ, 1, 0.0, type, true);
     % results: nodal representation of the displacement u and its gradient du
     
     err(k,:) = [0, 0, 0];

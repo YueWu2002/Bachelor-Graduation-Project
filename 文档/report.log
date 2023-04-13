@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.3.25)  10 APR 2023 18:31
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.3.25)  13 APR 2023 15:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1494,28 +1494,32 @@ Overfull \hbox (33.37036pt too wide) in alignment at lines 1765--1798
  [][][] []
  []
 
-[91] [92] [93] [94] [95] [96] [97] [98]
-File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, J.eps Graphic file (type eps)
-<includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, J.eps>
-File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps Graphic file (type eps)
-<includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, grad.eps>
-File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps Graphic file (type eps)
-<includefiles/1D p-Laplace LDG2/p=10, k=3, N=64, wei, rho.eps>
- [99]
-File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, J.eps Graphic file (type eps)
-<includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, J.eps>
-File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, grad.eps Graphic file (type eps)
-<includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, grad.eps>
-File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, rho.eps Graphic file (type eps)
-<includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei, rho.eps>
- [100]
-File: includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, J.eps Graphic file (type eps)
-<includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, J.eps>
-File: includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, grad.eps Graphic file (type eps)
-<includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, grad.eps>
-File: includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps Graphic file (type eps)
-<includefiles/1D p-Laplace LDG2/p=10, k=4, N=64, wei, rho.eps>
- [101] [102]) [103]
+[91] [92] [93]
+File: includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/J.eps Graphic file (type eps)
+<includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/J.eps>
+File: includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/gradnorm.eps Graphic file (type eps)
+<includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/gradnorm.eps>
+File: includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/rho.eps Graphic file (type eps)
+<includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/rho.eps>
+File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/J.eps Graphic file (type eps)
+<includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/J.eps>
+File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/gradnorm.eps Graphic file (type eps)
+<includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/gradnorm.eps>
+File: includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/rho.eps Graphic file (type eps)
+<includefiles/1D p-Laplace LDG2/p=10, k=3, N=256, wei/rho.eps>
+File: includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/J.eps Graphic file (type eps)
+<includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/J.eps>
+File: includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/gradnorm.eps Graphic file (type eps)
+<includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/gradnorm.eps>
+File: includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/rho.eps Graphic file (type eps)
+<includefiles/1D p-Laplace LDG2/p=10, k=2, N=128, wei/rho.eps>
+File: includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/J.eps Graphic file (type eps)
+<includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/J.eps>
+File: includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/gradnorm.eps Graphic file (type eps)
+<includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/gradnorm.eps>
+File: includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/rho.eps Graphic file (type eps)
+<includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/rho.eps>
+ [94] [95] [96] [97] [98] [99] [100] [101] [102]) [103]
 Overfull \hbox (9.63795pt too wide) in paragraph at lines 81--81
 []\TU/lmr/m/n/12 Alexandre Ern and Jean-Luc Guermond. “Distributions and Duality in Sobolev
  []
@@ -1637,12 +1641,12 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31419 strings out of 478630
- 657238 string characters out of 5847730
- 1962012 words of memory out of 5000000
- 51042 multiletter control sequences out of 15000+600000
+ 31436 strings out of 478630
+ 658521 string characters out of 5847730
+ 2008012 words of memory out of 5000000
+ 51063 multiletter control sequences out of 15000+600000
  527726 words of font info for 185 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  89i,22n,115p,1152b,5024s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on report.xdv (119 pages, 2093100 bytes).
+Output written on report.xdv (119 pages, 2071312 bytes).
