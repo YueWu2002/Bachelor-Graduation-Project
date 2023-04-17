@@ -820,7 +820,9 @@
 				\forall \bm\zeta_{h} \in Q_{h}, \quad 
 				& \left(D_{DG}\left(v; g\right), \bm\zeta_{h}\right)_{\Omega} \\
 				& = \left(\nabla_{h} v, \bm\zeta_{h}\right)_{\Omega} - \left\langle \jump{v}, \avg{\bm\zeta_{h}} - \bm C_{12} \jump{\bm\zeta_{h}} \right\rangle_{\Gamma^{o}} \\& - \left\langle v - g, \bm\zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}} \\
-				& = \sum_{K \in \mathcal{T}_{h}} \left( \left( \nabla v, \bm\zeta_{h} \right)_{K} + \left\langle \widehat{v} - v, \bm\zeta_{h} \cdot \bm n \right\rangle_{\partial K} \right)
+				& = \sum_{K \in \mathcal{T}_{h}} \left( \left( \nabla v, \bm\zeta_{h} \right)_{K} + \left\langle \widehat{v} - v, \bm\zeta_{h} \cdot \bm n \right\rangle_{\partial K} \right) \\
+				& = \sum_{K \in \mathcal{T}_{h}} \left(-\left(v, \nabla \bm\zeta_{h}\right)_{K} + \left\langle \widehat{v}, \bm\zeta_{h} \cdot \bm n \right\rangle_{\partial K}\right) \\
+				& = -\left(v, \nabla_{h} \cdot \bm \zeta_{h}\right)_{\Omega} + \left\langle \avg{v} + \bm C_{12} \cdot \jump{v}, \jump{\bm\zeta_{h}} \right\rangle_{\Gamma^{o}} \\& + \left\langle v, \bm\zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle g, \bm\zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}} 
 			\end{aligned}
 		\end{aligned}
 	\end{equation}
@@ -878,7 +880,7 @@
 \end{subequations}
 
 
-\subsubsection{Unisolvence, Convergence, and \emph{A Priori} Error Estimate}
+\subsubsection{Unisolvence, Convergence, and \emph{A Priori} Error Estimate based on the Primal Formulation}
 
 在下文，我们对变分问题 \eqref{p-Laplace LDG primal weak form 2} 和最优化问题 \eqref{p-Laplace LDG minimization form 2} 进行分析，并给出解的能量估计和误差估计。
 
@@ -1533,6 +1535,7 @@
 			\end{cases}
 		\end{aligned}
 	\end{equation}
+	这里，\(\Pi_{\Sigma_{h}}: L^{1}(\Omega) \mapsto \Sigma_{h}\) 是积分插值算子。
 
 	\begin{proof}
 		利用 \(\jump{u} = \bm 0\)、\(\jump{\bm\sigma} = 0\) 即得：
@@ -2260,3 +2263,32 @@ print(3, '-depsc2', '-vector', 'gradnorm', '-r300');
 	\item 对于梯度下降类算法，浮点误差产生的影响会比较明显，尤其在网格加密之后，迭代较难收敛到精确的离散解；
 	\item 当 \(p \in (2, +\infty)\) 时，对 \(u\) 的 \(L^{p}\) 误差收敛阶较低。
 \end{enumerate}
+
+
+
+\subsubsection{\emph{A Priori} Error Estimate based on the Mixed Formulation}
+
+设 \(\left(\bm q, \bm\sigma, \bm u\right) \in W^{s, p}(\Omega) \times W^{r+1, p'}(\Omega) \times W^{s, p}(\Omega)\) 是 \(p\)-Laplace 方程 \eqref{p-Laplace mixed form} 的解；设 \(\left(\bm q_{h}, \bm\sigma_{h}, u_{h}\right) \in Q_{h} \times \Sigma_{h} \times V_{h}\) 是 LDG 格式 \eqref{p-Laplace LDG weak form 2} 的解。
+
+将 \(\left(\bm q, \bm\sigma, \bm u\right)\) 所满足的方程与 LDG 格式 \eqref{p-Laplace LDG weak form 2} 相减得到：
+\begin{align*}
+	& \forall \left(\bm\zeta_{h}, \bm\tau_{h}, v_{h}\right) \in Q_{h} \times \Sigma_{h} \times V_{h}: \\
+	& \begin{cases}
+		\left(\bm q - \bm q_{h}, \bm\zeta_{h}\right)_{\Omega} - \left(\nabla_{h} (u - u_{h}), \bm\zeta_{h}\right)_{\Omega} + \left\langle \jump{u_{h}}, \avg{\bm\zeta_{h}} - \bm C_{12}\jump{\bm\zeta_{h}} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} = 0 \\
+		\left(\bm\sigma - \bm\sigma_{h}, \bm\tau_{h} \right)_{\Omega} - \left(\mathcal{A}(\bm q) - \mathcal{A}(\bm q_{h}), \bm\tau_{h}\right)_{\Omega} = 0 \\
+		\left(\bm\sigma - \bm\sigma_{h}, \nabla_{h} v_{h} \right)_{\Omega} + \left\langle \avg{\bm\sigma_{h}} - \bm C_{12}\jump{\bm\sigma_{h}} - \bm\sigma - \eta \mathcal{A}(h_{e}^{-1} \jump{u_{h}}), \jump{v_{h}} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} = 0
+	\end{cases}
+\end{align*}
+取 \(\bm\zeta_{h} = \Pi_{\Sigma_{h}} \bm\sigma - \bm\sigma_{h}\)，\(\bm\tau_{h} = \bm q_{h} - \Pi_{Q_{h}} \bm q\)，\(v_{h} = \Pi_{V_{h}} u - u_{h}\)，并将以上三式相加，得：
+\begin{align*}
+	0 &= \left(\mathcal{A}(\bm q) - \mathcal{A}(\bm q_{h}), \Pi_{Q_{h}} \bm q - \bm q_{h}\right)_{\Omega} \\& + \left(\bm\sigma - \bm\sigma_{h}, \bm q - \Pi_{Q_{h}} \bm q\right)_{\Omega} - \left(\bm\sigma - \Pi_{\Sigma_{h}} \bm\sigma, \bm q - \bm q_{h}\right)_{\Omega} \\& + \left(\bm\sigma - \Pi_{\Sigma_{h}} \bm\sigma, \nabla_{h}(u - u_{h})\right)_{\Omega} - \left(\bm\sigma - \bm\sigma_{h}, \nabla_{h}(u - \Pi_{V_{h}} u)\right)_{\Omega} \\& + \left\langle \eta \mathcal{A}(h_{e}^{-1}\jump{u - u_{h}}), \jump{u - u_{h}} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\& - \left\langle \eta \mathcal{A}(h_{e}^{-1}\jump{u - u_{h}}), \jump{u - \Pi_{V_{h}} u} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\& - \left\langle \jump{u - u_{h}}, \avg{\bm\sigma - \Pi_{\Sigma} \bm\sigma} - \bm C_{12} \jump{\bm\sigma - \Pi_{\Sigma} \bm \sigma} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\& + \left\langle \jump{u - \Pi_{V_{h}} u}, \avg{\bm\sigma - \bm\sigma_{h}} - \bm C_{12} \jump{\bm\sigma - \bm\sigma_{h}} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}}
+\end{align*}
+这里，\(\Pi_{Q_{h}}: W^{1,1}(\mathcal{T}_{h}) \mapsto Q_{h}\)，\(\Pi_{\Sigma_{h}}: W^{1,1}(\mathcal{T}_{h}) \mapsto \Sigma_{h}\)，\(\Pi_{V_{h}}: W^{1,1}(\mathcal{T}_{h}) \mapsto V_{h}\) 都是待定的线性投影算子，我们此时还没有对它们提出任何要求。上式移项可得：
+\begin{align*}
+	& \left(\mathcal{A}(\bm q) - \mathcal{A}(\bm q_{h}), \bm q - \bm q_{h}\right)_{\Omega} + \left\langle \eta \mathcal{A}(h_{e}^{-1}\jump{u - u_{h}}), \jump{u - u_{h}} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\
+	& = \left(\mathcal{A}(\bm q) - \mathcal{A}(\bm q_{h}), \bm q - \Pi_{Q_{h}} \bm q\right)_{\Omega} \\& - \left(\bm\sigma - \bm\sigma_{h}, \bm q - \Pi_{Q_{h}} \bm q\right)_{\Omega} + \left(\bm\sigma - \Pi_{\Sigma_{h}} \bm\sigma, \bm q - \bm q_{h}\right)_{\Omega} \\& - \left(\bm\sigma - \Pi_{\Sigma_{h}} \bm\sigma, \nabla_{h}(u - u_{h})\right)_{\Omega} + \left(\bm\sigma - \bm\sigma_{h}, \nabla_{h}(u - \Pi_{V_{h}} u)\right)_{\Omega} \\& + \left\langle \jump{u - u_{h}}, \avg{\bm\sigma - \Pi_{\Sigma_{h}} \bm\sigma} - \bm C_{12} \jump{\bm\sigma - \Pi_{\Sigma_{h}} \bm \sigma} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\& - \left\langle \jump{u - \Pi_{V_{h}} u}, \avg{\bm\sigma - \bm\sigma_{h}} - \bm C_{12} \jump{\bm\sigma - \bm\sigma_{h}} - \eta \mathcal{A}(h_{e}^{-1}\jump{u - u_{h}}) \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\
+	& = \left(\mathcal{A}(\bm q) - \mathcal{A}(\bm q_{h}), \bm q - \Pi_{Q_{h}} \bm q\right)_{\Omega} \\& - \left(\bm\sigma - \bm\sigma_{h}, \bm q - \Pi_{Q_{h}} \bm q\right)_{\Omega} + \left(\bm\sigma - \Pi_{\Sigma_{h}} \bm\sigma, \bm q - \bm q_{h}\right)_{\Omega} \\& - \left(\bm\sigma - \Pi_{\Sigma_{h}} \bm\sigma, \nabla_{h}(\Pi_{V_{h}} u - u_{h})\right)_{\Omega} + \left(\Pi_{\Sigma_{h}} \bm\sigma - \bm\sigma_{h}, \nabla_{h}(u - \Pi_{V_{h}} u)\right)_{\Omega} \\& + \left\langle \jump{u - u_{h}}, \avg{\bm\sigma - \Pi_{\Sigma_{h}} \bm\sigma} - \bm C_{12} \jump{\bm\sigma - \Pi_{\Sigma_{h}} \bm \sigma} \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} \\& - \left\langle \jump{u - \Pi_{V_{h}} u}, \widehat{\bm\sigma}(\bm\sigma - \bm\sigma_{h}, u - u_{h}) \right\rangle_{\Gamma^{o} \cup \Gamma^{D}} 
+\end{align*}
+% to be continued
+% to be done: find a suitable projection
+
