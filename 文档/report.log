@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.3.25)  13 APR 2023 15:52
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.3.25)  17 APR 2023 17:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1524,12 +1524,12 @@ Overfull \hbox (9.63795pt too wide) in paragraph at lines 81--81
 []\TU/lmr/m/n/12 Alexandre Ern and Jean-Luc Guermond. “Distributions and Duality in Sobolev
  []
 
-
+[104]
 Overfull \hbox (4.69646pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/it/12 Equations\TU/lmr/m/n/12 . 2nd. Vol. 19. Graduate Studies in Mathematics. Providence, Rhode
  []
 
-[104] [105] [106]
+[105] [106]
 Overfull \hbox (4.56006pt too wide) in paragraph at lines 81--81
 [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][][][][] [] [][][] [] [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . 
  []
@@ -1559,17 +1559,17 @@ Overfull \hbox (33.41148pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/n/12 Mathematics. Springer Publishing Company, Incorporated, 2007. \TU/lmr/m/sc/12 isbn\TU/lmr/m/n/12 : 0387720650.
  []
 
-
+[109]
 Overfull \hbox (30.45671pt too wide) in paragraph at lines 81--81
 [][][][][][][][][][][][][][][][][]$[]\TU/lmr/m/n/12 . \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][][][][][][][][]$[]. 
  []
 
-[109]
+[110]
 Overfull \hbox (67.22784pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/it/12 nal on Numerical Analysis \TU/lmr/m/n/12 39.1 (2001), pp. 264–285. \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][][][][][][][][][][][][][]$[].
  []
 
-[110]
+
 Overfull \hbox (15.49329pt too wide) in paragraph at lines 81--81
 \TU/lmr/m/sc/12 doi\TU/lmr/m/n/12 : []$[][] [] [][][][] [] [][][][][][][][][][]$[]. \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : []$[][][][][] [] [] [] [][][] [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][]$[]. 
  []
@@ -1643,10 +1643,10 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 Here is how much of TeX's memory you used:
  31436 strings out of 478630
  658521 string characters out of 5847730
- 2008012 words of memory out of 5000000
+ 2010012 words of memory out of 5000000
  51063 multiletter control sequences out of 15000+600000
  527726 words of font info for 185 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  89i,22n,115p,1152b,5024s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on report.xdv (119 pages, 2071312 bytes).
+Output written on report.xdv (119 pages, 2073552 bytes).
