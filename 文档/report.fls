@@ -1104,15 +1104,10 @@ INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
 OUTPUT report.xdv
 OUTPUT report.toc
-INPUT ./includefiles/p-Laplacian.tex
-INPUT includefiles/p-Laplacian.tex
-INPUT ./includefiles/p-Laplacian.tex
-INPUT includefiles/p-Laplacian.tex
-INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
-INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/esint/esint10.tfm
-INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT ./includefiles/Poisson.tex
+INPUT includefiles/Poisson.tex
+INPUT ./includefiles/Poisson.tex
+INPUT includefiles/Poisson.tex
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
@@ -1121,10 +1116,13 @@ INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/esint/esint10.tfm
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/esint/esint10.tfm
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/J.eps
-INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/J.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/J.eps
-INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/J.eps
+INPUT ./includefiles/triangle nodes compare.png
+INPUT ./includefiles/triangle nodes compare.png
+INPUT includefiles/triangle nodes compare.png
+INPUT ./includefiles/1D poisson LDG spy/legendre c=00 direct.eps
+INPUT ./includefiles/1D poisson LDG spy/legendre c=00 direct.eps
+INPUT includefiles/1D poisson LDG spy/legendre c=00 direct.eps
+INPUT includefiles/1D poisson LDG spy/legendre c=00 direct.eps
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
@@ -1134,6 +1132,140 @@ INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/esint/esint10.tfm
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/esint/esint10.tfm
 INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT ./includefiles/1D poisson LDG spy/legendre c=05 reduce.eps
+INPUT ./includefiles/1D poisson LDG spy/legendre c=05 reduce.eps
+INPUT includefiles/1D poisson LDG spy/legendre c=05 reduce.eps
+INPUT includefiles/1D poisson LDG spy/legendre c=05 reduce.eps
+INPUT ./includefiles/1D poisson LDG spy/legendre c=05 direct.eps
+INPUT ./includefiles/1D poisson LDG spy/legendre c=05 direct.eps
+INPUT includefiles/1D poisson LDG spy/legendre c=05 direct.eps
+INPUT includefiles/1D poisson LDG spy/legendre c=05 direct.eps
+INPUT ./includefiles/1D poisson LDG spy/legendre c=05 reduce.eps
+INPUT ./includefiles/1D poisson LDG spy/legendre c=05 reduce.eps
+INPUT includefiles/1D poisson LDG spy/legendre c=05 reduce.eps
+INPUT ./includefiles/1D poisson LDG spy/lobatto c=00 direct.eps
+INPUT ./includefiles/1D poisson LDG spy/lobatto c=00 direct.eps
+INPUT includefiles/1D poisson LDG spy/lobatto c=00 direct.eps
+INPUT includefiles/1D poisson LDG spy/lobatto c=00 direct.eps
+INPUT ./includefiles/1D poisson LDG spy/lobatto c=05 reduce.eps
+INPUT ./includefiles/1D poisson LDG spy/lobatto c=05 reduce.eps
+INPUT includefiles/1D poisson LDG spy/lobatto c=05 reduce.eps
+INPUT includefiles/1D poisson LDG spy/lobatto c=05 reduce.eps
+INPUT ./includefiles/1D poisson LDG spy/lobatto c=05 direct.eps
+INPUT ./includefiles/1D poisson LDG spy/lobatto c=05 direct.eps
+INPUT includefiles/1D poisson LDG spy/lobatto c=05 direct.eps
+INPUT includefiles/1D poisson LDG spy/lobatto c=05 direct.eps
+INPUT ./includefiles/1D poisson LDG spy/lobatto c=05 reduce.eps
+INPUT ./includefiles/1D poisson LDG spy/lobatto c=05 reduce.eps
+INPUT includefiles/1D poisson LDG spy/lobatto c=05 reduce.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/Lobatto2D_equi p6.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/Lobatto2D_equi p6.eps
+INPUT includefiles/2D poisson LDG Dirichlet/Lobatto2D_equi p6.eps
+INPUT includefiles/2D poisson LDG Dirichlet/Lobatto2D_equi p6.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/Lobatto2D_ref p6.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/Lobatto2D_ref p6.eps
+INPUT includefiles/2D poisson LDG Dirichlet/Lobatto2D_ref p6.eps
+INPUT includefiles/2D poisson LDG Dirichlet/Lobatto2D_ref p6.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/Gauss2D.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/Gauss2D.eps
+INPUT includefiles/2D poisson LDG Dirichlet/Gauss2D.eps
+INPUT includefiles/2D poisson LDG Dirichlet/Gauss2D.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/mesh1.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/mesh1.eps
+INPUT includefiles/2D poisson LDG Dirichlet/mesh1.eps
+INPUT includefiles/2D poisson LDG Dirichlet/mesh1.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/mesh2.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/mesh2.eps
+INPUT includefiles/2D poisson LDG Dirichlet/mesh2.eps
+INPUT includefiles/2D poisson LDG Dirichlet/mesh2.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/mesh3.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/mesh3.eps
+INPUT includefiles/2D poisson LDG Dirichlet/mesh3.eps
+INPUT includefiles/2D poisson LDG Dirichlet/mesh3.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/mesh4.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/mesh4.eps
+INPUT includefiles/2D poisson LDG Dirichlet/mesh4.eps
+INPUT includefiles/2D poisson LDG Dirichlet/mesh4.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/mesh5.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/mesh5.eps
+INPUT includefiles/2D poisson LDG Dirichlet/mesh5.eps
+INPUT includefiles/2D poisson LDG Dirichlet/mesh5.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/mesh6.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/mesh6.eps
+INPUT includefiles/2D poisson LDG Dirichlet/mesh6.eps
+INPUT includefiles/2D poisson LDG Dirichlet/mesh6.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spyZZ p1.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spyZZ p1.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spyZZ p1.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spyZZ p1.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spySS p1.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spySS p1.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spySS p1.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spySS p1.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spyZZ p2.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spyZZ p2.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spyZZ p2.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spyZZ p2.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spySS p2.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spySS p2.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spySS p2.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spySS p2.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spyZZ p3.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spyZZ p3.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spyZZ p3.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spyZZ p3.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spySS p3.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spySS p3.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spySS p3.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spySS p3.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/error_u.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/error_u.eps
+INPUT includefiles/2D poisson LDG Dirichlet/error_u.eps
+INPUT includefiles/2D poisson LDG Dirichlet/error_u.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/error_q.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/error_q.eps
+INPUT includefiles/2D poisson LDG Dirichlet/error_q.eps
+INPUT includefiles/2D poisson LDG Dirichlet/error_q.eps
+INPUT ./includefiles/2D poisson LDG Neumann/error_u.eps
+INPUT ./includefiles/2D poisson LDG Neumann/error_u.eps
+INPUT includefiles/2D poisson LDG Neumann/error_u.eps
+INPUT includefiles/2D poisson LDG Neumann/error_u.eps
+INPUT ./includefiles/2D poisson LDG Neumann/error_q.eps
+INPUT ./includefiles/2D poisson LDG Neumann/error_q.eps
+INPUT includefiles/2D poisson LDG Neumann/error_q.eps
+INPUT includefiles/2D poisson LDG Neumann/error_q.eps
+INPUT ./includefiles/DOF compare.png
+INPUT ./includefiles/DOF compare.png
+INPUT includefiles/DOF compare.png
+INPUT ./includefiles/1D poisson HDG spy/legendre direct.eps
+INPUT ./includefiles/1D poisson HDG spy/legendre direct.eps
+INPUT includefiles/1D poisson HDG spy/legendre direct.eps
+INPUT includefiles/1D poisson HDG spy/legendre direct.eps
+INPUT ./includefiles/1D poisson HDG spy/legendre reduce.eps
+INPUT ./includefiles/1D poisson HDG spy/legendre reduce.eps
+INPUT includefiles/1D poisson HDG spy/legendre reduce.eps
+INPUT includefiles/1D poisson HDG spy/legendre reduce.eps
+INPUT ./includefiles/1D poisson HDG spy/lobatto direct.eps
+INPUT ./includefiles/1D poisson HDG spy/lobatto direct.eps
+INPUT includefiles/1D poisson HDG spy/lobatto direct.eps
+INPUT includefiles/1D poisson HDG spy/lobatto direct.eps
+INPUT ./includefiles/1D poisson HDG spy/lobatto reduce.eps
+INPUT ./includefiles/1D poisson HDG spy/lobatto reduce.eps
+INPUT includefiles/1D poisson HDG spy/lobatto reduce.eps
+INPUT includefiles/1D poisson HDG spy/lobatto reduce.eps
+INPUT ./includefiles/p-Laplacian.tex
+INPUT includefiles/p-Laplacian.tex
+INPUT ./includefiles/p-Laplacian.tex
+INPUT includefiles/p-Laplacian.tex
+INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/esint/esint10.tfm
+INPUT d:/TeXLive/2023/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/J.eps
+INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/J.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/J.eps
+INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/J.eps
 INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/gradnorm.eps
 INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/gradnorm.eps
 INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, wei/gradnorm.eps
