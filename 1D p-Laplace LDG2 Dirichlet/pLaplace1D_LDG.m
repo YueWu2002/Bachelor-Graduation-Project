@@ -1,4 +1,4 @@
-function [u, du] = pLaplace1D_LDG(f, xx, gl, gr, p, p_equ, alpha, C12, type, plot_con)
+function [u, du, flux] = pLaplace1D_LDG(f, xx, gl, gr, p, p_equ, alpha, C12, type, plot_con)
 % 1D p-Laplace equation with purely Dirichlet BC
 % p: polynomial order
 % p_equ: p-value
@@ -147,30 +147,33 @@ GRAD_dbc = Ainv*F;  % gradient vector with only Dirichlet data
 
 u = (B'*Ainv*B + C) \ (B'*GRAD_dbc + F_dual + D_pnlt_dual + N_dual);   % starts with Poisson solution
 E1 = compute_energy(N, QWEI, Pnq_big, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u, p_equ);
-E = [E1]; % starts from zero
 rho = 1.0;  % step length, should start with 1.0 (because it's best for the Poisson equation)
-rhos = [];
-grad_norms = [];
 maxit = 10000;
 it = 0;
 should_continue = true;
+
+if plot_con
+    E = [E1]; % starts from zero
+    rhos = [];
+    grad_norms = [];
+end
+
 while should_continue && it < maxit
     [grad, grad_norm] = solve_grad(N, QWEI, Pnq_big, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u, p_equ, 2, 1e-16);
-    grad_norms = [grad_norms, grad_norm];
-
-    if grad_norm < 1e-16
-        should_continue = false;
-    end
 
     fun = @(t) compute_energy(N, QWEI, Pnq_big, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u - t.*grad, p_equ);
 
     % problem: sometimes problems may occur that one needs a negative rho to descent
-    [rho, E1] = golden_search_oneside(fun, E(end), rho, 1e-6 * rho); % 1e-6 relative error should be good
-    E = [E, E1];
-    rhos = [rhos, rho];
+    [rho, E1] = golden_search_oneside(fun, E1, rho, 1e-6 * rho); % 1e-6 relative error should be good
     u = u - rho.*grad;
 
-    if (abs(rho) < 1e-16) || (abs(rho) > 1e+8)
+    if plot_con
+        E = [E, E1];
+        rhos = [rhos, rho];
+        grad_norms = [grad_norms, grad_norm];
+    end
+
+    if (abs(rho) < 1e-16) || (abs(rho) > 1e+8) || (grad_norm < 1e-16)
         should_continue = false;
         % in most cases, we stop here due to rho == 0 (this means that f'(0) >= 0. which might occur due to finite accuracy of floating point operations)
     end
@@ -201,8 +204,17 @@ end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% post-processing
 
-du = GRAD_dbc + GRAD_in * u;
+du = GRAD_dbc + GRAD_in * u; % can be modified to improve accuracy
+du = Ainv*(F - B*u);
+flux = zeros(N*(p+1), 1);
+for k = 1: N
+    ind = (k-1)*(p+1)+1 : k*(p+1);
+
+    % quadrature-based interpolation
+    flux(ind) = Pqn*Amap(Pnq*du(ind), p_equ);
+end
 
 end
 

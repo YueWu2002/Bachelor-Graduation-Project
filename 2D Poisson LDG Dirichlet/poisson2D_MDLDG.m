@@ -48,12 +48,7 @@ Np = ((p+1)*(p+2))/2;
 
 % interior quadrature (for the ref element: the right triangle)
 [qx, qy, qz, qw, nquad] = quadrature_nodal2D(2*p, false); % algebraic exactness = 2*p
-Pmq = zeros(nquad, Np); % maps Taylor basis coefficients to quadrature nodal values
-for k = 1: nquad
-    Pmq(k,:) = Taylor_basis_eval(qx(k), qy(k), p);
-end
-Pnq = Pmq / Pmn;  % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
-% Pnq = Pmq*Pnm;
+Pnq = interpmat_nodal2D(xn, yn, p, qx, qy); % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
 
 
 
@@ -162,16 +157,6 @@ parfor k = 1: nelem
 
 
     % for G, block size = [Np, 1]
-    %{
-    % pure interpolation
-    fval = zeros(Np, 1);
-    for i = 1: Np
-        xp = dot(xx, [xn(i), yn(i), zn(i)]);
-        yp = dot(yy, [xn(i), yn(i), zn(i)]);
-        fval(i) = f(xp, yp);
-    end
-    G_block{k} = M_elem*fval;
-    %}
     % quadrature-based interpolation
     fvals = zeros(nquad, 1);
     for i = 1: nquad

@@ -1,3 +1,5 @@
+% we use another method to assemble the matrix: split AinvB=Ainv*B and B'=BT
+
 uu = @(x,y) exp(sin(pi*x))*cos(pi*(x+y));
 qqx = @(x,y) exp(sin(pi*x))*pi*(cos(pi*x)*cos(pi*(x+y))-sin(pi*(x+y)));
 qqy = @(x,y) -exp(sin(pi*x))*pi*sin(pi*(x+y));
@@ -6,7 +8,7 @@ g_D = uu;
 g_N = @(x,y) [qqx(x,y), qqy(x,y)];
 
 show_spy = false;
-p = 7;      % advise: 1<=p<=7
+p = 3;      % advise: 1<=p<=7
 vel = [1.0, 0];
 
 cd("mesh");

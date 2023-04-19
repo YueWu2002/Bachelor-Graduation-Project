@@ -33,7 +33,7 @@ for k = 1: 6
     hh = xx(2:end) - xx(1:end-1);
     h(k) = max(hh(:));
 
-    [u, du] = pLaplace1D_LDG(ff, xx, gl, gr, p, p_equ, 1, 0.0, type, true);
+    [u, du, q] = pLaplace1D_LDG(ff, xx, gl, gr, p, p_equ, 1, 0.0, type, true);
     % results: nodal representation of the displacement u and its gradient du
     
     err(k,:) = [0, 0, 0];
@@ -42,7 +42,8 @@ for k = 1: 6
         inds = (j-1)*(p+1)+1 : j*(p+1);
         uvals = Pnq*u(inds);                % evaluate polynomial at quadrature nodes
         duvals = Pnq*du(inds);              % evaluate polynomial at quadrature nodes
-        qvals = Pnq*(Pqn*Amap(duvals, p_equ)); % quadrature-based interpolation + evaluate at quadrature points
+        % qvals = Pnq*(Pqn*Amap(duvals, p_equ)); % quadrature-based interpolation + evaluate at quadrature points
+        qvals = Pnq*q(inds);
 
         uuvals = zeros(length(qw),1);       % exact solution
         dduuvals = zeros(length(qw),1);     % exact solution

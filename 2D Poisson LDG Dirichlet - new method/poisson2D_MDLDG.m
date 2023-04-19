@@ -38,8 +38,8 @@ tic;
 Np = ((p+1)*(p+2))/2;
 
 % edge matrices (for the ref element: [-1,1]) (checked.)
-[qxe, ~] = gausslobatto(p+1);
-[Me, ~, ~, ~, ~] = matrix_nodal1D(qxe);
+[qxe, qwe] = gausslobatto(p+1);
+[Me, Minve, ~, Pmne, ~] = matrix_nodal1D(qxe);
 
 % interior matrices (for the ref element: the right triangle) (checked.)
 [xn, yn, zn] = node_lobatto2D(p, false);
@@ -48,16 +48,49 @@ Np = ((p+1)*(p+2))/2;
 
 % interior quadrature (for the ref element: the right triangle)
 [qx, qy, qz, qw, nquad] = quadrature_nodal2D(2*p, false); % algebraic exactness = 2*p
-Pmq = zeros(nquad, Np); % maps Taylor basis coefficients to quadrature nodal values
+
+
+
+
+% 以下的矩阵的浮点稳定性可能不好，根本原因在于 Pnq 的计算过程是浮点不稳定的 !!!
+Pnq = interpmat_nodal2D(xn, yn, p, qx, qy); % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
+Pqn = Minv*Pnq'*diag(qw); % quadrature-based interpolation operator (maps values at quadrature nodes to nodal representations, which is not necessarily the inverse of Pnq)
+norm(Pqn*Pnq - eye(Np))
+% 问题：这个值不收敛到 0，很快就起来了，需要解决这个问题才能做 p-Laplace
+% 方法：我们先测试数值积分的精度，然后再考虑其他的
+% 测试发现：使用数值积分来构造质量矩阵，误差很大(连特征值都不同)
+% 解决方法：使用浮点稳定的方法计算 Pnq !!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+vals = zeros(Np, nquad);
 for k = 1: nquad
-    Pmq(k,:) = Taylor_basis_eval(qx(k), qy(k), p);
+    vals(:,k) = Taylor_basis_eval(qx(k), qy(k), p);
 end
-Pnq = Pmq / Pmn;  % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
-% Pnq = Pmq*Pnm;
+temp = vals' / Pmn;
+Mn_m = temp' * diag(qw) * temp;
+Mn_m = 0.5*(Mn_m + Mn_m');
+norm(Mn_m - M)
 
 
 
-% REMARK: we now do not use quadratures for volume integrals, instead we interpolate the function at nodal points and use the mass matrix for integration
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % mesh preprocessing
@@ -162,16 +195,6 @@ parfor k = 1: nelem
 
 
     % for G, block size = [Np, 1]
-    %{
-    % pure interpolation
-    fval = zeros(Np, 1);
-    for i = 1: Np
-        xp = dot(xx, [xn(i), yn(i), zn(i)]);
-        yp = dot(yy, [xn(i), yn(i), zn(i)]);
-        fval(i) = f(xp, yp);
-    end
-    G_block{k} = M_elem*fval;
-    %}
     % quadrature-based interpolation
     fvals = zeros(nquad, 1);
     for i = 1: nquad

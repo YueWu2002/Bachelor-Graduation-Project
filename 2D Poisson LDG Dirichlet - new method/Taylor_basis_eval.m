@@ -1,5 +1,5 @@
 function [val] = Taylor_basis_eval(x, y, p)
-% [val] = Taylor_basis_eval(x, y)
+% [val] = Taylor_basis_eval(x, y, p)
 %   compute values of Taylor basis up to total degree p at (x,y)
 %   should be exact in floating point
 % 
@@ -9,6 +9,11 @@ function [val] = Taylor_basis_eval(x, y, p)
 % 
 % output: 
 %   val:    column vector of values, size = [((p+1)*(p+2))/2, 1]
+
+if p < 0
+    val = [];
+    return;
+end
 
 id2D = @(i,j,p) ((2*p+4-i)*(i-1))/2 + j;
 N = ((p+1)*(p+2))/2;
