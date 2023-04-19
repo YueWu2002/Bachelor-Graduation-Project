@@ -9,7 +9,7 @@ function [u, du] = pLaplace1D_LDG(f, xx, gl, gr, p, p_equ, alpha, C12, type, plo
 [nx, ~] = quadrature_nodal1D(p+1, type);            % collocation
 [M, Minv, D, ~, ~, Tl, Tr] = matrix_nodal1D(nx);    % collocation
 Pnq = interpolatemat(nx, qx);                       % maps nodal values at collocation nodes to those at quadrature nodes
-% Pqn = Minv*Pnq'*diag(qw);                           % quadrature-based interpolation operator (maps values at quadrature nodes to nodal representations)
+Pqn = Minv*Pnq'*diag(qw);                           % quadrature-based interpolation operator (maps values at quadrature nodes to nodal representations)
 
 % q_equ = p_equ / (p_equ - 1);
 
@@ -155,7 +155,7 @@ maxit = 10000;
 it = 0;
 should_continue = true;
 while should_continue && it < maxit
-    [grad, grad_norm] = solve_grad(N, QWEI, Pnq_big, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u, p_equ, 2);
+    [grad, grad_norm] = solve_grad(N, QWEI, Pnq_big, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u, p_equ, 2, 1e-16);
     grad_norms = [grad_norms, grad_norm];
 
     if grad_norm < 1e-16
@@ -209,16 +209,17 @@ end
 
 function [E] = compute_energy(N, QWEI, Pnq_big, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u, p_equ)
 % compute the energy corresponding to the p-Laplace LDG minimization form
+% u must be a column-vector
 
 du = GRAD_dbc + GRAD_in * u; % could be improved to enhance floating point stability
 jmp_u = JMP*u + sparse([1,N+1], 1, [gl, -gr], N+1, 1);
-E = (dot(QWEI, abs(Pnq_big*du).^p_equ) ...
-    + dot(ETA .* (H_perp.^alpha), abs(jmp_u./(H_perp.^alpha)).^p_equ))/p_equ ...
+E = (sum(QWEI .* abs(Pnq_big*du).^p_equ) ...
+    + sum(ETA .* (H_perp.^alpha) .* abs(jmp_u./(H_perp.^alpha)).^p_equ)) / p_equ ...
     - dot(F_dual + N_dual, u);
 end
 
 
-function [grad, grad_norm] = solve_grad(N, QWEI, Pnq_big, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u, p_equ, type)
+function [grad, grad_norm] = solve_grad(N, QWEI, Pnq_big, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u, p_equ, type, delta)
 % solve the steepest gradient at u, and its related norm
 
 % D_DG[u, g_D] == Ainv * (F - B*u)
@@ -226,7 +227,6 @@ function [grad, grad_norm] = solve_grad(N, QWEI, Pnq_big, JMP, ETA, H_perp, GRAD
 % GRAD_dbc = Ainv*F;  % gradient vector with only Dirichlet data
 du = GRAD_dbc + GRAD_in * u;
 jmp_u = JMP*u + sparse([1,N+1], 1, [gl,-gr], N+1, 1);
-delta = 1e-10;
 
 GRAD_in_nq = Pnq_big * GRAD_in;
 du_q = Pnq_big * du;
@@ -238,11 +238,21 @@ case 1
     + JMP' * ( (ETA./(H_perp.^alpha)) .* JMP);
 case 2
     % under linearized W1p norm / weighted H01 norm
-    MAT = GRAD_in_nq' * ((correct_wei(du_q, p_equ, delta) .* QWEI) .* GRAD_in_nq) ...
+    MAT = (QWEI .* GRAD_in_nq)' * (correct_wei(du_q, p_equ, delta) .* GRAD_in_nq) ...
     + JMP' * ( ( (ETA./(H_perp.^alpha)) .* correct_wei(jmp_u./(H_perp.^alpha), p_equ, delta) ) .* JMP);
-case 3 % extremely slow
+case 3 % experimental
+    % under the local metric given by the functional J
+    MAT = GRAD_in_nq' * (QWEI .* (correct_wei(du_q, p_equ, delta) .* GRAD_in_nq)) ...
+    + JMP' * ( ( (ETA./(H_perp.^alpha)) .* correct_wei(jmp_u./(H_perp.^alpha), p_equ, delta) ) .* JMP) ...
+    + (p_equ - 2) * (...
+        (QWEI .* (du_q .* GRAD_in_nq))' * (correct_fullwei(du_q, p_equ, delta) .* (du_q .* GRAD_in_nq)) ... 
+        + (jmp_u .* JMP)' * ((ETA .* correct_fullwei(jmp_u./(H_perp.^alpha), p_equ, delta) .* (H_perp.^(-3*alpha)) .* jmp_u) .* JMP) ...
+    );
+case 4 % extremely slow
     % under standard L2 norm
     MAT = Pnq_big' * (QWEI .* Pnq_big);
+otherwise
+    error('Unknown preconditioner type!');
 end
 
 RHS = GRAD_in_nq' * (QWEI .* Amap(du_q, p_equ)) ...
@@ -254,18 +264,24 @@ grad = MAT \ RHS;
 grad_grad = GRAD_in * grad;
 jmp_grad = JMP*grad;
 
-grad_grad_q = Pnq_big*grad_grad;
+grad_grad_q = Pnq_big * grad_grad;
 
 switch type
 case 1
     grad_norm = sqrt(dot(grad_grad_q, QWEI .* grad_grad_q) ...
     + dot(jmp_grad, (ETA ./ (H_perp.^alpha)) .* jmp_grad));
 case 2
-    grad_norm = sqrt(dot(correct_wei(du_q, p_equ, delta) .* grad_grad_q, QWEI .* grad_grad_q) ...
-    + dot(correct_wei(jmp_u ./ (H_perp.^alpha), p_equ, delta) .* jmp_grad, (ETA ./ (H_perp.^alpha)) .* jmp_grad));
-case 3 % extremely slow
-    grad_q = Pnq_big*grad;
-    grad_norm = sqrt(dot(grad_q, QWEI .* grad_q));
+    grad_norm = sqrt( sum(correct_wei(du_q, p_equ, delta) .* QWEI .* abs(grad_grad_q).^2) + sum(correct_wei(jmp_u ./ (H_perp.^alpha), p_equ, delta) .* (ETA ./ (H_perp.^alpha)) .* abs(jmp_grad).^2));
+case 3 % experimental
+    grad_norm = sqrt( ...
+        sum(correct_fullwei(du_q, p_equ, delta) .* QWEI .* (p_equ-1) .* abs(du_q .* grad_grad_q).^2) ...
+        + sum(ETA .* correct_fullwei(jmp_u ./ (H_perp.^alpha), p_equ, delta) .* (p_equ-1) .* (H_perp.^(-3*alpha)) .* abs(jmp_u .* jmp_grad).^2) ...
+    );
+case 4 % extremely slow
+    grad_q = Pnq_big * grad;
+    grad_norm = sqrt( sum(QWEI .* abs(grad_q).^2) );
+otherwise
+    error('Unknown preconditioner type!');
 end
 
 end

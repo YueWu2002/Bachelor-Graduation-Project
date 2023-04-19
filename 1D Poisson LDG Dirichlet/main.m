@@ -7,7 +7,7 @@ b = 3*pi;
 c0 = 14.163684556723955471;
 gl = uu(a);
 gr = uu(b);
-type = 'legendre';   % collocation type
+type = 'lobatto';   % collocation type
 show_spy = false;
 
 p = 2;
@@ -32,13 +32,13 @@ for k = 1: 6
 
     [q, u] = poisson1D_LDG(ff, xx, gl, gr, p, 1, 0.0, type, show_spy, 'direct');
     
-    err(k,:) = zeros(1,2);
+    err(k,:) = [0, 0];
     err_loc = zeros(length(xx)-1, 2);
     for j = 1: length(xx) - 1
         inds = (j-1)*(p+1)+1 : j*(p+1);
-        indstar = (j-1)*(p+2)+1 : j*(p+2);
         uvals = Pnq*u(inds);
         qvals = Pnq*q(inds);
+
         uuvals = zeros(length(qw),1);   % exact solution
         qqvals = zeros(length(qw),1);   % exact solution
 

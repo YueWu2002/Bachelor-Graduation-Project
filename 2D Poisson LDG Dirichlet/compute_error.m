@@ -4,7 +4,7 @@ function [total_error] = compute_error(mesh, sol, p, uu, qqx, qqy)
 
 Np = ((p+1)*(p+2))/2;
 [xn, yn, zn] = node_lobatto2D(p, false);
-[M, ~, ~, ~, Pmn, Pnm] = matrix_nodal2D(xn, yn, zn, p);
+[M, ~, ~, ~, Pmn, ~] = matrix_nodal2D(xn, yn, zn, p);
 
 % interior quadrature (for the ref element: the right triangle)
 [qx, qy, qz, qw, nquad] = quadrature_nodal2D(2*p, false); % algebraic exactness = 2*p
@@ -12,7 +12,7 @@ Pmq = zeros(nquad, Np); % maps Taylor basis coefficients to quadrature nodal val
 for k = 1: nquad
     Pmq(k,:) = Taylor_basis_eval(qx(k), qy(k), p);
 end
-Pnq = Pmq/Pmn;  % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
+Pnq = Pmq / Pmn;  % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
 % Pnq = Pmq*Pnm;
 
 err_elem = zeros(size(mesh.elems,1),2);  % store error in u and q, respectively

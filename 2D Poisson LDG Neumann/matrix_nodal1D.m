@@ -30,12 +30,12 @@ Pnm = inv(Pmn);
 [M_m, Minv_m, D_m] = Legendre_basis_mat(p);
 
 % compute nodal matrices
-D = Pmn * D_m * Pnm;
+D = Pmn * D_m / Pmn; % D = Pmn * D_m * Pnm;
 
 Minv = Pmn * Minv_m * Pmn';
 Minv = 0.5*(Minv + Minv');
 
-M = inv(Minv);  % here, we use inv() since Minv is exact while M is not
+M = inv(Minv);  % here, we use inv() since Minv is accurate while M is not
 % M = Pnm' * M_m * Pnm;
 M = 0.5*(M + M');
 

@@ -32,7 +32,7 @@ Pnm = inv(Pmn);
 [M_m, Minv_m, D_m, Tl_m, Tr_m] = Legendre_basis_mat(p);
 
 % compute nodal matrices
-D = Pmn * D_m * Pnm;
+D = Pmn * D_m / Pmn; % D = Pmn * D_m * Pnm;
 
 Minv = Pmn * Minv_m * Pmn';
 Minv = 0.5*(Minv + Minv');

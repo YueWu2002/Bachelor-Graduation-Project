@@ -1,4 +1,4 @@
-p_equ = 10;
+p_equ = 1.3;
 q_equ = p_equ/(p_equ-1);
 
 uu = @(x) (x + 1.0).^((p_equ-2)/(p_equ-1)); % u(x)
@@ -13,7 +13,7 @@ gr = uu(b);
 type = 'lobatto';   % collocation type (should have no impact on the solution)
 show_spy = false;
 
-p = 2;
+p = 4;
 
 [qx, qw] = quadrature_nodal1D(p+1, 'legendre');     % quadrature for detect error
 [nx, ~] = quadrature_nodal1D(p+1, type);            % collocation

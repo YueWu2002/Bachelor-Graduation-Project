@@ -38,5 +38,5 @@
 \contentsline {subsubsection}{\numberline {2.4.1}The LDG Formulation}{67}{subsubsection.2.4.1}%
 \contentsline {subsubsection}{\numberline {2.4.2}Unisolvence, Convergence, and \emph {A Priori} Error Estimate based on the Primal Formulation}{69}{subsubsection.2.4.2}%
 \contentsline {subsubsection}{\numberline {2.4.3}Numerical Discretization}{92}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}Numerical Example 1 (1D Dirichlet)}{93}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Conclusion}{103}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.4}Numerical Example 1 (1D Dirichlet)}{94}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Conclusion}{104}{subsubsection.2.4.5}%

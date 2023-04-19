@@ -1,4 +1,4 @@
-function [sol, A,B,C] = poisson2D_MDLDG(mesh, f, g_D, g_N, c0, p, vel, show_spy, solve_method)
+function [sol] = poisson2D_MDLDG(mesh, f, g_D, g_N, c0, p, vel, show_spy, solve_method)
 % [sol] = poisson2D_MDLDG(mesh, f, g_D, g_N, c0, p, vel, show_spy)
 %   2D Poisson equation with Neumann BC
 % 
@@ -44,7 +44,7 @@ Np = ((p+1)*(p+2))/2;
 
 % interior matrices (for the ref element: the right triangle) (checked.)
 [xn, yn, zn] = node_lobatto2D(p, false);
-[M, Minv, Dx, Dy, Pmn, Pnm] = matrix_nodal2D(xn, yn, zn, p);
+[M, Minv, Dx, Dy, Pmn, ~] = matrix_nodal2D(xn, yn, zn, p);
 [T] = trace_lobatto_nodal2D(p);
 
 % interior quadrature (for the ref element: the right triangle)
@@ -53,7 +53,7 @@ Pmq = zeros(nquad, Np); % maps Taylor basis coefficients to quadrature nodal val
 for k = 1: nquad
     Pmq(k,:) = Taylor_basis_eval(qx(k), qy(k), p);
 end
-Pnq = Pmq/Pmn;  % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
+Pnq = Pmq / Pmn;  % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
 % Pnq = Pmq*Pnm;
 
 
@@ -101,7 +101,7 @@ parfor k = 1: nface
         face_nh(k) = 2*areas(max(mesh.face2elem(k,:))) / face_len(k);
 
         % Dirichlet BC, we should use positive C11
-        C11(k) = 10.0 / face_nh(k);
+        % C11(k) = 10.0 / face_nh(k);
 
         % C12 need not to be defined on boundaries
         C12(k,:) = 0;
@@ -241,13 +241,13 @@ clear iB jB vB Bind iC jC vC Cind iF jF Find iG jG Gind;
 
 assemble_time = toc;
 
-tic;
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % solve
 
+tic;
+
 switch solve_method
-case 'direct'
+case {'direct', 'full'}
     ZZ = [
         A, B, sparse(nelem*(2*Np), 1);
         B', -C, Lm';
@@ -260,7 +260,6 @@ case 'direct'
         spy(ZZ);
         print(gcf, '-depsc2', '-vector', 'spyZZ', '-r300');
     end
-    clear ZZ RHS;
 case 'reduce'
     % preferred method of solving
     SS = [
@@ -276,7 +275,6 @@ case 'reduce'
         spy(SS);
         print(gcf, '-depsc2', '-vector', 'spySS', '-r300');
     end
-    clear SS RHSS u q;
 otherwise
     disp('Error solve_method!');
 end

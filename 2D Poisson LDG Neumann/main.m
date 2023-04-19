@@ -7,7 +7,7 @@ g_N = @(x,y) [qqx(x,y), qqy(x,y)];
 c0 = -0.454719441676668752704457919840;
 
 show_spy = false;
-p = 2;      % advise: 1<=p<=7
+p = 7;      % advise: 1<=p<=7
 vel = [1.0, 0];
 
 cd("mesh");

@@ -1,6 +1,7 @@
 function [val] = Taylor_basis_eval(x, y, p)
 % [val] = Taylor_basis_eval(x, y)
 %   compute values of Taylor basis up to total degree p at (x,y)
+%   should be exact in floating point
 % 
 % input: 
 %   x, y:   evaluation coordinates, scalar

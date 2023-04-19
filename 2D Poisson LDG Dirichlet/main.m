@@ -6,7 +6,7 @@ g_D = uu;
 g_N = @(x,y) [qqx(x,y), qqy(x,y)];
 
 show_spy = false;
-p = 2;      % advise: 1<=p<=7
+p = 7;      % advise: 1<=p<=7
 vel = [1.0, 0];
 
 cd("mesh");
