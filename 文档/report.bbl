@@ -2197,57 +2197,6 @@
       \verb http://lsec.cc.ac.cn/phg/index_en.htm
       \endverb
     \endentry
-    \entry{10.1016/j.camwa.2015.04.013}{article}{}
-      \name{author}{4}{}{%
-        {{hash=ef1b5f560a736b3749d8413b54d01966}{%
-           family={Frank},
-           familyi={F\bibinitperiod},
-           given={Florian},
-           giveni={F\bibinitperiod}}}%
-        {{hash=fa7575c4ef944e671a54cb718ce2713f}{%
-           family={Reuter},
-           familyi={R\bibinitperiod},
-           given={Balthasar},
-           giveni={B\bibinitperiod}}}%
-        {{hash=325910d389134d532088f31b84140852}{%
-           family={Aizinger},
-           familyi={A\bibinitperiod},
-           given={Vadym},
-           giveni={V\bibinitperiod}}}%
-        {{hash=1ce792562e7f5d3364ab2be0070af3bd}{%
-           family={Knabner},
-           familyi={K\bibinitperiod},
-           given={Peter},
-           giveni={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{f985c5b56ea59bdffaa73cef5926a74b}
-      \strng{fullhash}{04e969f7a15581f0db818f3c1c7ab4d6}
-      \strng{bibnamehash}{f985c5b56ea59bdffaa73cef5926a74b}
-      \strng{authorbibnamehash}{f985c5b56ea59bdffaa73cef5926a74b}
-      \strng{authornamehash}{f985c5b56ea59bdffaa73cef5926a74b}
-      \strng{authorfullhash}{04e969f7a15581f0db818f3c1c7ab4d6}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{0898-1221}
-      \field{journaltitle}{Computers and Mathematics with Applications}
-      \field{number}{1}
-      \field{title}{FESTUNG: A MATLAB/GNU Octave Toolbox for the Discontinuous Galerkin Method, Part I: Diffusion Operator}
-      \field{volume}{70}
-      \field{year}{2015}
-      \field{pages}{11\bibrangedash 46}
-      \range{pages}{36}
-      \verb{doi}
-      \verb 10.1016/j.camwa.2015.04.013
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1016/j.camwa.2015.04.013
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1016/j.camwa.2015.04.013
-      \endverb
-    \endentry
     \entry{10.1007/s10915-015-0076-6}{article}{}
       \name{author}{4}{}{%
         {{hash=d9bf738cf2e98cbb91217404a0d23d57}{%
@@ -2862,8 +2811,8 @@
       \strng{authorbibnamehash}{7af740b80202d6591e0876c34f6a02d8}
       \strng{authornamehash}{7af740b80202d6591e0876c34f6a02d8}
       \strng{authorfullhash}{7af740b80202d6591e0876c34f6a02d8}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0272-4979}
@@ -3684,8 +3633,8 @@
       \strng{authorbibnamehash}{922f85113ef33a539ac99a990a04fedb}
       \strng{authornamehash}{922f85113ef33a539ac99a990a04fedb}
       \strng{authorfullhash}{922f85113ef33a539ac99a990a04fedb}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0168-874X}
@@ -3729,8 +3678,8 @@
       \strng{authorbibnamehash}{9609e6aaa28f8e7a88f6c9d77a0b94d6}
       \strng{authornamehash}{9609e6aaa28f8e7a88f6c9d77a0b94d6}
       \strng{authorfullhash}{9609e6aaa28f8e7a88f6c9d77a0b94d6}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Numerical Analysis}

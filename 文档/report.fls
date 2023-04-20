@@ -1218,6 +1218,14 @@ INPUT ./includefiles/2D poisson LDG Dirichlet/spySS p3.eps
 INPUT ./includefiles/2D poisson LDG Dirichlet/spySS p3.eps
 INPUT includefiles/2D poisson LDG Dirichlet/spySS p3.eps
 INPUT includefiles/2D poisson LDG Dirichlet/spySS p3.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spyZZ p9 fine.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spyZZ p9 fine.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spyZZ p9 fine.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spyZZ p9 fine.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spySS p9 fine.eps
+INPUT ./includefiles/2D poisson LDG Dirichlet/spySS p9 fine.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spySS p9 fine.eps
+INPUT includefiles/2D poisson LDG Dirichlet/spySS p9 fine.eps
 INPUT ./includefiles/2D poisson LDG Dirichlet/error_u.eps
 INPUT ./includefiles/2D poisson LDG Dirichlet/error_u.eps
 INPUT includefiles/2D poisson LDG Dirichlet/error_u.eps

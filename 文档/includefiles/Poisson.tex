@@ -1288,7 +1288,29 @@ LDG 方程组 \eqref{LDG weak form} 对应的线性代数方程组为：
 	\end{eqnarray}
 \end{subequations}
 
-我们使用 Nodal DG 方法实现，在三角形单元上使用 \(\mathscr{P}^{k}\) Lobatto 配点集 \cite{10.1093/imamat/hxh077} (如图 \ref{pic: P6 Lobatto nodes} 所示)，并使用开源程序 PHG \cite{parallel_hierarchical_grid} 中提供的三角形上具有 \(2k\) 阶代数精度的 Gauss 数值积分点进行源项 \(f\) 的积分以及误差测量 (如图 \ref{pic: triangular P12 Gauss nodes} 所示)。我们编写了支持协调三角网格上任意高阶多项式的 Matlab 程序，具体的矩阵组装过程、技巧以及数据结构参考文章 \cite{10.1016/j.camwa.2015.04.013}。我们使用开源软件 Gmsh 画网格，在本算例中采用了如图 \ref{Mesh: 2D Dirichlet} 所示的二等分逐层加密的协调三角网格。组装的矩阵的稀疏模式如图 \ref{pic: 2D MD-LDG Lobatto node spy} 所示，这里 \(k\) 表示多项式总次数。由于原始方程组规模较大，我们使用 Schur 补 \eqref{LDG Schur complement} 以减小规模。值得一提的是，由于我们使用的是 Lobatto 配点，可以区分单元内部自由度和边界自由度，因此可以使用逐单元的 static condensation 进一步减小方程组规模，但由于其编程的复杂性，这里并未采用此方法。我们的测试结果如图 \ref{pic: 2D Poisson Dirichlet MD-LDG}、表 \ref{table: 2D Poisson Dirichlet MD-LDG} 所示，其中，\(N_{\rm dof}^{\rm Schur}\) 是 Schur 补矩阵方程的自由度个数，原本的总自由度个数应当是 \(N_{\rm dof}^{\rm total} = 3 N_{\rm dof}^{\rm Schur}\).
+我们使用 Nodal DG 方法实现，在三角形单元上使用 \(\mathscr{P}^{k}\) Lobatto 配点集 \cite{10.1093/imamat/hxh077} (如图 \ref{pic: P6 Lobatto nodes} 所示)，并使用开源程序 PHG \cite{parallel_hierarchical_grid} 中提供的三角形上具有 \(2k\) 阶代数精度的 Gauss 数值积分进行源项 \(f\) 的积分以及误差测量 (如图 \ref{pic: triangular P12 Gauss nodes} 所示)。组装参考单元上的矩阵时不能避免使用模态基函数，若使用 Taylor (单项式) 基函数作为模态，随着 \(p\) 较大，模态矩阵的条件数呈指数增长，浮点误差的影响会被迅速放大，这在基于数值积分的插值 (quadrature-based interpolation) 矩阵的计算精度上非常明显。出于浮点稳定性 (矩阵条件数)、对称性、易推导性的考虑，我们使用参考单元上的 Bernstein 多项式作为模态基函数来辅助组装过程。记 \(z(x,y) = 1-x-y\)，\(\mathcal{P}^{p}(\widehat{K})\) 的 Bernstein 基函数如下给出：
+\begin{equation}
+    P_{i,j,k}(x, y, z(x,y)) 
+    = \frac{(i+j+k)!}{i! j! k!} x^{i} y^{j} z(x,y)^{k}, \quad
+    i,j,k \in \N, i+j+k = p 
+\end{equation}
+这些基函数具有单位分解 (partition of unity) 性质 / 凸性：\(P_{i,j,k}(x, y, z(x,y))\big|_{\widehat{K}} \geqslant 0\)，\(\sum_{i+j+k = p} P_{i,j,k}(x, y, z(x,y)) = 1\). 这组基的质量矩阵和微分关系矩阵如下给出：
+\begin{subequations}
+    \begin{equation}
+        \begin{aligned}
+            & \int_{\widehat{K}} P_{i_{1}, j_{1}, k_{1}}(x,y,z(x,y)) P_{i_{2}, j_{2}, k_{2}}(x,y,z(x,y)) \d x \d y \\
+            & = \frac{(i_{1} + j_{1} + k_{1})! (i2 + j2 + k2)! (i_{1} + i_{2})! (j_{1} + j_{2})! (k_{1} + k_{2})!}{i_{1}! i_{2}! j_{1}! j_{2}! k_{1}! k_{2}! (i_{1}+i_{2}+j_{1}+j_{2}+k_{1}+k_{2}+2)!} 
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \begin{aligned}
+            & \frac{\partial}{\partial x} P_{i, j, k}(x,y,z(x,y)) \\
+            & = (i-k) P_{i, j, k}(x,y,z(x,y)) + (j+1) P_{i-1, j+1, k}(x,y,z(x,y)) \\& + (k+1) P_{i-1, j, k+1}(x,y,z(x,y)) - (i+1) P_{i+1, j, k-1}(x,y,z(x,y)) \\& - (j+1) P_{i, j+1, k-1}(x,y,z(x,y)) 
+        \end{aligned}
+    \end{equation}
+\end{subequations}
+
+我们编写了支持协调三角网格上任意高阶多项式的 Matlab 程序。我们使用开源软件 Gmsh 画网格，在本算例中采用了如图 \ref{Mesh: 2D Dirichlet} 所示的二等分逐层加密的协调三角网格。组装的矩阵的稀疏模式如图 \ref{pic: 2D MD-LDG Lobatto node spy on the coarsest mesh}、\ref{pic: 2D MD-LDG Lobatto node spy on the finest mesh} 所示，这里 \(k\) 表示多项式总次数。由于原始方程组规模较大，我们使用 Schur 补 \eqref{LDG Schur complement} 以减小规模。值得一提的是，由于我们使用的是 Lobatto 配点，可以区分单元内部自由度和边界自由度，因此可以使用逐单元的 static condensation 进一步减小方程组规模，但由于其编程的复杂性，这里并未采用此方法。我们进行了多项式阶数由 \(1\) 到 \(8\) 的测试，结果如图 \ref{pic: 2D Poisson Dirichlet MD-LDG}、表 \ref{table: 2D Poisson Dirichlet MD-LDG} 所示。其中，\(N_{\rm dof}^{\rm Schur}\) 是 Schur 补矩阵方程的自由度个数，原本的总自由度个数应当是 \(N_{\rm dof}^{\rm total} = 3 N_{\rm dof}^{\rm Schur}\). 需要说明的是，如果参考单元的模态基函数使用的不是 Bernstein 基函数而是 Taylor 基函数，那么使用高于 \(6\) 阶的多项式时，收敛阶会由于浮点精度的问题而明显衰退。
 
 
 % to be done: 具体写一下如何组装的(包括 A，B，C三个矩阵和右端项，如何构造 nodal 基函数等等)，接着 2D Case 那一节写。
@@ -1369,6 +1391,7 @@ LDG 方程组 \eqref{LDG weak form} 对应的线性代数方程组为：
 
 \begin{figure}[htbp]
 	\begin{center}
+
 		\begin{subfigure}{0.49\linewidth}
 			\begin{center}
 				\includegraphics[width=0.8\linewidth]{includefiles/2D poisson LDG Dirichlet/spyZZ p1.eps}
@@ -1378,37 +1401,59 @@ LDG 方程组 \eqref{LDG weak form} 对应的线性代数方程组为：
 		\begin{subfigure}{0.49\linewidth}
 			\begin{center}
 				\includegraphics[width=0.8\linewidth]{includefiles/2D poisson LDG Dirichlet/spySS p1.eps}
-				\caption{Schur complement, \(k = 1\)}
+				\caption{Schur complement, \(k = 1\), level 1 mesh}
 			\end{center}
 		\end{subfigure}
 
 		\begin{subfigure}{0.49\linewidth}
 			\begin{center}
 				\includegraphics[width=0.8\linewidth]{includefiles/2D poisson LDG Dirichlet/spyZZ p2.eps}
-				\caption{original matrix, \(k = 2\)}
+				\caption{original matrix, \(k = 2\), level 1 mesh}
 			\end{center}
 		\end{subfigure}
 		\begin{subfigure}{0.49\linewidth}
 			\begin{center}
 				\includegraphics[width=0.8\linewidth]{includefiles/2D poisson LDG Dirichlet/spySS p2.eps}
-				\caption{Schur complement, \(k = 2\)}
+				\caption{Schur complement, \(k = 2\), level 1 mesh}
 			\end{center}
 		\end{subfigure}
 
 		\begin{subfigure}{0.49\linewidth}
 			\begin{center}
 				\includegraphics[width=0.8\linewidth]{includefiles/2D poisson LDG Dirichlet/spyZZ p3.eps}
-				\caption{original matrix, \(k = 3\)}
+				\caption{original matrix, \(k = 3\), level 1 mesh}
 			\end{center}
 		\end{subfigure}
 		\begin{subfigure}{0.49\linewidth}
 			\begin{center}
 				\includegraphics[width=0.8\linewidth]{includefiles/2D poisson LDG Dirichlet/spySS p3.eps}
-				\caption{Schur complement, \(k = 3\)}
+				\caption{Schur complement, \(k = 3\), level 1 mesh}
 			\end{center}
 		\end{subfigure}
+
 		\caption{matrix sparsity patterns on the coarsest mesh}
-		\label{pic: 2D MD-LDG Lobatto node spy}
+		\label{pic: 2D MD-LDG Lobatto node spy on the coarsest mesh}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+	\begin{center}
+
+		\begin{subfigure}{0.49\linewidth}
+            \begin{center}
+                \includegraphics[width=0.8\linewidth]{includefiles/2D poisson LDG Dirichlet/spyZZ p9 fine.eps}
+                \caption{original matrix, \(k = 9\)}
+            \end{center}
+        \end{subfigure}
+        \begin{subfigure}{0.49\linewidth}
+            \begin{center}
+                \includegraphics[width=0.8\linewidth]{includefiles/2D poisson LDG Dirichlet/spySS p9 fine.eps}
+                \caption{Schur complement, \(k = 9\)}
+            \end{center}
+        \end{subfigure}
+
+		\caption{matrix sparsity patterns on the finest mesh}
+		\label{pic: 2D MD-LDG Lobatto node spy on the finest mesh}
 	\end{center}
 \end{figure}
 
@@ -1511,63 +1556,81 @@ LDG 方程组 \eqref{LDG weak form} 对应的线性代数方程组为：
 		& 112 & 2352 & 5.2238e-05 & 5.7317 & 2.0060e-03 & 4.7445 \\
 		& 448 & 9408 & 8.5782e-07 & 5.9283 & 6.8172e-05 & 4.8790 \\
 		& 1792 & 37632 & 1.3643e-08 & 5.9745 & 2.1287e-06 & 5.0012 \\
-		& 7168 & 150528 & 2.1463e-10 & 5.9902 & 6.5625e-08 & 5.0196 \\
+		& 7168 & 150528 & 2.1462e-10 & 5.9902 & 6.5631e-08 & 5.0194 \\
 	
 	\hline
 
-    6   & 7 & 196 2.2320e-02 & - & 4.9514e-01 & - \\
+    6   & 7 & 196 & 2.2320e-02 & - & 4.9514e-01 & - \\
         & 28 & 784 & 4.7159e-04 & 5.5646 & 1.1081e-02 & 5.4817 \\
         & 112 & 3136 & 4.3571e-06 & 6.7580 & 2.6228e-04 & 5.4009 \\
         & 448 & 12544 & 3.4603e-08 & 6.9763 & 4.5107e-06 & 5.8616 \\
-        & 1792 & 50176 & 2.7562e-10 & 6.9721 & 6.8802e-08 & 6.0348 \\
-        & 7168 & 200704 & 2.6713e-12 & 6.6890 & 1.1473e-09 & 5.9062 \\
+        & 1792 & 50176 & 2.7562e-10 & 6.9720 & 6.8820e-08 & 6.0344 \\
+        & 7168 & 200704 & 2.1725e-12 & 6.9872 & 1.0494e-09 & 6.0352 \\
 
 	\hline
 
 	7	& 7 & 252 & 2.2921e-02 & - & 2.3275e-01 & - \\
 		& 28 & 1008 & 1.2680e-04 & 7.4980 & 2.9013e-03 & 6.3260 \\
 		& 112 & 4032 & 5.8221e-07 & 7.7668 & 3.0889e-05 & 6.5535 \\
-		& 448 & 16128 & 2.4218e-09 & 7.9093 & 2.5140e-07 & 6.9410 \\
-		& 1792 & 64512 & 1.2421e-11 & 7.6071 & 2.7799e-09 & 6.4988 \\
-		& 7168 & 258048 & 7.7710e-12 & 0.6766 & 3.7694e-09 & -0.4393 \\
+		& 448 & 16128 & 2.4217e-09 & 7.9094 & 2.5135e-07 & 6.9413 \\
+		& 1792 & 64512 & 9.5456e-12 & 7.9870 & 1.9782e-09 & 6.9893 \\
+		& 7168 & 258048 & 3.7771e-14 & 7.9814 & 1.5479e-11 & 6.9978 \\
+
+    \hline
+
+	8	& 7 & 315 & 3.3834e-03 & - & 8.9198e-02 & - \\
+		& 28 & 1260 & 1.9554e-05 & 7.4349 & 5.6061e-04 & 7.3139 \\
+		& 112 & 5040 & 4.6222e-08 & 8.7247 & 3.2034e-06 & 7.4512 \\
+		& 448 & 20160 & 9.2444e-11 & 8.9658 & 1.4571e-08 & 7.7804 \\
+		& 1792 & 80640 & 1.8378e-13 & 8.9745 & 5.5774e-11 & 8.0293 \\
+		& 7168 & 322560 & 5.8934e-15 & 4.9627 & 4.2844e-12 & 3.7024 \\
+
+    \hline
+
+	9	& 7 & 385 & 2.4495e-03 & - & 3.9513e-02 & - \\
+		& 28 & 1540 & 4.2874e-06 & 9.1581 & 1.2219e-04 & 8.3370 \\
+		& 112 & 6160 & 5.0571e-09 & 9.7276 & 3.7445e-07 & 8.3501 \\
+		& 448 & 24640 & 5.3109e-12 & 9.8951 & 7.4326e-10 & 8.9767 \\
+		& 1792 & 98560 & 8.8831e-15 & 9.2237 & 3.2431e-12 & 7.8403 \\
+		& 7168 & 394240 & 7.2837e-15 & 0.2864 & 5.7203e-12 & -0.8187 \\
 
 \end{longtable}
 
 % 注记：几乎全部的计算时间都在组装矩阵上了(通过我重写程序中的边界积分，时间迅速下降了，例如k=6的最密网格，时间从640秒缩到5.6秒)；使用 Schur 补会提高数值精度，且可以加速计算(k=7最密网格，使用Schur补的直接解法需要3.95秒，原本解法需要28.6秒)
-% 注记：小矩阵的计算 (例如 matrix_nodal2D) 对 p 较大的情形的精度影响很大，需要仔细调优
+% 注记：小矩阵的计算 (例如 matrix_nodal2D) 对 p 较大的情形的精度影响很大，需要仔细调优(使用Bernstein基)
 
 \iffalse
 绘图：
-ers = zeros(6,2,7);
+ers = zeros(6,2,9);
 main; ers(:,:,p) = err; % loop
 err = ers;
 
-marks = {'-o', '-+', '-*', '-x', '-s', '-d', '-^', '-v'};
-for k = 1: 7
+marks = {'-o', '-+', '-*', '-x', '-s', '-d', '-^', '-v', '->', '-<', '-p', '-h'};
+for k = 1: 9
 	semilogy(1:6, err(:,1,k), marks{k});
 	hold on;
 end
-semilogy([1, 3, 1, 1], [10^(-2)*2^(-16), 10^(-2)*2^(-16), 10^(-2), 10^(-2)*2^(-16)]);
+semilogy([1, 3, 1, 1], [10^(-3)*2^(-20), 10^(-3)*2^(-20), 10^(-3), 10^(-3)*2^(-20)], 'k');
 hold on;
-text(1.3, 2^(-16), 'rate=8');
+text(1.3, 2^(-24), 'rate=10');
 grid on;
-legend('k=1','k=2','k=3','k=4','k=5','k=6', 'k=7');
+legend('k=1','k=2','k=3','k=4','k=5','k=6', 'k=7', 'k=8', 'k=9', 'Location', 'southwest');
 xlabel('mesh level');
 ylabel('error');
 xlim([0, 7]);
 hold off;
 print(gcf, '-depsc2', '-vector', 'error_u', '-r300');
 
-marks = {'-o', '-+', '-*', '-x', '-s', '-d', '-^', '-v'};
-for k = 1: 7
+marks = {'-o', '-+', '-*', '-x', '-s', '-d', '-^', '-v', '->', '-<', '-p', '-h'};
+for k = 1: 9
 	semilogy(1:6, err(:,2,k), marks{k});
 	hold on;
 end
-semilogy([1, 3, 1, 1], [10^(-1)*2^(-14), 10^(-1)*2^(-14), 10^(-1), 10^(-1)*2^(-14)]);
+semilogy([1, 3, 1, 1], [10^(-2)*2^(-18), 10^(-2)*2^(-18), 10^(-2), 10^(-2)*2^(-18)], 'k');
 hold on;
-text(1.3, 2^(-14), 'rate=7');
+text(1.3, 2^(-16), 'rate=9');
 grid on;
-legend('k=1','k=2','k=3','k=4','k=5','k=6', 'k=7');
+legend('k=1','k=2','k=3','k=4','k=5','k=6', 'k=7', 'k=8', 'k=9', 'Location', 'southwest');
 xlabel('mesh level');
 ylabel('error');
 xlim([0, 7]);
@@ -1580,8 +1643,8 @@ print(gcf, '-depsc2', '-vector', 'error_q', '-r300');
 
 在此算例中，我们使用与上一个算例一样的准确解、区域、网格、辅助函数 \(\bm v_{0}\)，而边界条件全部使用 Neumann 边界，使用 MD-LDG 方法配合 Lagrange 乘子法 \cite{10.1007/BF01436561} 进行求解。目标积分值参数取为：
 \begin{equation} % computed by Mathematica
-	c_0 = \int_{\Omega} u(x,y) \d x \d y
-	\approx -0.454719441676668752704457919840
+	c_0 = \int_{\Omega} u(x,y) \d x \d y 
+	\approx -0.454719441676668752704457919840 
 \end{equation}
 我们的测试结果如图 \ref{pic: 2D Poisson Neumann MD-LDG}、表 \ref{table: 2D Poisson Neumann MD-LDG} 所示。
 
@@ -1684,7 +1747,7 @@ print(gcf, '-depsc2', '-vector', 'error_q', '-r300');
 		& 112 & 2352 & 5.2334e-05 & 5.5964 & 2.0439e-03 & 4.5914 \\
 		& 448 & 9408 & 8.5117e-07 & 5.9422 & 6.7120e-05 & 4.9284 \\
 		& 1792 & 37632 & 1.3591e-08 & 5.9687 & 2.1141e-06 & 4.9886 \\
-		& 7168 & 150528 & 2.1428e-10 & 5.9871 & 6.5417e-08 & 5.0142 \\
+		& 7168 & 150528 & 2.1423e-10 & 5.9874 & 6.5425e-08 & 5.0141 \\
 	
 	\hline
 
@@ -1692,28 +1755,46 @@ print(gcf, '-depsc2', '-vector', 'error_q', '-r300');
 		& 28 & 784 & 4.4517e-04 & 5.9184 & 1.1410e-02 & 5.4933 \\
 		& 112 & 3136 & 4.0495e-06 & 6.7805 & 2.4542e-04 & 5.5389 \\
 		& 448 & 12544 & 3.4075e-08 & 6.8929 & 4.4478e-06 & 5.7860 \\
-		& 1792 & 50176 & 2.7349e-10 & 6.9611 & 6.8160e-08 & 6.0280 \\
-		& 7168 & 200704 & 2.6704e-12 & 6.6783 & 1.1457e-09 & 5.8946 \\
+		& 1792 & 50176 & 2.7349e-10 & 6.9611 & 6.8178e-08 & 6.0276 \\
+		& 7168 & 200704 & 2.1646e-12 & 6.9813 & 1.0441e-09 & 6.0290 \\
 
 	\hline
 
 	7	& 7 & 252 & 2.1853e-02 & - & 2.8074e-01 & - \\
 		& 28 & 1008 & 1.1556e-04 & 7.5631 & 2.6661e-03 & 6.7184 \\
 		& 112 & 4032 & 5.8188e-07 & 7.6337 & 3.1138e-05 & 6.4199 \\
-		& 448 & 16128 & 2.3938e-09 & 7.9253 & 2.4739e-07 & 6.9757 \\
-		& 1792 & 64512 & 1.2379e-11 & 7.5952 & 2.8084e-09 & 6.4609 \\
-		& 7168 & 258048 & 8.1639e-12 & 0.6006 & 3.8182e-09 & -0.4431 \\
+		& 448 & 16128 & 2.3938e-09 & 7.9253 & 2.4733e-07 & 6.9761 \\
+		& 1792 & 64512 & 9.4948e-12 & 7.9779 & 1.9647e-09 & 6.9759 \\
+		& 7168 & 258048 & 3.8127e-14 & 7.9602 & 1.5431e-11 & 6.9923 \\
 
+    \hline
+
+	8	& 7 & 315 & 3.5612e-03 & NaN & 9.2585e-02 & NaN \\
+		& 28 & 1260 & 1.7696e-05 & 7.6528 & 5.4751e-04 & 7.4018 \\
+		& 112 & 5040 & 4.3880e-08 & 8.6556 & 3.0188e-06 & 7.5028 \\
+		& 448 & 20160 & 9.1421e-11 & 8.9068 & 1.4400e-08 & 7.7118 \\
+		& 1792 & 80640 & 1.8267e-13 & 8.9672 & 5.5327e-11 & 8.0238 \\
+		& 7168 & 322560 & 1.4990e-14 & 3.6072 & 4.2971e-12 & 3.6865 \\
+
+    \hline
+
+	9	& 7 & 385 & 2.6236e-03 & NaN & 5.0594e-02 & NaN \\
+		& 28 & 1540 & 3.9334e-06 & 9.3816 & 1.1749e-04 & 8.7503 \\
+		& 112 & 6160 & 5.0138e-09 & 9.6156 & 3.7215e-07 & 8.3025 \\
+		& 448 & 24640 & 5.2781e-12 & 9.8917 & 7.3257e-10 & 8.9887 \\
+		& 1792 & 98560 & 9.2724e-15 & 9.1528 & 3.3005e-12 & 7.7941 \\
+		& 7168 & 394240 & 1.1392e-14 & -0.2969 & 5.7875e-12 & -0.8103 \\
 \end{longtable}
 
 
 \subsubsection{Conclusion}
 
-我们编程实现了一维 Poisson 方程的 LDG 方法以及二维 Poisson 方程的 MD-LDG 方法。该方法的特性是可以由 \(u_{h}\) 局部、显式地表示 \(\bm\sigma_{h}\)，从而可以利用 Schur 补的技巧，减少全局相互耦合的方程组自由度个数，且 Schur 补对应的代数方程组正好是 LDG 框架下 Poisson 方程的 primal 形式。我们的数值实验显示出对 \((\bm\sigma, u)\) 的 \((k, k+1)\) 阶收敛(\(k \geqslant 1\))，与理论结果一致。
+我们编程实现了一维 Poisson 方程的 LDG 方法以及二维 Poisson 方程的 MD-LDG 方法。该方法的特性是可以由 \(u_{h}\) 局部、显式地表示 \(\bm\sigma_{h}\)，从而可以利用 Schur 补的技巧，减少全局相互耦合的方程组自由度个数，且 Schur 补对应的代数方程组正好是 LDG 框架下 Poisson 方程的 primal 形式。我们的数值实验显示出对 \((\bm\sigma, u)\) 的 \((k, k+1)\) 阶收敛 (\(k \geqslant 1\))，与理论结果一致。
 
 
 
 
+\newpage
 
 \subsection{The Hybridizable DG Method}
 

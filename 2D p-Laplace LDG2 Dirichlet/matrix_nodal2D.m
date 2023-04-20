@@ -1,4 +1,4 @@
-function [M, Minv, Dx, Dy, Pmn, Pnm] = matrix_nodal2D(x, y, z, p)
+function [M, Minv, Dx, Dy, Pmn, Pnm] = matrix_nodal2D(x, y, z, p, basis_type)
 % [M, Minv, Dx, Dy, Pmn, Pnm] = matrix_nodal2D(x, y, z, p)
 %   compute the matrices for p-th order polynomial space on the right triangle
 %   using Taylor basis
@@ -6,6 +6,7 @@ function [M, Minv, Dx, Dy, Pmn, Pnm] = matrix_nodal2D(x, y, z, p)
 % input: 
 %   x,y,z:  barycentric coordinates of collocation nodes, length = ((p+1)*(p+2))/2
 %   p:      polynomial order >= 0
+%   basis_type: type of polynomial basis
 % 
 % output: 
 %   M:      mass matrix with respect to nodal DOFs, size = [((p+1)*(p+2))/2, ((p+1)*(p+2))/2]
@@ -23,17 +24,34 @@ N = ((p+1)*(p+2))/2;
 
 % Pmn maps modal coefs to nodal values (accurate)
 Pmn = zeros(N, N);
-for i = 1: p+1
-    for j = 1: p+2-i
-        Pmn(id2D(i,j,p), :) = Taylor_basis_eval(x(id2D(i,j,p)), y(id2D(i,j,p)), p);
+
+switch basis_type
+case 'Taylor'
+    for i = 1: p+1
+        for j = 1: p+2-i
+            Pmn(id2D(i,j,p), :) = Taylor_basis_eval(x(id2D(i,j,p)), y(id2D(i,j,p)), p);
+        end
     end
+
+    % compute modal matrices
+    [M_m, Dx_m, Dy_m] = Taylor_basis_mat(p);
+
+case 'Bernstein'
+    for i = 1: p+1
+        for j = 1: p+2-i
+            Pmn(id2D(i,j,p), :) = Bernstein2D_basis_eval(x(id2D(i,j,p)), y(id2D(i,j,p)), p);
+        end
+    end
+
+    % compute modal matrices
+    [M_m, Dx_m, Dy_m] = Bernstein2D_basis_mat(p);
+    
+otherwise
+    error('interpmat_nodal2D: unknown polynomial basis type!');
 end
 
 % Pnm maps nodal values to modal coefs (big floating-point error, should be avoided as possible)
 Pnm = inv(Pmn);
-
-% compute modal matrices
-[M_m, Dx_m, Dy_m] = Taylor_basis_mat(p);
 
 % compute nodal matrices
 Dx = Pmn * Dx_m / Pmn; % Dx = Pmn * Dx_m * Pnm;

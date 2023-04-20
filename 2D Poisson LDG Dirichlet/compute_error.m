@@ -1,14 +1,15 @@
-function [total_error] = compute_error(mesh, sol, p, uu, qqx, qqy)
+function [total_error] = compute_error(mesh, sol, p, uu, qqx, qqy, basis_type)
 % [total_error] = compute_error(mesh, sol, p, uu, qqx, qqy)
 %   compute the L2 error of the LDG solution
 
 Np = ((p+1)*(p+2))/2;
 [xn, yn, zn] = node_lobatto2D(p, false);
-[M, ~, ~, ~, Pmn, ~] = matrix_nodal2D(xn, yn, zn, p);
+[M, Minv, ~, ~, Pmn, ~] = matrix_nodal2D(xn, yn, zn, p, basis_type);
 
 % interior quadrature (for the ref element: the right triangle)
 [qx, qy, qz, qw, nquad] = quadrature_nodal2D(2*p, false); % algebraic exactness = 2*p
-Pnq = interpmat_nodal2D(xn, yn, p, qx, qy); % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
+Pnq = interpmat_nodal2D(xn, yn, p, qx, qy, basis_type); % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
+Pqn = Minv*Pnq'*diag(qw); % quadrature-based interpolation operator (maps values at quadrature nodes to nodal representations, which is not necessarily the inverse of Pnq)
 
 err_elem = zeros(size(mesh.elems,1),2);  % store error in u and q, respectively
 parfor k = 1: size(mesh.elems,1)

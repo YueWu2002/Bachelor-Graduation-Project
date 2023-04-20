@@ -13,7 +13,7 @@ gr = uu(b);
 type = 'lobatto';   % collocation type (should have no impact on the solution)
 show_spy = false;
 
-p = 4;
+p = 1;
 
 [qx, qw] = quadrature_nodal1D(p+1, 'legendre');     % quadrature for detect error
 [nx, ~] = quadrature_nodal1D(p+1, type);            % collocation

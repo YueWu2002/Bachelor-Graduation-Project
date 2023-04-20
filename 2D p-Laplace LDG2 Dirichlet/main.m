@@ -1,5 +1,7 @@
-% we use another method to assemble the matrix: split AinvB=Ainv*B and B'=BT
+p_equ = 2.0;
+q_equ = p_equ / (p_equ-1.0);
 
+% only for p_equ = 2
 uu = @(x,y) exp(sin(pi*x))*cos(pi*(x+y));
 qqx = @(x,y) exp(sin(pi*x))*pi*(cos(pi*x)*cos(pi*(x+y))-sin(pi*(x+y)));
 qqy = @(x,y) -exp(sin(pi*x))*pi*sin(pi*(x+y));
@@ -8,8 +10,9 @@ g_D = uu;
 g_N = @(x,y) [qqx(x,y), qqy(x,y)];
 
 show_spy = false;
-p = 3;      % advise: 1<=p<=7
-vel = [1.0, 0];
+p = 2;      % advise: 1<=p<=9
+vel = [1.0, 0]; % auxiliary H(div) function
+basis_type = 'Bernstein'; % 'Taylor' or 'Bernstein' (very recommended due to floating-point stability)
 
 cd("mesh");
 mymesh1
@@ -33,10 +36,10 @@ end
 m_test = 6;
 err = zeros(m_test, 2);
 for k = 1: m_test
-    sol = poisson2D_MDLDG(mesh{k}, ff, g_D, g_N, p, vel, show_spy, 'reduce');
-    err(k,:) = compute_error(mesh{k}, sol, p, uu, qqx, qqy);
+    sol = pLaplace2D_LDG(mesh{k}, ff, g_D, g_N, p, p_equ, vel, show_spy, basis_type, 'direct');
+    err(k,:) = compute_error(mesh{k}, sol, p, uu, qqx, qqy, basis_type);
 end
-% Remark: 使用Schur补对精度都暂时观察不到影响，对计算速度可以提高。
+% Remark: 使用Schur补对精度有一定影响(尤其密网格高阶数时)，对计算速度可以有效提高。
 % 问题：几乎所有的时间都用在组装矩阵上了。(通过我重写程序中的边界积分，时间迅速下降了，例如k=6的最密网格，时间从640秒缩到7.5秒)；使用 Schur 补会提高数值精度，且可以加速计算(k=7最密网格，使用Schur补的直接解法需要4.3秒，原本解法需要28.6秒)
 
 ord = nan(m_test, 2);

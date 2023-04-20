@@ -11,7 +11,7 @@ function [u, du, flux] = pLaplace1D_LDG(f, xx, gl, gr, p, p_equ, alpha, C12, typ
 Pnq = interpolatemat(nx, qx);                       % maps nodal values at collocation nodes to those at quadrature nodes
 Pqn = Minv*Pnq'*diag(qw);                           % quadrature-based interpolation operator (maps values at quadrature nodes to nodal representations)
 
-% q_equ = p_equ / (p_equ - 1);
+q_equ = p_equ / (p_equ - 1);
 
 N = length(xx) - 1; % number of elems
 hh = xx(2:end) - xx(1:end-1);

@@ -1,5 +1,5 @@
-function [sol] = poisson2D_MDLDG(mesh, f, g_D, g_N, c0, p, vel, show_spy, solve_method)
-% [sol] = poisson2D_MDLDG(mesh, f, g_D, g_N, c0, p, vel, show_spy)
+function [sol] = poisson2D_MDLDG(mesh, f, g_D, g_N, c0, p, vel, show_spy, basis_type, solve_method)
+% [sol] = poisson2D_MDLDG(mesh, f, g_D, g_N, c0, p, vel, show_spy, basis_type, solve_method)
 %   2D Poisson equation with Neumann BC
 % 
 % input: 
@@ -10,6 +10,8 @@ function [sol] = poisson2D_MDLDG(mesh, f, g_D, g_N, c0, p, vel, show_spy, solve_
 %   p:      polynomial order
 %   vel:    velocity for determining C_12 in the md-LDG formulation (constant non-zero vector for convenience)
 %   show_spy:   whether to plot the sparsity pattern of the matrix
+%   basis_type: type of polynomial basis
+%   solve_method: how to numerically solve the problem
 % 
 % output: 
 %   sol:    solution struct: store (q, u) in each element, (x, y) for each data point
@@ -44,13 +46,13 @@ Np = ((p+1)*(p+2))/2;
 
 % interior matrices (for the ref element: the right triangle) (checked.)
 [xn, yn, zn] = node_lobatto2D(p, false);
-[M, Minv, Dx, Dy, Pmn, ~] = matrix_nodal2D(xn, yn, zn, p);
+[M, Minv, Dx, Dy, Pmn, ~] = matrix_nodal2D(xn, yn, zn, p, basis_type);
 [T] = trace_lobatto_nodal2D(p);
 
 % interior quadrature (for the ref element: the right triangle)
 [qx, qy, qz, qw, nquad] = quadrature_nodal2D(2*p, false); % algebraic exactness = 2*p
-Pnq = interpmat_nodal2D(xn, yn, p, qx, qy); % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
-
+Pnq = interpmat_nodal2D(xn, yn, p, qx, qy, basis_type); % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
+Pqn = Minv*Pnq'*diag(qw); % quadrature-based interpolation operator (maps values at quadrature nodes to nodal representations, which is not necessarily the inverse of Pnq)
 
 
 % REMARK: we now do not use quadratures for volume integrals, instead we interpolate the function at nodal points and use the mass matrix for integration

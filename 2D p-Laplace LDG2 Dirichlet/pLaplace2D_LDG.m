@@ -1,18 +1,21 @@
-function [sol] = poisson2D_MDLDG(mesh, f, g_D, g_N, p, vel, show_spy, solve_method)
-% [sol] = poisson2D_MDLDG(mesh, f, g_D, g_N, p, vel, show_spy)
+function [sol] = pLaplace2D_LDG(mesh, f, g_D, g_N, p, p_equ, vel, show_spy, basis_type, solve_method)
+% [sol] = pLaplace2D_LDG(mesh, f, g_D, g_N, p, vel, show_spy, basis_type, solve_method)
 %   2D Poisson equation with Dirichlet BC
 % 
 % input: 
-%   mesh:   self-defined struct for a triangular mesh
-%   f:      source term
-%   g_D, g_N:   function handles for boundary conditions
-%   p:      polynomial order
-%   vel:    velocity for determining C_12 in the md-LDG formulation (constant non-zero vector for convenience)
-%   show_spy:   whether to plot the sparsity pattern of the matrix
+%   mesh:           self-defined struct for a triangular mesh
+%   f:              source term
+%   g_D, g_N:       function handles for boundary conditions
+%   p:              polynomial order
+%   p_equ:          the p-value in the p-Laplace equation
+%   vel:            velocity for determining C_12 in the md-LDG formulation (constant non-zero vector for convenience)
+%   basis_type:     type of polynomial basis
+%   show_spy:       whether to plot the sparsity pattern of the matrix
+%   solve_method:   how to numerically solve the problem
 % 
 % output: 
-%   sol:    solution struct: store (q, u) in each element, (x, y) for each data point
-% (arrangement: [qx(1); qy(1); qx(2); qy(2); ...; qx(nelem); qy(nelem); u(1); ...; u(nelem)])
+%   sol:    solution struct: store (q, flux, u) in each element, (x, y) for each data point
+% (arrangement: [qx(1); qy(1); qx(2); qy(2); ...; qx(nelem); qy(nelem); flux_x(1); flux_y(1); flux_x(2); flux_y(2); ...; flux_x(nelem); flux_y(nelem); u(1); ...; u(nelem)])
 %
 % REMARK: "mesh" data structure example:
 %   mesh = 
@@ -26,10 +29,9 @@ function [sol] = poisson2D_MDLDG(mesh, f, g_D, g_N, p, vel, show_spy, solve_meth
 %     elem2facedir: [14×3 logical]
 %        face2elem: [25×2 int32]
 %         bd_faces: [8×1 int32]
-
-% interior quadrature (for the ref element: the right triangle)
 % PROBLEM: the assembly process takes too much time, we should parallelize it!
 % WARNING: for better speed, please DO NOT use cells to construct block matrices! Cells are slow!
+
 tic;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -38,59 +40,28 @@ tic;
 Np = ((p+1)*(p+2))/2;
 
 % edge matrices (for the ref element: [-1,1]) (checked.)
-[qxe, qwe] = gausslobatto(p+1);
-[Me, Minve, ~, Pmne, ~] = matrix_nodal1D(qxe);
+[qxe, qwe] = quadrature_nodal1D(p+1, 'lobatto');   % legendre nodes as quadrature nodes at edges (tempoarily lobatto for debug purposes)
+[nxe, ~] = gausslobatto(p+1);                       % lobatto nodes as collocation nodes at edges
+[Me, Minve, ~, Pmne, ~] = matrix_nodal1D(nxe);      % nodal matrices on edge
+Pnqe = interpmat_nodal1D(nxe, qxe);                 % maps nodal values at collocation nodes to those at quadrature nodes
+Pqne = Minve*Pnqe'*diag(qwe);                       % quadrature-based interpolation operator (maps values at quadrature nodes to nodal representations)
+
+% 警告：我们下文需要细致地区分 qxe 和 nxe，需要修改程序!
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
 
 % interior matrices (for the ref element: the right triangle) (checked.)
-[xn, yn, zn] = node_lobatto2D(p, false);
-[M, Minv, Dx, Dy, Pmn, ~] = matrix_nodal2D(xn, yn, zn, p);
-[T] = trace_lobatto_nodal2D(p);
+[xn, yn, zn] = node_lobatto2D(p, false);            % use Lobatto node as collocation nodes
+[M, Minv, Dx, Dy, Pmn, ~] = matrix_nodal2D(xn, yn, zn, p, basis_type);
+[T] = trace_lobatto_nodal2D(p); % trace mappings for the three edges (edge orientation: counter-clock wise)
 
 % interior quadrature (for the ref element: the right triangle)
 [qx, qy, qz, qw, nquad] = quadrature_nodal2D(2*p, false); % algebraic exactness = 2*p
-
-
-
-
-% 以下的矩阵的浮点稳定性可能不好，根本原因在于 Pnq 的计算过程是浮点不稳定的 !!!
-Pnq = interpmat_nodal2D(xn, yn, p, qx, qy); % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
+Pnq = interpmat_nodal2D(xn, yn, p, qx, qy, basis_type); % maps nodal values to quadrature nodal values (for quadrature-based interpolation)
 Pqn = Minv*Pnq'*diag(qw); % quadrature-based interpolation operator (maps values at quadrature nodes to nodal representations, which is not necessarily the inverse of Pnq)
-norm(Pqn*Pnq - eye(Np))
-% 问题：这个值不收敛到 0，很快就起来了，需要解决这个问题才能做 p-Laplace
-% 方法：我们先测试数值积分的精度，然后再考虑其他的
-% 测试发现：使用数值积分来构造质量矩阵，误差很大(连特征值都不同)
-% 解决方法：使用浮点稳定的方法计算 Pnq !!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
-
-vals = zeros(Np, nquad);
-for k = 1: nquad
-    vals(:,k) = Taylor_basis_eval(qx(k), qy(k), p);
-end
-temp = vals' / Pmn;
-Mn_m = temp' * diag(qw) * temp;
-Mn_m = 0.5*(Mn_m + Mn_m');
-norm(Mn_m - M)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % mesh preprocessing
@@ -114,6 +85,7 @@ end
 % compute unit normal vectors for faces (point right to the face) (checked.)
 % compute characteristic "h" in the normal direction for edges (for the penalty term) (checked.)
 % compute the penalty coefficients (checked.)
+eta = 10.0;
 face_nh = zeros(nface, 1);
 face_len = zeros(nface, 1);
 normals = zeros(nface, 2);
@@ -121,11 +93,11 @@ C11 = zeros(nface, 1);
 C12 = zeros(nface, 2);
 parfor k = 1: nface
     face_vec = mesh.nodes(mesh.faces(k,2), :) - mesh.nodes(mesh.faces(k,1), :);
-    face_len(k) = norm(face_vec);
-    nm_vec = [0, 1; -1, 0] * face_vec';
-    normals(k,:) = nm_vec / norm(nm_vec);   % row vector
+    face_len(k) = norm(face_vec, 2);
+    nm_vec = [0, 1; -1, 0] * face_vec';         % rotate clock-wisely
+    normals(k,:) = nm_vec / norm(nm_vec, 2);    % (row vector form)
     
-    % compute characteristic "h"
+    % compute the characteristic "h"
     if any(mesh.face2elem(k,:) == 0)
         % boundary face (use normal length)
 
@@ -133,19 +105,23 @@ parfor k = 1: nface
         face_nh(k) = 2*areas(max(mesh.face2elem(k,:))) / face_len(k);
 
         % Dirichlet BC, we should use positive C11
-        C11(k) = 10.0 / face_nh(k);
+        C11(k) = eta / face_nh(k);
 
-        % C12 need not to be defined on boundaries
-        C12(k,:) = 0;
+        % (for Neumann BCs, C11 need not be defined)
+
+        % C12 need not be defined on boundaries
+        C12(k,:) = 0.0;
+
     else
         % interior face
 
-        % face h (use geometric averatge of normal length)
+        % face h (use geometric averatge of normal lengths)
         face_nh(k) = sqrt( (2*areas(mesh.face2elem(k,1)) / face_len(k)) * (2*areas(mesh.face2elem(k,2)) / face_len(k)));
 
-        % use the minimal-dissipation LDG penalty method
-        C11(k) = 0;
-        C12(k,:) = 0.5 * normals(k,:) * modified_sign(dot(vel, normals(k,:)));
+        C11(k) = eta / face_nh(k);
+
+        % C12(k,:) = 0.5 * normals(k,:) * modified_sign(dot(vel, normals(k,:)));
+        C12(k,:) = 0.0;
     end
 end
 
@@ -160,6 +136,47 @@ B = sparse(nelem*(2*Np), nelem*Np);
 C = sparse(nelem*Np, nelem*Np);
 F = zeros(nelem*(2*Np), 1);
 G = zeros(nelem*Np, 1);
+
+%{
+PiecewiseGrad_block = cell(nelem, 1); % piecewise gradient operator
+MassQh_block = cell(nelem, 1); % mass matrix for Qh
+invMassQh_block = cell(nelem, 1); % inverse of mass matrix for Qh
+parfor k = 1: nelem
+    xx = mesh.nodes(mesh.elems(k,1:3), 1);
+    yy = mesh.nodes(mesh.elems(k,1:3), 2);
+    Jac = [
+        xx(1) - xx(3), xx(2) - xx(3);
+        yy(1) - yy(3), yy(2) - yy(3)
+    ];
+    Jac_inv = inv(Jac);
+    elem_area = det(Jac);
+    M_elem = elem_area*M;
+    Minv_elem = (elem_area^(-1))*Minv;
+
+    % block size = [2*Np, 2*Np]
+    MassQh_block{k} = blkdiag(M_elem, M_elem);
+    invMassQh_block{k} = blkdiag(Minv_elem, Minv_elem);
+
+    % block size = [2*Np, Np], maps scalar functions to vector functions
+    PiecewiseGrad_block{k} = [
+        Jac_inv(1,1) * Dx + Jac_inv(2,1) * Dy; 
+        Jac_inv(1,2) * Dx + Jac_inv(2,2) * Dy 
+    ];
+end
+%}
+
+
+% to be continued from here:
+% We would like to inteprete -Ainv*B*u + Ainv*F as: piecewise gradient + lifting from the jumps. 
+% Therefore, we are to define such jumps (on all the edges), and the related lifting operator. 
+% Finally in the form: q = D_{block-diagonal} * u + Lift * Jump_vector_{on all the edges}
+
+
+
+
+
+
+
 
 % except for really-block-diagonal matrices, please do not use cells for assembly!
 % blocks for volume integrals
@@ -476,5 +493,5 @@ end
 end
 
 function [y] = fill_from_front(x,y)
-y(1:numel(x)) = x(:);
+    y(1:numel(x)) = x(:);
 end

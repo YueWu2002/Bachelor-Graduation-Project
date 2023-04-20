@@ -14,7 +14,7 @@ function [M, Dx, Dy] = Taylor_basis_mat(p)
 id2D = @(i,j,p) ((2*p+4-i)*(i-1))/2 + j;
 N = ((p+1)*(p+2))/2;
 
-M = zeros(N, N); % exact, and symmetric
+M = nan(N, N); % exact, and symmetric
 for i = 1: p+1
     for j = 1: p+2-i
         for k = 1: p+1
@@ -27,18 +27,13 @@ for i = 1: p+1
         end
     end
 end
-
-
-% Minv = inv(M);  % It proves to be the most accurate method through numerical tests.
-% Minv = 0.5*(Minv + Minv');
-
-
+% condition number is pretty big, so we try to avoid inverse M here.
 
 Dx = sparse(N, N);
 Dy = sparse(N, N);
 for i = 1: p+1
     for j = 1: p+2-i
-        % coef of derivative of x^(i-1)*y^(j-1)
+        % coef of derivative of x^(i-1)*y^(j-1), in each column
         if i > 1
             Dx(id2D(i-1,j,p), id2D(i,j,p)) = i-1;
         end

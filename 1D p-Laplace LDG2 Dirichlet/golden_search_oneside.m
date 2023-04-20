@@ -64,7 +64,6 @@ else % y0 > y_at_guess
 
 end
 
-
 % in-interval golden section search for convex functions
 % the minimal point is guaranteed to be included in the interval
 
