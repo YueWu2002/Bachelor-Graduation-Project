@@ -6,7 +6,7 @@ g_D = uu;
 g_N = @(x,y) [qqx(x,y), qqy(x,y)];
 
 show_spy = false;
-p = 1;      % advise: 1<=p<=9
+p = 8;      % advise: 1<=p<=9
 vel = [1.0, 0];
 basis_type = 'Bernstein'; % 'Taylor' or 'Bernstein' (very recommended due to floating-point stability)
 

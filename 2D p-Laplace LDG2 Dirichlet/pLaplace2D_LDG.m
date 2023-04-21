@@ -1,21 +1,19 @@
-function [sol] = pLaplace2D_LDG(mesh, f, g_D, g_N, p, p_equ, vel, show_spy, basis_type, solve_method)
-% [sol] = pLaplace2D_LDG(mesh, f, g_D, g_N, p, vel, show_spy, basis_type, solve_method)
-%   2D Poisson equation with Dirichlet BC
+function [sol] = pLaplace2D_MDLDG(mesh, f, g_D, g_N, p, p_equ, vel, show_spy, basis_type)
+% [sol] = pLaplace2D_MDLDG(mesh, f, g_D, g_N, p, p_equ, vel, show_spy, basis_type)
+%   2D p-Laplace equation with Dirichlet BC
 % 
 % input: 
-%   mesh:           self-defined struct for a triangular mesh
-%   f:              source term
-%   g_D, g_N:       function handles for boundary conditions
-%   p:              polynomial order
-%   p_equ:          the p-value in the p-Laplace equation
-%   vel:            velocity for determining C_12 in the md-LDG formulation (constant non-zero vector for convenience)
-%   basis_type:     type of polynomial basis
-%   show_spy:       whether to plot the sparsity pattern of the matrix
-%   solve_method:   how to numerically solve the problem
+%   mesh:   self-defined struct for a triangular mesh
+%   f:      source term
+%   g_D, g_N:   function handles for boundary conditions
+%   p:      polynomial order
+%   vel:    velocity for determining C_12 in the md-LDG formulation (constant non-zero vector for convenience)
+%   basis_type: type of polynomial basis
+%   show_spy:   whether to plot the sparsity pattern of the matrix
 % 
 % output: 
-%   sol:    solution struct: store (q, flux, u) in each element, (x, y) for each data point
-% (arrangement: [qx(1); qy(1); qx(2); qy(2); ...; qx(nelem); qy(nelem); flux_x(1); flux_y(1); flux_x(2); flux_y(2); ...; flux_x(nelem); flux_y(nelem); u(1); ...; u(nelem)])
+%   sol:    solution struct: store (q, u) in each element, (x, y) for each data point
+% (arrangement: [qx(1); qy(1); qx(2); qy(2); ...; qx(nelem); qy(nelem); u(1); ...; u(nelem)])
 %
 % REMARK: "mesh" data structure example:
 %   mesh = 
@@ -29,6 +27,8 @@ function [sol] = pLaplace2D_LDG(mesh, f, g_D, g_N, p, p_equ, vel, show_spy, basi
 %     elem2facedir: [14×3 logical]
 %        face2elem: [25×2 int32]
 %         bd_faces: [8×1 int32]
+%       face_types: [25x1 int32]
+
 % PROBLEM: the assembly process takes too much time, we should parallelize it!
 % WARNING: for better speed, please DO NOT use cells to construct block matrices! Cells are slow!
 
@@ -40,23 +40,16 @@ tic;
 Np = ((p+1)*(p+2))/2;
 
 % edge matrices (for the ref element: [-1,1]) (checked.)
-[qxe, qwe] = quadrature_nodal1D(p+1, 'lobatto');   % legendre nodes as quadrature nodes at edges (tempoarily lobatto for debug purposes)
-[nxe, ~] = gausslobatto(p+1);                       % lobatto nodes as collocation nodes at edges
-[Me, Minve, ~, Pmne, ~] = matrix_nodal1D(nxe);      % nodal matrices on edge
-Pnqe = interpmat_nodal1D(nxe, qxe);                 % maps nodal values at collocation nodes to those at quadrature nodes
-Pqne = Minve*Pnqe'*diag(qwe);                       % quadrature-based interpolation operator (maps values at quadrature nodes to nodal representations)
-
-% 警告：我们下文需要细致地区分 qxe 和 nxe，需要修改程序!
-% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
-
+[qxe, qwe] = quadrature_nodal1D(p+1, 'legendre'); % quadrature points
+[nxe, ~] = gausslobatto(p+1);
+[Me, Minve, ~, ~, ~] = matrix_nodal1D(nxe);
+Pnqe = interpmat_nodal1D(nxe, qxe);
+Pqne = Minve*Pnqe'*diag(qwe);
 
 % interior matrices (for the ref element: the right triangle) (checked.)
-[xn, yn, zn] = node_lobatto2D(p, false);            % use Lobatto node as collocation nodes
-[M, Minv, Dx, Dy, Pmn, ~] = matrix_nodal2D(xn, yn, zn, p, basis_type);
-[T] = trace_lobatto_nodal2D(p); % trace mappings for the three edges (edge orientation: counter-clock wise)
+[xn, yn, zn] = node_lobatto2D(p, false);
+[M, Minv, Dx, Dy, ~, ~] = matrix_nodal2D(xn, yn, zn, p, basis_type);
+[T] = trace_lobatto_nodal2D(p);
 
 % interior quadrature (for the ref element: the right triangle)
 [qx, qy, qz, qw, nquad] = quadrature_nodal2D(2*p, false); % algebraic exactness = 2*p
@@ -86,113 +79,152 @@ end
 % compute characteristic "h" in the normal direction for edges (for the penalty term) (checked.)
 % compute the penalty coefficients (checked.)
 eta = 10.0;
+ETA = eta .* ones(nface, 1);
 face_nh = zeros(nface, 1);
 face_len = zeros(nface, 1);
-normals = zeros(nface, 2);
+normals = zeros(nface, 2); % outward unit normal vector related to faces
+outward_normals = zeros(nface, 2); % outward unit normal vector related to the domain
 C11 = zeros(nface, 1);
 C12 = zeros(nface, 2);
 parfor k = 1: nface
     face_vec = mesh.nodes(mesh.faces(k,2), :) - mesh.nodes(mesh.faces(k,1), :);
-    face_len(k) = norm(face_vec, 2);
-    nm_vec = [0, 1; -1, 0] * face_vec';         % rotate clock-wisely
-    normals(k,:) = nm_vec / norm(nm_vec, 2);    % (row vector form)
+    face_len(k) = norm(face_vec);
+    nm_vec = [0, 1; -1, 0] * face_vec';
+    normals(k,:) = nm_vec / norm(nm_vec);   % row vector
     
-    % compute the characteristic "h"
-    if any(mesh.face2elem(k,:) == 0)
-        % boundary face (use normal length)
+    if mesh.face_types(k) > 0
+        % boundary face
+
+        eid = max(mesh.face2elem(k,:));
+        feid = find(mesh.elem2face(eid,:)==k);
 
         % face h
-        face_nh(k) = 2*areas(max(mesh.face2elem(k,:))) / face_len(k);
+        face_nh(k) = 2*areas(eid) / face_len(k);
 
-        % Dirichlet BC, we should use positive C11
-        C11(k) = eta / face_nh(k);
+        if mesh.elem2facedir(eid,feid) == true
+            outward_normals(k,:) = normals(k,:);
+        else
+            outward_normals(k,:) = -normals(k,:);
+        end
 
-        % (for Neumann BCs, C11 need not be defined)
+        % for Dirichlet faces, we should use positive C11
+        C11(k) = ETA(k) / face_nh(k);
 
-        % C12 need not be defined on boundaries
+        % for Neumann faces
+        % ...(we have no Neumann faces)
+
+        % C12 need not to be defined on boundaries
         C12(k,:) = 0.0;
-
     else
         % interior face
 
-        % face h (use geometric averatge of normal lengths)
-        face_nh(k) = sqrt( (2*areas(mesh.face2elem(k,1)) / face_len(k)) * (2*areas(mesh.face2elem(k,2)) / face_len(k)));
+        % face h (use geometric averatge of normal length)
+        face_nh(k) = min( 2*areas(mesh.face2elem(k,:)) / face_len(k) );
 
-        C11(k) = eta / face_nh(k);
-
+        C11(k) = ETA(k) / face_nh(k);
         % C12(k,:) = 0.5 * normals(k,:) * modified_sign(dot(vel, normals(k,:)));
         C12(k,:) = 0.0;
     end
 end
+outward_normals = sparse(outward_normals);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % assemble matrices (A(block-diagonal), B, C, F, G)
 % define the variables: [q; u], length = Nelem*(2*Np) + Nelem*Np, where in "each element" q = [qx; qy]
 % arrangement: [qx(1); qy(1); qx(2); qy(2); ...; qx(nelem); qy(nelem); u(1); ...; u(nelem)]
 
-A = sparse(nelem*(2*Np), nelem*(2*Np));
-Ainv = sparse(nelem*(2*Np), nelem*(2*Np));
-B = sparse(nelem*(2*Np), nelem*Np);
-C = sparse(nelem*Np, nelem*Np);
-F = zeros(nelem*(2*Np), 1);
-G = zeros(nelem*Np, 1);
+% inverse of mass matrix of Qh
+Ainv = kron((0.5./areas(:)).*speye(nelem), kron(speye(2), Minv));
 
-%{
-PiecewiseGrad_block = cell(nelem, 1); % piecewise gradient operator
-MassQh_block = cell(nelem, 1); % mass matrix for Qh
-invMassQh_block = cell(nelem, 1); % inverse of mass matrix for Qh
+% mass matrix of edge funciton space
+Me_big = kron((face_len(:)./2) .* speye(nface), Me);
+
+% maps edge nodal values to edge quadrature nodal values
+Pnqe_big = kron(speye(nface), Pnqe);
+
+
+% scalar-to-scalar jump and average operators (maps scalar functions to scalar functions)
+% we split the operators into interior ones and boundary ones (may depend on boundary conditions, so we just use the trace operator)
+ii = zeros((p+1), Np, 3, nelem, 'int32');
+jj = zeros((p+1), Np, 3, nelem, 'int32');
+JumpInvv = zeros((p+1), Np, 3, nelem);
+AvgInvv = zeros((p+1), Np, 3, nelem);
+TraceDirichletvv = zeros((p+1), Np, 3, nelem);
+TraceNeumannvv = zeros((p+1), Np, 3, nelem);
 parfor k = 1: nelem
-    xx = mesh.nodes(mesh.elems(k,1:3), 1);
-    yy = mesh.nodes(mesh.elems(k,1:3), 2);
-    Jac = [
-        xx(1) - xx(3), xx(2) - xx(3);
-        yy(1) - yy(3), yy(2) - yy(3)
-    ];
-    Jac_inv = inv(Jac);
-    elem_area = det(Jac);
-    M_elem = elem_area*M;
-    Minv_elem = (elem_area^(-1))*Minv;
+    for j = 1: 3
+        faceid = int32(mesh.elem2face(k,j));
 
-    % block size = [2*Np, 2*Np]
-    MassQh_block{k} = blkdiag(M_elem, M_elem);
-    invMassQh_block{k} = blkdiag(Minv_elem, Minv_elem);
+        if mesh.face_types(faceid) > 0
+            % boundary face
 
-    % block size = [2*Np, Np], maps scalar functions to vector functions
-    PiecewiseGrad_block{k} = [
-        Jac_inv(1,1) * Dx + Jac_inv(2,1) * Dy; 
-        Jac_inv(1,2) * Dx + Jac_inv(2,2) * Dy 
-    ];
+            % for Dirichlet faces
+            if mesh.elem2facedir(k,j) == true
+                TraceDirichletvv(:,:,j,k) = T(:,:,j);
+            else
+                TraceDirichletvv(:,:,j,k) = T(end:-1:1,:,j); % here, we don't use the signed version as in the jump operator
+            end
+
+            % for Neumann faces
+            % ...(in this program, all BCs are Dirichlet)
+
+        else
+            % interior face
+
+            if mesh.elem2facedir(k,j) == true
+                JumpInvv(:,:,j,k) = T(:,:,j);
+                AvgInvv(:,:,j,k) = 0.5*T(:,:,j);
+            else
+                JumpInvv(:,:,j,k) = -T(end:-1:1,:,j); % use the signed version which helps to reduce cost
+                AvgInvv(:,:,j,k) = 0.5*T(end:-1:1,:,j);
+            end
+
+        end
+        
+        ii(:,:,j,k) = (faceid-1)*int32(p+1) + repmat((int32(1):int32(p+1))', [1, Np]);
+        jj(:,:,j,k) = (k-1)*int32(Np) + repmat(int32(1):int32(Np), [p+1, 1]);
+
+    end
 end
-%}
+JumpIn = sparse(ii(:), jj(:), JumpInvv(:), nface*(p+1), nelem*Np); % checked.
+AvgIn = sparse(ii(:), jj(:), AvgInvv(:), nface*(p+1), nelem*Np); % seems to be OK
+TraceDirichlet = sparse(ii(:), jj(:), TraceDirichletvv(:), nface*(p+1), nelem*Np); % checked.
+TraceNeumann = sparse(ii(:), jj(:), TraceNeumannvv(:), nface*(p+1), nelem*Np); % checked.
+clear ii jj JumpInvv AvgInvv TraceDirichletvv TraceNeumannvv;
 
 
-% to be continued from here:
-% We would like to inteprete -Ainv*B*u + Ainv*F as: piecewise gradient + lifting from the jumps. 
-% Therefore, we are to define such jumps (on all the edges), and the related lifting operator. 
-% Finally in the form: q = D_{block-diagonal} * u + Lift * Jump_vector_{on all the edges}
+% boundary condition as a function on the boundary (checked.)
+SourceDirichlet = zeros(p+1, nface);
+SourceNeumann = zeros(p+1, nface);
+parfor k = 1: nface
+    if mesh.face_types(k) > 0
+        % boundary face
+
+        xx = mesh.nodes(mesh.faces(k,1:2), 1);
+        yy = mesh.nodes(mesh.faces(k,1:2), 2);
+        
+        % Dirichlet face
+        % quadrature-based interpolation
+        gval = zeros(length(qwe), 1);
+        for i = 1: length(qwe)
+            xp = dot([0.5*(1-qxe(i)), 0.5*(1+qxe(i))], xx);
+            yp = dot([0.5*(1-qxe(i)), 0.5*(1+qxe(i))], yy);
+            gval(i) = g_D(xp, yp);
+        end
+        SourceDirichlet(:,k) = Pqne * gval;
+
+        % Neumann face
+        % ... (no Neumann face)
+
+    end
+end
+SourceDirichlet = sparse(reshape(SourceDirichlet, [], 1));
+SourceNeumann = sparse(reshape(SourceNeumann, [], 1));
 
 
-
-
-
-
-
-
-% except for really-block-diagonal matrices, please do not use cells for assembly!
-% blocks for volume integrals
-A_block = cell(nelem,1);
-Ainv_block = cell(nelem,1);
+% assemble B and SourceF
 B_block = cell(nelem,1);
-G_block = cell(nelem,1);
-
-% functions for computing the node indices from an element index
-ind_q = @(eid) (eid-1)*(2*Np)+1 : eid*(2*Np);   % row vector
-ind_u = @(eid) (eid-1)*Np+1 : eid*Np;           % row vector
-
-
-% (1) assemble volume integrals; (2) assemble face integrals (main time cost)
-
-% element-loop for volume integrals (MUST be carried-out FIRST!!!)
+SourceF = nan(Np,nelem);
 parfor k = 1: nelem
     xx = mesh.nodes(mesh.elems(k,1:3), 1);
     yy = mesh.nodes(mesh.elems(k,1:3), 2);
@@ -200,78 +232,36 @@ parfor k = 1: nelem
         xx(1) - xx(3), xx(2) - xx(3);
         yy(1) - yy(3), yy(2) - yy(3)
     ];
-    M_elem = det(Jac)*M;
-    Minv_elem = (det(Jac)^(-1))*Minv;
+    detJac = det(Jac);
+    invJac = inv(Jac);
 
-    % for A, block size = [2*Np, 2*Np]
-    A_block{k} = sparse(blkdiag(M_elem, M_elem));
-    Ainv_block{k} = sparse(blkdiag(Minv_elem, Minv_elem));
+    B_block{k} = sparse(([Dx, Dy] * kron(invJac, speye(Np)))' * (detJac.*M)); % checked.
+    % to be optimized...
 
-    % for B, block size = [2*Np, Np]
-    B_block{k} = sparse(([Dx, Dy]*kron(inv(Jac), speye(Np)))' * M_elem);
-
-
-    % for G, block size = [Np, 1]
-    % quadrature-based interpolation
+    % quadrature-based interpolation (checked.)
     fvals = zeros(nquad, 1);
     for i = 1: nquad
         xp = dot(xx, [qx(i), qy(i), qz(i)]);
         yp = dot(yy, [qx(i), qy(i), qz(i)]);
         fvals(i) = f(xp, yp);
     end
-    G_block{k} = Pnq' * ((det(Jac)*qw) .* fvals);
+    SourceF(:,k) = Pnq' * ((det(Jac)*qw) .* fvals);
+
 end
-A = blkdiag(A_block{1:nelem});
-Ainv = blkdiag(Ainv_block{1:nelem});
+SourceF = reshape(SourceF, [], 1);
 B = blkdiag(B_block{1:nelem});
-for k = 1: nelem
-    G(ind_u(k)) = G_block{k};
-end
-% release temporary variables
-clear A_block Ainv_block B_block G_block;
+clear B_block;
+B = B - reshape( [reshape(kron(normals(:,1), ones(p+1,1)) .* JumpIn, [Np*nface*(p+1), nelem]); reshape(kron(normals(:,2), ones(p+1,1)) .* JumpIn, [Np*nface*(p+1), nelem])], [nface*(p+1), 2*Np*nelem] )' * Me_big * (AvgIn + kron(dot(C12(:,1:2), normals(:,1:2), 2), ones(p+1,1)) .* JumpIn);
 
+% checked.
+C = (JumpIn + TraceDirichlet)' * (kron(C11(:), ones(p+1,1)) .* Me_big) * (JumpIn + TraceDirichlet);
 
-% REMARK: the face loop costs most of the time in the assembly process
-% face loop for face integrals (MUST be carried-out after volume integrals)
+% checked.
+F = reshape( [reshape(kron(outward_normals(:,1), ones(p+1,1)) .* TraceDirichlet, [Np*nface*(p+1), nelem]); reshape(kron(outward_normals(:,2), ones(p+1,1)) .* TraceDirichlet, [Np*nface*(p+1), nelem])], [nface*(p+1), 2*Np*nelem] )' * Me_big * SourceDirichlet;
 
-% a method that is VERY time-efficient in the serial mode, however, the storage-cost is twice as needed
-% this method could also be parallelized
-iB = zeros((4*Np)*(2*Np), nface, 'int32');
-jB = zeros((4*Np)*(2*Np), nface, 'int32');
-vB = zeros((4*Np)*(2*Np), nface);
-iC = zeros((2*Np)*(2*Np), nface, 'int32');
-jC = zeros((2*Np)*(2*Np), nface, 'int32');
-vC = zeros((2*Np)*(2*Np), nface);
-iF = zeros(2*Np, nface, 'int32');
-vF = zeros(2*Np, nface);
-iG = zeros(Np, nface, 'int32');
-vG = zeros(Np, nface);
-parfor k = 1: nface
-    [iB_new,jB_new,vB_new, iC_new,jC_new,vC_new, iF_new,vF_new, iG_new,vG_new] = face_integrals_assmebly(k, mesh, g_D, g_N, p, Np, qxe, Me, T, normals(k,:), C11(k), C12(k,:), face_len(k));
+% checked.
+G = SourceF + TraceDirichlet' * (kron(C11(:), ones(p+1,1)) .* Me_big) * SourceDirichlet;
 
-    iB(:,k) = fill_from_front(iB_new, iB(:,k));
-    jB(:,k) = fill_from_front(jB_new, jB(:,k));
-    vB(:,k) = fill_from_front(vB_new, vB(:,k));
-
-    iC(:,k) = fill_from_front(iC_new, iC(:,k));
-    jC(:,k) = fill_from_front(jC_new, jC(:,k));
-    vC(:,k) = fill_from_front(vC_new, vC(:,k));
-
-    iF(:,k) = fill_from_front(iF_new, iF(:,k));
-    vF(:,k) = fill_from_front(vF_new, vF(:,k));
-
-    iG(:,k) = fill_from_front(iG_new, iG(:,k));
-    vG(:,k) = fill_from_front(vG_new, vG(:,k));
-end
-iB = iB(:); jB = jB(:); vB = vB(:); Bind = (iB ~= 0);
-iC = iC(:); jC = jC(:); vC = vC(:); Cind = (iC ~= 0);
-iF = iF(:); vF = vF(:); Find = (iF ~= 0);
-iG = iG(:); vG = vG(:); Gind = (iG ~= 0);
-B = B + sparse(iB(Bind), jB(Bind), vB(Bind), nelem*(2*Np), nelem*Np);
-C = C + sparse(iC(Cind), jC(Cind), vC(Cind), nelem*Np, nelem*Np);
-F = F + sparse(iF(Find), int32(1), vF(Find), nelem*(2*Np), 1);
-G = G + sparse(iG(Gind), int32(1), vG(Gind), nelem*Np, 1);
-clear iB jB vB Bind iC jC vC Cind iF jF Find iG jG Gind;
 
 assemble_time = toc;
 
@@ -280,29 +270,53 @@ assemble_time = toc;
 
 tic;
 
-switch solve_method
-case {'direct', 'full'}
-    ZZ = [A, B; B', -C];
-    RHS = [F; -G];
-    SOL = ZZ \ RHS;
-    if show_spy
-        spy(ZZ);
-        print(gcf, '-depsc2', '-vector', 'spyZZ', '-r300');
-    end
-case 'reduce'
-    % preferred method of solving
-    SS = B'*Ainv*B + C;
-    RHSS = B'*(Ainv*F) + G;
-    u = SS \ RHSS;  % we have tested PCG, which is MUCH slower and MUCH less accurate!
-    q = Ainv * (F - B*u);
-    SOL = [q; u];
-    if show_spy
-        spy(SS);
-        print(gcf, '-depsc2', '-vector', 'spySS', '-r300');
-    end
-otherwise
-    disp('Error solve_method!');
-end
+% initial value: poisson
+SS = B'*Ainv*B + C;
+RHSS = B'*(Ainv*F) + G;
+u = SS \ RHSS;  % we have tested PCG, which is MUCH slower and MUCH less accurate!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+q = Ainv * (F - B*u);
+SOL = [q; u];
 
 solve_time = toc;
 
@@ -328,7 +342,7 @@ fprintf('assembly time = %f s, solving time = %f, NDOF = %d \n', assemble_time, 
 end
 
 
-function [iB,jB,vB, iC,jC,vC, iF,vF, iG,vG] = face_integrals_assmebly(k, mesh, g_D, g_N, p, Np, qxe, Me, T, normal, C11, C12, face_len)
+function [iB,jB,vB, iC,jC,vC, iF,vF, iG,vG] = face_integrals_assmebly(k, mesh, g_D, g_N, p, Np, qxe, Me, T, normal, C11, C12, face_len, Pqne)
 % input: 
 %   k:      index of the working face
 %   others: shared variables
@@ -408,6 +422,8 @@ if all(mesh.face2elem(k,:) > 0)
             vB = [vB; reshape(vs, [], 1)];
         end
     end
+
+
     
     % for C:∫Γ𝑜 𝐶11 ⟦𝑢ℎ⟧ ⋅ ⟦𝑣ℎ⟧ d𝑠 (we simplify to the scalar operator)
     block = [trace1, -trace2]' * (C11*M_face) * [trace1, -trace2];
@@ -471,6 +487,7 @@ else
         yp = dot([0.5*(1-qxe(i)), 0.5*(1+qxe(i))], yy);
         gval(i) = g_D(xp, yp);
     end
+    gval = Pqne * gval;
 
     block = tracenm' * M_face * gval;
     % F(ind_q(eid)) = F(ind_q(eid)) + tracenm' * M_face * gval;
@@ -493,5 +510,5 @@ end
 end
 
 function [y] = fill_from_front(x,y)
-    y(1:numel(x)) = x(:);
+y(1:numel(x)) = x(:);
 end

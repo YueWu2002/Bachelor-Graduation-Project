@@ -34,17 +34,18 @@ mesh = struct(...
     'elem2face', [],...
     'elem2facedir', [],...
     'face2elem', [],...
-    'bd_faces', []...
+    'bd_faces', [],...
+    'face_types', []...
 );
 mesh.nodes = msh.POS(:,1:2);
 mesh.elems = int32(msh.TRIANGLES(:,1:3));
-[mesh.faces, mesh.elem2face, mesh.elem2elem, mesh.elem2facedir, mesh.face2elem, mesh.bd_faces] = make_face(mesh.elems);
+[mesh.faces, mesh.elem2face, mesh.elem2elem, mesh.elem2facedir, mesh.face2elem, mesh.bd_faces, mesh.face_types] = make_face(mesh.elems);
 
 
 
 end
 
-function [face, elem2face, elem2elem, elem2facedir, face2elem, boundary] = make_face(t)
+function [face, elem2face, elem2elem, elem2facedir, face2elem, boundary, face_type] = make_face(t)
 % [face, elem2face, elem2facedir, face2elem, boundary] = make_face(t)
 % make faces from t-arrays (triangle)
 % 
@@ -55,6 +56,7 @@ function [face, elem2face, elem2elem, elem2facedir, face2elem, boundary] = make_
 % elem2facedir: size = [nelem, 3], elem2facedir(k, :) indicats whether this face is the same direction as the saved one
 % face2elem: size = [nface, 2], stroes the left-side element index and right-side one respectively (0 for empty)
 % boundary:  size = [nbd, 1], stores the indices of boundary faces
+% face_type: size = [nface, 1], stores the type of face (interior (0) or boundary (1), or what boundary condition)
 
 nelem = size(t, 1);
 after = [2; 3; 1];  % for cyclic looping the triangle
@@ -69,6 +71,8 @@ face = zeros(nface, 2, 'int32');
 face2elem = zeros(nface, 2, 'int32');
 [face(:,1), face(:,2)] = ind2sub(size(mat), face_ind);
 boundary = int32(find(mat(face_ind) == 1));
+face_type = zeros(nface, 1, 'int32');
+face_type(boundary(:)) = 1;
 
 elem2face = zeros(nelem, 3, 'int32');
 elem2facedir = true(nelem, 3);

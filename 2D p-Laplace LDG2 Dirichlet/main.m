@@ -6,8 +6,12 @@ uu = @(x,y) exp(sin(pi*x))*cos(pi*(x+y));
 qqx = @(x,y) exp(sin(pi*x))*pi*(cos(pi*x)*cos(pi*(x+y))-sin(pi*(x+y)));
 qqy = @(x,y) -exp(sin(pi*x))*pi*sin(pi*(x+y));
 ff = @(x,y) exp(sin(pi*x))*pi*pi*(cos(pi*(x+y))*(2.0-cos(pi*x)^2+sin(pi*x))+2*cos(pi*x)*sin(pi*(x+y)));
+
 g_D = uu;
 g_N = @(x,y) [qqx(x,y), qqy(x,y)];
+
+% first, we test our program with Poisson's equation
+% then, we generalize to p-Laplace
 
 show_spy = false;
 p = 2;      % advise: 1<=p<=9
@@ -36,7 +40,7 @@ end
 m_test = 6;
 err = zeros(m_test, 2);
 for k = 1: m_test
-    sol = pLaplace2D_LDG(mesh{k}, ff, g_D, g_N, p, p_equ, vel, show_spy, basis_type, 'direct');
+    sol = pLaplace2D_LDG(mesh{k}, ff, g_D, g_N, p, p_equ, vel, show_spy, basis_type);
     err(k,:) = compute_error(mesh{k}, sol, p, uu, qqx, qqy, basis_type);
 end
 % Remark: 使用Schur补对精度有一定影响(尤其密网格高阶数时)，对计算速度可以有效提高。

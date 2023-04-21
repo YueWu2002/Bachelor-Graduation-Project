@@ -1,5 +1,5 @@
 function [M, Minv, D, Pmn, Pnm] = matrix_nodal1D(x)
-% [M, Minv, D, Pmn, Pnm] = matrix_nodal1D(x)
+% [M, Minv, D, Pmn, Pnm, Tl, Tr] = matrix_nodal1D(x)
 %   compute the matrices for p-th order polynomial space on [-1,1]
 %   using Legendre basis
 % 
@@ -35,7 +35,7 @@ D = Pmn * D_m / Pmn; % D = Pmn * D_m * Pnm;
 Minv = Pmn * Minv_m * Pmn';
 Minv = 0.5*(Minv + Minv');
 
-M = inv(Minv);  % here, we use inv() since Minv is accurate while M is not
+M = inv(Minv);  % here, we use inv() since Minv is exact while M is not
 % M = Pnm' * M_m * Pnm;
 M = 0.5*(M + M');
 
