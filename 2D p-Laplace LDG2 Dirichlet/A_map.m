@@ -11,6 +11,9 @@ function [y] = A_map(x, p_equ)
 
 if p_equ <= 1.0
     error('A_map: error p!');
+elseif p_equ == 2.0
+    y = x;
+    return;
 end
 
 if ~isvector(x)

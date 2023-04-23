@@ -14,7 +14,7 @@ g_N = @(x,y) [qqx(x,y), qqy(x,y)];
 % then, we generalize to p-Laplace
 
 show_spy = false;
-p = 3;      % advise: 1<=p<=9
+p = 9;      % advise: 1<=p<=9
 vel = [1.0, 0]; % auxiliary H(div) function
 basis_type = 'Bernstein'; % 'Taylor' or 'Bernstein' (very recommended due to floating-point stability)
 
@@ -37,7 +37,7 @@ for k = 1: 6
     mesh{k} = read_mesh(raw_mesh{k}, false);
 end
 
-m_test = 2;
+m_test = 6;
 err = zeros(m_test, 2);
 for k = 1: m_test
     sol = pLaplace2D_LDG(mesh{k}, ff, g_D, g_N, p, p_equ, vel, show_spy, basis_type);

@@ -101,15 +101,15 @@ parfor k = 1: nface
         end
 
         face_nh(k) = 2*areas(eid) / face_len(k);
-        C11(k) = ETA(k) / face_nh(k);
         C12(k,:) = 0.0;
     else
         % interior face
         face_nh(k) = min( 2*areas(mesh.face2elem(k,:)) / face_len(k) );
-        C11(k) = ETA(k) / face_nh(k);
         % C12(k,:) = 0.5 * normals(k,:) * modified_sign(dot(vel, normals(k,:)));
         C12(k,:) = 0.0;
     end
+
+    C11(k) = ETA(k) / face_nh(k);
 end
 outward_normals = sparse(outward_normals);
 
@@ -118,14 +118,17 @@ outward_normals = sparse(outward_normals);
 % define the variables: [q; u], length = Nelem*(2*Np) + Nelem*Np, where in "each element" q = [qx; qy]
 % arrangement: [qx(1); qy(1); qx(2); qy(2); ...; qx(nelem); qy(nelem); u(1); ...; u(nelem)]
 
-% inverse of mass matrix of Qh
-invMassQh = kron((0.5./areas(:)).*speye(nelem), kron(speye(2), Minv));
-
-% mass matrix of edge funciton space
-Me_big = kron((face_len(:)./2).* speye(nface), Me);
-
 % maps edge nodal values to edge quadrature nodal values
 Pnqe_big = kron(speye(nface), Pnqe);
+
+% maps volume nodal values to volume quadrature nodal values for Qh
+PnqQh_big = kron(speye(nelem), kron(speye(2), Pnq));
+
+% global quadrature weights on the elements for Qh
+QWEI_Qh = kron(areas(:)./0.5, repmat(qw(:), [2,1]));
+
+% global quadrature weights on the face
+QWEI_face = kron(face_len(:)./2.0, qwe(:));
 
 
 % scalar-to-scalar jump and average operators (maps scalar functions to scalar functions)
@@ -167,14 +170,16 @@ TraceNeumann = sparse(ii(:), jj(:), TraceNeumannvv(:), nface*(p+1), nelem*Np);
 clear ii jj JumpInvv AvgInvv TraceDirichletvv TraceNeumannvv;
 
 
-% boundary condition as a function on the boundary
-SourceDirichlet = zeros(p+1, nface);
-SourceNeumann = zeros(p+1, nface);
+% boundary condition
+DirichletQXE = zeros(length(qwe), nface); % store Dirichlet BC values at face quadrature nodes
+NeumannQXE = zeros(length(qwe), nface); % store Neumann BC values at face quadrature nodes
 parfor k = 1: nface
     if mesh.face_types(k) > 0
         % boundary face
         xx = mesh.nodes(mesh.faces(k,1:2), 1);
         yy = mesh.nodes(mesh.faces(k,1:2), 2);
+
+        % Dirichlet boundary
         % quadrature-based interpolation
         gval = zeros(length(qwe), 1);
         for i = 1: length(qwe)
@@ -182,14 +187,16 @@ parfor k = 1: nface
             yp = dot([0.5*(1-qxe(i)), 0.5*(1+qxe(i))], yy);
             gval(i) = g_D(xp, yp);
         end
-        SourceDirichlet(:,k) = Pqne * gval;
+        DirichletQXE(:,k) = gval(:);
+
+        % Neumann boundary
+        % ...(no)
+
     end
 end
-SourceDirichlet = sparse(reshape(SourceDirichlet, [], 1));
-SourceNeumann = sparse(reshape(SourceNeumann, [], 1));
 
 % assemble B and SourceF
-B_block = cell(nelem, 1);
+B_block = cell(nelem, 1); % we assemble B using the divergence form
 SourceF = nan(Np, nelem);
 parfor k = 1: nelem
     xx = mesh.nodes(mesh.elems(k,1:3), 1);
@@ -201,8 +208,11 @@ parfor k = 1: nelem
     detJac = det(Jac);
     invJac = inv(Jac);
 
-    B_block{k} = sparse(([Dx, Dy] * kron(invJac, speye(Np)))' * (detJac.*M));
-    % to be optimized...
+    % we assemble B using the divergence form
+    B_block{k} = sparse([
+        invJac(1,1).*Dx + invJac(2,1).*Dy, ...
+        invJac(1,2).*Dx + invJac(2,2).*Dy
+    ]' * (detJac.*M));
 
     % quadrature-based interpolation
     fvals = zeros(nquad, 1);
@@ -213,16 +223,37 @@ parfor k = 1: nelem
     end
     SourceF(:,k) = Pnq' * ((det(Jac)*qw) .* fvals);
 end
-SourceF = reshape(SourceF, [], 1);
+SourceF = reshape(SourceF, [],1);
 B = blkdiag(B_block{1:nelem});
 clear B_block;
-B = B - reshape( [reshape(kron(normals(:,1), ones(p+1,1)) .* JumpIn, [Np*nface*(p+1), nelem]); reshape(kron(normals(:,2), ones(p+1,1)) .* JumpIn, [Np*nface*(p+1), nelem])], [nface*(p+1), 2*Np*nelem] )' * Me_big * (AvgIn + kron(dot(C12(:,1:2), normals(:,1:2), 2), ones(p+1,1)) .* JumpIn);
 
-C = (JumpIn + TraceDirichlet)' * (kron(C11(:), ones(p+1,1)) .* Me_big) * (JumpIn + TraceDirichlet);
+% mass matrix of edge funciton space
+Me_big = kron((face_len(:)./2.0).* speye(nface), Me);
 
-F = reshape( [reshape(kron(outward_normals(:,1), ones(p+1,1)) .* TraceDirichlet, [Np*nface*(p+1), nelem]); reshape(kron(outward_normals(:,2), ones(p+1,1)) .* TraceDirichlet, [Np*nface*(p+1), nelem])], [nface*(p+1), 2*Np*nelem] )' * Me_big * SourceDirichlet;
+B = B - reshape( [reshape(reshape(repmat(normals(:,1)', [p+1,1]), [],1).*(JumpIn + TraceNeumann), [Np*nface*(p+1), nelem]); reshape(reshape(repmat(normals(:,2)', [p+1,1]),[],1).*(JumpIn + TraceNeumann), [Np*nface*(p+1), nelem])], [nface*(p+1), 2*Np*nelem] )' * Me_big * (AvgIn + reshape(repmat(dot(C12(:,1:2), normals(:,1:2), 2)', [p+1,1]), [],1) .* (JumpIn + TraceNeumann));
 
-G = SourceF + TraceDirichlet' * (kron(C11(:), ones(p+1,1)) .* Me_big) * SourceDirichlet;
+% scalar-to-scalar jump operator on both interior faces and Dirichlet faces (similar to the definition in the paper)
+JumpScalar = JumpIn + TraceDirichlet; % checked.
+JumpScalarQXE = Pnqe_big * JumpScalar;
+
+C = JumpScalar' * (kron(C11(:), ones(p+1,1)) .* Me_big) * JumpScalar;
+
+F = (Pnqe_big * reshape( [reshape(reshape(repmat(outward_normals(:,1)', [p+1,1]), [],1) .* TraceDirichlet, [Np*nface*(p+1), nelem]); reshape(reshape(repmat(outward_normals(:,2)', [p+1,1]), [],1) .* TraceDirichlet, [Np*nface*(p+1), nelem])], [nface*(p+1), 2*Np*nelem] ))' * (QWEI_face(:) .* DirichletQXE(:));
+
+SourceNeumann = (Pnqe_big * TraceNeumann)' * (QWEI_face(:) .* NeumannQXE(:));
+SourceDirichlet = (Pnqe_big * TraceDirichlet)' * (QWEI_face(:) .* (kron(C11(:), ones(p+1,1)).* DirichletQXE(:)));
+
+clear Me_big Pnqe_big;
+
+% inverse of mass matrix of Qh
+invMassQh = kron((0.5./areas(:)).*speye(nelem), kron(speye(2), Minv));
+
+% assemble the DG distributional gradient operator
+GRAD_in = sparse(-invMassQh*B);  % gradient operator with zero Dirichlet data
+GRAD_dbc = sparse(invMassQh*F);  % gradient vector with only Dirichlet data
+GRAD_in_QXE = sparse(PnqQh_big * GRAD_in);
+GRAD_dbc_QXE = sparse(PnqQh_big * GRAD_dbc);
+clear invMassQh PnqQh_big;
 
 assemble_time = toc;
 % end assmebly process
@@ -230,53 +261,18 @@ assemble_time = toc;
 % begin solve
 tic;
 
-% initial value: Poisson equation
-SS = B'*invMassQh*B + C;
-RHSS = B'*(invMassQh*F) + G;
-u = SS \ RHSS;  % we have tested PCG, which is MUCH slower and MUCH less accurate!
+% exact solve the Poisson equation
+% u = (C - B'*GRAD_in) \ (B'*GRAD_dbc + (SourceF + SourceNeumann + SourceDirichlet));
+
+% initial value: Poisson equation solved by one-step gradient descent
+u = zeros(Np, nelem);
+RES = compute_RESIDUE(p_equ, p, Np, nelem, nface, u, GRAD_in, GRAD_in_QXE, GRAD_dbc, JumpScalar, JumpScalarQXE, DirichletQXE, SourceF, SourceNeumann, Pnq, Pnqe, ETA, face_nh, qw, qwe, QWEI_Qh, QWEI_face);
+u(:) = u(:) - (C - B'*GRAD_in) \ RES(:);
+
+% to be continued: code the iterative part
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-q = invMassQh * (F - B*u);
-
+q = GRAD_in*u(:) + GRAD_dbc;
 solve_time = toc;
 % end solve
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -305,4 +301,44 @@ sol = struct(...
 fprintf('assembly time = %f s, solving time = %f, NDOF = %d \n', assemble_time, solve_time, nelem*Np);
 
 % end post-processing
+end
+
+
+function [RES] = compute_RESIDUE(p_equ, p, Np, nelem, nface, u, GRAD_in, GRAD_in_QXE, GRAD_dbc, JumpScalar, JumpScalarQXE, DirichletQXE, SourceF, SourceNeumann, Pnq, Pnqe, ETA, face_nh, qw, qwe, QWEI_Qh, QWEI_face)
+% compute the residue in the p-Laplace equation (aka. Frechet derivative of the energy funcitonal J_h)
+% checked only for p_equ == 2
+
+% jump[u] at face collocation nodes, without information from Dirichlet BC
+jump_u = reshape(full(JumpScalar * u(:)), [p+1, nface]);
+
+% jump[u - g_D] at face quadrature nodes, with information from Dirichlet BC
+jump_u_qxe = nan(length(qwe), nface);
+parfor k = 1: nface
+    jump_u_qxe(:,k) = Pnqe * jump_u(:,k) - DirichletQXE(:,k);
+end
+
+jump_u_penalty = nan(length(qwe), nface); % penalty terms arising from jump[u - g_D] at face quadrature nodes
+parfor k = 1: nface
+    temp = nan(length(qwe), 1);
+    for i = 1: length(qwe)
+        temp(i) = ETA(k) * A_map(jump_u_qxe(i,k) / face_nh(k), p_equ);
+    end
+    jump_u_penalty(:,k) = temp(:);
+end
+
+q = reshape(full(GRAD_in*u(:) + GRAD_dbc), [Np, 2, nelem]);
+Aq_qxe = nan(length(qw), 2, nelem); % split the x and y components
+parfor k = 1: nelem
+    q_qxe_local = Pnq * q(:,:,k);
+    Aq_qxe_local = nan(length(qw), 2);
+    for i = 1: length(qw)
+        Aq_qxe_local(i,:) = A_map(q_qxe_local(i,:), p_equ);
+    end
+    Aq_qxe(:,:,k) = Aq_qxe_local(:,:);
+end
+
+RES = GRAD_in_QXE' * (QWEI_Qh(:) .* Aq_qxe(:)) ... 
+    + JumpScalarQXE' * (QWEI_face(:) .* jump_u_penalty(:)) ... 
+    - SourceF(:) - SourceNeumann(:);
+
 end
