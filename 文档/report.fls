@@ -1318,6 +1318,54 @@ INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/rho.eps
 INPUT ./includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/rho.eps
 INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/rho.eps
 INPUT includefiles/1D p-Laplace LDG2/p=10, k=2, N=256, poi/rho.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-1/k=1/Jh_1.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-1/k=1/Jh_1.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-1/k=1/Jh_1.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-1/k=1/Jh_1.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-1/k=1/gradnorm_1.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-1/k=1/gradnorm_1.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-1/k=1/gradnorm_1.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-1/k=1/gradnorm_1.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-1/k=1/rho_1.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-1/k=1/rho_1.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-1/k=1/rho_1.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-1/k=1/rho_1.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-1/k=6/Jh_6.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-1/k=6/Jh_6.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-1/k=6/Jh_6.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-1/k=6/Jh_6.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-1/k=6/gradnorm_6.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-1/k=6/gradnorm_6.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-1/k=6/gradnorm_6.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-1/k=6/gradnorm_6.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-1/k=6/rho_6.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-1/k=6/rho_6.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-1/k=6/rho_6.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-1/k=6/rho_6.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-2/k=1/Jh_1.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-2/k=1/Jh_1.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-2/k=1/Jh_1.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-2/k=1/Jh_1.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-2/k=1/gradnorm_1.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-2/k=1/gradnorm_1.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-2/k=1/gradnorm_1.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-2/k=1/gradnorm_1.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-2/k=1/rho_1.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-2/k=1/rho_1.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-2/k=1/rho_1.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-2/k=1/rho_1.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-2/k=6/Jh_6.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-2/k=6/Jh_6.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-2/k=6/Jh_6.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-2/k=6/Jh_6.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-2/k=6/gradnorm_6.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-2/k=6/gradnorm_6.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-2/k=6/gradnorm_6.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-2/k=6/gradnorm_6.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-2/k=6/rho_6.eps
+INPUT ./includefiles/2D p-Laplace LDG2/example 3-2/k=6/rho_6.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-2/k=6/rho_6.eps
+INPUT includefiles/2D p-Laplace LDG2/example 3-2/k=6/rho_6.eps
 INPUT report.aux
 INPUT ./report.out
 INPUT ./report.out

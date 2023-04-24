@@ -39,4 +39,8 @@
 \contentsline {subsubsection}{\numberline {2.4.2}Unisolvence, Convergence, and \emph {A Priori} Error Estimate based on the Primal Formulation}{71}{subsubsection.2.4.2}%
 \contentsline {subsubsection}{\numberline {2.4.3}Numerical Discretization}{94}{subsubsection.2.4.3}%
 \contentsline {subsubsection}{\numberline {2.4.4}Numerical Example 1 (1D Dirichlet)}{96}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Conclusion}{106}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.5}Numerical Example 2 (2D Dirichlet)}{106}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}Numerical Example 3 (2D Dirichlet)}{109}{subsubsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {2.4.7}Numerical Example 4 (2D Dirichlet)}{114}{subsubsection.2.4.7}%
+\contentsline {subsubsection}{\numberline {2.4.8}Numerical Example 5 (2D Dirichlet)}{116}{subsubsection.2.4.8}%
+\contentsline {subsubsection}{\numberline {2.4.9}Conclusion}{116}{subsubsection.2.4.9}%

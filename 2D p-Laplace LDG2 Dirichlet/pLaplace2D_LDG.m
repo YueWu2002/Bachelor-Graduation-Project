@@ -1,4 +1,4 @@
-function [sol] = pLaplace2D_MDLDG(mesh, f, g_D, g_N, p, p_equ, vel, show_spy, basis_type)
+function [sol] = pLaplace2D_MDLDG(mesh, f, g_D, g_N, p, p_equ, vel, show_spy, basis_type, plot_con)
 % [sol] = pLaplace2D_MDLDG(mesh, f, g_D, g_N, p, p_equ, vel, show_spy, basis_type)
 %   2D p-Laplace equation with Dirichlet BC
 % 
@@ -59,8 +59,8 @@ nelem = size(mesh.elems, 1);
 nface = size(mesh.faces, 1);
 
 % compute element areas (checked.)
-areas = zeros(nelem, 1);
-parfor k = 1: nelem
+areas = nan(nelem, 1);
+for k = 1: nelem
     xx = mesh.nodes(mesh.elems(k,1:3), 1);
     yy = mesh.nodes(mesh.elems(k,1:3), 2);
     Jac = [
@@ -82,7 +82,7 @@ normals = zeros(nface, 2); % outward unit normal vector related to faces
 outward_normals = zeros(nface, 2); % outward unit normal vector related to the domain
 C11 = zeros(nface, 1);
 C12 = zeros(nface, 2);
-parfor k = 1: nface
+for k = 1: nface
     face_vec = mesh.nodes(mesh.faces(k,2), :) - mesh.nodes(mesh.faces(k,1), :);
     face_len(k) = norm(face_vec);
     nm_vec = [0, 1; -1, 0] * face_vec';
@@ -105,8 +105,8 @@ parfor k = 1: nface
     else
         % interior face
         face_nh(k) = min( 2*areas(mesh.face2elem(k,:)) / face_len(k) );
-        % C12(k,:) = 0.5 * normals(k,:) * modified_sign(dot(vel, normals(k,:)));
-        C12(k,:) = 0.0;
+        C12(k,:) = 0.5 * normals(k,:) * modified_sign(dot(vel, normals(k,:)));
+        % C12(k,:) = 0.0;
     end
 
     C11(k) = ETA(k) / face_nh(k);
@@ -127,7 +127,7 @@ JumpInvv = zeros((p+1), Np, 3, nelem);
 AvgInvv = zeros((p+1), Np, 3, nelem);
 TraceDirichletvv = zeros((p+1), Np, 3, nelem);
 TraceNeumannvv = zeros((p+1), Np, 3, nelem);
-parfor k = 1: nelem
+for k = 1: nelem
     for j = 1: 3
         faceid = int32(mesh.elem2face(k,j));
         ii(:,:,j,k) = (faceid-1)*int32(p+1) + repmat((int32(1):int32(p+1))', [1, Np]);
@@ -161,7 +161,7 @@ clear ii jj JumpInvv AvgInvv TraceDirichletvv TraceNeumannvv;
 % boundary condition
 DirichletQXE = zeros(length(qwe), nface); % store Dirichlet BC values at face quadrature nodes
 NeumannQXE = zeros(length(qwe), nface); % store Neumann BC values at face quadrature nodes
-parfor k = 1: nface
+for k = 1: nface
     if mesh.face_types(k) > 0
         % boundary face
         xx = mesh.nodes(mesh.faces(k,1:2), 1);
@@ -186,7 +186,7 @@ end
 % assemble B and SourceF
 B_block = cell(nelem, 1); % we assemble B using the divergence form
 SourceF = nan(Np, nelem);
-parfor k = 1: nelem
+for k = 1: nelem
     xx = mesh.nodes(mesh.elems(k,1:3), 1);
     yy = mesh.nodes(mesh.elems(k,1:3), 2);
     Jac = [
@@ -223,6 +223,9 @@ Pnqe_big = kron(speye(nface), Pnqe);
 % maps volume nodal values to volume quadrature nodal values for Qh
 PnqQh_big = kron(speye(nelem), kron(speye(2), Pnq));
 
+% global quadrature weights on the elements for Vh
+QWEI_Vh = kron(areas(:)./0.5, qw(:));
+
 % global quadrature weights on the elements for Qh
 QWEI_Qh = kron(areas(:)./0.5, repmat(qw(:), [2,1]));
 
@@ -254,7 +257,6 @@ clear B;
 GRAD_dbc = reshape(sparse(invMassQh*F), [2*Np, nelem]);  % gradient vector with only Dirichlet data
 clear invMassQh F;
 GRAD_in_QXE = sparse(PnqQh_big * GRAD_in);
-clear PnqQh_big;
 
 % mass matrix of Qh
 MassQh = kron((areas(:)./0.5).*speye(nelem), kron(speye(2), M));
@@ -273,15 +275,14 @@ tic;
 
 % initial value: Poisson preconditioner
 u = zeros(Np, nelem);
-[w, ~] = compute_preconditioned_gradient(p_equ, p, Np, nelem, nface, u, GRAD_in, GRAD_in_QXE, GRAD_dbc, JumpScalar, JumpScalarQXE, DirichletQXE, SourceF, SourceNeumann, Pnq, Pnqe, ETA, face_nh, qw, qwe, QWEI_Qh, QWEI_face, PoissonMat_decom, 1, 1e-10);
-u(:) = u(:) - 1.0 .* w(:);
+[w, ~] = compute_preconditioned_gradient(p_equ, p, Np, nelem, nface, u, GRAD_in, GRAD_in_QXE, GRAD_dbc, JumpScalarQXE, DirichletQXE, SourceF, SourceNeumann, Pnq, Pnqe, areas, ETA, face_len, face_nh, qw, qwe, QWEI_Qh, QWEI_face, PoissonMat_decom, 1, 1e-10);
+u(:) = u(:) - 0.1 .* w(:);
 
-E1 = compute_energy(p_equ, p, Np, nelem, nface, u, GRAD_in, GRAD_dbc, JumpScalar, DirichletQXE, SourceF, SourceNeumann, Pnq, Pnqe, ETA, face_nh, face_len, qw, qwe, areas);
+E1 = compute_energy(p_equ, p, Np, nelem, nface, u, GRAD_in, GRAD_dbc, JumpScalar, JumpScalarQXE, DirichletQXE, SourceF, SourceNeumann, Pnq, PnqQh_big, Pnqe, ETA, face_nh, face_len, qw, qwe, areas, QWEI_Vh, QWEI_face);
 rho = 0.5;  % step length, should start with 1.0 (because it's best for the Poisson equation)
 maxit = 10000;
 it = 0;
 should_continue = true;
-plot_con = true;
 
 if plot_con
     E = [E1]; % starts from the energy of the initial guess
@@ -290,9 +291,15 @@ if plot_con
 end
 
 while should_continue && it < maxit
-    [grad, grad_norm] = compute_preconditioned_gradient(p_equ, p, Np, nelem, nface, u, GRAD_in, GRAD_in_QXE, GRAD_dbc, JumpScalar, JumpScalarQXE, DirichletQXE, SourceF, SourceNeumann, Pnq, Pnqe, ETA, face_nh, qw, qwe, QWEI_Qh, QWEI_face, PoissonMat_decom, 1, 1e-10);
 
-    fun = @(t) compute_energy(p_equ, p, Np, nelem, nface, u(:) - t.*grad(:), GRAD_in, GRAD_dbc, JumpScalar, DirichletQXE, SourceF, SourceNeumann, Pnq, Pnqe, ETA, face_nh, face_len, qw, qwe, areas);
+    % remark: big delta is good for stability, while small delta is good for accuracy!
+    delta = 1e-14;
+
+    [grad, grad_norm] = compute_preconditioned_gradient(p_equ, p, Np, nelem, nface, u, GRAD_in, GRAD_in_QXE, GRAD_dbc, JumpScalarQXE, DirichletQXE, SourceF, SourceNeumann, Pnq, Pnqe, areas, ETA, face_len, face_nh, qw, qwe, QWEI_Qh, QWEI_face, PoissonMat_decom, 2, delta);
+    % warning: the Poisson preconditioner is extremely slow!
+    % very recommended: use the weighted preconditioner!
+
+    fun = @(t) compute_energy(p_equ, p, Np, nelem, nface, u(:) - t.*grad(:), GRAD_in, GRAD_dbc, JumpScalar, JumpScalarQXE, DirichletQXE, SourceF, SourceNeumann, Pnq, PnqQh_big, Pnqe, ETA, face_nh, face_len, qw, qwe, areas, QWEI_Vh, QWEI_face);
 
     [rho, E1] = golden_search_oneside(fun, E1, rho, 1e-6 * rho); % 1e-6 relative error should be good
     u(:) = u(:) - rho.*grad(:);
@@ -331,11 +338,25 @@ if plot_con
     grid on;
 end
 
-q = GRAD_in*u(:) + GRAD_dbc(:);
+
+% post-process the solution
+q = reshape(GRAD_in*u(:) + GRAD_dbc(:), [Np, 2, nelem]);
+flux = nan(Np, 2, nelem);
+parfor k = 1: nelem
+    q_qx_local = Pnq * q(:,:,k);
+
+    % quadrature-based interpolation
+    flux_qx_local = nan(length(qw), 2);
+    for i = 1: length(qw)
+        flux_qx_local(i,:) = A_map(q_qx_local(i,:), p_equ);
+    end
+    flux(:,:,k) = Pqn * flux_qx_local;
+end
+
 solve_time = toc;
 % end solve
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% begin post-processing
+% begin packing the solution
 
 % nodal positions where solutions are provided
 x = nan(Np, nelem);
@@ -344,87 +365,106 @@ parfor k = 1: nelem
     xx = mesh.nodes(mesh.elems(k,1:3), 1);
     yy = mesh.nodes(mesh.elems(k,1:3), 2);
     for i = 1: Np
-        x(i, k) = dot(xx, [xn(i), yn(i), zn(i)]);
-        y(i, k) = dot(yy, [xn(i), yn(i), zn(i)]);
+        x(i,k) = dot(xx, [xn(i), yn(i), zn(i)]);
+        y(i,k) = dot(yy, [xn(i), yn(i), zn(i)]);
     end
 end
 
 sol = struct(...
-    'q', reshape(q, [2*Np, nelem]), ... 
-    'flux', zeros(2*Np, nelem), ...
+    'q', reshape(q, [Np, 2, nelem]), ... 
+    'flux', reshape(flux, [Np, 2, nelem]), ...
     'u', reshape(u, [Np, nelem]), ... 
-    'x', x, ... 
-    'y', y ... 
+    'x', reshape(x, [Np, nelem]), ... 
+    'y', reshape(y, [Np, nelem]) ... 
 );
 
 fprintf('assembly time = %f s, solving time = %f, NDOF = %d \n', assemble_time, solve_time, nelem*Np);
 
-% end post-processing
+% end packing
 end
 
 
-function [E] = compute_energy(p_equ, p, Np, nelem, nface, u, GRAD_in, GRAD_dbc, JumpScalar, DirichletQXE, SourceF, SourceNeumann, Pnq, Pnqe, ETA, face_nh, face_len, qw, qwe, areas)
+function [E] = compute_energy(p_equ, p, Np, nelem, nface, u, GRAD_in, GRAD_dbc, JumpScalar, JumpScalarQXE, DirichletQXE, SourceF, SourceNeumann, Pnq, PnqQh_big, Pnqe, ETA, face_nh, face_len, qw, qwe, areas, QWEI_Vh, QWEI_face)
 % compute the energy functional Jh for the p-Laplace equation
 
-% jump[u] at face collocation nodes, without information from Dirichlet BC
-jump_u = reshape(full(JumpScalar * u(:)), [p+1, nface]);
-q = reshape(full(GRAD_in*u(:) + GRAD_dbc(:)), [Np, 2, nelem]);
-Energy_vol = nan(nelem, 1);
-Energy_face = nan(nface, 1);
-parfor k = 1: nface
-    Energy_face(k) = (ETA(k)*face_nh(k)) * (face_len(k)/2.0) * sum( qwe(:) .* abs( (Pnqe*jump_u(:,k) - DirichletQXE(:,k)) ./ face_nh(k) ).^p_equ ) / p_equ;
-end
-parfor k = 1: nelem
-    q_qxe_local = Pnq * q(:,:,k);
-    Energy_vol(k) = (areas(k)/0.5) * sum(qw(:) .* (q_qxe_local(:,1).^2 + q_qxe_local(:,2).^2).^(p_equ/2.0)) / p_equ;
-end
-E = sum(Energy_vol(:)) + sum(Energy_face(:)) - dot(SourceF(:) + SourceNeumann(:), u(:));
+% we find that: 'parfor' is very slow compared to vectorization
+
+jump_u_qxe = reshape(full(JumpScalarQXE * u(:) - DirichletQXE(:)), [length(qwe), nface]);
+q_qx = reshape(PnqQh_big * full(GRAD_in*u(:) + GRAD_dbc(:)), [length(qw), 2, nelem]);
+
+%{
+E = (... 
+    sum(QWEI_Vh(:) .* reshape(sum(q_qx(:,:,:).^2, 2).^(p_equ/2.0), [],1)) ... 
+    + sum(kron(ETA(:).*face_nh(:), ones(length(qwe),1)) .* QWEI_face(:) .* abs(jump_u_qxe(:)./kron(face_nh(:), ones(length(qwe),1))).^p_equ) ) / p_equ ... 
+    - dot(SourceF(:) + SourceNeumann(:), u(:));
+%}
+
+E = (... 
+    sum( (areas(:)./0.5)' .* (qw(:) .* reshape(sum(q_qx(:,:,:).^2, 2).^(p_equ/2.0), [length(qw), nelem])), 'all') ... 
+    + sum( ((ETA(:).*face_nh(:)) .* (face_len(:)./2.0))' .* (qwe(:) .* abs(jump_u_qxe(:,:)./face_nh(:)').^p_equ), 'all') ) / p_equ ... 
+    - dot(SourceF(:) + SourceNeumann(:), u(:));
+    
 end
 
 
-function [w, w_norm] = compute_preconditioned_gradient(p_equ, p, Np, nelem, nface, u, GRAD_in, GRAD_in_QXE, GRAD_dbc, JumpScalar, JumpScalarQXE, DirichletQXE, SourceF, SourceNeumann, Pnq, Pnqe, ETA, face_nh, qw, qwe, QWEI_Qh, QWEI_face, PoissonMat, type, delta)
+function [w, w_norm] = compute_preconditioned_gradient(p_equ, p, Np, nelem, nface, u, GRAD_in, GRAD_in_QXE, GRAD_dbc, JumpScalarQXE, DirichletQXE, SourceF, SourceNeumann, Pnq, Pnqe, areas, ETA, face_len, face_nh, qw, qwe, QWEI_Qh, QWEI_face, PoissonMat, type, delta)
 % compute the preconditioned gradient at u, and its related norm
 
-% jump[u] at face collocation nodes, without information from Dirichlet BC
-jump_u = reshape(full(JumpScalar * u(:)), [p+1, nface]);
+% jump[u] at face quadrature nodes, with information from Dirichlet BC
+jump_u_qxe = reshape(JumpScalarQXE * u(:) - DirichletQXE(:), [length(qwe), nface]);
 
 jump_u_qxe_penalty = nan(length(qwe), nface); % penalty terms arising from jump[u - g_D] at face quadrature nodes
 parfor k = 1: nface
     % jump[u - g_D] at face quadrature nodes, with information from Dirichlet BC
-    jump_u_qxe_local = Pnqe * jump_u(:,k) - DirichletQXE(:,k);
     temp = nan(length(qwe), 1);
     for i = 1: length(qwe)
-        temp(i) = ETA(k) * A_map(jump_u_qxe_local(i) / face_nh(k), p_equ);
+        temp(i) = ETA(k) * A_map(jump_u_qxe(i,k) / face_nh(k), p_equ);
     end
     jump_u_qxe_penalty(:,k) = temp(:);
 end
 
-q = reshape(full(GRAD_in*u(:) + GRAD_dbc(:)), [Np, 2, nelem]);
+q_qx = reshape( Pnq * reshape(full(GRAD_in*u(:) + GRAD_dbc(:)), [Np, 2*nelem]), [length(qw), 2, nelem]);
+
 Aq_qxe = nan(length(qw), 2, nelem); % split the x and y components
 parfor k = 1: nelem
-    q_qxe_local = Pnq * q(:,:,k);
     Aq_qxe_local = nan(length(qw), 2);
     for i = 1: length(qw)
-        Aq_qxe_local(i,:) = A_map(q_qxe_local(i,:), p_equ);
+        Aq_qxe_local(i,:) = A_map(q_qx(i,:,k), p_equ);
     end
     Aq_qxe(:,:,k) = Aq_qxe_local(:,:);
 end
 
+%{
 RES = GRAD_in_QXE' * (QWEI_Qh(:) .* Aq_qxe(:)) ... 
     + JumpScalarQXE' * (QWEI_face(:) .* jump_u_qxe_penalty(:)) ... 
     - SourceF(:) - SourceNeumann(:);
+%}
 
+RES = GRAD_in_QXE' * reshape( (areas(:)./0.5)' .* reshape( qw(:) .* Aq_qxe(:,:,:), [2*length(qw), nelem] ), [],1) + JumpScalarQXE' * reshape( (face_len(:)./2.0)' .* (qwe(:) .* jump_u_qxe_penalty(:,:)), [],1) - SourceF(:) - SourceNeumann(:);
+
+% compute the preconditioned gradient
 switch type
 case 1 % Poisson preconditioner (avoid the use of quadrature-based interpolation operator Pqn, which help to maintain floating-point accuracy in the case of high order)
-    w = PoissonMat \ RES; % the matrix can be stored because it never changes
+    w = PoissonMat \ RES(:); % the matrix can be stored because it never changes
 
-    w_jump_qxe = JumpScalarQXE * w(:);
-    w_grad_qxe = GRAD_in_QXE * w(:);
-    w_norm = w_grad_qxe'*(QWEI_Qh.*w_grad_qxe) + w_jump_qxe'*(QWEI_face.*w_jump_qxe);
+    w_jump_qxe = reshape(JumpScalarQXE * w(:), [length(qwe), nface]);
+    w_grad_qxe = reshape(GRAD_in_QXE * w(:), [length(qw), 2, nelem]);
+    w_norm = sum((areas(:)./0.5)' .* (qw(:) .* reshape(sum(w_grad_qxe(:,:,:).^2, 2), [length(qw), nelem])), 'all') + sum(((ETA(:) ./ face_nh(:)) .* (face_len(:)./2.0))' .* (qwe(:) .* w_jump_qxe(:,:).^2), 'all');
 
 case 2 % weighted preconditioner
-    error('weighted preconditioner not supported yet.');
-    MAT = GRAD_in_QXE' * (QWEI_Qh(:) .* GRAD_in_QXE) + JumpScalarQXE' * ((QWEI_face(:) .* (kron(ETA(:)./face_nh(:), ones(length(qwe),1)))) .* JumpScalarQXE);
+    % error('weighted preconditioner not supported yet.');
+
+    qx_weight = repmat((areas(:)./0.5)' .* (qw(:) .* correct_wei(sqrt(reshape(sum(q_qx(:,:,:).^2, 2), [length(qw), nelem])), p_equ, delta)), [2,1]); % size = [2*length(qw), nelem]
+
+    qxe_weight = ((ETA(:) ./ face_nh(:)) .* (face_len(:)./2.0))' .* (qwe(:) .* correct_wei(jump_u_qxe(:,:)./face_nh(:)', p_equ, delta)); % size = [length(qwe), nface]
+
+    MAT = GRAD_in_QXE' * (qx_weight(:) .* GRAD_in_QXE) ... 
+        + JumpScalarQXE' * (qxe_weight(:) .* JumpScalarQXE);
+    w = MAT \ RES(:);
+
+    w_grad_qxe = reshape(GRAD_in_QXE * w(:), [2*length(qw), nelem]);
+    w_jump_qxe = reshape(JumpScalarQXE * w(:), [length(qwe), nface]);
+    w_norm = sum( qx_weight(:,:) .* w_grad_qxe(:,:).^2, 'all') + sum( qxe_weight(:,:) .* w_jump_qxe(:,:).^2, 'all');
 
 case 3 % Newton-Raphson preconditioner
     error('Newton-Raphson preconditioner not supported yet.');

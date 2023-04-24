@@ -163,7 +163,6 @@ while should_continue && it < maxit
 
     fun = @(t) compute_energy(N, QWEI, Pnq_big, JMP, ETA, H_perp, GRAD_in, GRAD_dbc, F_dual, N_dual, alpha, gl, gr, u - t.*grad, p_equ);
 
-    % problem: sometimes problems may occur that one needs a negative rho to descent
     [rho, E1] = golden_search_oneside(fun, E1, rho, 1e-6 * rho); % 1e-6 relative error should be good
     u = u - rho.*grad;
 

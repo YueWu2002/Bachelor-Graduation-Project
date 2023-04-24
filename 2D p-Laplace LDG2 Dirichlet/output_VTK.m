@@ -130,7 +130,7 @@ elseif p > 0
         fprintf(fid, 'VECTORS q double\n');
         for k = 1: size(mesh.elems,1)
             for j = 1: Np
-                fprintf(fid, '%f %f 0.0\n', [sol.q(j,k), sol.q(j+Np,k)]);
+                fprintf(fid, '%f %f 0.0\n', [sol.q(j,1,k), sol.q(j,2,k)]);
             end
         end
         fprintf(fid, '\n');

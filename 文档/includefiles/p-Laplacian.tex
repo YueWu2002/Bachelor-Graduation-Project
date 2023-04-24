@@ -2279,6 +2279,581 @@ print(3, '-depsc2', '-vector', 'gradnorm', '-r300');
 在上面的算例中 (以及其他收敛的 \(p\) 值测试中)，我们观察到对 \(\left(\bm q, \bm\sigma\right)\) 的 \(L^{p}\times L^{p'}\) 误差的 \(\left(k, k\right)\) 阶收敛；当 \(p \in (1, 2]\) 时，观察到对 \(u\) 的 \(L^{p}\) 误差的 \(k+1\) 阶收敛，达到了最优 \footnote{这与 Dr. Liangyue Ji 的一篇关于 \(p\)-Laplace 方程的 HDG 格式误差估计的 note 给出的结果相一致。}。
 
 
+
+\subsubsection{Numerical Example 2 (2D Dirichlet)}
+
+取多边形区域为 \(\Omega = \B{(x,y) \big| -1\leqslant x, y \leqslant 1, y-x+1\geqslant 0}\). 取准确解为 \(u(x, y) = \exp\left(\sin(\pi x)\right)\cos(\pi(x + y))\). 数值通量系数 \(\bm C_{11} = \eta h_{e}^{-1}\)，其中 \(\eta = 10.0\)；\(\bm C_{12}\) 的选取与 \eqref{MD-LDG penalty coefficient} 一致；辅助向量取为 \(\bm v_0 = (1,0)^{T}\). 预条件子统一取为加权预条件子。
+
+我们使用 Nodal DG 方法实现，在三角形单元上使用 \(\mathscr{P}^{k}\) Lobatto 配点集 \cite{10.1093/imamat/hxh077} (如图 \ref{pic: P6 Lobatto nodes} 所示)，并使用开源程序 PHG \cite{parallel_hierarchical_grid} 中提供的三角形上具有 \(2k\) 阶代数精度的 Gauss 数值积分进行源项 \(f\) 的积分以及误差测量 (如图 \ref{pic: triangular P12 Gauss nodes} 所示)。出于浮点稳定性 (矩阵条件数)、对称性、易推导性的考虑，我们使用参考单元上的 Bernstein 多项式作为模态基函数来辅助组装过程。我们编写了支持协调三角网格上任意高阶多项式的 Matlab 程序。我们使用开源软件 Gmsh 画网格，在本算例中采用了如图 \ref{Mesh: 2D Dirichlet} 所示的二等分逐层加密的协调三角网格。
+
+此算例中，取 \(p = 2\)，用于测试我们的梯度下降格式对 Poisson 方程的兼容性 (当 \(p = 2\) 时，我们取稳定项 \(\epsilon = 0\))。测试结果如表 \ref{table: 2D p-Laplace Dirichlet LDG, example 2} 所示，这里的每一个计算都在 2 次迭代之内收敛。
+
+\begin{longtable}{| c | c c | c c | c c | c c |}
+	\caption{Convergence history of the LDG method for the \(p\)-Laplace equation with Dirichlet BC, \(p = 2\), \(\epsilon = 0\)}
+	\label{table: 2D p-Laplace Dirichlet LDG, example 2} \\
+
+
+	% to appear at the very first page of this table
+	\hline
+	\multirow{2}{*}{\(k\)} & \multirow{2}{*}{\(N_{e}\)} & \multirow{2}{*}{\(N_{\rm dof}^{\rm Schur}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm q - \bm q_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}(\Omega)}\)} \\
+	& & & error & order & error & order & error & order \\
+	\hline
+	\endfirsthead
+
+
+	% to appear at except the very first page of this table
+	\multicolumn{9}{c}{
+		\tablename\ \thetable{} -- 续表 (接上一页)
+	} \\
+	\hline
+	\multirow{2}{*}{\(k\)} & \multirow{2}{*}{\(N_{e}\)} & \multirow{2}{*}{\(N_{\rm dof}^{\rm Schur}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm q - \bm q_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}(\Omega)}\)} \\
+	& & & error & order & error & order & error & order \\
+	\hline
+	\endhead
+
+
+	% to appear at except the very last page of this table
+	\hline
+	\multicolumn{9}{l}{
+		(接下一页)
+	}
+	\endfoot
+
+
+	% to appear at the very last page of this table
+	\hline
+	\endlastfoot
+
+
+	% contents
+
+	1	& 7 & 21 & 1.2653e+00 & NaN & 1.0916e+01 & NaN & 1.0916e+01 & NaN \\
+		& 28 & 84 & 7.0497e-01 & 0.8438 & 5.7008e+00 & 0.9372 & 5.7008e+00 & 0.9372 \\
+		& 112 & 336 & 2.6383e-01 & 1.4180 & 3.4436e+00 & 0.7272 & 3.4436e+00 & 0.7272 \\
+		& 448 & 1344 & 7.5449e-02 & 1.8060 & 1.8233e+00 & 0.9174 & 1.8233e+00 & 0.9174 \\
+		& 1792 & 5376 & 1.9627e-02 & 1.9427 & 9.2622e-01 & 0.9771 & 9.2622e-01 & 0.9771 \\
+		& 7168 & 21504 & 4.9640e-03 & 1.9832 & 4.6540e-01 & 0.9929 & 4.6540e-01 & 0.9929 \\
+
+	\hline
+
+	2	& 7 & 42 & 6.1560e-01 & NaN & 5.7034e+00 & NaN & 5.7034e+00 & NaN \\
+		& 28 & 168 & 1.4129e-01 & 2.1233 & 2.3923e+00 & 1.2534 & 2.3923e+00 & 1.2534 \\
+		& 112 & 672 & 2.0681e-02 & 2.7724 & 7.1105e-01 & 1.7504 & 7.1105e-01 & 1.7504 \\
+		& 448 & 2688 & 2.7014e-03 & 2.9365 & 1.8887e-01 & 1.9126 & 1.8887e-01 & 1.9126 \\
+		& 1792 & 10752 & 3.4226e-04 & 2.9805 & 4.8095e-02 & 1.9734 & 4.8095e-02 & 1.9734 \\
+		& 7168 & 43008 & 4.3003e-05 & 2.9926 & 1.2087e-02 & 1.9925 & 1.2087e-02 & 1.9925 \\
+
+	\hline
+
+	3	& 7 & 70 & 44.3285e-01 & NaN & 4.8816e+00 & NaN & 4.8816e+00 & NaN \\
+		& 28 & 280 & 3.5407e-02 & 3.6118 & 7.5929e-01 & 2.6846 & 7.5929e-01 & 2.6846 \\
+		& 112 & 1120 & 2.7498e-03 & 3.6866 & 1.2018e-01 & 2.6594 & 1.2018e-01 & 2.6594 \\
+		& 448 & 4480 & 1.7279e-04 & 3.9922 & 1.5933e-02 & 2.9151 & 1.5933e-02 & 2.9151 \\
+		& 1792 & 17920 & 1.0786e-05 & 4.0017 & 2.0237e-03 & 2.9770 & 2.0237e-03 & 2.9770 \\
+		& 7168 & 71680 & 6.7332e-07 & 4.0018 & 2.5385e-04 & 2.9950 & 2.5385e-04 & 2.9950 \\
+
+	\hline
+
+	4	& 7 & 105 & 1.2932e-01 & NaN & 1.5622e+00 & NaN & 1.5622e+00 & NaN \\
+		& 28 & 420 & 9.2744e-03 & 3.8016 & 2.2166e-01 & 2.8171 & 2.2166e-01 & 2.8171 \\
+		& 112 & 1680 & 3.6503e-04 & 4.6672 & 1.7668e-02 & 3.6491 & 1.7668e-02 & 3.6491 \\
+		& 448 & 6720 & 1.2501e-05 & 4.8680 & 1.2025e-03 & 3.8770 & 1.2025e-03 & 3.8770 \\
+		& 1792 & 26880 & 3.9980e-07 & 4.9666 & 7.6083e-05 & 3.9824 & 7.6083e-05 & 3.9824 \\
+		& 7168 & 107520 & 1.2568e-08 & 4.9914 & 4.7602e-06 & 3.9985 & 4.7602e-06 & 3.9985 \\
+
+	\hline
+
+	5	& 7 & 147 & 1.1381e-01 & NaN & 1.0080e+00 & NaN & 1.0080e+00 & NaN \\
+		& 28 & 588 & 2.3911e-03 & 5.5728 & 5.5520e-02 & 4.1824 & 5.5520e-02 & 4.1824 \\
+		& 112 & 2352 & 5.2502e-05 & 5.5092 & 2.4154e-03 & 4.5227 & 2.4154e-03 & 4.5227 \\
+		& 448 & 9408 & 8.6522e-07 & 5.9232 & 7.9605e-05 & 4.9232 & 7.9605e-05 & 4.9232 \\
+		& 1792 & 37632 & 1.3790e-08 & 5.9714 & 2.5347e-06 & 4.9730 & 2.5347e-06 & 4.9730 \\
+		& 7168 & 150528 & 2.1659e-10 & 5.9925 & 7.9403e-08 & 4.9965 & 7.9403e-08 & 4.9965 \\
+	
+	\hline
+
+    6   & 7 & 196 & 1.9906e-02 & NaN & 4.3179e-01 & NaN & 4.3179e-01 & NaN \\
+        & 28 & 784 & 4.0022e-04 & 5.6363 & 1.3970e-02 & 4.9499 & 1.3970e-02 & 4.9499 \\
+        & 112 & 3136 & 4.0023e-06 & 6.6438 & 2.8650e-04 & 5.6077 & 2.8650e-04 & 5.6077 \\
+        & 448 & 12544 & 3.5067e-08 & 6.8346 & 5.0342e-06 & 5.8306 & 5.0342e-06 & 5.8306 \\
+        & 1792 & 50176 & 2.7932e-10 & 6.9721 & 7.9191e-08 & 5.9903 & 7.9191e-08 & 5.9903 \\
+        & 7168 & 200704 & 2.1943e-12 & 6.9920 & 1.2349e-09 & 6.0028 & 1.2349e-09 & 6.0028 \\
+
+	\hline
+
+	7	& 7 & 252 & 2.0631e-02 & NaN & 2.0275e-01 & NaN & 2.0275e-01 & NaN \\
+		& 28 & 1008 & 1.1000e-04 & 7.5512 & 2.9177e-03 & 6.1188 & 2.9177e-03 & 6.1188 \\
+		& 112 & 4032 & 5.8428e-07 & 7.5566 & 3.4918e-05 & 6.3847 & 3.4918e-05 & 6.3847 \\
+		& 448 & 16128 & 2.4099e-09 & 7.9215 & 2.8445e-07 & 6.9397 & 2.8445e-07 & 6.9397 \\
+		& 1792 & 64512 & 9.5916e-12 & 7.9730 & 2.2719e-09 & 6.9681 & 2.2719e-09 & 6.9681 \\
+		& 7168 & 258048 & 4.0107e-12 & 1.2579 & 2.5743e-11 & 6.4636 & 2.5742e-11 & 6.4637 \\
+
+    \hline
+
+	8	& 7 & 315 & 2.6629e-03 & NaN & 7.9734e-02 & NaN & 7.9734e-02 & NaN \\
+		& 28 & 1260 & 1.5936e-05 & 7.3846 & 6.4721e-04 & 6.9448 & 6.4721e-04 & 6.9448 \\
+		& 112 & 5040 & 4.2183e-08 & 8.5614 & 3.5349e-06 & 7.5164 & 3.5349e-06 & 7.5164 \\
+		& 448 & 20160 & 9.1500e-11 & 8.8487 & 1.5939e-08 & 7.7930 & 1.5939e-08 & 7.7930 \\
+		& 1792 & 80640 & 1.8579e-13 & 8.9440 & 6.2638e-11 & 7.9913 & 6.2637e-11 & 7.9913 \\
+		& 7168 & 322560 & 4.6114e-12 & -4.6335 & 2.1748e-11 & 1.5261 & 2.1749e-11 & 1.5261 \\
+
+    \hline
+
+	9	& 7 & 385 & 2.2626e-03 & NaN & 3.4389e-02 & NaN & 3.4389e-02 & NaN \\
+		& 28 & 1540 & 3.4755e-06 & 9.3465 & 1.3123e-04 & 8.0337 & 1.3123e-04 & 8.0337 \\
+		& 112 & 6160 & 4.9837e-09 & 9.4458 & 3.9920e-07 & 8.3608 & 3.9920e-07 & 8.3608 \\
+		& 448 & 24640 & 5.2202e-12 & 9.8989 & 8.1623e-10 & 8.9339 & 8.1623e-10 & 8.9339 \\
+		& 1792 & 98560 & 9.3614e-13 & 2.4793 & 6.5771e-12 & 6.9554 & 6.5783e-12 & 6.9551 \\
+		& 7168 & 394240 & 3.1341e-12 & -1.7433 & 1.7621e-11 & -1.4217 & 1.7621e-11 & -1.4215 \\
+
+\end{longtable}
+
+
+
+\subsubsection{Numerical Example 3 (2D Dirichlet)}
+
+取多边形区域为 \(\Omega = \B{(x,y) \big| -1\leqslant x, y \leqslant 1, y-x+1\geqslant 0}\). 取旋转对称的准确解为 \cite{10.1090/S0025-5718-1993-1192966-4, 10.1137/15M1008014}：
+\begin{subequations}
+    \begin{eqnarray}
+        && u(x,y) = \frac{p-1}{(\sigma + 2)^{\frac{1}{p-1}}} \frac{1 - r(x,y)^{\frac{\sigma + p}{p-1}}}{\sigma + p} \\
+        && \bm q(x,y) = \left(-\frac{r(x,y)^{\frac{\sigma+1}{p-1}}}{(\sigma + 2)^{\frac{1}{p-1}}} \frac{x}{r(x,y)}, -\frac{r(x,y)^{\frac{\sigma+1}{p-1}}}{(\sigma + 2)^{\frac{1}{p-1}}} \frac{y}{r(x,y)}\right)^{T} \\
+        && \bm\sigma(x,y) = \left(\frac{-r(x,y)^{\sigma} x}{\sigma + 2}, \frac{-r(x,y)^{\sigma} y}{\sigma + 2}\right)^{T} \\
+        && f(x,y) = r(x,y)^{\sigma}
+    \end{eqnarray}
+\end{subequations}
+我们分别取参数 \((\sigma, p) = (0, 1.5)\) 和 \((\sigma, p) = (7, 4)\) 进行测试，误差如表 \ref{table: 2D p-Laplace Dirichlet LDG, example 3, test1}、\ref{table: 2D p-Laplace Dirichlet LDG, example 3, test2} 所示，部分迭代次数如图 \ref{pic: 2D p-Laplace Dirichlet LDG, example 3, test1, smallest case}、\ref{pic: 2D p-Laplace Dirichlet LDG, example 3, test1, biggestest case}、\ref{pic: 2D p-Laplace Dirichlet LDG, example 3, test2, smallest case}、\ref{pic: 2D p-Laplace Dirichlet LDG, example 3, test2, biggestest case} 所示。我们发现，真解的正则性会限制收敛阶，但当 \(k\) 提高时，同一网格下的误差仍会减小；同时，稳定项 \(\epsilon\) 也会使得收敛效果变差，这应该是由于稳定项和停机条件会一起使迭代较早停止。在所有的 \(k\) 和所有网格下，这两个算例的迭代次数分别都在 \(16\) 和 \(25\) 附近，这说明了与网格无关的收敛性。
+
+\begin{longtable}{| c | c c | c c | c c | c c |}
+	\caption{Convergence history of the LDG method for the \(p\)-Laplace equation with Dirichlet BC, \(\sigma = 0\), \(p = 1.5\), \(\epsilon = 10^{-14}\), \(\delta_{w_{h}} = 10^{-16}\), \(\delta_{\rho} = 10^{-16}\)}
+	\label{table: 2D p-Laplace Dirichlet LDG, example 3, test1} \\
+
+
+	% to appear at the very first page of this table
+	\hline
+	\multirow{2}{*}{\(k\)} & \multirow{2}{*}{\(N_{e}\)} & \multirow{2}{*}{\(N_{\rm dof}^{\rm Schur}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm q - \bm q_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}(\Omega)}\)} \\
+	& & & error & order & error & order & error & order \\
+	\hline
+	\endfirsthead
+
+
+	% to appear at except the very first page of this table
+	\multicolumn{9}{c}{
+		\tablename\ \thetable{} -- 续表 (接上一页)
+	} \\
+	\hline
+	\multirow{2}{*}{\(k\)} & \multirow{2}{*}{\(N_{e}\)} & \multirow{2}{*}{\(N_{\rm dof}^{\rm Schur}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm q - \bm q_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}(\Omega)}\)} \\
+	& & & error & order & error & order & error & order \\
+	\hline
+	\endhead
+
+
+	% to appear at except the very last page of this table
+	\hline
+	\multicolumn{9}{l}{
+		(接下一页)
+	}
+	\endfoot
+
+
+	% to appear at the very last page of this table
+	\hline
+	\endlastfoot
+
+
+	% contents
+
+	1	& 7 & 21 & 4.5425e-02 & NaN & 2.2627e-01 & NaN & 3.2533e-01 & NaN \\
+		& 28 & 84 & 1.2729e-02 & 1.8354 & 1.2465e-01 & 0.8601 & 1.6710e-01 & 0.9612 \\
+		& 112 & 336 & 3.2486e-03 & 1.9702 & 6.4513e-02 & 0.9503 & 8.4892e-02 & 0.9770 \\
+		& 448 & 1344 & 8.1708e-04 & 1.9913 & 3.2663e-02 & 0.9820 & 4.2871e-02 & 0.9856 \\
+		& 1792 & 5376 & 8.1708e-04 & 1.9913 & 3.2663e-02 & 0.9820 & 4.2871e-02 & 0.9856 \\
+		& 7168 & 21504 & 1.9995 & 8.2140e-03 & 0.9977 & 1.0796e-02 & 0.9967 \\
+
+	\hline
+
+	2	& 7 & 42 & 7.7338e-03 & NaN & 5.2735e-02 & NaN & 9.2414e-02 & NaN \\
+		& 28 & 168 & 8.9019e-04 & 3.1190 & 1.3935e-02 & 1.9200 & 2.9935e-02 & 1.6263 \\
+		& 112 & 672 & 1.0777e-04 & 3.0461 & 3.6288e-03 & 1.9412 & 9.7520e-03 & 1.6181 \\
+		& 448 & 2688 & 1.3320e-05 & 3.0164 & 9.2595e-04 & 1.9705 & 3.1265e-03 & 1.6412 \\
+		& 1792 & 10752 & 1.6624e-06 & 3.0022 & 2.3373e-04 & 1.9861 & 9.9332e-04 & 1.6542 \\
+		& 7168 & 43008 & 2.0793e-07 & 2.9990 & 5.8705e-05 & 1.9933 & 3.1419e-04 & 1.6606 \\
+
+	\hline
+
+	3	& 7 & 70 & 6.7287e-04 & NaN & 9.0177e-03 & NaN & 1.9052e-02 & NaN \\
+		& 28 & 280 & 5.5204e-05 & 3.6075 & 1.5156e-03 & 2.5729 & 6.4762e-03 & 1.5567 \\
+		& 112 & 1120 & 3.9437e-06 & 3.8071 & 2.1125e-04 & 2.8428 & 2.0421e-03 & 1.6651 \\
+		& 448 & 4480 & 2.6731e-07 & 3.8829 & 2.8250e-05 & 2.9026 & 6.4327e-04 & 1.6665 \\
+		& 1792 & 17920 & 1.7606e-08 & 3.9244 & 3.6875e-06 & 2.9375 & 2.0247e-04 & 1.6677 \\
+		& 7168 & 71680 & 1.8102e-09 & 3.2818 & 4.7462e-07 & 2.9578 & 6.3822e-05 & 1.6656 \\
+
+	\hline
+
+	4	& 7 & 105 & 1.3377e-04 & NaN & 1.2196e-03 & NaN & 3.0487e-03 & NaN \\
+		& 28 & 420 & 7.9208e-06 & 4.0780 & 1.6633e-04 & 2.8743 & 9.5295e-04 & 1.6777 \\
+		& 112 & 1680 & 4.2657e-07 & 4.2148 & 1.8647e-05 & 3.1570 & 3.0028e-04 & 1.6661 \\
+		& 448 & 6720 & 2.1984e-08 & 4.2783 & 1.9546e-06 & 3.2540 & 9.4582e-05 & 1.6667 \\
+		& 1792 & 26880 & 1.2093e-09 & 4.1842 & 1.9903e-07 & 3.2958 & 2.9790e-05 & 1.6667 \\
+		& 7168 & 107520 & 1.1226e-09 & 0.1074 & 2.1021e-08 & 3.2431 & 9.3838e-06 & 1.6666 \\
+
+	\hline
+
+	5	& 7 & 147 & 2.9285e-05 & NaN & 4.6112e-04 & NaN & 1.5947e-03 & NaN \\
+		& 28 & 588 & 1.5832e-06 & 4.2093 & 5.1172e-05 & 3.1717 & 5.0520e-04 & 1.6584 \\
+		& 112 & 2352 & 7.9726e-08 & 4.3116 & 5.1633e-06 & 3.3090 & 1.5913e-04 & 1.6666 \\
+		& 448 & 9408 & 5.6283e-09 & 3.8243 & 5.1460e-07 & 3.3268 & 5.0123e-05 & 1.6667 \\
+		& 1792 & 37632 & 5.3178e-09 & 0.0819 & 5.7037e-08 & 3.1735 & 1.5788e-05 & 1.6666 \\
+		& 7168 & 150528 & 3.7110e-10 & 3.8410 & 5.4414e-09 & 3.3899 & 4.9727e-06 & 1.6668 \\
+	
+	\hline
+
+    6   & 7 & 196 & 6.8486e-06 & NaN & 1.7974e-04 & NaN & 6.7422e-04 & NaN \\
+        & 28 & 784 & 3.5864e-07 & 4.2552 & 1.8790e-05 & 3.2579 & 2.1222e-04 & 1.6676 \\
+        & 112 & 3136 & 1.7881e-08 & 4.3260 & 1.8690e-06 & 3.3296 & 6.6846e-05 & 1.6667 \\
+        & 448 & 12544 & 2.1894e-09 & 3.0299 & 1.8631e-07 & 3.3265 & 2.1056e-05 & 1.6666 \\
+        & 1792 & 50176 & 2.0939e-09 & 0.0644 & 2.0968e-08 & 3.1514 & 6.6326e-06 & 1.6666 \\
+        & 7168 & 200704 & 1.9309e-09 & 0.1169 & 6.8024e-09 & 1.6241 & 2.0898e-06 & 1.6662 \\
+
+\end{longtable}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 3-1/k=1/Jh_1.eps}
+				\caption{\(J_{h}(u_{h})\)}
+			\end{center}
+		\end{subfigure}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 3-1/k=1/gradnorm_1.eps}
+				\caption{\(\norm{w_{h}}\)}
+			\end{center}
+		\end{subfigure}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 3-1/k=1/rho_1.eps}
+				\caption{\(\rho\)}
+			\end{center}
+		\end{subfigure}
+
+		\caption{\(\sigma = 0\), \(p = 1.5\), \(k = 1\), level 1 mesh}
+		\label{pic: 2D p-Laplace Dirichlet LDG, example 3, test1, smallest case}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 3-1/k=6/Jh_6.eps}
+				\caption{\(J_{h}(u_{h})\)}
+			\end{center}
+		\end{subfigure}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 3-1/k=6/gradnorm_6.eps}
+				\caption{\(\norm{w_{h}}\)}
+			\end{center}
+		\end{subfigure}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 3-1/k=6/rho_6.eps}
+				\caption{\(\rho\)}
+			\end{center}
+		\end{subfigure}
+
+		\caption{\(\sigma = 0\), \(p = 1.5\), \(k = 6\), level 6 mesh}
+		\label{pic: 2D p-Laplace Dirichlet LDG, example 3, test1, biggestest case}
+	\end{center}
+\end{figure}
+
+
+
+\begin{longtable}{| c | c c | c c | c c | c c |}
+	\caption{Convergence history of the LDG method for the \(p\)-Laplace equation with Dirichlet BC, \(\sigma = 7\), \(p = 4\), \(\epsilon = 10^{-14}\), \(\delta_{w_{h}} = 10^{-16}\), \(\delta_{\rho} = 10^{-16}\)}
+	\label{table: 2D p-Laplace Dirichlet LDG, example 3, test2} \\
+
+
+	% to appear at the very first page of this table
+	\hline
+	\multirow{2}{*}{\(k\)} & \multirow{2}{*}{\(N_{e}\)} & \multirow{2}{*}{\(N_{\rm dof}^{\rm Schur}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm q - \bm q_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}(\Omega)}\)} \\
+	& & & error & order & error & order & error & order \\
+	\hline
+	\endfirsthead
+
+
+	% to appear at except the very first page of this table
+	\multicolumn{9}{c}{
+		\tablename\ \thetable{} -- 续表 (接上一页)
+	} \\
+	\hline
+	\multirow{2}{*}{\(k\)} & \multirow{2}{*}{\(N_{e}\)} & \multirow{2}{*}{\(N_{\rm dof}^{\rm Schur}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm q - \bm q_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}(\Omega)}\)} \\
+	& & & error & order & error & order & error & order \\
+	\hline
+	\endhead
+
+
+	% to appear at except the very last page of this table
+	\hline
+	\multicolumn{9}{l}{
+		(接下一页)
+	}
+	\endfoot
+
+
+	% to appear at the very last page of this table
+	\hline
+	\endlastfoot
+
+
+	% contents
+
+	1	& 7 & 21 & 1.1225e-01 & NaN & 4.5324e-01 & NaN & 1.9580e-01 & NaN \\
+		& 28 & 84 & 4.8591e-02 & 1.2079 & 2.6553e-01 & 0.7714 & 7.0942e-02 & 1.4647 \\
+		& 112 & 336 & 1.2312e-02 & 1.9806 & 7.8134e-02 & 1.7648 & 3.3611e-02 & 1.0777 \\
+		& 448 & 1344 & 3.3495e-03 & 1.8781 & 3.8148e-02 & 1.0343 & 1.8592e-02 & 0.8543 \\
+		& 1792 & 5376 & 9.1362e-04 & 1.8743 & 1.9966e-02 & 0.9341 & 1.0293e-02 & 0.8530 \\
+		& 7168 & 21504 & 2.4744e-04 & 1.8845 & 1.0240e-02 & 0.9634 & 5.4531e-03 & 0.9165 \\
+
+	\hline
+
+	2	& 7 & 42 & 9.4888e-02 & NaN & 3.9841e-01 & NaN & 1.0562e-01 & NaN \\
+		& 28 & 168 & 2.3261e-02 & 2.0283 & 1.0691e-01 & 1.8979 & 1.8035e-02 & 2.5499 \\
+		& 112 & 672 & 5.3419e-03 & 2.1225 & 1.3977e-02 & 2.9353 & 2.9171e-03 & 2.6282 \\
+		& 448 & 2688 & 1.1927e-03 & 2.1631 & 1.8476e-03 & 2.9193 & 5.7511e-04 & 2.3426 \\
+		& 1792 & 10752 & 2.5934e-04 & 2.2013 & 3.7062e-04 & 2.3176 & 1.3894e-04 & 2.0494 \\
+		& 7168 & 43008 & 5.5541e-05 & 2.2232 & 9.0708e-05 & 2.0306 & 3.5456e-05 & 1.9703 \\
+
+	\hline
+
+	3	& 7 & 70 & 3.5097e-02 & NaN & 2.2779e-01 & NaN & 4.0262e-02 & NaN \\
+		& 28 & 280 & 1.0875e-02 & 1.6904 & 4.0079e-02 & 2.5068 & 2.9800e-03 & 3.7560 \\
+		& 112 & 1120 & 1.9920e-03 & 2.4487 & 4.1837e-03 & 3.2600 & 1.9061e-04 & 3.9667 \\
+		& 448 & 4480 & 3.5111e-04 & 2.5042 & 4.6552e-04 & 3.1679 & 1.4127e-05 & 3.7540 \\
+		& 1792 & 17920 & 6.0286e-05 & 2.5420 & 5.1760e-05 & 3.1689 & 1.3110e-06 & 3.4298 \\
+		& 7168 & 71680 & 1.0218e-05 & 2.5608 & 6.6295e-06 & 2.9649 & 1.4394e-07 & 3.1871 \\
+
+	\hline
+
+	4	& 7 & 105 & 2.4579e-02 & NaN & 1.5532e-01 & NaN & 1.1192e-02 & NaN \\
+		& 28 & 420 & 4.4327e-03 & 2.4712 & 1.0572e-02 & 3.8770 & 3.1600e-04 & 5.1464 \\
+		& 112 & 1680 & 6.4281e-04 & 2.7857 & 1.1827e-03 & 3.1601 & 9.0793e-06 & 5.1212 \\
+		& 448 & 6720 & 8.8926e-05 & 2.8537 & 1.3170e-04 & 3.1667 & 2.8590e-07 & 4.9890 \\
+		& 1792 & 26880 & 1.2062e-05 & 2.8821 & 1.4725e-05 & 3.1610 & 1.4783e-08 & 4.2735 \\
+		& 7168 & 107520 & 1.6240e-06 & 2.8928 & 4.9436e-05 & -1.7473 & 1.1314e-09 & 3.7077 \\
+
+	\hline
+
+	5	& 7 & 147 & 1.2837e-02 & NaN & 6.6089e-02 & NaN & 2.4940e-03 & NaN \\
+		& 28 & 588 & 2.7142e-03 & 2.2417 & 6.4898e-03 & 3.3482 & 4.2796e-05 & 5.8648 \\
+		& 112 & 2352 & 3.0470e-04 & 3.1551 & 7.2250e-04 & 3.1671 & 6.5958e-07 & 6.0198 \\
+		& 448 & 9408 & 3.3073e-05 & 3.2036 & 8.0512e-05 & 3.1657 & 1.0836e-08 & 5.9276 \\
+		& 1792 & 37632 & 3.5545e-06 & 3.2180 & 8.9970e-06 & 3.1617 & 2.0937e-09 & 2.3718 \\
+		& 7168 & 150528 & 3.7845e-07 & 3.2315 & 1.0077e-06 & 3.1584 & 4.4897e-09 & -1.1006 \\
+	
+	\hline
+
+    6   & 7 & 196 & 5.6444e-03 & NaN & 3.3924e-02 & NaN & 4.2407e-04 & NaN \\
+        & 28 & 784 & 7.2374e-04 & 2.9633 & 2.8283e-03 & 3.5843 & 2.1715e-06 & 7.6095 \\
+        & 112 & 3136 & 6.2957e-05 & 3.5230 & 3.1497e-04 & 3.1666 & 1.7375e-08 & 6.9656 \\
+        & 448 & 12544 & 5.3619e-06 & 3.5535 & 3.4873e-05 & 3.1751 & 5.0282e-09 & 1.7889 \\
+        & 1792 & 50176 & 4.5741e-07 & 3.5512 & 3.8761e-06 & 3.1694 & 1.0701e-08 & -1.0897 \\
+        & 7168 & 200704 & 8.3135e-08 & 2.4600 & 5.5058e-06 & -0.5064 & 2.3028e-09 & 2.2163 \\
+
+\end{longtable}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 3-2/k=1/Jh_1.eps}
+				\caption{\(J_{h}(u_{h})\)}
+			\end{center}
+		\end{subfigure}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 3-2/k=1/gradnorm_1.eps}
+				\caption{\(\norm{w_{h}}\)}
+			\end{center}
+		\end{subfigure}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 3-2/k=1/rho_1.eps}
+				\caption{\(\rho\)}
+			\end{center}
+		\end{subfigure}
+
+		\caption{\(\sigma = 0\), \(p = 1.5\), \(k = 1\), level 1 mesh}
+		\label{pic: 2D p-Laplace Dirichlet LDG, example 3, test2, smallest case}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 3-2/k=6/Jh_6.eps}
+				\caption{\(J_{h}(u_{h})\)}
+			\end{center}
+		\end{subfigure}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 3-2/k=6/gradnorm_6.eps}
+				\caption{\(\norm{w_{h}}\)}
+			\end{center}
+		\end{subfigure}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 3-2/k=6/rho_6.eps}
+				\caption{\(\rho\)}
+			\end{center}
+		\end{subfigure}
+
+		\caption{\(\sigma = 7\), \(p = 4\), \(k = 6\), level 6 mesh}
+		\label{pic: 2D p-Laplace Dirichlet LDG, example 3, test2, biggestest case}
+	\end{center}
+\end{figure}
+
+
+
+\subsubsection{Numerical Example 4 (2D Dirichlet)}
+
+取多边形区域为 \(\Omega = \B{(x,y) \big| -1\leqslant x, y \leqslant 1, y-x+1\geqslant 0}\). 取旋转对称的准确解为 \cite{10.1090/S0025-5718-1993-1192966-4}：
+\begin{subequations}
+    \begin{eqnarray}
+        && u(x,y) = \begin{cases}
+            0, & r(x,y) < a \\
+            (r(x,y) - a)^{4}, & r(x,y) \geqslant a 
+        \end{cases} \\
+        && \bm q(x,y) = \begin{cases}
+            \bm 0, & r(x,y) < a \\
+            \left(4 (r(x,y)-a)^{3} \frac{x}{r(x,y)}, 4 (r(x,y)-a)^{3} \frac{y}{r(x,y)}\right)^{T}, & r(x,y) \geqslant a 
+        \end{cases} \\
+        && \bm\sigma(x,y) = \begin{cases}
+            \bm 0, & r(x,y) < a \\
+            \left(4^{p-1} (r(x,y)-a)^{3p-3} \frac{x}{r(x,y)}, 4^{p-1} (r(x,y)-a)^{3p-3} \frac{y}{r(x,y)}\right)^{T}, & r(x,y) \geqslant a 
+        \end{cases} \\
+        && f(x,y) = \begin{cases}
+            0, & r(x,y) < a \\
+            4^{p-1} (r(x,y) - a)^{3p-4} \left(2 - 3p + \frac{a}{r(x,y)}\right), & r(x,y) \geqslant a 
+        \end{cases}
+    \end{eqnarray}
+\end{subequations}
+此算例的解在以原点为圆心、半径为 \(a\) 的圆盘上都是驻点，对数值方法的稳定性要求很高。与文章 \cite{10.1090/S0025-5718-1993-1192966-4} 中一样，我们取 \(a = 0.3\)，\(p = 4\) 进行测试，结果如图和表所示。
+
+\begin{longtable}{| c | c c | c c | c c | c c |}
+	\caption{Convergence history of the LDG method for the \(p\)-Laplace equation with Dirichlet BC, \(\sigma = 7\), \(p = 4\), \(\epsilon = 10^{-14}\), \(\delta_{w_{h}} = 10^{-16}\), \(\delta_{\rho} = 10^{-16}\)}
+	\label{table: 2D p-Laplace Dirichlet LDG, example 3, test2} \\
+
+
+	% to appear at the very first page of this table
+	\hline
+	\multirow{2}{*}{\(k\)} & \multirow{2}{*}{\(N_{e}\)} & \multirow{2}{*}{\(N_{\rm dof}^{\rm Schur}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm q - \bm q_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}(\Omega)}\)} \\
+	& & & error & order & error & order & error & order \\
+	\hline
+	\endfirsthead
+
+
+	% to appear at except the very first page of this table
+	\multicolumn{9}{c}{
+		\tablename\ \thetable{} -- 续表 (接上一页)
+	} \\
+	\hline
+	\multirow{2}{*}{\(k\)} & \multirow{2}{*}{\(N_{e}\)} & \multirow{2}{*}{\(N_{\rm dof}^{\rm Schur}\)} & \multicolumn{2}{c |}{\(\norm{u - u_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm q - \bm q_{h}}_{L^p(\Omega)}\)} & \multicolumn{2}{c |}{\(\norm{\bm\sigma - \bm\sigma_{h}}_{L^{p'}(\Omega)}\)} \\
+	& & & error & order & error & order & error & order \\
+	\hline
+	\endhead
+
+
+	% to appear at except the very last page of this table
+	\hline
+	\multicolumn{9}{l}{
+		(接下一页)
+	}
+	\endfoot
+
+
+	% to appear at the very last page of this table
+	\hline
+	\endlastfoot
+
+
+	% contents
+
+	1	& 7 & 21 & 5.0087e-01 & NaN & 2.1984e+00 & NaN & 1.2909e+01 & NaN \\
+		& 28 & 84 & 1.9990e-01 & 1.3252 & 1.1516e+00 & 0.9328 & 6.0890e+00 & 1.0841 \\
+		& 112 & 336 & 6.4463e-02 & 1.6327 & 5.1304e-01 & 1.1665 & 2.3958e+00 & 1.3457 \\
+		& 448 & 1344 & 1.7066e-02 & 1.9173 & 1.9450e-01 & 1.3993 & 1.2788e+00 & 0.9057 \\
+		& 1792 & 5376 & 4.6698e-03 & 1.8697 & 1.0157e-01 & 0.9373 & 7.1692e-01 & 0.8349 \\
+		& 7168 & 21504 & 1.2687e-03 & 1.8799 & 5.2588e-02 & 0.9497 & 3.8597e-01 & 0.8933 \\
+
+	\hline
+
+	2	& 7 & 42 & 3.4929e-01 & NaN & 1.5828e+00 & NaN & 1.0810e+01 & NaN \\
+		& 28 & 168 & 1.4205e-01 & 1.2981 & 8.1954e-01 & 0.9496 & 2.0331e+00 & 2.4106 \\
+		& 112 & 672 & 3.0138e-02 & 2.2367 & 1.4992e-01 & 2.4506 & 3.5512e-01 & 2.5173 \\
+		& 448 & 2688 & 6.8604e-03 & 2.1352 & 1.6884e-02 & 3.1505 & 6.4558e-02 & 2.4596 \\
+		& 1792 & 10752 & 1.5120e-03 & 2.1819 & 2.8383e-03 & 2.5726 & 1.4676e-02 & 2.1372 \\
+		& 7168 & 43008 & 3.2590e-04 & 2.2140 & 6.7299e-04 & 2.0764 & 3.7017e-03 & 1.9872 \\
+
+	\hline
+
+	3	& 7 & 70 & 3.0707e-01 & NaN & 1.5849e+00 & NaN & 5.5966e+00 & NaN \\
+		& 28 & 280 & 7.2396e-02 & 2.0846 & 4.8447e-01 & 1.7099 & 5.2846e-01 & 3.4047 \\
+		& 112 & 1120 & 1.2841e-02 & 2.4951 & 4.8259e-02 & 3.3275 & 3.7767e-02 & 3.8066 \\
+		& 448 & 4480 & 2.3307e-03 & 2.4620 & 4.0781e-03 & 3.5648 & 2.5268e-03 & 3.9017 \\
+		& 1792 & 17920 & 4.0573e-04 & 2.5222 & 3.7353e-04 & 3.4486 & 2.0165e-04 & 3.6474 \\
+		& 7168 & 71680 & 6.9167e-05 & 2.5524 & 1.6427e-04 & 1.1851 & 2.0028e-05 & 3.3318 \\
+
+	\hline
+
+	4	& 7 & 105 & 1.1334e-01 & NaN & 9.1652e-01 & NaN & 2.2549e+00 & NaN \\
+		& 28 & 420 & 3.2154e-02 & 1.8176 & 1.6407e-01 & 2.4819 & 1.0525e-01 & 4.4211 \\
+		& 112 & 1680 & 4.8426e-03 & 2.7312 & 1.4662e-02 & 3.4842 & 2.9308e-03 & 5.1664 \\
+		& 448 & 6720 & 6.9000e-04 & 2.8111 & 1.6002e-03 & 3.1957 & 8.9106e-05 & 5.0396 \\
+		& 1792 & 26880 & 9.4671e-05 & 2.8656 & 2.6576e-04 & 2.5901 & 3.0897e-06 & 4.8500 \\
+		& 7168 & 107520 & 1.2770e-05 & 2.8902 & 1.0274e-04 & 1.3711 & 7.3647e-07 & 2.0688 \\
+
+	\hline
+    
+	5	& 7 & 147 & 8.6038e-02 & NaN & 5.7931e-01 & NaN & 7.9631e-01 & NaN \\
+		& 28 & 588 & 2.2907e-02 & 1.9092 & 7.2822e-02 & 2.9919 & 1.9460e-02 & 5.3547 \\
+		& 112 & 2352 & 2.6796e-03 & 3.0957 & 5.0373e-03 & 3.8536 & 3.1838e-04 & 5.9336 \\
+		& 448 & 9408 & 2.9864e-04 & 3.1656 & 6.1208e-04 & 3.0409 & 5.0076e-06 & 5.9905 \\
+		& 1792 & 37632 & 3.2344e-05 & 3.2068 & 6.5927e-05 & 3.2148 & 2.2571e-07 & 4.4716 \\
+		& 7168 & 150528 & 3.4570e-06 & 3.2259 & 8.1953e-05 & -0.3139 & 2.7001e-07 & -0.2585 \\
+	
+	\hline
+
+    % to be continued from here
+    6   & 7 & 196 &  &  &  &  &  &  \\
+        & 28 & 784 & 7.2374e-04 & 2.9633 & 2.8283e-03 & 3.5843 & 2.1715e-06 & 7.6095 \\
+        & 112 & 3136 & 6.2957e-05 & 3.5230 & 3.1497e-04 & 3.1666 & 1.7375e-08 & 6.9656 \\
+        & 448 & 12544 & 5.3619e-06 & 3.5535 & 3.4873e-05 & 3.1751 & 5.0282e-09 & 1.7889 \\
+        & 1792 & 50176 & 4.5741e-07 & 3.5512 & 3.8761e-06 & 3.1694 & 1.0701e-08 & -1.0897 \\
+        & 7168 & 200704 & 8.3135e-08 & 2.4600 & 5.5058e-06 & -0.5064 & 2.3028e-09 & 2.2163 \\
+
+\end{longtable}
+
+
+
+\subsubsection{Numerical Example 5 (2D Dirichlet)}
+
+取区域为 \(\Omega = [0,1]^2\). 取旋转对称的准确解为 \cite{10.1007/s10915-007-9134-z, 10.1137/15M1008014}：
+\begin{subequations}
+    \begin{eqnarray}
+        && u(x,y) = r(x,y)^{\frac{p-2}{p-1}} \\
+        && \bm q(x,y) = \left(\frac{p-2}{p-1} r^{\frac{-p}{p-1}} x, \frac{p-2}{p-1} r^{\frac{-p}{p-1}} y\right)^{T} \\
+        && \bm\sigma(x,y) = \left(\left(\frac{p-2}{p-1}\right)^{p-1} \frac{x}{r^2}, \left(\frac{p-2}{p-1}\right)^{p-1} \frac{y}{r^2}\right)^{T} \\
+        && f(x,y) = 0 
+    \end{eqnarray}
+\end{subequations}
+我们分别取 \(p = 1.5\) 和 \(p = 10\) 进行测试。
+
+
+
+
 \subsubsection{Conclusion}
 
 我们的第二个 \(p\)-Laplace 方程 LDG 格式引入了中间变量 \(\bm\sigma\)，从而将鞍点问题转化为关于 \(u\) 的最小化问题。我们针对此方法，把文章 \cite{10.1007/s10915-007-9134-z} 中的预条件子推广到了 LDG 框架下。此方法的优势在于：
