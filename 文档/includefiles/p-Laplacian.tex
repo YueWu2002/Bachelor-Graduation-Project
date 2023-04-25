@@ -2900,7 +2900,7 @@ print(3, '-depsc2', '-vector', 'gradnorm', '-r300');
 		&& f(x,y) = 0 
 	\end{eqnarray}
 \end{subequations}
-此算例是光滑的，且没有驻点。与文章 \cite{10.1137/15M1008014} 中一样，我们分别取 \(p = 1.5\) 和 \(p = 3\) 进行测试。本算例使用的网格如图 \ref{Mesh: 2D p-Laplace Example 5} 所示，结果如表 \ref{table: 2D p-Laplace Dirichlet LDG, example 4, test1}、\ref{table: 2D p-Laplace Dirichlet LDG, example 4, test2} 和图 \ref{pic: 2D p-Laplace Dirichlet LDG, example 5, test1, smallest case}、\ref{pic: 2D p-Laplace Dirichlet LDG, example 5, test1, biggest case} 所示。
+此算例是光滑的，且没有驻点。与文章 \cite{10.1137/15M1008014} 中一样，我们分别取 \(p = 1.5\) 和 \(p = 3\) 进行测试。本算例使用的网格如图 \ref{Mesh: 2D p-Laplace Example 5} 所示，结果如表 \ref{table: 2D p-Laplace Dirichlet LDG, example 5, test1}、\ref{table: 2D p-Laplace Dirichlet LDG, example 5, test2} 和图 \ref{pic: 2D p-Laplace Dirichlet LDG, example 5, test1, smallest case}、\ref{pic: 2D p-Laplace Dirichlet LDG, example 5, test1, biggest case}、\ref{pic: 2D p-Laplace Dirichlet LDG, example 5, test2, smallest case}、\ref{pic: 2D p-Laplace Dirichlet LDG, example 5, test2, biggest case} 所示。
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -2949,7 +2949,7 @@ print(3, '-depsc2', '-vector', 'gradnorm', '-r300');
 
 \begin{longtable}{| c | c c | c c | c c | c c |}
 	\caption{Convergence history of the LDG method for the \(p\)-Laplace equation with Dirichlet BC, \(p = 1.5\), \(\epsilon = 10^{-14}\), \(\delta_{w_{h}} = 10^{-16}\), \(\delta_{\rho} = 10^{-16}\)}
-	\label{table: 2D p-Laplace Dirichlet LDG, example 4, test1} \\
+	\label{table: 2D p-Laplace Dirichlet LDG, example 5, test1} \\
 
 
 	% to appear at the very first page of this table
@@ -3094,11 +3094,9 @@ print(3, '-depsc2', '-vector', 'gradnorm', '-r300');
 
 
 
-% to be continued
-\iffalse
 \begin{longtable}{| c | c c | c c | c c | c c |}
 	\caption{Convergence history of the LDG method for the \(p\)-Laplace equation with Dirichlet BC, \(p = 4\), \(\epsilon = 10^{-14}\), \(\delta_{w_{h}} = 10^{-16}\), \(\delta_{\rho} = 10^{-16}\)}
-	\label{table: 2D p-Laplace Dirichlet LDG, example 4, test2} \\
+	\label{table: 2D p-Laplace Dirichlet LDG, example 5, test2} \\
 
 
 	% to appear at the very first page of this table
@@ -3135,60 +3133,112 @@ print(3, '-depsc2', '-vector', 'gradnorm', '-r300');
 
 	% contents
 
-	1	& 16 & 48 & 1.0372e-03 & NaN & 2.8342e-02 & NaN & 4.1536e-02 & NaN \\
-		& 64 & 192 & 2.7955e-04 & 1.8915 & 1.4451e-02 & 0.9718 & 2.2825e-02 & 0.8638 \\
-		& 256 & 768 & 7.0869e-05 & 1.9799 & 7.2741e-03 & 0.9903 & 1.1631e-02 & 0.9726 \\
-		& 1024 & 3072 & 1.7819e-05 & 1.9917 & 3.6433e-03 & 0.9975 & 5.8448e-03 & 0.9928 \\
-		& 4096 & 12288 & 4.4670e-06 & 1.9960 & 1.8226e-03 & 0.9992 & 2.9266e-03 & 0.9979 \\
-		& 16384 & 49152 & 1.1181e-06 & 1.9983 & 9.1150e-04 & 0.9997 & 1.4640e-03 & 0.9993 \\
+	1	& 16 & 48 & 6.1661e-04 & NaN & 8.3824e-03 & NaN & 2.8982e-03 & NaN \\
+		& 64 & 192 & 1.6146e-04 & 1.9332 & 4.3914e-03 & 0.9327 & 1.5995e-03 & 0.8576 \\
+		& 256 & 768 & 4.1832e-05 & 1.9485 & 2.2942e-03 & 0.9367 & 8.3392e-04 & 0.9396 \\
+		& 1024 & 3072 & 1.0638e-05 & 1.9753 & 1.1691e-03 & 0.9727 & 4.2445e-04 & 0.9743 \\
+		& 4096 & 12288 & 2.6789e-06 & 1.9896 & 5.8994e-04 & 0.9867 & 2.1433e-04 & 0.9857 \\
+		& 16384 & 49152 & 6.7208e-07 & 1.9949 & 2.9635e-04 & 0.9933 & 1.0787e-04 & 0.9905 \\
 
 	\hline
 
-	2	& 16 & 96 & 8.6236e-05 & NaN & 2.2770e-03 & NaN & 3.8375e-03 & NaN \\
-		& 64 & 384 & 1.0855e-05 & 2.9899 & 5.6497e-04 & 2.0109 & 1.0040e-03 & 1.9344 \\
-		& 256 & 1536 & 1.3526e-06 & 3.0046 & 1.4138e-04 & 1.9986 & 2.5810e-04 & 1.9598 \\
-		& 1024 & 6144 & 1.6836e-07 & 3.0061 & 3.5423e-05 & 1.9968 & 6.5469e-05 & 1.9790 \\
-		& 4096 & 24576 & 2.0987e-08 & 3.0040 & 8.8690e-06 & 1.9979 & 1.6488e-05 & 1.9894 \\
-		& 16384 & 98304 & 2.6235e-09 & 2.9999 & 2.2191e-06 & 1.9988 & 4.1371e-06 & 1.9947 \\
+	2	& 16 & 96 & 2.2017e-05 & NaN & 5.2367e-04 & NaN & 1.8345e-04 & NaN \\
+		& 64 & 384 & 2.9965e-06 & 2.8773 & 1.4110e-04 & 1.8919 & 4.9821e-05 & 1.8805 \\
+		& 256 & 1536 & 3.8253e-07 & 2.9696 & 3.6936e-05 & 1.9336 & 1.3101e-05 & 1.9271 \\
+		& 1024 & 6144 & 4.8458e-08 & 2.9808 & 9.4465e-06 & 1.9672 & 3.3450e-06 & 1.9696 \\
+		& 4096 & 24576 & 6.1051e-09 & 2.9886 & 2.3870e-06 & 1.9846 & 8.4330e-07 & 1.9879 \\
+		& 16384 & 98304 & 1.0885e-09 & 2.4877 & 5.9969e-07 & 1.9929 & 2.1182e-07 & 1.9932 \\
 
 	\hline
 
-	3	& 16 & 160 & 4.6017e-06 & NaN & 1.5681e-04 & NaN & 3.3194e-04 & NaN \\
-		& 64 & 640 & 2.6963e-07 & 4.0931 & 1.9628e-05 & 2.9980 & 4.1896e-05 & 2.9860 \\
-		& 256 & 2560 & 1.6227e-08 & 4.0545 & 2.4526e-06 & 3.0005 & 5.2193e-06 & 3.0049 \\
-		& 1024 & 10240 & 1.0227e-09 & 3.9879 & 3.0633e-07 & 3.0012 & 6.5041e-07 & 3.0045 \\
-		& 4096 & 40960 & 5.3706e-10 & 0.9292 & 3.9702e-08 & 2.9478 & 8.1706e-08 & 2.9928 \\
-		& 16384 & 163840 & 2.2090e-10 & 1.2817 & 6.2691e-09 & 2.6629 & 1.1142e-08 & 2.8745 \\
+	3	& 16 & 160 & 1.1969e-06 & NaN & 3.4546e-05 & NaN & 1.1652e-05 & NaN \\
+		& 64 & 640 & 7.9547e-08 & 3.9114 & 4.5249e-06 & 2.9326 & 1.5044e-06 & 2.9533 \\
+		& 256 & 2560 & 5.0486e-09 & 3.9779 & 5.7407e-07 & 2.9786 & 1.9013e-07 & 2.9841 \\
+		& 1024 & 10240 & 3.9896e-10 & 3.6616 & 7.3632e-08 & 2.9628 & 2.4486e-08 & 2.9569 \\
+		& 4096 & 40960 & 2.5694e-10 & 0.6348 & 2.2007e-08 & 1.7424 & 4.9171e-09 & 2.3161 \\
+		& 16384 & 163840 & 1.4915e-10 & 0.7847 & 5.5353e-09 & 1.9912 & 2.0881e-09 & 1.2356 \\
 
 	\hline
 
-	4	& 16 & 240 &  & - &  & - &  & - \\
-		& 64 & 960 &  &  &  &  &  &  \\
-		& 256 & 3840 &  &  &  &  &  &  \\
-		& 1024 & 15360 &  &  &  &  &  &  \\
-		& 4096 & 61440 &  &  &  &  &  &  \\
-		& 16384 & 245760 &  &  &  &  &  &  \\
+	4	& 16 & 240 & 7.8745e-08 & NaN & 2.3821e-06 & NaN & 6.6297e-07 & NaN \\
+		& 64 & 960 & 2.6198e-09 & 4.9097 & 1.5224e-07 & 3.9679 & 4.2029e-08 & 3.9795 \\
+		& 256 & 3840 & 2.1988e-10 & 3.5747 & 2.6166e-08 & 2.5405 & 5.3147e-09 & 2.9833 \\
+		& 1024 & 15360 & 3.0472e-10 & -0.4708 & 3.1129e-08 & -0.2506 & 6.5733e-09 & -0.3066 \\
+		& 4096 & 61440 & 5.1319e-10 & -0.7520 & 4.1770e-08 & -0.4242 & 8.8976e-09 & -0.4368 \\
+		& 16384 & 245760 & 2.5162e-10 & 1.0283 & 2.1292e-08 & 0.9722 & 3.6182e-09 & 1.2981 \\
 
 	\hline
     
-	5	& 16 & 336 &  & - &  & - &  & - \\
-		& 64 & 1344 &  &  &  &  &  &  \\
-		& 256 & 5376 &  &  &  &  &  &  \\
-		& 1024 & 21504 &  &  &  &  &  &  \\
-		& 4096 & 86016 &  &  &  &  &  &  \\
-		& 16384 & 344064 &  &  &  &  &  &  \\
+	5	& 16 & 336 & 4.8088e-09 & NaN & 1.7436e-07 & NaN & 4.0116e-08 & NaN \\
+		& 64 & 1344 & 2.0183e-10 & 4.5745 & 1.4229e-08 & 3.6151 & 2.8580e-09 & 3.8111 \\
+		& 256 & 5376 & 3.7226e-10 & -0.8832 & 3.1367e-08 & -1.1405 & 6.5744e-09 & -1.2019 \\
+		& 1024 & 21504 & 3.2134e-10 & 0.2122 & 2.2226e-08 & 0.4970 & 5.7904e-09 & 0.1832 \\
+		& 4096 & 86016 & 3.8469e-10 & -0.2596 & 1.4881e-08 & 0.5788 & 5.9937e-09 & -0.0498 \\
+		& 16384 & 344064 & 9.6647e-10 & -1.3290 & 4.2430e-08 & -1.5117 & 1.3583e-08 & -1.1803 \\
 	
 	\hline
 
-    6	& 16 & 448 &  & - &  & - &  & - \\
-		& 64 & 1792 &  &  &  &  &  &  \\
-		& 256 & 7168 &  &  &  &  &  &  \\
-		& 1024 & 28672 &  &  &  &  &  &  \\
-		& 4096 & 114688 &  &  &  &  &  &  \\
-		& 16384 & 458752 &  &  &  &  &  &  \\
+    6	& 16 & 448 & 5.0749e-10 & NaN & 1.9293e-08 & NaN & 7.7938e-09 & NaN \\
+		& 64 & 1792 & 3.5543e-10 & 0.5138 & 1.5875e-08 & 0.2813 & 7.2192e-09 & 0.1105 \\
+		& 256 & 7168 & 4.1596e-10 & -0.2269 & 1.9329e-08 & -0.2840 & 8.0760e-09 & -0.1618 \\
+		& 1024 & 28672 & 3.9734e-10 & 0.0661 & 1.7754e-08 & 0.1226 & 6.7155e-09 & 0.2661 \\
+		& 4096 & 114688 & 1.4872e-10 & 1.4177 & 6.3673e-09 & 1.4794 & 2.3250e-09 & 1.5303 \\
+		& 16384 & 458752 & 9.0933e-10 & -2.6122 & 5.7407e-08 & -3.1725 & 7.6649e-09 & -1.7211 \\
 
 \end{longtable}
-\fi
+
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 5-2/k=1/Jh_1.eps}
+				\caption{\(J_{h}(u_{h})\)}
+			\end{center}
+		\end{subfigure}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 5-2/k=1/gradnorm_1.eps}
+				\caption{\(\norm{w_{h}}\)}
+			\end{center}
+		\end{subfigure}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 5-2/k=1/rho_1.eps}
+				\caption{\(\rho\)}
+			\end{center}
+		\end{subfigure}
+
+		\caption{\(p = 4\), \(k = 6\), level 6 mesh}
+		\label{pic: 2D p-Laplace Dirichlet LDG, example 5, test2, smallest case}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 5-2/k=6/Jh_6.eps}
+				\caption{\(J_{h}(u_{h})\)}
+			\end{center}
+		\end{subfigure}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 5-2/k=6/gradnorm_6.eps}
+				\caption{\(\norm{w_{h}}\)}
+			\end{center}
+		\end{subfigure}
+		\begin{subfigure}{0.32\linewidth}
+			\begin{center}
+				\includegraphics[width=\linewidth]{includefiles/2D p-Laplace LDG2/example 5-2/k=6/rho_6.eps}
+				\caption{\(\rho\)}
+			\end{center}
+		\end{subfigure}
+
+		\caption{\(p = 4\), \(k = 6\), level 6 mesh}
+		\label{pic: 2D p-Laplace Dirichlet LDG, example 5, test2, biggest case}
+	\end{center}
+\end{figure}
+
 
 
 \subsubsection{Conclusion}

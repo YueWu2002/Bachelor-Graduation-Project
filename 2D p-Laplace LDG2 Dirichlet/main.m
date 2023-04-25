@@ -1,4 +1,4 @@
-p_equ = 1.5;
+p_equ = 3;
 q_equ = p_equ / (p_equ-1.0);
 
 cd exact
@@ -52,7 +52,7 @@ for k = 1: 6
 end
 
 show_spy = false;
-p = 6;      % advise: 1<=p<=6
+p = 1;      % advise: 1<=p<=6
 vel = [1.0, 0]; % auxiliary H(div) function
 basis_type = 'Bernstein'; % 'Taylor' or 'Bernstein' (very recommended due to floating-point stability)
 

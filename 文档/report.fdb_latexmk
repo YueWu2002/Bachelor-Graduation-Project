@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber report"] 1682395736 "report.bcf" "report.bbl" "report" 1682395831 0
+["biber report"] 1682395736 "report.bcf" "report.bbl" "report" 1682402228 0
   "./includefiles/refs.bib" 1681127803 55884 d504869af4d0cd880ae595d4cc360b34 ""
-  "report.bcf" 1682395802 121318 f73fb5e9fad0b7d8f26c4de1fe9947e6 "xelatex"
+  "report.bcf" 1682402194 121318 f73fb5e9fad0b7d8f26c4de1fe9947e6 "xelatex"
   (generated)
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["xdvipdfmx"] 1682395803 "report.xdv" "report.pdf" "report" 1682395831 0
-  "report.xdv" 1682395802 2368716 9dab6f3462cbd69337bb5bde1d4ef7a3 "xelatex"
+["xdvipdfmx"] 1682402195 "report.xdv" "report.pdf" "report" 1682402228 0
+  "report.xdv" 1682402194 2408104 3a0d6e38c25b1c82a77521b236ee95ce "xelatex"
   (generated)
   "report.pdf"
   (rewritten before read)
-["xelatex"] 1682395794 "c:/Users/20333/Desktop/毕业设计/文档/report.tex" "report.xdv" "report" 1682395831 0
+["xelatex"] 1682402185 "c:/Users/20333/Desktop/毕业设计/文档/report.tex" "report.xdv" "report" 1682402228 0
   "c:/Users/20333/Desktop/毕业设计/文档/report.tex" 1681976589 4620 5ba0b328173ac74fefb27d73687543fc ""
   "c:/Windows/Fonts/msyh.ttc" 1575709707 19647736 ff2e53a6131130a07589812ea5b5b0d0 ""
   "d:/TeXLive/2023/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1679714928 1528 7e12f4c0fcf5a072cebdcfbfc610f54c ""
@@ -201,6 +201,12 @@
   "includefiles/2D p-Laplace LDG2/example 5-1/mesh4.eps" 1682392779 169391 7cbd282f3dfcccdf0942cc613cd91149 ""
   "includefiles/2D p-Laplace LDG2/example 5-1/mesh5.eps" 1682392796 624418 162b6764405dbcbc2371ff9f18985fca ""
   "includefiles/2D p-Laplace LDG2/example 5-1/mesh6.eps" 1682392811 2440228 9a24e7707072c932e46a49b020a6ba4f ""
+  "includefiles/2D p-Laplace LDG2/example 5-2/k=1/Jh_1.eps" 1682400824 18586 209e2d7792dcd610e12b24dfe7c0802b ""
+  "includefiles/2D p-Laplace LDG2/example 5-2/k=1/gradnorm_1.eps" 1682400824 25851 6632aa38feca258b1bdd16eeb0ca81e2 ""
+  "includefiles/2D p-Laplace LDG2/example 5-2/k=1/rho_1.eps" 1682400824 28222 00c4c72cd29d6dd3070241ebf117d6ef ""
+  "includefiles/2D p-Laplace LDG2/example 5-2/k=6/Jh_6.eps" 1682402034 19532 5a33d72fb384cbf823309b4bcadce748 ""
+  "includefiles/2D p-Laplace LDG2/example 5-2/k=6/gradnorm_6.eps" 1682402034 20101 9b4b929120ad70bac3d26bddcc8afd81 ""
+  "includefiles/2D p-Laplace LDG2/example 5-2/k=6/rho_6.eps" 1682402034 37327 f101a064731e3454a7de4c4da44199e9 ""
   "includefiles/2D poisson LDG Dirichlet/Gauss2D.eps" 1679457197 19412 b35cbec4845311577ad044db4206a9ce ""
   "includefiles/2D poisson LDG Dirichlet/Lobatto2D_equi p6.eps" 1679278532 23320 04806aea988eecadab4a5f5b46921727 ""
   "includefiles/2D poisson LDG Dirichlet/Lobatto2D_ref p6.eps" 1679278533 24611 d4ba05c679a8967da3abe5bd37916c3c ""
@@ -225,14 +231,14 @@
   "includefiles/DOF compare.png" 1679278520 15294 805c31f2a2411e2a6d848c10351b7a43 ""
   "includefiles/Poisson.tex" 1682393615 141847 f31894c2be9bdc91feca8c029ad7a7e4 ""
   "includefiles/headfile.tex" 1680493267 5032 c54283d5df6744f39aa3bcabd1d02a09 ""
-  "includefiles/p-Laplacian.tex" 1682395787 195734 eea967952ff845ea547ea9c11663e0ad ""
+  "includefiles/p-Laplacian.tex" 1682402158 198410 940270317cd736d0911b8cc09454ea67 ""
   "includefiles/triangle nodes compare.png" 1679278522 118710 c34a2534464b94c33f32064955b2400a ""
-  "report.aux" 1682395802 60767 bee286965c87344ca6f5d8219f4903ff "xelatex"
+  "report.aux" 1682402194 62281 11a13b4c3442ca15ececd27ad8922101 "xelatex"
   "report.bbl" 1682395739 173077 b49f3c22f90747dfd931a65a06364e70 "biber report"
-  "report.out" 1682395802 9284 3dc9aa2175fef34b0319892f74e4bafb "xelatex"
-  "report.run.xml" 1682395802 2361 18f2b1bf7464ba32e7a137057cc6ca5d "xelatex"
+  "report.out" 1682402194 9284 3dc9aa2175fef34b0319892f74e4bafb "xelatex"
+  "report.run.xml" 1682402194 2361 18f2b1bf7464ba32e7a137057cc6ca5d "xelatex"
   "report.tex" 1681976589 4620 5ba0b328173ac74fefb27d73687543fc ""
-  "report.toc" 1682395802 4593 509c3eae8f5b4c8b0ea3785c77b78595 "xelatex"
+  "report.toc" 1682402194 4593 60908e3e381670c5bf88e6b29c2fa7a5 "xelatex"
   (generated)
   "report.aux"
   "report.bcf"
