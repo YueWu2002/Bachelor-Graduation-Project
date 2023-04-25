@@ -276,10 +276,10 @@ tic;
 % initial value: Poisson preconditioner
 u = zeros(Np, nelem);
 [w, ~] = compute_preconditioned_gradient(p_equ, p, Np, nelem, nface, u, GRAD_in, GRAD_in_QXE, GRAD_dbc, JumpScalarQXE, DirichletQXE, SourceF, SourceNeumann, Pnq, Pnqe, areas, ETA, face_len, face_nh, qw, qwe, QWEI_Qh, QWEI_face, PoissonMat_decom, 1, 1e-10);
-u(:) = u(:) - 0.1 .* w(:);
+u(:) = u(:) - 1.0 .* w(:);
 
 E1 = compute_energy(p_equ, p, Np, nelem, nface, u, GRAD_in, GRAD_dbc, JumpScalar, JumpScalarQXE, DirichletQXE, SourceF, SourceNeumann, Pnq, PnqQh_big, Pnqe, ETA, face_nh, face_len, qw, qwe, areas, QWEI_Vh, QWEI_face);
-rho = 0.5;  % step length, should start with 1.0 (because it's best for the Poisson equation)
+rho = 1.0;  % step length, should start with 1.0 (because it's best for the Poisson equation)
 maxit = 10000;
 it = 0;
 should_continue = true;

@@ -2541,7 +2541,8 @@
     <bcf:citekey order="139" intorder="1">10.1090/S0025-5718-1993-1192966-4</bcf:citekey>
     <bcf:citekey order="140" intorder="1">10.1007/s10915-007-9134-z</bcf:citekey>
     <bcf:citekey order="140" intorder="2">10.1137/15M1008014</bcf:citekey>
-    <bcf:citekey order="141" intorder="1">10.1007/s10915-007-9134-z</bcf:citekey>
+    <bcf:citekey order="141" intorder="1">10.1137/15M1008014</bcf:citekey>
+    <bcf:citekey order="142" intorder="1">10.1007/s10915-007-9134-z</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

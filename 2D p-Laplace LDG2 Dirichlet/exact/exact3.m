@@ -1,7 +1,7 @@
 
 uu = @(x,y) u(x,y,a);
-qqx = @(x,y) q(x,y,a)*cos(atan2(y,x));
-qqy = @(x,y) q(x,y,a)*sin(atan2(y,x));
+qqx = @(x,y) q(x,y,a) * cos(atan2(y,x));
+qqy = @(x,y) q(x,y,a) * sin(atan2(y,x));
 fluxx = @(x,y) q(x,y,a)^(p_equ-1) * cos(atan2(y,x));
 fluxy = @(x,y) q(x,y,a)^(p_equ-1) * sin(atan2(y,x));
 ff = @(x,y) f(x,y,a,p_equ);

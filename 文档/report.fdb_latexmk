@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber report"] 1682346149 "report.bcf" "report.bbl" "report" 1682350233 0
+["biber report"] 1682395736 "report.bcf" "report.bbl" "report" 1682395831 0
   "./includefiles/refs.bib" 1681127803 55884 d504869af4d0cd880ae595d4cc360b34 ""
-  "report.bcf" 1682350209 121243 59e84542338db1695472a3a96c201c0b "xelatex"
+  "report.bcf" 1682395802 121318 f73fb5e9fad0b7d8f26c4de1fe9947e6 "xelatex"
   (generated)
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["xdvipdfmx"] 1682350210 "report.xdv" "report.pdf" "report" 1682350233 0
-  "report.xdv" 1682350209 2323164 25c7e20827694e2500a0f6c7120088a8 "xelatex"
+["xdvipdfmx"] 1682395803 "report.xdv" "report.pdf" "report" 1682395831 0
+  "report.xdv" 1682395802 2368716 9dab6f3462cbd69337bb5bde1d4ef7a3 "xelatex"
   (generated)
   "report.pdf"
   (rewritten before read)
-["xelatex"] 1682350201 "c:/Users/20333/Desktop/毕业设计/文档/report.tex" "report.xdv" "report" 1682350233 0
+["xelatex"] 1682395794 "c:/Users/20333/Desktop/毕业设计/文档/report.tex" "report.xdv" "report" 1682395831 0
   "c:/Users/20333/Desktop/毕业设计/文档/report.tex" 1681976589 4620 5ba0b328173ac74fefb27d73687543fc ""
   "c:/Windows/Fonts/msyh.ttc" 1575709707 19647736 ff2e53a6131130a07589812ea5b5b0d0 ""
   "d:/TeXLive/2023/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1679714928 1528 7e12f4c0fcf5a072cebdcfbfc610f54c ""
@@ -183,6 +183,24 @@
   "includefiles/2D p-Laplace LDG2/example 3-2/k=6/Jh_6.eps" 1682347963 19045 efb486c971e353a6696701e941e14979 ""
   "includefiles/2D p-Laplace LDG2/example 3-2/k=6/gradnorm_6.eps" 1682347964 19997 3dae7f37528d980b25f6105ca44aa13b ""
   "includefiles/2D p-Laplace LDG2/example 3-2/k=6/rho_6.eps" 1682347963 25332 cb17c60f8b8e7661c1a21ee681f4adf6 ""
+  "includefiles/2D p-Laplace LDG2/example 4/k=1/Jh_1.eps" 1682349379 19517 a1ea00be4d8837886e7d6a383a47f0ab ""
+  "includefiles/2D p-Laplace LDG2/example 4/k=1/gradnorm_1.eps" 1682349379 24688 faf167a352521acaf646c1e83b0885da ""
+  "includefiles/2D p-Laplace LDG2/example 4/k=1/rho_1.eps" 1682349379 31868 e85642bc17762941d5dcac7f9b7750c8 ""
+  "includefiles/2D p-Laplace LDG2/example 4/k=6/Jh_6.eps" 1682389317 19190 9a9d331f5e598abfb60567973ef1080d ""
+  "includefiles/2D p-Laplace LDG2/example 4/k=6/gradnorm_6.eps" 1682389317 21611 ca299f80778ae859d93f425772a6dce6 ""
+  "includefiles/2D p-Laplace LDG2/example 4/k=6/rho_6.eps" 1682389317 19752 d4a999da8b3b49d1465da32ea9d13301 ""
+  "includefiles/2D p-Laplace LDG2/example 5-1/k=1/Jh_1.eps" 1682393520 18703 e006610ff84d3bf186926ba982e12fef ""
+  "includefiles/2D p-Laplace LDG2/example 5-1/k=1/gradnorm_1.eps" 1682393520 25551 bf9662803347fbe1119365ffcd7d8bc6 ""
+  "includefiles/2D p-Laplace LDG2/example 5-1/k=1/rho_1.eps" 1682393520 31697 42eda3084b6832561a591f6cc2b064b6 ""
+  "includefiles/2D p-Laplace LDG2/example 5-1/k=6/Jh_6.eps" 1682395625 17797 d8506ef1ce4cacc2e3c6b23bb67154c3 ""
+  "includefiles/2D p-Laplace LDG2/example 5-1/k=6/gradnorm_6.eps" 1682395626 25565 1ca73097139ebcef4c5fb9fe1c39f7d3 ""
+  "includefiles/2D p-Laplace LDG2/example 5-1/k=6/rho_6.eps" 1682395626 31546 a21e2f11102aee7371a2e5f78e018e14 ""
+  "includefiles/2D p-Laplace LDG2/example 5-1/mesh1.eps" 1682392719 19402 de2ec80a04c0f0686066b8c8fe8b125e ""
+  "includefiles/2D p-Laplace LDG2/example 5-1/mesh2.eps" 1682392744 26702 12aee4c8bc432bfa940ae8b2104fa2c9 ""
+  "includefiles/2D p-Laplace LDG2/example 5-1/mesh3.eps" 1682392761 55458 0d2d5815ccf36e6931b0be2a4acb3e65 ""
+  "includefiles/2D p-Laplace LDG2/example 5-1/mesh4.eps" 1682392779 169391 7cbd282f3dfcccdf0942cc613cd91149 ""
+  "includefiles/2D p-Laplace LDG2/example 5-1/mesh5.eps" 1682392796 624418 162b6764405dbcbc2371ff9f18985fca ""
+  "includefiles/2D p-Laplace LDG2/example 5-1/mesh6.eps" 1682392811 2440228 9a24e7707072c932e46a49b020a6ba4f ""
   "includefiles/2D poisson LDG Dirichlet/Gauss2D.eps" 1679457197 19412 b35cbec4845311577ad044db4206a9ce ""
   "includefiles/2D poisson LDG Dirichlet/Lobatto2D_equi p6.eps" 1679278532 23320 04806aea988eecadab4a5f5b46921727 ""
   "includefiles/2D poisson LDG Dirichlet/Lobatto2D_ref p6.eps" 1679278533 24611 d4ba05c679a8967da3abe5bd37916c3c ""
@@ -205,16 +223,16 @@
   "includefiles/2D poisson LDG Neumann/error_q.eps" 1681997591 72556 3d9b9216cd778765d5291d3666934a16 ""
   "includefiles/2D poisson LDG Neumann/error_u.eps" 1681997590 34477 2c98e49302eb880252f1a14125c6a3b5 ""
   "includefiles/DOF compare.png" 1679278520 15294 805c31f2a2411e2a6d848c10351b7a43 ""
-  "includefiles/Poisson.tex" 1682344817 141844 2ec67a5eaf743e8ad973b286b6164266 ""
+  "includefiles/Poisson.tex" 1682393615 141847 f31894c2be9bdc91feca8c029ad7a7e4 ""
   "includefiles/headfile.tex" 1680493267 5032 c54283d5df6744f39aa3bcabd1d02a09 ""
-  "includefiles/p-Laplacian.tex" 1682350181 182225 c377667317b2db7fd3de574af58e32dd ""
+  "includefiles/p-Laplacian.tex" 1682395787 195734 eea967952ff845ea547ea9c11663e0ad ""
   "includefiles/triangle nodes compare.png" 1679278522 118710 c34a2534464b94c33f32064955b2400a ""
-  "report.aux" 1682350209 58224 be5c4a76e71da60408593c60c2450ad5 "xelatex"
-  "report.bbl" 1682346152 173077 b49f3c22f90747dfd931a65a06364e70 "biber report"
-  "report.out" 1682350209 9284 3dc9aa2175fef34b0319892f74e4bafb "xelatex"
-  "report.run.xml" 1682350209 2361 18f2b1bf7464ba32e7a137057cc6ca5d "xelatex"
+  "report.aux" 1682395802 60767 bee286965c87344ca6f5d8219f4903ff "xelatex"
+  "report.bbl" 1682395739 173077 b49f3c22f90747dfd931a65a06364e70 "biber report"
+  "report.out" 1682395802 9284 3dc9aa2175fef34b0319892f74e4bafb "xelatex"
+  "report.run.xml" 1682395802 2361 18f2b1bf7464ba32e7a137057cc6ca5d "xelatex"
   "report.tex" 1681976589 4620 5ba0b328173ac74fefb27d73687543fc ""
-  "report.toc" 1682350209 4593 1df8e109849015fc9c1356e7262e4ef3 "xelatex"
+  "report.toc" 1682395802 4593 509c3eae8f5b4c8b0ea3785c77b78595 "xelatex"
   (generated)
   "report.aux"
   "report.bcf"
