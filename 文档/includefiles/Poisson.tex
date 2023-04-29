@@ -795,7 +795,7 @@ LDG 方程组 \eqref{LDG weak form} 等价的 (带稳定项的) 鞍点问题为\
 				0, & e\in\mathcal{E}_{h}^{N}
 			\end{cases}
 		\end{equation*}
-		因此，当单元 \(K\) 都是单纯形时，取测试函数 \(\bm\bm\tau_{h} \in \Sigma_{h}\) 满足 \cite[Lemma 3.2]{10.1007/s10915-007-9130-3}：
+		因此，当单元 \(K\) 都是单纯形时，取测试函数 \(\bm\tau_{h} \in \Sigma_{h}\) 满足 \cite[Lemma 3.2]{10.1007/s10915-007-9130-3}：
 		\begin{equation*}
 			\forall K \in \mathcal{T}_{h},
 			\begin{cases}
@@ -1310,7 +1310,7 @@ LDG 方程组 \eqref{LDG weak form} 对应的线性代数方程组为：
     \end{equation}
 \end{subequations}
 
-我们编写了支持协调三角网格上任意高阶多项式的 Matlab 程序。我们使用开源软件 Gmsh 画网格，在本算例中采用了如图 \ref{Mesh: 2D Dirichlet} 所示的二等分逐层加密的协调三角网格。组装的矩阵的稀疏模式如图 \ref{pic: 2D MD-LDG Lobatto node spy on the coarsest mesh}、\ref{pic: 2D MD-LDG Lobatto node spy on the finest mesh} 所示，这里 \(k\) 表示多项式总次数。由于原始方程组规模较大，我们使用 Schur 补 \eqref{LDG Schur complement} 以减小规模。值得一提的是，由于我们使用的是 Lobatto 配点，可以区分单元内部自由度和边界自由度，因此可以使用逐单元的 static condensation 进一步减小方程组规模，但由于其编程的复杂性，这里并未采用此方法。我们进行了多项式阶数由 \(1\) 到 \(8\) 的测试，结果如图 \ref{pic: 2D Poisson Dirichlet MD-LDG}、表 \ref{table: 2D Poisson Dirichlet MD-LDG} 所示。其中，\(N_{\rm dof}^{\rm Schur}\) 是 Schur 补矩阵方程的自由度个数，原本的总自由度个数应当是 \(N_{\rm dof}^{\rm total} = 3 N_{\rm dof}^{\rm Schur}\). 需要说明的是，如果参考单元的模态基函数使用的不是 Bernstein 基函数而是 Taylor 基函数，那么使用高于 \(6\) 阶的多项式时，收敛阶会由于浮点精度的问题而明显衰退。
+我们编写了支持协调三角网格上任意高阶多项式的 Matlab 程序。我们使用开源软件 Gmsh 画网格，在本算例中采用了如图 \ref{Mesh: 2D Dirichlet} 所示的二等分逐层加密的协调三角网格。组装的矩阵的稀疏模式如图 \ref{pic: 2D MD-LDG Lobatto node spy on the coarsest mesh}、\ref{pic: 2D MD-LDG Lobatto node spy on the finest mesh} 所示，这里 \(k\) 表示多项式总次数。由于原始方程组规模较大，我们使用 Schur 补 \eqref{LDG Schur complement} 以减小规模。值得一提的是，由于我们使用的是 Lobatto 配点，可以区分单元内部自由度和边界自由度，因此可以使用逐单元的 static condensation 进一步减小方程组规模，但由于其编程的复杂性，这里并未采用此方法。我们进行了多项式阶数由 \(1\) 到 \(9\) 的测试，结果如图 \ref{pic: 2D Poisson Dirichlet MD-LDG}、表 \ref{table: 2D Poisson Dirichlet MD-LDG} 所示。其中，\(N_{\rm dof}^{\rm Schur}\) 是 Schur 补矩阵方程的自由度个数，原本的总自由度个数应当是 \(N_{\rm dof}^{\rm total} = 3 N_{\rm dof}^{\rm Schur}\). 需要说明的是，如果参考单元的模态基函数使用的不是 Bernstein 基函数而是 Taylor 基函数，那么使用高于 \(6\) 阶的多项式时，收敛阶会由于浮点精度的问题而明显衰退。
 
 
 % to be done: 具体写一下如何组装的(包括 A，B，C三个矩阵和右端项，如何构造 nodal 基函数等等)，接着 2D Case 那一节写。
@@ -1770,7 +1770,7 @@ print(gcf, '-depsc2', '-vector', 'error_q', '-r300');
 
     \hline
 
-	8	& 7 & 315 & 3.5612e-03 & NaN & 9.2585e-02 & NaN \\
+	8	& 7 & 315 & 3.5612e-03 & - & 9.2585e-02 & - \\
 		& 28 & 1260 & 1.7696e-05 & 7.6528 & 5.4751e-04 & 7.4018 \\
 		& 112 & 5040 & 4.3880e-08 & 8.6556 & 3.0188e-06 & 7.5028 \\
 		& 448 & 20160 & 9.1421e-11 & 8.9068 & 1.4400e-08 & 7.7118 \\
@@ -1779,7 +1779,7 @@ print(gcf, '-depsc2', '-vector', 'error_q', '-r300');
 
     \hline
 
-	9	& 7 & 385 & 2.6236e-03 & NaN & 5.0594e-02 & NaN \\
+	9	& 7 & 385 & 2.6236e-03 & - & 5.0594e-02 & - \\
 		& 28 & 1540 & 3.9334e-06 & 9.3816 & 1.1749e-04 & 8.7503 \\
 		& 112 & 6160 & 5.0138e-09 & 9.6156 & 3.7215e-07 & 8.3025 \\
 		& 448 & 24640 & 5.2781e-12 & 9.8917 & 7.3257e-10 & 8.9887 \\
