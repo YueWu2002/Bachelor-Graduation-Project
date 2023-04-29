@@ -821,7 +821,7 @@
 				& \left(D_{DG}\left(v; g\right), \bm\zeta_{h}\right)_{\Omega} \\
 				& = \left(\nabla_{h} v, \bm\zeta_{h}\right)_{\Omega} - \left\langle \jump{v}, \avg{\bm\zeta_{h}} - \bm C_{12} \jump{\bm\zeta_{h}} \right\rangle_{\Gamma^{o}} \\& - \left\langle v - g, \bm\zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}} \\
 				& = \sum_{K \in \mathcal{T}_{h}} \left( \left( \nabla v, \bm\zeta_{h} \right)_{K} + \left\langle \widehat{v} - v, \bm\zeta_{h} \cdot \bm n \right\rangle_{\partial K} \right) \\
-				& = \sum_{K \in \mathcal{T}_{h}} \left(-\left(v, \nabla \bm\zeta_{h}\right)_{K} + \left\langle \widehat{v}, \bm\zeta_{h} \cdot \bm n \right\rangle_{\partial K}\right) \\
+				& = \sum_{K \in \mathcal{T}_{h}} \left(-\left(v, \nabla \cdot \bm\zeta_{h}\right)_{K} + \left\langle \widehat{v}, \bm\zeta_{h} \cdot \bm n \right\rangle_{\partial K}\right) \\
 				& = -\left(v, \nabla_{h} \cdot \bm \zeta_{h}\right)_{\Omega} + \left\langle \avg{v} + \bm C_{12} \cdot \jump{v}, \jump{\bm\zeta_{h}} \right\rangle_{\Gamma^{o}} \\& + \left\langle v, \bm\zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{N}} + \left\langle g, \bm\zeta_{h} \cdot \bm n \right\rangle_{\Gamma^{D}} 
 			\end{aligned}
 		\end{aligned}
@@ -882,7 +882,7 @@
 
 \subsubsection{Unisolvence, Convergence, and \emph{A Priori} Error Estimate based on the Primal Formulation}
 
-在下文，我们对变分问题 \eqref{p-Laplace LDG primal weak form 2} 和最优化问题 \eqref{p-Laplace LDG minimization form 2} 进行分析，并给出解的能量估计和误差估计。
+在下文，我们对变分问题 \eqref{p-Laplace LDG primal weak form 2} 和最优化问题 \eqref{p-Laplace LDG minimization form 2} 进行分析，并给出解的能量估计、变分收敛性证明和先验误差估计。
 
 为了便于分析上述最优化问题 \eqref{p-Laplace LDG minimization form 2}，我们根据其形式定义了一种能量范数。为了利用文章 \cite{10.1093/imanum/drn038, 10.1090/S0025-5718-10-02333-1} 中对指标为 \((1, p)\) 的 broken Sobolev 范数的估计，我们证明了我们所定义的能量范数与其中一种 broken Sobolev 范数相等价 (不依赖于网格尺寸 \(h\))，然后把一部分针对指标 \((k, p) \in \B{1} \times [1, d)\) 的估计结果推广到 \((k, p) \in \B{1} \times [1, +\infty)\).
 
@@ -1267,7 +1267,7 @@
 
 至此，我们已经说明了离散问题 \eqref{p-Laplace LDG weak form 2}、\eqref{p-Laplace LDG primal weak form 2}、\eqref{p-Laplace LDG minimization form 2} 的解之间的关系。在以上这一阶段，我们对真解 \(u\) 只要求了最低的正则性 \(u \in W^{1,p}(\Omega)\). 
 
-接下来，我们对变分问题的收敛性进行分析。我们在这一阶段仍然只要求最低的正则性 \(u \in W^{1,p}(\Omega)\).
+接下来，我们对变分问题的收敛性进行分析。我们在这一阶段仍然只要求最低的正则性 \(u \in W^{1,p}(\Omega)\). 
 
 
 \begin{theorem}[Pre-compactness]\label{p-Laplace LDG2 Pre-compactness}
