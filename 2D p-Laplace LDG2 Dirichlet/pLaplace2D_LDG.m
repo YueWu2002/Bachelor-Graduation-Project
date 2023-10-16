@@ -1,4 +1,4 @@
-function [sol] = pLaplace2D_MDLDG(mesh, f, g_D, g_N, p, p_equ, vel, show_spy, basis_type, plot_con)
+function [sol, E, rhos, grad_norms] = pLaplace2D_MDLDG(mesh, f, g_D, g_N, p, p_equ, vel, show_spy, basis_type, plot_con)
 % [sol] = pLaplace2D_MDLDG(mesh, f, g_D, g_N, p, p_equ, vel, show_spy, basis_type)
 %   2D p-Laplace equation with Dirichlet BC
 % 
@@ -318,25 +318,27 @@ while should_continue && it < maxit
     it = it + 1;
 end
 
+%{
 if plot_con
     figure(1);
-    plot(0:length(E)-1, E);
+    plot(0:length(E)-1, E, '-o', 'LineWidth', 2);
     xlabel('iteration');
     ylabel('J_{h}[u_{h}]');
     grid on;
 
     figure(2);
-    semilogy(rhos);
+    semilogy(rhos, '-o', 'LineWidth', 2);
     xlabel('iteration');
     ylabel('step size');
     grid on;
 
     figure(3);
-    semilogy(grad_norms);
+    semilogy(grad_norms, '-o', 'LineWidth', 2);
     xlabel('iteration');
     ylabel('||gradient||');
     grid on;
 end
+%}
 
 
 % post-process the solution

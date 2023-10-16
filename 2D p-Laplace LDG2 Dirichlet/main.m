@@ -1,13 +1,13 @@
-p_equ = 3;
+p_equ = 3.0;
 q_equ = p_equ / (p_equ-1.0);
 
 cd exact
 % exact1 % only for p_equ == 2
-% sigma = 0;
+% sigma = 7;
 % exact2
 % a = 0.3;
 % exact3
-exact4
+ exact4
 cd ..
 
 g_D = uu;
@@ -15,7 +15,6 @@ g_N = @(x,y) [fluxx(x,y), fluxy(x,y)];
 
 % first, we test our program with Poisson's equation
 % then, we generalize to p-Laplace
-
 %{
 cd("mesh");
 mymesh1
@@ -52,21 +51,24 @@ for k = 1: 6
 end
 
 show_spy = false;
-p = 1;      % advise: 1<=p<=6
+p = 6;      % advise: 1<=p<=6
 vel = [1.0, 0]; % auxiliary H(div) function
 basis_type = 'Bernstein'; % 'Taylor' or 'Bernstein' (very recommended due to floating-point stability)
 
 m_test = 6;
 err = zeros(m_test, 3);
+E = cell(m_test, 1);
+rhos = cell(m_test, 1);
+grad_norms = cell(m_test, 1);
 for k = 1: m_test
-    sol = pLaplace2D_LDG(mesh{k}, ff, g_D, g_N, p, p_equ, vel, show_spy, basis_type, true);
+    [sol, E{k}, rhos{k}, grad_norms{k}] = pLaplace2D_LDG(mesh{k}, ff, g_D, g_N, p, p_equ, vel, show_spy, basis_type, true);
     % remark: please DO NOT use parfor because it is significantly slower than vectorization.
 
     err(k,:) = compute_error(mesh{k}, sol, p, p_equ, uu, qqx, qqy, fluxx, fluxy, basis_type);
 
-    print(1, '-depsc2', '-vector', ['Jh_', num2str(k)], '-r300');
-    print(2, '-depsc2', '-vector', ['rho_', num2str(k)], '-r300');
-    print(3, '-depsc2', '-vector', ['gradnorm_', num2str(k)], '-r300');
+    %print(1, '-depsc2', '-vector', ['Jh_', num2str(k)], '-r300');
+    %print(2, '-depsc2', '-vector', ['rho_', num2str(k)], '-r300');
+    %print(3, '-depsc2', '-vector', ['gradnorm_', num2str(k)], '-r300');
 end
 
 ord = nan(m_test, 3);
@@ -87,3 +89,47 @@ for i = 1: size(err, 1)
     end
     fprintf('\\\\\n');
 end
+
+
+% plot convergence history
+legs = cell(m_test, 1);
+for k = 1: m_test
+    legs{k} = ['mesh level ', num2str(k)];
+end
+shapes = {'-o', '-x', '-s', '-p', '-*', '-+', '-|', '-d'};
+
+figure(1);
+for k = 1: m_test
+    plot(0:length(E{k})-1, E{k}, shapes{k}, 'LineWidth', 2);
+    hold on;
+end
+xlabel('iteration');
+ylabel('J_{h}[u_{h}]');
+legend(legs, 'Location', 'NorthWest');
+grid on;
+hold off;
+print(1, '-depsc2', '-vector', 'Jh', '-r300');
+
+figure(2);
+for k = 1: m_test
+    semilogy(rhos{k}, shapes{k}, 'LineWidth', 2);
+    hold on;
+end
+xlabel('iteration');
+ylabel('\rho');
+legend(legs, 'Location', 'NorthWest');
+grid on;
+hold off;
+print(2, '-depsc2', '-vector', 'rho', '-r300');
+
+figure(3);
+for k = 1: m_test
+    semilogy(grad_norms{k}, shapes{k}, 'LineWidth', 2);
+    hold on;
+end
+xlabel('iteration');
+ylabel('||w_{h}||');
+legend(legs, 'Location', 'NorthWest');
+grid on;
+hold off;
+print(3, '-depsc2', '-vector', 'gradnorm', '-r300');
